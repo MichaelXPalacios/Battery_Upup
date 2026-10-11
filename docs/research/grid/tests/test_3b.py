@@ -69,7 +69,7 @@ def test_controls_are_the_arena_zone_prices():
 
 def test_lane_file_matches_its_key():
     """The stored lane file carries the key of what it was built from, and the key reacts to the inputs it must react to (so ensure_lanes would rebuild)."""
-    subs = S.candidate_subs()
+    subs = S.lane_subs()                                                       # R2: the lane file also holds the regional and left-out lanes
     meta = L.lane_file_meta(S.LANE_TAG)                                        # read as stored: no rebuild on a mismatch
     now = L.lane_signature(subs)
     assert meta["sig"] == now, "the stored lane file was built with other constants / structure / prices / shift-factor files"
@@ -185,6 +185,9 @@ def test_an_element_binds_no_longer_than_its_imm_hours():
         elif (g["H_basis"] == "imm_rent_x_hours_per_musd").any():
             n_rent += 1
             assert union_h <= float(allc.at[el, "annual_rent_2025_musd"]) * k + 1.0, (el, union_h)      # may be shorter when the rent is split over several cids (caveat in the notes)
+        elif g["H_basis"].astype(str).str.startswith("imm2026").any():                                       # R2: an element re-anchored on its IMM 2026 rent binds as long as its 2026 hours (count or rent-based)
+            n_rent += 1
+            assert union_h <= float(g["H_hours"].max()) + 1.0, (el, union_h)
     assert n_imm >= 2 and n_rent >= 1, (n_imm, n_rent)
 
 
@@ -203,7 +206,10 @@ def test_hours_per_musd_is_rt_only_and_matches_phase4():
     assert abs(k - U.imm_hours_per_musd()[0]) < 0.05, (k, U.imm_hours_per_musd())
     sp = U.sph_table().set_index("cid")["sph_usd_mw_yr"]
     struct, _, _ = L.mu_tilde()
-    assert np.allclose(struct.set_index("cid")["sph_usd_mw_yr"], sp.reindex(struct["cid"]).to_numpy(), rtol=1e-9), "shadow-price-hours differ from phase 4"
+    p3 = struct[struct["sf_method"] != "dam60_factor"]                                                       # R2: R1's structural rows are not in Phase 4's table (pole-scale shift factors, own targets)
+    a, b = p3["sph_usd_mw_yr"].to_numpy(), sp.reindex(p3["cid"]).to_numpy()
+    anch = p3["sph_basis"].astype(str).str.startswith("window_imm2026").to_numpy()                          # R2: an element re-anchored on its 2026 rent splits it over the cids of each table (0.02% apart for Samsw-Vensw)
+    assert len(p3) >= 250 and np.allclose(a[~anch], b[~anch], rtol=1e-9) and np.allclose(a[anch], b[anch], rtol=1e-3), "shadow-price-hours differ from phase 4"
 
 
 def test_binding_set_is_the_top_of_the_driver():

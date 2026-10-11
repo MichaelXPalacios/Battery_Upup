@@ -229,8 +229,12 @@ def test_sph_methods_and_cap():
     assert sph.loc["6437__F|DMTSCOS5", "sph_basis"] == "imm_rent_alloc"
     rent = U.load_constraints().set_index("cid").loc["6437__F|DMTSCOS5", "annual_rent_alloc_musd"]
     assert close(sph.loc["6437__F|DMTSCOS5", "sph_usd_mw_yr"], rent * 1e6 / sph.loc["6437__F|DMTSCOS5", "limit_mw"], 1e-9)
-    w = sph[sph["sph_basis"].str.startswith("window")]
+    w = sph[sph["sph_basis"].str.startswith("window") & ~sph["sph_basis"].str.contains("imm2026")]       # R2: rows re-anchored on the IMM 2026 rent (window_imm2026_*) are not window-annualised
     assert w["sph_usd_mw_yr"].notna().all()
+    a26 = sph[sph["sph_basis"].str.contains("imm2026")]
+    from gridsite import rev2
+    if rev2.ANCHORS_ON:
+        assert len(a26) >= 8 and (a26["sph_usd_mw_yr"] > 0).all(), "the 2026 anchors reach Phase 4's table"
     # no window-annualised element may exceed the 10th-ranked IMM rent over its limit (summed over the element's contingencies)
     c = U.load_constraints().set_index("cid")
     tot = w["sph_usd_mw_yr"].groupby(c.loc[w.index, "constraint_name"]).sum()

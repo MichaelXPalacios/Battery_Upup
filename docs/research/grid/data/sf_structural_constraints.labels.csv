@@ -1,0 +1,71 @@
+column,label,source,note
+cid,DERIVED,retained_patterns(),CONSTRAINT_NAME|CONTINGENCY_NAME; an R1_ id when the pattern is real but its name is not supported
+constraint_name,DERIVED,cid,
+element,DERIVED,TARGETS label or pattern footprint,
+element_type,DERIVED,gtc or line,
+kv,REAL,data/constraints.csv,blank for interfaces
+from_sub,DERIVED,"data/constraints.csv, else the pattern's pole station",
+to_sub,DERIVED,data/constraints.csv,
+median_limit_mw,REAL,"data/constraints.csv (NP4-191-CD limit, 10 Sep-10 Oct median); else data/upgrades.csv limit_mw (a class median for lines with no window data)",blank for unnamed patterns; the larger limit of the claimed constraints for a shared pattern
+sf_use,DERIVED,this module,dam60 = shift factors from the 60-day factor model
+sf_method,DERIVED,this module,dam60_factor: the method tag of the rows in sf_structural.parquet
+sf_rt_shrink,DERIVED,n/a,blank
+sf_dam_shrink,DERIVED,n/a,blank
+priority_rank,DERIVED,n/a,blank
+annual_rent_alloc_musd,REAL,IMM 2025 (data/constraints.csv),"2025 RT rent of the named element, $M"
+annual_binding_hours,REAL,IMM 2025 (data/constraints.csv),
+rt_hours_binding,DERIVED,n/a,0: no real-time data in this window
+dam_hours_binding,DERIVED,hours with pole shadow price >= $1,"in the 1,008-hour window"
+rt_mean_shadow,DERIVED,n/a,blank
+dam_mean_shadow,DERIVED,sum of the pole shadow price / scale / active hours,"$/MWh while active, on the scale of sf"
+sph_usd_mw_yr,DERIVED,"window sum of the pole shadow price / scale x 8,760 / 1,008 x season factor","annual shadow-price-hours on the same scale as the shift factors in sf_structural.parquet, $/MW-yr"
+sph_basis,DERIVED,this module,
+H_hours,DERIVED,"active hours x 8,760 / 1,008 x season factor",binding hours a year
+H_basis,DERIVED,this module,
+mean_shadow_usd_mwh,DERIVED,sph / H,
+cap_usd_mwh,REAL,IMM 2025 SOM p.62 caps,"interface 5,251; line by kV"
+driver_location,DERIVED,"best of the 13 hub / zone spreads (price minus HB_BUSAVG), fitted on days 1-32",same form as Phase 3b
+driver_sign,DERIVED,sign of the best correlation,+1: binds when the location is dear against HB_BUSAVG
+driver_corr,DERIVED,Pearson on days 1-32,
+driver_basis,DERIVED,fit_dam60,fitted on the 60-day day-ahead window
+driver_n_binding,DERIVED,active hours,
+k_hours_per_musd,DERIVED,n/a,blank
+upgrade_project_id,DERIVED,data/constraints.csv,
+upgrade_in_service_date,DERIVED,data/constraints.csv,
+upgrade_match_conf,DERIVED,data/constraints.csv,
+gtc,DERIVED,,
+pattern,DERIVED,NMF component,
+grade,DERIVED,grade_target(),"A, B, C, D or U (see sf_structural_targets.csv)"
+status,DERIVED,retained_patterns(),"identified, pattern_only or unnamed"
+claimants,DERIVED,TARGETS,targets whose evidence picked this pattern
+candidate_names,DERIVED,TARGETS,constraint ids the pattern may stand for
+group,DERIVED,TARGETS,targets that cannot be told apart share one pattern
+replay,DERIVED,this module,True: feed this row to Phase 3b
+scale,DERIVED,scale_for_pattern(),factor applied to the pole-normalised SF (largest loadings = 1) to get sf in sf_structural.parquet
+scale_method,DERIVED,scale_for_pattern(),"published (slope on the published Sep-Oct shadow price), rent (IMM rent / limit) or pole (no physical anchor: SF is pole-normalised)"
+scale_published_slope,DERIVED,OLS slope,of the recovered Sep-Oct activity on the published shadow price
+scale_published_r,DERIVED,deseasonalised correlation,
+scale_rent,DERIVED,limit x window sum / IMM window rent,implied pole shift factor
+imm_window_rent_musd,REAL,IMM monthly reports,"day-ahead rent, July plus 11/31 of August, $M"
+season_factor,ASSUMPTION,"IMM 2026 year-to-date monthly average over the window months, else 1.0",annualises the window; 1.0 = no IMM series
+season_basis,DERIVED,this module,
+mu_window_sum_pole,DERIVED,"sum over 1,008 hours of the pole shadow price","$ x hours, pole scale"
+mu_peak_pole,DERIVED,maximum,$/MWh
+active_hours_window,DERIVED,hours with pole shadow price >= $1,
+active_share,DERIVED,,0 to 1
+imm_2026_da_rent_annualised_musd,REAL,"IMM monthly reports 2026, January-August day-ahead rent x 12 / 8",$M a year; blank for patterns whose name is not supported or that have no IMM rent series
+phase2_match_cid,DERIVED,phase 2 regression shift factors (Sep-Oct windows),the fitted constraint whose shift factors over the priced stations correlate best with this pattern's
+phase2_match_r,DERIVED,Pearson over the priced stations,same-scale correlation: a pattern identical in shape to a phase 2 constraint scores near 1
+phase2_match_replayed,DERIVED,data/constraint_synth.csv,True if that constraint is one of the 260 replayed in Phase 3b
+phase2_matches,DERIVED,top three,cid:r
+replaces_cid,DERIVED,phase2_match_r >= 0.90 and replayed and not the same cid,"Phase 3b already replays a constraint with the same footprint: drop that row when you add this one, or the congestion is counted twice"
+driver_corr_holdout,DERIVED,Pearson on days 33-42,the same location and sign as driver_corr
+driver_any_location,DERIVED,best of the 13 spreads without the physics restriction,for comparison
+driver_any_sign,DERIVED,,
+driver_any_corr,DERIVED,Pearson on days 1-32,
+sph_pole_usd_mw_yr,DERIVED,"window sum x 8,760 / 1,008 x season factor, pole scale","annual shadow-price-hours on the pole-normalised scale (largest loadings = 1): pair it with sf_pole, not sf"
+pole_station,DERIVED,largest |SF|,
+pole_county,DERIVED,,
+n_stations_sf05,DERIVED,count,stations with |SF| >= 0.5 on the pole scale
+regions,DERIVED,,top three region tags by loading mass
+hour_profile,DERIVED,mean pole shadow price by hour-beginning CPT,"';'-separated, hours 0..23"

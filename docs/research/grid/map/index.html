@@ -71,6 +71,7 @@ details[open]>summary{margin-bottom:6px}
 .mk-x{color:var(--flag);font-weight:700;font-size:18px;line-height:14px;text-align:center;text-shadow:0 0 2px #fff}
 .mk-up{background:var(--upgrade);color:#fff;font-weight:700;font-size:11px;line-height:16px;text-align:center;border-radius:4px;border:1.5px solid #fff;min-width:30px;padding:0 3px}
 .mk-t2{width:9px;height:9px;background:var(--tier2);border:1px solid #fff;transform:rotate(45deg)}
+.mk-reg{width:11px;height:11px;border:1.5px solid #10231a;transform:rotate(45deg);margin:1px}
 .panel-toggle{font:inherit;font-weight:700;padding:5px 12px;border-radius:8px;border:1px solid var(--border-strong);background:var(--panel);color:var(--ink);cursor:pointer}
 .panel-toggle:hover{background:var(--brand-tint)}
 body.panel-hidden aside{display:none}
@@ -89,6 +90,7 @@ body.panel-hidden aside{display:none}
 
   <details open id="howto"><summary>How to read this map</summary>
     <p class="small"><b>Green circles</b> are the 40 substations where a 2 h battery earns the most in our model. <b>Bigger</b> = more $/kW-yr (learner, 2021&ndash;25 mean). <b>Darker</b> = a bigger gain over what the same battery earns at its load-zone price. Click one for its whole row.</p>
+    <p class="small"><b>Diamonds</b> are the regional candidates in the Panhandle, the Valley, the Far West, Laredo/South and the Bell County pocket (picked from measured summer 2026 prices, valued like the 40 but never ranked with them). The <b>basis layer</b> shows those measured prices: where a node traded below (amber) or above (blue) its load zone. In this window the Valley and Panhandle trade <b>below</b> their zone, an export discount a battery does not gain from.</p>
     <p class="small"><b>Lines</b> are the transmission constraints that bind most (thicker = higher priority; dashed = did not bind in our week of data). A <b style="color:var(--import)">blue end</b> is the <b>import side</b>: the price rises when the line binds, so a battery sells there. An <b style="color:var(--export)">amber end</b> is the <b>export side</b>: the price falls, so a battery charges there and, injecting, loads the line.</p>
     <p class="small">Electrical distance, not hop count, decides value: a substation 8 hops away can be worth more than one at the end of the line. Values hold for the <b>first ~10 MW</b> behind a line only.</p>
     <p class="small">Every number carries a label: <span class="tag">REAL</span> a named source, <span class="tag">DERIVED</span> computed from real numbers, <span class="tag">SIM</span> a model output, <span class="tag">ASSUMPTION</span> our choice. Node prices are <span class="tag">SIM</span>: levels are good to about a factor of 2, rankings are more stable. Market value and reliability value are never added.</p>
@@ -103,6 +105,8 @@ body.panel-hidden aside{display:none}
   <label><input type="checkbox" id="l-excl"><span><span class="sw" style="background:#fff;border-color:var(--flag);color:var(--flag);font-size:11px;line-height:10px;text-align:center">&times;</span>Risk-excluded substations (<span id="n-excl"></span>)</span></label>
   <label><input type="checkbox" id="l-rel"><span><span class="sw" style="background:transparent;border:2px solid var(--reliab)"></span>Top 100 by reliability need (<span id="n-rel"></span>)</span></label>
   <label><input type="checkbox" id="l-t2"><span><span class="sw sq" style="background:var(--tier2);transform:rotate(45deg) scale(.8)"></span>Tier 2 distribution candidates, thinned (<span id="n-t2"></span>)</span></label>
+  <label><input type="checkbox" id="l-reg" checked><span><span class="sw sq" style="background:#d9822b;transform:rotate(45deg) scale(.8)"></span>Regional candidates: Panhandle, Valley, Far West, Laredo/South, Bell County (<span id="n-reg"></span>)</span></label>
+  <label><input type="checkbox" id="l-basis"><span><span class="sw" style="background:#2f6f9f"></span><span class="sw" style="background:#c7962b"></span>Measured summer basis, 1 Jul&ndash;11 Aug 2026 (<span id="n-basis"></span> placed points)</span></label>
 
   <h2>Jump to a site</h2>
   <select id="jump" aria-label="Jump to a candidate site"></select>
@@ -125,6 +129,13 @@ body.panel-hidden aside{display:none}
   <div class="legend-line"><span class="sw" style="background:var(--export)"></span>export end (shift factor &ge; +0.02)</div>
   <div class="legend-line"><span class="sw" style="background:#fff"></span>end with no fitted shift factor</div>
 
+  <div class="small" style="margin-top:10px"><b>Regional candidates</b> <span class="tag">DERIVED</span> (diamonds; R1's picks, valued like the 40 but never ranked with them)</div>
+  <div id="reg-legend"></div>
+  <div class="small" style="margin-top:10px"><b>Measured basis</b> = mean day-ahead price at the node minus its load zone, $/MWh <span class="tag">REAL</span></div>
+  <div class="ramp" id="bramp"></div>
+  <div class="row small" id="bramp-lab"></div>
+
+  <details id="regsum"><summary>Regions: what the summer prices show</summary><div class="small" id="regsum-body"></div></details>
   <details id="notdrawn"><summary>Upgrades and lines not on the map</summary><div class="small" id="notdrawn-body"></div></details>
   <p class="small">Data: <code>index_data.js</code> beside this page, built by <code>gridsite/report_map.py</code> from the tables in <code>data/</code>. Report: <a href="../README.md">README.md</a>. Base map &copy; OpenStreetMap contributors (ODbL).</p>
   <div class="warn small" id="err"></div>
@@ -144,7 +155,7 @@ if(!window.L){ fail('Leaflet 1.9.4 did not load from cdnjs (offline?). The page 
 try{
 
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
-function num(x,nd,pre,suf){ if(x==null||x===''||isNaN(x)) return 'n/a'; return (pre||'')+Number(x).toLocaleString('en-US',{minimumFractionDigits:nd,maximumFractionDigits:nd})+(suf||''); }
+function num(x,nd,pre,suf){ if(x==null||x===''||isNaN(x)) return 'n/a'; var v=Number(x), a=Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:nd,maximumFractionDigits:nd}); var neg=v<0&&Number(a.replace(/,/g,''))!==0; return (neg?'−':'')+(pre||'')+a+(suf||''); }
 function usd(x,nd){ return num(x,nd==null?1:nd,'$'); }
 function tag(l){ return l?'<span class="tag">'+esc(l)+'</span>':''; }
 function tr(k,v,l){ return '<tr><th>'+k+'</th><td>'+v+tag(l)+'</td></tr>'; }
@@ -352,7 +363,66 @@ D.tier2.forEach(function(x){
 document.getElementById('n-t2').textContent=D.tier2.length;
 document.getElementById('l-t2').addEventListener('change',function(e){ if(e.target.checked) map.addLayer(t2L); else map.removeLayer(t2L); });
 
-window.GRID_REPORT_MAP_VIEW={map:map,sites:siteMarkers,layers:{sites:siteLayer,cons:consLayer,ends:endsLayer,upg:upLayer,excl:exL,rel:relL,tier2:t2L,subs:subLayers}};   // handle for tests
+// ---------- R2: regional candidates (R1's picks, valued like the 40)
+var RG=D.regional, rci={}, regL=L.layerGroup(), regMarkers={}; RG.cols.forEach(function(c,i){ rci[c]=i; });
+function rg(row,c){ var v=row[rci[c]]; return v===undefined?null:v; }
+var rlab={}; RG.cols.forEach(function(c,i){ rlab[c]=RG.labels[i]; });
+function regPopup(row){
+  var f=function(c){return rg(row,c);};
+  var h='<div class="pop"><h3>'+esc(f('sub'))+' <span class="tag">'+f('kv_max')+' kV</span></h3><div class="small">'+esc(f('county'))+' County, '+esc(f('zone'))+' &middot; '+esc(f('region'))+' &middot; picked by R1 for the <b>'+esc(f('region_side'))+'</b> side &middot; price source: '+esc(f('basis_source'))+(f('basis_source')==='interpolated'?' ('+num(f('dist_priced_km'),0)+' km from a priced node)':'')+tag('DERIVED')+'</div>';
+  h+=sec('Measured: summer 2026 day-ahead, 1 Jul&ndash;11 Aug (not a model)')+'<table>';
+  h+=tr('Node minus load zone: mean / 5th / 95th percentile',num(f('obs_basis_vs_zone_mean_usd_mwh'),2)+' / '+num(f('obs_basis_vs_zone_p05_usd_mwh'),1)+' / '+num(f('obs_basis_vs_zone_p95_usd_mwh'),1)+' $/MWh','REAL');
+  h+=tr('2 h day-ahead value, node minus zone, 42 days',usd(f('obs_dam_uplift_42d_usd_kw'),2)+' per kW (not annualised)','DERIVED');
+  h+='</table>'+sec('Our model (rebuilt node prices, energy only, after wear)')+'<table>';
+  h+=tr('Learner, 2021&ndash;25 mean / 2025',usd(f('h2_mean2125_A5'))+' / '+usd(f('h2_y2025_A5'))+'/kW-yr','SIM');
+  h+=tr('Gain over its load zone (2021&ndash;25)',usd(f('h2_mean2125_uplift_usd_kw_yr_A5')),'SIM');
+  h+=tr('Learner 2027 / 2031 (after saturation and upgrades)',usd(f('fwd_learner_2027'))+' / '+usd(f('fwd_learner_2031')),'SIM');
+  h+=tr('Basis half-life',esc(f('basis_half_life')),'SIM');
+  h+='</table>'+sec('Exposed to (our screen)')+'<table>';
+  h+=tr('Elements',[1,2,3].filter(function(k){return f('constraint'+k);}).map(function(k){return esc(f('constraint'+k))+' ('+esc(f('constraint'+k+'_side'))+', SF '+num(f('constraint'+k+'_sf'),2)+')';}).join('; ')||'none','DERIVED');
+  h+='</table>'+sec('Getting connected, risk, reliability')+'<table>';
+  h+=tr('Connection',esc(f('conn_class'))+', lead time '+num(f('conn_lead_months'),1)+' months, all-in '+usd(f('conn_all_in_usd_per_kw'),0)+'/kW','DERIVED');
+  h+=tr('Physical risk',['flood '+esc(f('risk_flood')),'wildfire '+esc(f('risk_wildfire_class')),'seismic '+yn(f('risk_seismic')),'excluded '+yn(f('risk_exclude'))].join(', '),'DERIVED');
+  h+=tr('Reliability need score / rank',f('reliability_need_score')==null?'not scored':num(f('reliability_need_score'),1)+' / '+(f('reliability_need_rank')==null?'not ranked':'#'+num(f('reliability_need_rank'),0)),'ASSUMPTION');
+  h+='</table><p class="small">In this window the Valley and Panhandle sit <b>below</b> their zone (an export discount) and a battery gains nothing from it; the modelled gains here are small or negative, as the measured prices say. Not part of the 40-site ranking or the portfolio.</p>';
+  h+='<details><summary>All '+RG.cols.length+' fields of this row</summary><table>';
+  RG.cols.forEach(function(c,i){ var v=row[i]; h+='<tr><th>'+esc(c)+'</th><td>'+(v==null?'':esc(typeof v==='number'?(Math.round(v*1000)/1000):v))+tag(rlab[c])+'</td></tr>'; });
+  h+='</table></details></div>';
+  return h;
+}
+RG.rows.forEach(function(row){
+  var col=RG.colors[rg(row,'region')]||'#555';
+  var m=L.marker([rg(row,'lat'),rg(row,'lon')],{pane:'sites',icon:L.divIcon({className:'',html:'<div class="mk-reg" style="background:'+col+'"></div>',iconSize:[14,14],iconAnchor:[7,7]})});
+  m.bindPopup(regPopup(row),popOpt); m.bindTooltip(rg(row,'sub')+' ('+rg(row,'region')+', '+rg(row,'region_side')+') '+usd(rg(row,'h2_mean2125_A5'),0),{direction:'top',offset:[0,-6]});
+  m.addTo(regL); regMarkers[rg(row,'sub')]=m;
+});
+regL.addTo(map);
+document.getElementById('n-reg').textContent=RG.rows.length;
+document.getElementById('l-reg').addEventListener('change',function(e){ if(e.target.checked) map.addLayer(regL); else map.removeLayer(regL); });
+var rgl=document.getElementById('reg-legend'); Object.keys(RG.colors).forEach(function(k){ var d=document.createElement('div'); d.className='legend-line'; d.innerHTML='<span class="sw sq" style="background:'+RG.colors[k]+';transform:rotate(45deg) scale(.8)"></span>'+esc(k); rgl.appendChild(d); });
+
+// ---------- R2: measured summer basis
+var B=D.basis, bL=L.layerGroup(), BC=B.classes;
+var BPOS=['#d7e1ea','#a9c3d9','#6e9bc0','#2f6f9f'], BNEG=['#efe3c4','#e3c987','#d5ac4f','#b57f10'];
+function bCls(x){ var a=Math.abs(x); return a<BC[0]?0:(a<BC[1]?1:(a<BC[2]?2:3)); }
+function bCol(x){ return x==null?'#cfcabd':(x>=0?BPOS[bCls(x)]:BNEG[bCls(x)]); }
+for(var j=0;j<B.sp.length;j++){
+  var bm=L.circleMarker([B.lat[j],B.lon[j]],{pane:'lines',renderer:canvasSubs,radius:3.4+0.5*bCls(B.zmean[j]||0),weight:0.7,color:'rgba(16,35,26,.55)',fillColor:bCol(B.zmean[j]),fillOpacity:0.9});
+  bm.bindPopup('<div class="pop"><h3>'+esc(B.sp[j])+' <span class="tag">'+(B.kv[j]==null?'?':B.kv[j])+' kV</span></h3><div class="small">'+esc(B.county[j]||'')+' County, '+esc(B.zone[j]||'')+' &middot; '+esc(B.region[j])+' &middot; '+B.n[j]+' hours</div><table>'+
+    tr('Node minus load zone: mean',num(B.zmean[j],2)+' $/MWh','REAL')+tr('5th / 95th percentile',num(B.zp05[j],1)+' / '+num(B.zp95[j],1),'REAL')+tr('Hours more than $10 from the zone',num(B.g10[j],0)+' of '+B.n[j],'REAL')+
+    tr('Mean at its three worst hours of the day',num(B.worst[j],1)+' $/MWh','REAL')+tr('Node minus system (HB_BUSAVG): mean',num(B.smean[j],2),'REAL')+
+    tr('2 h day-ahead value: node / zone / difference',usd(B.vnode[j],2)+' / '+usd(B.vzone[j],2)+' / '+usd(B.upl[j],2)+' per kW over 42 days','DERIVED')+'</table><p class="small">Positive = a premium (price above the zone: import side, a battery sells); negative = a discount (export side). One summer window, day-ahead only.</p></div>',popOpt);
+  bm.addTo(bL);
+}
+document.getElementById('n-basis').textContent=B.sp.length.toLocaleString('en-US');
+document.getElementById('l-basis').addEventListener('change',function(e){ if(e.target.checked) map.addLayer(bL); else map.removeLayer(bL); });
+var br=document.getElementById('bramp'); BNEG.slice().reverse().concat(BPOS).forEach(function(c){ var s=document.createElement('span'); s.style.background=c; br.appendChild(s); });
+document.getElementById('bramp-lab').innerHTML='<span>&lt; &minus;'+BC[2]+'</span><span>&minus;'+BC[1]+'</span><span>&minus;'+BC[0]+'</span><span>0</span><span>+'+BC[0]+'</span><span>+'+BC[1]+'</span><span>&gt; +'+BC[2]+'</span>';
+var rs=D.region_summary, rsh='<table>'; rsh+='<tr><th>Region</th><td><b>nodes; mean vs zone; 5th pct; share of node-hours below &minus;$10</b></td></tr>';
+rs.forEach(function(r){ rsh+='<tr><th>'+esc(r.region)+'</th><td>'+r.n+'; '+num(r.zone,2)+'; '+num(r.zone_p05,1)+'; '+num(100*(r.neg10||0),1)+'% <span class="tag">REAL</span><br>'+esc(r.verdict||'')+'</td></tr>'; });
+document.getElementById('regsum-body').innerHTML=rsh+'</table><p>Mean day-ahead price at the node minus its load zone, $/MWh, 1 Jul&ndash;11 Aug 2026 (the 60-day disclosure). The Valley and Panhandle discounts are on the export side; a battery gains nothing from them in this window (the day-ahead value at the node minus at the zone averages &minus;$0.39 per kW in the Valley and &minus;$0.31 in the Panhandle over the 42 days).</p>';
+
+window.GRID_REPORT_MAP_VIEW={map:map,sites:siteMarkers,regional:regMarkers,layers:{sites:siteLayer,cons:consLayer,ends:endsLayer,upg:upLayer,excl:exL,rel:relL,tier2:t2L,subs:subLayers,regional:regL,basis:bL}};   // handle for tests
 }catch(ex){ fail('Map error: '+ex.message); if(window.console) console.error(ex); }
 })();
 </script>

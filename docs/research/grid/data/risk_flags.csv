@@ -191,7 +191,7 @@ ASPIRE,,LZ_NORTH,345.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,no
 ASPM,STONEWALL,LZ_WEST,138.0,33.178004,-100.233459,0.722,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,6.0,1.0,1.0,10.0,35.0,7.0,48.0,1.0,5.0,3.1,606.5,False,0.0,,False,ABI,100.0,25.35,6.61,False,none
 ASTRA,RANDALL,LZ_WEST,345.0,34.786443,-102.073101,0.706,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,high,site,4.0,4.0,0.0,29.0,71.0,110.0,435.0,23.0,31.0,305.56,858.2,False,0.0,,False,MAF,316.0,28.09,6.91,False,none
 AT,HARRIS,LZ_HOUSTON,138.0,30.004896,-95.097025,0.95,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,32.4,False,0.0,,False,IAH,25.0,9.3,0.39,False,none
-ATBR,ANDREWS,LZ_WEST,69.0,32.14506,-102.805782,0.27,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,3.0,18.0,42.0,60.0,1.0,5.0,1.63,706.9,False,0.0,,False,MAF,60.0,28.09,6.91,,not_assessed
+ATBR,COKE,LZ_WEST,69.0,31.821876,-100.311015,0.6,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,2.0,3.0,1.0,7.0,40.0,14.0,45.0,9.0,4.0,0.45,496.9,False,0.0,,False,ABI,88.0,25.35,6.61,False,none
 ATH,WHARTON,LZ_HOUSTON,138.0,29.240399,-96.011535,0.28,county,,,not_assessed,,,,very_low,county_site_max,,,5.0,25.0,7.0,16.0,65.0,12.0,0.0,207.05,55.4,False,0.0,,False,IAH,104.0,9.3,0.39,,not_assessed
 ATHNS,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 ATHNW,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -333,7 +333,7 @@ BENEDU,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not
 BENFICKL,TOM GREEN,LZ_WEST,138.0,31.40236,-100.438311,0.727,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,1.0,21.0,44.0,143.0,293.0,11.0,10.0,55.49,475.4,False,0.0,,False,ABI,133.0,25.35,6.61,False,none
 BENJAMIN,KNOX,LZ_WEST,138.0,33.584578,-99.800969,0.855,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,9.0,19.0,21.0,119.0,15.0,1.0,2.08,621.2,False,0.0,,False,ABI,131.0,25.35,6.61,False,none
 BENTSEN,HIDALGO,LZ_SOUTH,138.0,26.150788,-98.290988,0.855,site,NOT_MAPPED,,unmapped,False,False,,low,site,6.0,2.0,3.0,15.0,6.0,113.0,181.0,191.0,19.0,1044.17,108.5,False,0.0,,False,BRO,91.0,4.48,0.0,False,none
-BENWH_RC,WHEELER,LZ_NORTH,138.0,35.372848,-100.243781,0.084,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,19.0,52.0,15.0,92.0,16.0,37.0,3.65,811.4,False,1.0,3.5,False,ABI,333.0,25.35,6.61,,not_assessed
+BENWH_RC,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 BEPRISS,BEE,LZ_SOUTH,69.0,28.334825,-97.806112,0.767,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,3.0,12.0,12.0,57.0,43.0,21.0,3.0,8.96,61.1,False,0.0,,False,CRP,69.0,6.65,0.09,False,none
 BER,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 BERCLAIR,BEE,LZ_SOUTH,69.0,28.493301,-97.598521,0.855,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,3.0,12.0,12.0,57.0,43.0,21.0,3.0,8.96,69.7,False,0.0,,False,CRP,80.0,6.65,0.09,False,none
@@ -495,7 +495,7 @@ BRACKETT,KINNEY,LZ_SOUTH,138.0,29.324629,-100.392351,0.95,site,NOT_MAPPED,,unmap
 BRADSO,,LZ_SOUTH,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 BRADYCIT,MCCULLOCH,LZ_SOUTH,69.0,31.135225,-99.341562,0.727,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,6.0,1.0,1.0,13.0,26.0,45.0,71.0,8.0,2.0,0.98,375.5,False,0.0,,False,ABI,145.0,25.35,6.61,False,none
 BRANCHVL,MILAM,LZ_NORTH,69.0,30.873383,-96.769741,0.722,site,NOT_MAPPED,,unmapped,False,False,,low,site,6.0,2.0,2.0,8.0,16.0,61.0,68.0,54.0,2.0,5.81,214.6,False,0.0,,False,AUS,116.0,26.48,2.39,False,none
-BRAND_C,DALLAS,LZ_NORTH,138.0,32.952256,-96.637703,0.76,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,very_low,site,6.0,1.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,392.9,False,1.0,3.0,False,DFW,36.0,23.61,2.83,False,none
+BRAND_C,DALLAS,LZ_NORTH,138.0,32.952256,-96.637703,0.95,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,very_low,site,6.0,1.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,392.9,False,1.0,3.0,False,DFW,36.0,23.61,2.83,False,none
 BRAN_ESS,TARRANT,LZ_NORTH,345.0,32.704489,-97.325037,0.294,county,,,not_assessed,,,,high,county_site_max,,,0.0,48.0,83.0,251.0,583.0,77.0,8.0,1947.59,401.8,False,0.0,,False,DFW,36.0,23.61,2.83,,not_assessed
 BRAUNIG,BEXAR,LZ_SOUTH,345.0,29.258031,-98.382684,0.97,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,1.0,28.0,29.0,414.0,180.0,21.0,4.0,1548.55,176.4,False,0.0,,False,SAT,33.0,23.87,0.65,False,none
 BRAZORIA,BRAZORIA,LZ_HOUSTON,138.0,29.062266,-95.577575,0.97,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,low,site,1.0,2.0,15.0,39.0,6.0,55.0,121.0,18.0,0.0,3739.99,26.6,False,0.0,,False,IAH,104.0,9.3,0.39,False,none
@@ -508,7 +508,7 @@ BRDSPRYT,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,n
 BRDSW,,LZ_NORTH,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 BRELN,TRAVIS,LZ_WEST,138.0,30.187691,-97.848219,0.311,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,200.0,False,0.0,,False,AUS,16.0,26.48,2.39,,not_assessed
 BRENHA,WASHINGTON,LZ_SOUTH,138.0,30.181824,-96.381758,0.727,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,low,site,1.0,2.0,3.0,7.0,13.0,27.0,60.0,12.0,1.0,167.91,143.5,False,0.0,,False,IAH,101.0,9.3,0.39,False,none
-BRENNO,WASHINGTON,LZ_SOUTH,138.0,30.181824,-96.381758,0.62,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,low,site,1.0,2.0,3.0,7.0,13.0,27.0,60.0,12.0,1.0,167.91,143.5,False,0.0,,False,IAH,101.0,9.3,0.39,False,none
+BRENNO,WASHINGTON,LZ_SOUTH,138.0,30.181824,-96.381758,0.715,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,low,site,1.0,2.0,3.0,7.0,13.0,27.0,60.0,12.0,1.0,167.91,143.5,False,0.0,,False,IAH,101.0,9.3,0.39,False,none
 BRG,DENTON,LZ_NORTH,138.0,33.123219,-96.859768,0.95,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,1.0,29.0,53.0,133.0,317.0,64.0,4.0,988.72,419.3,False,0.0,,False,DFW,29.0,23.61,2.83,False,none
 BRGPR,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 BRGRS,LEON,LZ_NORTH,138.0,31.376985,-96.206287,0.902,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,1.0,8.0,15.0,35.0,71.0,52.0,3.0,6.08,218.1,False,2.0,3.4,False,IAH,175.0,9.3,0.39,False,none
@@ -661,7 +661,7 @@ CALONPTR,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,n
 CALVERT,ROBERTSON,LZ_NORTH,69.0,30.974692,-96.672819,0.727,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,1.0,13.0,16.0,35.0,45.0,53.0,3.0,4.03,214.2,False,0.0,,False,AUS,131.0,26.48,2.39,False,none
 CAM,BRAZORIA,LZ_HOUSTON,138.0,28.988132,-95.357392,0.902,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,15.0,39.0,6.0,55.0,121.0,18.0,0.0,3739.99,8.1,True,0.0,,False,IAH,110.0,9.3,0.39,False,none
 CAMERON,TRAVIS,LZ_SOUTH,138.0,30.339624,-97.686349,0.762,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,204.9,False,0.0,,False,AUS,17.0,26.48,2.39,False,none
-CAMPBELL,HARRIS,LZ_NORTH,138.0,29.818242,-95.524671,0.41,county,,,not_assessed,,,,moderate,county_site_max,,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,51.1,False,0.0,,False,IAH,24.0,9.3,0.39,,not_assessed
+CAMPBELL,HARRIS,LZ_NORTH,138.0,29.818242,-95.524671,0.35,county,,,not_assessed,,,,moderate,county_site_max,,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,51.1,False,0.0,,False,IAH,24.0,9.3,0.39,,not_assessed
 CAMPGA,CALDWELL,LZ_SOUTH,138.0,29.881236,-97.866407,0.486,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,7.0,20.0,91.0,54.0,10.0,2.0,29.88,174.6,False,0.0,,False,AUS,38.0,26.48,2.39,,not_assessed
 CAMPN,SCURRY,LZ_NORTH,138.0,32.759305,-100.823569,0.203,county,,,not_assessed,,,,very_high,county_site_max,,,0.0,11.0,20.0,68.0,142.0,1.0,1.0,19.88,606.7,False,70.0,5.1,True,ABI,114.0,25.35,6.61,,not_assessed
 CAMPSANS,MCCULLOCH,LZ_SOUTH,69.0,30.960269,-99.281636,0.727,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,1.0,13.0,26.0,45.0,71.0,8.0,2.0,0.98,357.6,False,0.0,,False,ABI,166.0,25.35,6.61,False,none
@@ -698,7 +698,7 @@ CARRIZO,DIMMIT,LZ_SOUTH,69.0,28.493284,-99.884543,0.942,site,NOT_MAPPED,,unmappe
 CARSON,TRAVIS,LZ_SOUTH,138.0,30.203187,-97.687111,0.777,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,192.1,False,0.0,,False,AUS,2.0,26.48,2.39,False,none
 CARTER,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 CARTWHL,HOPKINS,LZ_NORTH,345.0,33.085046,-95.621605,0.844,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,1.0,14.0,28.0,50.0,111.0,52.0,2.0,42.12,374.8,False,0.0,,False,DFW,132.0,23.61,2.83,False,none
-CARVER,LUBBOCK,LZ_WEST,138.0,33.564455,-101.831477,0.134,county,,,not_assessed,,,,very_low,county_site_max,,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,739.7,False,0.0,,False,MAF,183.0,28.09,6.91,,not_assessed
+CARVER,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 CASA_BLA,JIM WELLS,LZ_SOUTH,69.0,27.998275,-97.907994,0.727,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,5.0,15.0,9.0,64.0,107.0,115.0,19.0,9.71,43.9,False,0.0,,False,CRP,46.0,6.65,0.09,False,none
 CASL_GAP,UPTON,LZ_WEST,138.0,31.255,-102.272,0.7,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,10.0,11.0,39.0,30.0,1.0,0.0,0.85,602.7,False,0.0,,False,MAF,77.0,28.09,6.91,False,none
 CASSAVA,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -755,7 +755,7 @@ CEDARVAL,BELL,LZ_NORTH,138.0,30.929263,-97.68633,0.533,site,X,AREA OF MINIMAL FL
 CEDAVA,BELL,LZ_SOUTH,138.0,30.929263,-97.68633,0.531,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,0.0,21.0,30.0,160.0,174.0,59.0,9.0,73.95,263.2,False,0.0,,False,AUS,83.0,26.48,2.39,False,none
 CEDRHILL,COKE,LZ_WEST,69.0,32.014413,-100.738961,0.684,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,3.0,3.0,1.0,7.0,40.0,14.0,45.0,9.0,4.0,0.45,542.2,False,1.0,3.3,False,ABI,109.0,25.35,6.61,False,none
 CEDROHIL,WEBB,LZ_SOUTH,138.0,27.563807,-98.920098,0.891,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,1.0,1.0,2.0,3.0,6.0,106.0,60.0,73.0,4.0,69.62,143.4,False,0.0,,False,CRP,141.0,6.65,0.09,False,none
-CEDRVALE,REEVES,LZ_WEST,138.0,31.040031,-103.652607,0.52,site,NOT_MAPPED,,unmapped,False,False,,low,site,1.0,2.0,0.0,12.0,0.0,45.0,57.0,0.0,0.0,5.77,701.1,False,10.0,3.2,True,MAF,170.0,28.09,6.91,False,none
+CEDRVALE,WARD,LZ_WEST,138.0,31.515353,-103.450689,0.65,site,NOT_MAPPED,,unmapped,False,False,,low,site,1.0,2.0,0.0,3.0,8.0,17.0,44.0,1.0,0.0,1.0,712.8,False,2.0,3.0,False,MAF,127.0,28.09,6.91,False,none
 CELANEBC,MATAGORDA,LZ_SOUTH,138.0,28.867944,-96.015597,0.644,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,False,,low,site,1.0,2.0,13.0,10.0,3.0,29.0,36.0,17.0,0.0,517.82,19.4,True,0.0,,False,IAH,139.0,9.3,0.39,False,none
 CELANEBI,NUECES,LZ_SOUTH,138.0,27.560572,-97.830356,0.652,site,A,,high,False,True,,very_low,site,6.0,1.0,21.0,22.0,13.0,262.0,208.0,240.0,9.0,1470.44,45.3,False,0.0,,False,CRP,39.0,6.65,0.09,True,flood_sfha
 CELINARC,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -772,7 +772,7 @@ CG,HARRIS,LZ_HOUSTON,138.0,29.659718,-95.244847,0.812,site,AE,,high,False,True,,
 CGR,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 CGRSW,MITCHELL,LZ_WEST,138.0,32.523498,-100.873678,0.694,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,2.0,3.0,0.0,23.0,15.0,48.0,88.0,1.0,1.0,13.12,591.0,False,3.0,4.3,True,ABI,112.0,25.35,6.61,False,none
 CH20,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-CHALK,LUBBOCK,LZ_WEST,69.0,33.526537,-101.914173,0.534,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,742.2,False,0.0,,False,MAF,178.0,28.09,6.91,False,none
+CHALK,HOWARD,LZ_WEST,69.0,32.111229,-101.276429,0.7,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,0.0,10.0,18.0,81.0,104.0,1.0,2.0,4.1,589.0,False,9.0,3.4,True,MAF,90.0,28.09,6.91,False,none
 CHALMERS,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 CHALUPA,CAMERON,LZ_SOUTH,138.0,26.249888,-97.511842,0.55,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,1.0,1.0,21.0,26.0,11.0,141.0,173.0,171.0,0.0,1198.14,31.5,False,0.0,,False,BRO,39.0,4.48,0.0,False,none
 CHAL_SLR,HOWARD,LZ_WEST,138.0,32.111229,-101.276429,0.349,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,10.0,18.0,81.0,104.0,1.0,2.0,4.1,589.0,False,9.0,3.4,True,MAF,90.0,28.09,6.91,,not_assessed
@@ -855,7 +855,7 @@ CLBRN,JOHNSON,LZ_NORTH,138.0,32.354098,-97.374871,0.738,site,AE,FLOODWAY,high,Tr
 CLBSN,SCURRY,LZ_WEST,69.0,32.530057,-100.836427,0.498,county,,,not_assessed,,,,very_high,county_site_max,,,0.0,11.0,20.0,68.0,142.0,1.0,1.0,19.88,589.0,False,6.0,4.3,True,ABI,109.0,25.35,6.61,,not_assessed
 CLBSW,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 CLBWS,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-CLCRK,HASKELL,LZ_WEST,138.0,33.072102,-99.556983,0.382,county,,,not_assessed,,,,high,county_site_max,,,1.0,29.0,48.0,34.0,107.0,11.0,4.0,5.54,559.9,False,0.0,,False,ABI,74.0,25.35,6.61,,not_assessed
+CLCRK,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 CLCTY,MITCHELL,LZ_WEST,69.0,32.392243,-100.841487,0.58,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,23.0,15.0,48.0,88.0,1.0,1.0,13.12,578.5,False,4.0,4.3,True,ABI,109.0,25.35,6.61,False,none
 CLEAFO,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 CLEARCRO,HASKELL,LZ_WEST,345.0,33.001374,-99.605494,0.95,site,NOT_MAPPED,,unmapped,False,False,,low,site,6.0,2.0,1.0,29.0,48.0,34.0,107.0,11.0,4.0,5.54,555.7,False,0.0,,False,ABI,66.0,25.35,6.61,False,none
@@ -866,7 +866,7 @@ CLFK,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_as
 CLIFTON1,BOSQUE,LZ_NORTH,69.0,31.786148,-97.571948,0.855,site,A,,high,False,True,,low,site,6.0,2.0,0.0,13.0,21.0,50.0,58.0,54.0,4.0,7.2,340.1,False,0.0,,False,DFW,134.0,23.61,2.83,True,flood_sfha
 CLIFTON2,BOSQUE,LZ_NORTH,69.0,31.786148,-97.571948,0.855,site,A,,high,False,True,,low,site,6.0,2.0,0.0,13.0,21.0,50.0,58.0,54.0,4.0,7.2,340.1,False,0.0,,False,DFW,134.0,23.61,2.83,True,flood_sfha
 CLIMAX,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-CLKPM,LUBBOCK,LZ_NORTH,138.0,33.461409,-101.853735,0.23,county,,,not_assessed,,,,very_low,county_site_max,,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,732.9,False,0.0,,False,MAF,171.0,28.09,6.91,,not_assessed
+CLKPM,LUBBOCK,LZ_NORTH,138.0,33.461409,-101.853735,0.23,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,732.9,False,0.0,,False,MAF,171.0,28.09,6.91,,not_assessed
 CLKVL,,LZ_NORTH,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 CLLVL,DALLAS,LZ_NORTH,138.0,32.835895,-96.836735,0.421,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,389.7,False,9.0,3.6,True,DFW,18.0,23.61,2.83,,not_assessed
 CLMCAVRN,,LZ_HOUSTON,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -933,7 +933,7 @@ COLETAP,COLEMAN,LZ_WEST,138.0,31.814543,-99.404055,0.604,site,NOT_MAPPED,,unmapp
 COLETO,GOLIAD,LZ_SOUTH,345.0,28.716894,-97.212842,0.97,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,1.0,2.0,1.0,5.0,11.0,28.0,26.0,12.0,4.0,1.9,48.0,False,0.0,,False,CRP,109.0,6.65,0.09,False,none
 COLE_IVI,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 COLJ,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-COLLEGE,BRAZOS,LZ_NORTH,138.0,30.627725,-96.294291,0.684,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,2.0,15.0,18.0,42.0,130.0,11.0,0.0,31.93,161.0,False,0.0,,False,IAH,115.0,9.3,0.39,False,none
+COLLEGE,DALLAS,LZ_NORTH,138.0,32.93418,-96.680038,0.55,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,392.8,False,6.0,3.6,True,DFW,32.0,23.61,2.83,False,none
 COLNY,DENTON,LZ_NORTH,138.0,33.084828,-96.883813,0.902,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,non_burnable,site,6.0,,1.0,29.0,53.0,133.0,317.0,64.0,4.0,988.72,416.5,False,1.0,3.0,False,DFW,24.0,23.61,2.83,False,none
 COLORA,WHARTON,LZ_SOUTH,138.0,29.289146,-96.068919,0.618,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,False,,very_low,site,6.0,1.0,5.0,25.0,7.0,16.0,65.0,12.0,0.0,207.05,59.4,False,0.0,,False,IAH,103.0,9.3,0.39,False,none
 COLTON,TRAVIS,LZ_SOUTH,138.0,30.139053,-97.678923,0.905,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,185.8,False,0.0,,False,AUS,5.0,26.48,2.39,False,none
@@ -946,7 +946,7 @@ COMPASS,SOMERVELL,LZ_NORTH,138.0,32.297768,-97.78986,0.432,county,,,not_assessed
 COMRC,BEXAR,LZ_NORTH,138.0,29.435478,-98.618524,0.343,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,28.0,29.0,414.0,180.0,21.0,4.0,1548.55,206.5,False,0.0,,False,SAT,18.0,23.87,0.65,,not_assessed
 COMSO,HOPKINS,LZ_NORTH,138.0,33.179664,-95.809217,0.621,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,1.0,14.0,28.0,50.0,111.0,52.0,2.0,42.12,389.5,False,0.0,,False,DFW,117.0,23.61,2.83,False,none
 COMSTOCK,VAL VERDE,LZ_WEST,138.0,29.747458,-101.139455,0.525,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,1.0,2.0,1.0,17.0,17.0,128.0,96.0,7.0,14.0,14.74,415.5,False,0.0,,False,SAT,258.0,23.87,0.65,False,none
-COMSW,ZAPATA,LZ_NORTH,138.0,27.285037,-99.411874,0.525,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,1.0,2.0,0.0,2.0,5.0,39.0,33.0,99.0,9.0,3.26,198.3,False,0.0,,False,CRP,195.0,6.65,0.09,False,none
+COMSW,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 COMSW_RC,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 CONA,PECOS,LZ_WEST,69.0,31.26296,-102.96182,0.313,county,,,not_assessed,,,,high,county_site_max,,,0.0,47.0,16.0,113.0,155.0,0.0,1.0,7.48,657.4,False,11.0,3.6,True,MAF,104.0,28.09,6.91,,not_assessed
 CONAN,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -1062,7 +1062,7 @@ CRNSO,DENTON,LZ_NORTH,138.0,33.158569,-97.088596,0.646,site,X,AREA OF MINIMAL FL
 CRNTH,DENTON,LZ_NORTH,138.0,33.158569,-97.088596,0.76,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,1.0,29.0,53.0,133.0,317.0,64.0,4.0,988.72,433.0,False,0.0,,False,DFW,30.0,23.61,2.83,False,none
 CROSS,ATASCOSA,LZ_SOUTH,138.0,28.695225,-98.540023,0.855,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,1.0,2.0,8.0,64.0,33.0,11.0,6.0,3.07,139.0,False,4.0,3.3,True,SAT,95.0,23.87,0.65,False,none
 CROSSETT,CRANE,LZ_WEST,138.0,31.190956,-102.318534,0.848,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,2.0,9.0,15.0,26.0,1.0,1.0,0.71,601.8,False,0.0,,False,MAF,85.0,28.09,6.91,False,none
-CROSSOVE,HALL,LZ_WEST,138.0,34.343992,-100.893934,0.269,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,21.0,65.0,16.0,195.0,4.0,0.0,13.42,749.9,False,0.0,,False,ABI,243.0,25.35,6.61,,not_assessed
+CROSSOVE,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 CROSSPLA,CALLAHAN,LZ_WEST,69.0,32.121804,-99.168728,0.581,site,NOT_MAPPED,,unmapped,False,False,,low,site,6.0,2.0,1.0,13.0,51.0,26.0,66.0,9.0,7.0,68.79,450.3,False,0.0,,False,ABI,58.0,25.35,6.61,False,none
 CROSSTRL,SCURRY,LZ_WEST,69.0,32.745,-100.757,0.75,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,6.0,3.0,0.0,11.0,20.0,68.0,142.0,1.0,1.0,19.88,601.2,False,66.0,5.1,True,ABI,107.0,25.35,6.61,False,none
 CROSSWI,ATASCOSA,LZ_SOUTH,138.0,28.695225,-98.540023,0.767,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,1.0,2.0,8.0,64.0,33.0,11.0,6.0,3.07,139.0,False,4.0,3.3,True,SAT,95.0,23.87,0.65,False,none
@@ -1103,7 +1103,7 @@ CTECBU,,LZ_SOUTH,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not
 CTFLD,GRIMES,LZ_WEST,138.0,30.584456,-95.934128,0.282,county,,,not_assessed,,,,moderate,county_site_max,,,4.0,9.0,9.0,42.0,47.0,12.0,1.0,72.51,131.7,False,0.0,,False,IAH,87.0,9.3,0.39,,not_assessed
 CTHR,SUTTON,LZ_WEST,138.0,30.304783,-100.674816,0.95,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,3.0,3.0,1.0,3.0,21.0,39.0,11.0,7.0,10.0,16.1,414.5,False,0.0,,False,SAT,227.0,23.87,0.65,False,none
 CTLSW,COMANCHE,LZ_NORTH,345.0,31.818833,-98.663648,0.95,site,NOT_MAPPED,,unmapped,False,False,,low,site,2.0,2.0,0.0,5.0,22.0,32.0,65.0,44.0,2.0,3.32,395.3,False,0.0,,False,ABI,116.0,25.35,6.61,False,none
-CTR,DALLAS,LZ_HOUSTON,345.0,32.870834,-96.634586,0.158,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,384.5,False,2.0,3.6,False,DFW,36.0,23.61,2.83,,not_assessed
+CTR,CHAMBERS,LZ_HOUSTON,345.0,29.7731,-94.9019,0.55,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,very_low,site,6.0,1.0,13.0,11.0,3.0,34.0,29.0,10.0,0.0,391.84,2.4,True,0.0,,False,IAH,50.0,9.3,0.39,False,none
 CTRLA,JEFFERSON,LZ_WEST,138.0,29.985672,-94.010948,0.276,county,,,not_assessed,,,,very_low,county_site_max,,,13.0,17.0,11.0,113.0,111.0,3.0,1.0,5506.69,33.9,False,0.0,,False,IAH,130.0,9.3,0.39,,not_assessed
 CTT_CROS,HALL,LZ_WEST,345.0,34.343992,-100.893934,0.95,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,6.0,3.0,0.0,21.0,65.0,16.0,195.0,4.0,0.0,13.42,749.9,False,0.0,,False,ABI,243.0,25.35,6.61,False,none
 CTT_GRAY,GRAY,LZ_WEST,345.0,35.407782,-100.819931,0.95,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,high,site,6.0,4.0,0.0,31.0,52.0,15.0,341.0,20.0,26.0,23.65,846.8,False,0.0,,False,ABI,349.0,25.35,6.61,False,none
@@ -1200,7 +1200,7 @@ DERMOTT,SCURRY,LZ_WEST,345.0,32.863835,-101.009682,0.97,site,NOT_MAPPED,,unmappe
 DERRICK,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 DESEME,PECOS,LZ_WEST,138.0,30.9178,-102.0867,0.381,county,,,not_assessed,,,,high,county_site_max,,,0.0,47.0,16.0,113.0,155.0,0.0,1.0,7.48,565.3,False,0.0,,False,MAF,115.0,28.09,6.91,,not_assessed
 DESHR,DALLAS,LZ_NORTH,138.0,32.609231,-96.857886,0.512,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,368.5,False,1.0,3.0,False,DFW,35.0,23.61,2.83,False,none
-DESN_ESS,HARRIS,LZ_HOUSTON,138.0,29.886867,-95.018969,0.493,county,,,not_assessed,,,,moderate,county_site_max,,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,17.4,True,0.0,,False,IAH,34.0,9.3,0.39,,not_assessed
+DESN_ESS,BRAZORIA,LZ_HOUSTON,138.0,29.064429,-95.734929,0.65,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,very_low,site,1.0,1.0,15.0,39.0,6.0,55.0,121.0,18.0,0.0,3739.99,34.2,False,0.0,,False,IAH,108.0,9.3,0.39,False,none
 DESPR,DALLAS,LZ_NORTH,138.0,32.601553,-96.827631,0.512,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,very_low,site,6.0,1.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,366.3,False,0.0,,False,DFW,38.0,23.61,2.83,False,none
 DESSAU,TRAVIS,LZ_SOUTH,138.0,30.373484,-97.643015,0.905,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,206.0,False,0.0,,False,AUS,21.0,26.48,2.39,False,none
 DESSW,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -1282,7 +1282,7 @@ DOWNING,COMANCHE,LZ_NORTH,138.0,32.020957,-98.551755,0.513,site,NOT_MAPPED,,unma
 DOW_PUMP,BRAZORIA,LZ_HOUSTON,69.0,29.053216,-95.552002,0.855,site,AE,,high,False,True,,very_low,site,1.0,1.0,15.0,39.0,6.0,55.0,121.0,18.0,0.0,3739.99,24.7,True,0.0,,False,IAH,105.0,9.3,0.39,True,flood_sfha
 DPCRK,SCURRY,LZ_WEST,138.0,32.703972,-100.902637,0.833,site,NOT_MAPPED,,unmapped,False,False,,low,site,2.0,2.0,0.0,11.0,20.0,68.0,142.0,1.0,1.0,19.88,607.5,False,60.0,5.1,True,ABI,119.0,25.35,6.61,False,none
 DPO,HARRIS,LZ_HOUSTON,138.0,29.752071,-95.1268,0.95,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,11.4,True,0.0,,False,IAH,34.0,9.3,0.39,False,none
-DPREA,HARRIS,LZ_NORTH,138.0,29.752071,-95.1268,0.244,county,,,not_assessed,,,,moderate,county_site_max,,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,11.4,True,0.0,,False,IAH,34.0,9.3,0.39,,not_assessed
+DPREA,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 DPW,HARRIS,LZ_HOUSTON,345.0,29.72038,-95.226943,0.8,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,False,,non_burnable,site,6.0,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,20.7,True,0.0,,False,IAH,32.0,9.3,0.39,False,none
 DQ,HARRIS,LZ_HOUSTON,138.0,29.964388,-95.383,0.902,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,non_burnable,site,6.0,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,45.1,False,0.0,,False,IAH,3.0,9.3,0.39,False,none
 DR,HARRIS,LZ_HOUSTON,138.0,29.667151,-95.283038,0.95,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,non_burnable,site,6.0,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,25.7,False,0.0,,False,IAH,36.0,9.3,0.39,False,none
@@ -1334,7 +1334,7 @@ E3,BEXAR,LZ_SOUTH,138.0,29.242098,-98.649378,0.962,site,X,AREA OF MINIMAL FLOOD 
 E4,BEXAR,LZ_SOUTH,138.0,29.210178,-98.504607,0.97,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,1.0,28.0,29.0,414.0,180.0,21.0,4.0,1548.55,180.2,False,0.0,,False,SAT,37.0,23.87,0.65,False,none
 EAB,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 EAF,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-EAG,MAVERICK,LZ_HOUSTON,138.0,28.716031,-100.490413,0.255,county,,,not_assessed,,,,very_low,county_site_max,,,0.0,5.0,3.0,53.0,19.0,10.0,3.0,84.66,309.6,False,1.0,3.0,False,SAT,216.0,23.87,0.65,,not_assessed
+EAG,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 EAGLECLP,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 EAGLECLT,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 EAGLECLW,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -1577,7 +1577,7 @@ FLATROCK,PARKER,LZ_NORTH,138.0,32.870503,-97.597692,0.727,site,X,AREA OF MINIMAL
 FLAT_TOP,REEVES,LZ_WEST,138.0,31.199547,-103.359518,0.956,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,12.0,0.0,45.0,57.0,0.0,0.0,5.77,685.8,False,60.0,3.6,True,MAF,137.0,28.09,6.91,False,none
 FLCNS,HOWARD,LZ_WEST,345.0,32.274718,-101.422762,0.97,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,10.0,18.0,81.0,104.0,1.0,2.0,4.1,611.7,False,14.0,3.9,True,MAF,82.0,28.09,6.91,False,none
 FLGRV,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-FLINT,NOLAN,LZ_NORTH,138.0,32.481513,-100.338892,0.218,county,,,not_assessed,,,,high,county_site_max,,,1.0,22.0,49.0,21.0,100.0,4.0,7.0,18.94,552.1,False,0.0,,False,ABI,62.0,25.35,6.61,,not_assessed
+FLINT,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 FLMSO,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 FLNTK,NOLAN,LZ_WEST,69.0,32.481513,-100.338892,0.767,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,2.0,3.0,1.0,22.0,49.0,21.0,100.0,4.0,7.0,18.94,552.1,False,0.0,,False,ABI,62.0,25.35,6.61,False,none
 FLOMOT,MOTLEY,LZ_WEST,69.0,34.252422,-100.989779,0.855,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,2.0,3.0,1.0,11.0,57.0,6.0,129.0,4.0,8.0,1.68,746.9,False,0.0,,False,ABI,238.0,25.35,6.61,False,none
@@ -1593,16 +1593,16 @@ FLUVANNA,SCURRY,LZ_WEST,138.0,32.886084,-101.094632,0.69,site,NOT_MAPPED,,unmapp
 FLWRGRVE,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 FM,HARRIS,LZ_HOUSTON,138.0,29.875213,-95.841348,0.862,site,AE,FLOODWAY,high,True,True,,very_low,site,6.0,1.0,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,82.8,False,0.0,,False,IAH,48.0,9.3,0.39,True,floodway
 FM237Y,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-FM524,HARRIS,LZ_HOUSTON,138.0,29.875213,-95.841348,0.812,site,AE,FLOODWAY,high,True,True,,very_low,site,6.0,1.0,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,82.8,False,0.0,,False,IAH,48.0,9.3,0.39,True,floodway
+FM524,BRAZORIA,LZ_HOUSTON,138.0,29.064429,-95.734929,0.8,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,very_low,site,1.0,1.0,15.0,39.0,6.0,55.0,121.0,18.0,0.0,3739.99,34.2,False,0.0,,False,IAH,108.0,9.3,0.39,False,none
 FMCK,SCHLEICHER,LZ_WEST,69.0,30.747376,-100.264226,0.57,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,1.0,1.0,26.0,22.0,18.0,6.0,4.0,2.84,419.0,False,0.0,,False,ABI,193.0,25.35,6.61,False,none
-FMRVL,LAMAR,LZ_NORTH,345.0,33.426498,-95.357449,0.588,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,13.0,30.0,42.0,104.0,55.0,2.0,31.39,407.2,False,0.0,,False,DFW,165.0,23.61,2.83,False,none
+FMRVL,COLLIN,LZ_NORTH,345.0,33.19071,-96.337939,0.8,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,1.0,22.0,56.0,84.0,252.0,63.0,3.0,2230.62,406.4,False,0.0,,False,DFW,71.0,23.61,2.83,False,none
 FM_802,HARRIS,LZ_SOUTH,138.0,29.875213,-95.841348,0.812,site,AE,FLOODWAY,high,True,True,,very_low,site,6.0,1.0,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,82.8,False,0.0,,False,IAH,48.0,9.3,0.39,True,floodway
 FNDRS,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 FNDSW,CRANE,LZ_WEST,138.0,31.410828,-102.337292,0.858,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,6.0,3.0,0.0,2.0,9.0,15.0,26.0,1.0,1.0,0.71,618.6,False,0.0,,False,MAF,61.0,28.09,6.91,False,none
 FOARDCTY,FOARD,LZ_WEST,345.0,33.915315,-99.740278,0.663,site,NOT_MAPPED,,unmapped,False,False,,non_burnable,site,6.0,,0.0,10.0,21.0,7.0,55.0,15.0,2.0,1.67,650.3,False,0.0,,False,ABI,167.0,25.35,6.61,False,none
 FORCRNS,VICTORIA,LZ_SOUTH,138.0,28.871613,-97.16447,0.661,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,3.0,6.0,15.0,61.0,69.0,78.0,2.0,168.56,51.8,False,1.0,3.0,False,CRP,127.0,6.65,0.09,False,none
 FORDTRN,DEWITT,LZ_SOUTH,69.0,29.105132,-97.022112,0.767,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,2.0,3.0,10.0,96.0,31.0,6.0,1.0,4.65,55.1,False,1.0,3.0,False,AUS,136.0,26.48,2.39,False,none
-FOREST,HENDERSON,LZ_NORTH,138.0,32.234711,-95.949366,0.617,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,1.0,12.0,19.0,42.0,104.0,57.0,8.0,13.41,293.5,False,0.0,,False,DFW,124.0,23.61,2.83,False,none
+FOREST,HENDERSON,LZ_NORTH,138.0,32.234711,-95.949366,0.35,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,12.0,19.0,42.0,104.0,57.0,8.0,13.41,293.5,False,0.0,,False,DFW,124.0,23.61,2.83,,not_assessed
 FORESTON,ELLIS,LZ_NORTH,69.0,32.255551,-96.864552,0.767,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,moderate,site,6.0,3.0,0.0,28.0,28.0,87.0,149.0,58.0,4.0,58.14,335.2,False,0.0,,False,DFW,73.0,23.61,2.83,False,none
 FORKS,,LZ_SOUTH,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 FORMOSA,CALHOUN,LZ_SOUTH,138.0,28.68363,-96.551087,0.85,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,21.0,11.0,8.0,34.0,33.0,59.0,4.0,284.94,0.9,True,0.0,,False,CRP,138.0,6.65,0.09,False,none
@@ -1649,7 +1649,7 @@ FRMBR,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not
 FRMNT,DALLAS,LZ_NORTH,138.0,32.807755,-96.801339,0.455,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,385.3,False,9.0,3.6,True,DFW,23.0,23.61,2.83,,not_assessed
 FRMRSVLE,COLLIN,LZ_NORTH,69.0,33.161195,-96.40826,0.362,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,22.0,56.0,84.0,252.0,63.0,3.0,2230.62,405.8,False,0.0,,False,DFW,64.0,23.61,2.83,,not_assessed
 FRMRSVLW,COLLIN,LZ_NORTH,138.0,33.161195,-96.40826,0.694,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,1.0,22.0,56.0,84.0,252.0,63.0,3.0,2230.62,405.8,False,0.0,,False,DFW,64.0,23.61,2.83,False,none
-FRNKF,LUBBOCK,LZ_NORTH,138.0,33.498383,-101.940225,0.199,county,,,not_assessed,,,,very_low,county_site_max,,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,741.8,False,0.0,,False,MAF,174.0,28.09,6.91,,not_assessed
+FRNKF,LUBBOCK,LZ_NORTH,138.0,33.498383,-101.940225,0.199,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,741.8,False,0.0,,False,MAF,174.0,28.09,6.91,,not_assessed
 FRNKS,HARRIS,LZ_NORTH,69.0,29.899978,-95.501854,0.3,county,,,not_assessed,,,,moderate,county_site_max,,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,51.7,False,0.0,,False,IAH,16.0,9.3,0.39,,not_assessed
 FRNYPP,KAUFMAN,LZ_NORTH,345.0,32.75786,-96.486968,0.97,site,AE,,high,False,True,,low,site,6.0,2.0,0.0,13.0,30.0,73.0,126.0,59.0,5.0,114.83,367.2,False,0.0,,False,DFW,52.0,23.61,2.83,True,flood_sfha
 FRNYW_RC,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -1837,7 +1837,7 @@ GR,HARRIS,LZ_HOUSTON,138.0,29.950798,-95.333213,0.812,site,X,AREA OF MINIMAL FLO
 GRADY,MARTIN,LZ_WEST,138.0,32.30742,-101.932378,0.855,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,6.0,1.0,0.0,7.0,15.0,25.0,63.0,1.0,0.0,0.51,652.9,False,71.0,5.2,True,MAF,48.0,28.09,6.91,False,none
 GRAHAM,GARZA,LZ_WEST,69.0,33.18666,-101.408049,0.6,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,2.0,3.0,1.0,8.0,51.0,26.0,167.0,3.0,13.0,6.19,680.6,False,0.0,,False,MAF,157.0,28.09,6.91,False,none
 GRAHAMRD,BRAZOS,LZ_NORTH,138.0,30.57962,-96.291233,0.763,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,2.0,15.0,18.0,42.0,130.0,11.0,0.0,31.93,157.4,False,0.0,,False,IAH,112.0,9.3,0.39,False,none
-GRAHM,GARZA,LZ_WEST,69.0,33.18666,-101.408049,0.631,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,2.0,3.0,1.0,8.0,51.0,26.0,167.0,3.0,13.0,6.19,680.6,False,0.0,,False,MAF,157.0,28.09,6.91,False,none
+GRAHM,YOUNG,LZ_WEST,69.0,33.138433,-98.60955,0.7,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,15.0,31.0,38.0,67.0,55.0,5.0,3.87,518.5,False,0.0,,False,ABI,129.0,25.35,6.61,False,none
 GRAIN,GRAY,LZ_NORTH,138.0,35.401934,-100.890966,0.15,county,,,not_assessed,,,,high,county_site_max,,,0.0,31.0,52.0,15.0,341.0,20.0,26.0,23.65,849.7,False,0.0,,False,ABI,351.0,25.35,6.61,,not_assessed
 GRANDVW1,CARSON,LZ_WEST,345.0,35.238333,-101.310833,0.92,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,6.0,1.0,0.0,29.0,60.0,25.0,215.0,22.0,40.0,32.58,855.5,False,0.0,,False,ABI,349.0,25.35,6.61,False,none
 GRANMO,BURNET,LZ_SOUTH,138.0,30.588027,-98.2938,0.59,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,13.0,26.0,81.0,75.0,13.0,5.0,195.63,261.9,False,0.0,,False,AUS,74.0,26.48,2.39,False,none
@@ -2051,7 +2051,7 @@ HIWAY_9,HAYS,LZ_SOUTH,138.0,29.945744,-98.093575,0.529,site,X,AREA OF MINIMAL FL
 HI_LONE,CROCKETT,LZ_WEST,345.0,30.91,-101.263,0.378,county,,,not_assessed,,,,high,county_site_max,,,1.0,7.0,23.0,28.0,31.0,5.0,15.0,1.21,502.4,False,0.0,,False,MAF,146.0,28.09,6.91,,not_assessed
 HI_LONEB,CROCKETT,LZ_WEST,345.0,30.99219,-101.962435,0.35,county,,,not_assessed,,,,high,county_site_max,,,1.0,7.0,23.0,28.0,31.0,5.0,15.0,1.21,560.7,False,0.0,,False,MAF,109.0,28.09,6.91,,not_assessed
 HK,HARRIS,LZ_HOUSTON,138.0,30.021283,-95.846097,0.95,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,88.1,False,0.0,,False,IAH,47.0,9.3,0.39,False,none
-HKBRY,SHACKELFORD,LZ_NORTH,345.0,32.768426,-99.422825,0.697,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,1.0,3.0,1.0,15.0,37.0,10.0,50.0,6.0,5.0,4.68,524.3,False,0.0,,False,ABI,47.0,25.35,6.61,False,none
+HKBRY,,LZ_NORTH,345.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 HKHTS,BELL,LZ_NORTH,138.0,31.053869,-97.637018,0.689,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,21.0,30.0,160.0,174.0,59.0,9.0,73.95,274.1,False,0.0,,False,AUS,97.0,26.48,2.39,False,none
 HKSN_SLR,BOSQUE,LZ_NORTH,345.0,31.819958,-97.517494,0.6,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,high,site,2.0,4.0,0.0,13.0,21.0,50.0,58.0,54.0,4.0,7.2,338.8,False,0.0,,False,DFW,129.0,23.61,2.83,False,none
 HK_GIS,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -2091,7 +2091,7 @@ HOLFORD,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,n
 HOLIDAY,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 HOLLMI,GILLESPIE,LZ_SOUTH,138.0,30.252309,-98.882029,0.727,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,2.0,3.0,0.0,6.0,34.0,83.0,32.0,9.0,5.0,4.25,276.2,False,0.0,,False,SAT,88.0,23.87,0.65,False,none
 HOLLY,TRAVIS,LZ_SOUTH,69.0,30.250898,-97.719689,0.739,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,False,,low,site,6.0,2.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,198.3,False,0.0,,False,AUS,8.0,26.48,2.39,False,none
-HOLLY4,TRAVIS,LZ_SOUTH,138.0,30.250898,-97.719689,0.574,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,False,,low,site,6.0,2.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,198.3,False,0.0,,False,AUS,8.0,26.48,2.39,False,none
+HOLLY4,NUECES,LZ_SOUTH,138.0,27.708453,-97.397347,0.7,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,True,,very_low,site,6.0,1.0,21.0,22.0,13.0,262.0,208.0,240.0,9.0,1470.44,4.6,True,0.0,,False,CRP,13.0,6.65,0.09,False,none
 HOLMAN,FAYETTE,LZ_SOUTH,345.0,29.795554,-96.878383,0.95,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,1.0,1.0,2.0,9.0,17.0,76.0,41.0,10.0,2.0,56.11,117.8,False,0.0,,False,AUS,88.0,26.48,2.39,False,none
 HOLSP,TRAVIS,LZ_NORTH,69.0,30.250898,-97.719689,0.285,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,198.3,False,0.0,,False,AUS,8.0,26.48,2.39,,not_assessed
 HOLSTEIN,NOLAN,LZ_WEST,345.0,32.104125,-100.162375,0.6,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,2.0,3.0,1.0,22.0,49.0,21.0,100.0,4.0,7.0,18.94,509.2,False,0.0,,False,ABI,57.0,25.35,6.61,False,none
@@ -2134,7 +2134,7 @@ HSPSW,CULBERSON,LZ_WEST,138.0,31.82794,-104.226032,0.674,site,NOT_MAPPED,,unmapp
 HT,HARRIS,LZ_HOUSTON,138.0,29.722109,-95.497696,0.862,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,non_burnable,site,6.0,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,47.3,False,0.0,,False,IAH,32.0,9.3,0.39,False,none
 HUB1,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 HUB2,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-HUBRD,DALLAS,LZ_NORTH,138.0,32.83698,-96.547701,0.414,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,377.6,False,0.0,,False,DFW,45.0,23.61,2.83,,not_assessed
+HUBRD,HILL,LZ_NORTH,138.0,31.751271,-96.88929,0.45,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,21.0,25.0,53.0,84.0,57.0,3.0,10.3,291.2,False,0.0,,False,DFW,128.0,23.61,2.83,,not_assessed
 HUD,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 HUDSN,ANGELINA,LZ_NORTH,138.0,31.33092,-94.771558,0.902,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,5.0,10.0,23.0,111.0,134.0,92.0,0.0,20.25,169.7,False,0.0,,False,IAH,160.0,9.3,0.39,False,none
 HUECSP,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -2142,7 +2142,7 @@ HUG,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not
 HULLDALE,SCHLEICHER,LZ_WEST,69.0,31.00492,-100.55538,0.855,site,NOT_MAPPED,,unmapped,False,False,,high,site,4.0,4.0,1.0,1.0,26.0,22.0,18.0,6.0,4.0,2.84,458.6,False,0.0,,False,ABI,177.0,25.35,6.61,False,none
 HULLTOWN,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 HUN,HARRIS,LZ_HOUSTON,138.0,29.601419,-95.014441,0.902,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,very_low,site,6.0,1.0,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,0.7,True,0.0,,False,IAH,54.0,9.3,0.39,False,none
-HUNT,BEXAR,LZ_SOUTH,138.0,29.414989,-98.667085,0.584,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,1.0,28.0,29.0,414.0,180.0,21.0,4.0,1548.55,208.0,False,0.0,,False,SAT,23.0,23.87,0.65,False,none
+HUNT,KERR,LZ_SOUTH,138.0,30.076126,-99.336016,0.65,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,True,,low,site,6.0,2.0,0.0,0.0,33.0,88.0,34.0,10.0,4.0,203.13,302.4,False,0.0,,False,SAT,101.0,23.87,0.65,False,none
 HUNTER,HAYS,LZ_SOUTH,138.0,29.822986,-98.003356,0.592,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,1.0,15.0,24.0,124.0,63.0,13.0,5.0,343.36,179.5,False,0.0,,False,AUS,51.0,26.48,2.39,False,none
 HURST,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 HUTCH,DALLAS,LZ_NORTH,138.0,32.630356,-96.705334,0.777,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,363.5,False,0.0,,False,DFW,42.0,23.61,2.83,False,none
@@ -2252,7 +2252,7 @@ JES,HARRIS,LZ_HOUSTON,138.0,29.990108,-95.457656,0.902,site,X,AREA OF MINIMAL FL
 JESSICA,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 JETT,TRAVIS,LZ_SOUTH,138.0,30.374718,-97.806476,0.905,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,1.0,3.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,214.5,False,0.0,,False,AUS,25.0,26.48,2.39,False,none
 JEWET,LEON,LZ_NORTH,345.0,31.37105,-96.133419,0.605,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,1.0,8.0,15.0,35.0,71.0,52.0,3.0,6.08,213.7,False,2.0,3.4,False,IAH,171.0,9.3,0.39,False,none
-JFS,MARION,LZ_HOUSTON,138.0,32.77301,-94.392093,0.384,county,,,not_assessed,,,,,none,,,1.0,8.0,28.0,8.0,74.0,90.0,1.0,3.66,331.9,False,0.0,,False,DFW,246.0,23.61,2.83,,not_assessed
+JFS,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 JIMBRI,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 JIMNED,TAYLOR,LZ_WEST,69.0,32.194249,-99.788216,0.855,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,1.0,20.0,61.0,84.0,221.0,13.0,10.0,462.46,492.9,False,0.0,,False,ABI,26.0,25.35,6.61,False,none
 JIMTREEC,WILBARGER,LZ_WEST,345.0,34.234163,-99.434164,0.962,site,NOT_MAPPED,,unmapped,False,False,,low,site,6.0,2.0,0.0,20.0,25.0,15.0,124.0,63.0,5.0,2.15,663.3,False,0.0,,False,ABI,204.0,25.35,6.61,False,none
@@ -2298,7 +2298,7 @@ JUNG_SLR,MILAM,LZ_NORTH,69.0,30.903764,-97.05778,0.6,site,NOT_MAPPED,,unmapped,F
 JUNO,BORDEN,LZ_WEST,138.0,32.772889,-101.39102,0.6,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,6.0,3.0,0.0,7.0,16.0,20.0,85.0,1.0,0.0,0.44,646.6,False,0.0,,False,MAF,120.0,28.09,6.91,False,none
 JUNORTH,,LZ_SOUTH,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 JUNPR,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-JUPITER,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
+JUPITER,DALLAS,LZ_NORTH,138.0,32.9143,-96.6613,0.5,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,non_burnable,site,6.0,,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,390.0,False,5.0,3.6,True,DFW,33.0,23.61,2.83,False,none
 JUSTINLN,TRAVIS,LZ_SOUTH,69.0,30.343543,-97.716164,0.734,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,non_burnable,site,6.0,,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,206.8,False,0.0,,False,AUS,18.0,26.48,2.39,False,none
 K0,BEXAR,LZ_SOUTH,138.0,29.617818,-98.736019,0.909,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,low,site,6.0,2.0,1.0,28.0,29.0,414.0,180.0,21.0,4.0,1548.55,226.4,False,0.0,,False,SAT,26.0,23.87,0.65,False,none
 K1,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -2313,7 +2313,7 @@ KARNESCI,KARNES,LZ_SOUTH,138.0,28.858895,-97.878604,0.825,site,X,AREA OF MINIMAL
 KATEMCY,MCCULLOCH,LZ_SOUTH,69.0,30.959689,-99.28169,0.855,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,1.0,13.0,26.0,45.0,71.0,8.0,2.0,0.98,357.6,False,0.0,,False,ABI,166.0,25.35,6.61,False,none
 KATOEN,SAN PATRICIO,LZ_SOUTH,345.0,27.992706,-97.743983,0.434,county,,,not_assessed,,,,low,county_site_max,,,10.0,24.0,7.0,108.0,65.0,49.0,10.0,523.2,29.3,False,0.0,,False,CRP,33.0,6.65,0.09,,not_assessed
 KATZP,STONEWALL,LZ_WEST,69.0,33.397226,-100.010362,0.902,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,2.0,3.0,1.0,10.0,35.0,7.0,48.0,1.0,5.0,3.1,614.2,False,0.0,,False,ABI,114.0,25.35,6.61,False,none
-KB,TRAVIS,LZ_HOUSTON,138.0,30.265207,-97.687177,0.694,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,True,,low,site,6.0,2.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,197.9,False,0.0,,False,AUS,9.0,26.48,2.39,False,none
+KB,HARRIS,LZ_HOUSTON,138.0,29.729723,-95.422894,0.7,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,non_burnable,site,6.0,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,39.9,False,0.0,,False,IAH,28.0,9.3,0.39,False,none
 KBPOD,HARRIS,LZ_NORTH,138.0,29.672254,-95.413089,0.373,county,,,not_assessed,,,,moderate,county_site_max,,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,38.4,False,0.0,,False,IAH,35.0,9.3,0.39,,not_assessed
 KCRSW,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 KDL,HARRIS,LZ_HOUSTON,345.0,30.089147,-95.527077,0.812,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,64.8,False,0.0,,False,IAH,20.0,9.3,0.39,False,none
@@ -2535,8 +2535,8 @@ LHM,HARRIS,LZ_HOUSTON,138.0,29.836952,-95.121744,0.94,site,X,AREA OF MINIMAL FLO
 LHORN_N,BRISCOE,LZ_WEST,345.0,34.316786,-101.240792,0.518,site,NOT_MAPPED,,unmapped,False,False,,high,site,6.0,4.0,0.0,21.0,65.0,11.0,162.0,6.0,1.0,1.22,767.1,False,0.0,,False,ABI,257.0,25.35,6.61,False,none
 LHPMP,DALLAS,LZ_NORTH,138.0,32.805893,-96.527711,0.542,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,low,site,7.0,2.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,373.7,False,0.0,,False,DFW,47.0,23.61,2.83,False,none
 LHSES,DALLAS,LZ_NORTH,138.0,32.83698,-96.547701,0.97,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,377.6,False,0.0,,False,DFW,45.0,23.61,2.83,False,none
-LIBERTY,HARRIS,LZ_NORTH,345.0,29.807004,-95.285522,0.093,county,,,not_assessed,,,,moderate,county_site_max,,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,28.1,False,0.0,,False,IAH,21.0,9.3,0.39,,not_assessed
-LIBR,HARDEMAN,LZ_WEST,69.0,34.161661,-99.738681,0.722,site,NOT_MAPPED,,unmapped,False,False,,very_high,site,6.0,5.0,0.0,13.0,32.0,8.0,93.0,18.0,2.0,2.95,674.5,False,0.0,,False,ABI,195.0,25.35,6.61,True,wildfire_very_high
+LIBERTY,,LZ_NORTH,345.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
+LIBR,HARDEMAN,LZ_WEST,69.0,34.161661,-99.738681,0.791,site,NOT_MAPPED,,unmapped,False,False,,very_high,site,6.0,5.0,0.0,13.0,32.0,8.0,93.0,18.0,2.0,2.95,674.5,False,0.0,,False,ABI,195.0,25.35,6.61,True,wildfire_very_high
 LIBTY_RC,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 LIG,HARRIS,LZ_HOUSTON,138.0,29.883214,-95.111345,0.584,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,20.3,True,0.0,,False,IAH,26.0,9.3,0.39,False,none
 LIGSW,DALLAS,LZ_NORTH,345.0,32.817021,-97.019484,0.81,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,396.4,False,9.0,3.6,True,DFW,9.0,23.61,2.83,False,none
@@ -2640,26 +2640,26 @@ LOYLK,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not
 LOYOLA,KLEBERG,LZ_SOUTH,138.0,27.318517,-97.810132,0.855,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,17.0,10.0,9.0,54.0,42.0,184.0,15.0,8.17,45.4,False,0.0,,False,CRP,59.0,6.65,0.09,False,none
 LP,HARRIS,LZ_HOUSTON,138.0,29.664839,-95.016126,0.812,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,False,,very_low,site,6.0,1.0,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,1.2,True,0.0,,False,IAH,48.0,9.3,0.39,False,none
 LPCCS,LAMAR,LZ_NORTH,345.0,33.6308,-95.59,0.92,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,13.0,30.0,42.0,104.0,55.0,2.0,31.39,433.4,False,0.0,,False,DFW,156.0,23.61,2.83,False,none
-LPLBR,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLCH,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLCO,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
+LPLBR,LUBBOCK,LZ_WEST,69.0,33.584894,-101.886517,0.75,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,745.0,False,0.0,,False,MAF,184.0,28.09,6.91,False,none
+LPLCH,LUBBOCK,LZ_WEST,115.0,33.526537,-101.914173,0.75,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,742.2,False,0.0,,False,MAF,178.0,28.09,6.91,False,none
+LPLCO,LUBBOCK,LZ_WEST,115.0,33.567197,-101.827922,0.85,site,AE,,high,False,True,,non_burnable,site,6.0,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,739.7,False,0.0,,False,MAF,183.0,28.09,6.91,True,flood_sfha
 LPLDB,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLER,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLHY,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLMC,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLMD,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLMK,CAMERON,LZ_WEST,115.0,26.142238,-97.641913,0.318,county,,,not_assessed,,,,high,county_site_max,,,21.0,26.0,11.0,141.0,173.0,171.0,0.0,1198.14,46.1,False,0.0,,False,BRO,34.0,4.48,0.0,,not_assessed
-LPLNE,HARDEMAN,LZ_WEST,115.0,34.252325,-99.684751,0.364,county,,,not_assessed,,,,very_high,county_site_max,,,0.0,13.0,32.0,8.0,93.0,18.0,2.0,2.95,681.1,False,0.0,,False,ABI,205.0,25.35,6.61,,not_assessed
-LPLNW,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLOL,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
+LPLER,LUBBOCK,LZ_WEST,69.0,33.606528,-101.879523,0.75,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,746.3,False,0.0,,False,MAF,187.0,28.09,6.91,False,none
+LPLHY,LUBBOCK,LZ_WEST,115.0,33.520838,-101.792416,0.75,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,733.5,False,0.0,,False,MAF,179.0,28.09,6.91,False,none
+LPLMC,LUBBOCK,LZ_WEST,69.0,33.56711,-101.87857,0.75,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,743.1,False,0.0,,False,MAF,183.0,28.09,6.91,False,none
+LPLMD,LUBBOCK,LZ_WEST,115.0,33.585756,-101.957951,0.75,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,749.9,False,0.0,,False,MAF,184.0,28.09,6.91,False,none
+LPLMK,LUBBOCK,LZ_WEST,115.0,33.603525,-101.842178,0.85,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,743.6,False,0.0,,False,MAF,187.0,28.09,6.91,False,none
+LPLNE,LUBBOCK,LZ_WEST,115.0,33.62089,-101.802217,0.85,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,742.3,False,0.0,,False,MAF,190.0,28.09,6.91,False,none
+LPLNW,LUBBOCK,LZ_WEST,115.0,33.622208,-101.906702,0.75,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,False,,low,site,6.0,2.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,749.4,False,0.0,,False,MAF,188.0,28.09,6.91,False,none
+LPLOL,LUBBOCK,LZ_WEST,115.0,33.498395,-101.888803,0.75,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,738.2,False,0.0,,False,MAF,175.0,28.09,6.91,False,none
 LPLPY,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 LPLRR,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLSE,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
+LPLSE,LUBBOCK,LZ_WEST,115.0,33.518609,-101.854893,0.75,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,737.6,False,0.0,,False,MAF,178.0,28.09,6.91,False,none
 LPLSL,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLTH,TERRY,LZ_WEST,115.0,33.051297,-102.52666,0.48,county,,,not_assessed,,,,,none,,,0.0,10.0,49.0,19.0,105.0,5.0,5.0,4.82,750.2,False,0.0,,False,MAF,126.0,28.09,6.91,,not_assessed
-LPLVK,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLWA,,LZ_WEST,115.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-LPLYH,HAYS,LZ_WEST,345.0,29.911533,-97.900097,0.107,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,15.0,24.0,124.0,63.0,13.0,5.0,343.36,179.4,False,0.0,,False,AUS,37.0,26.48,2.39,,not_assessed
+LPLTH,LUBBOCK,LZ_WEST,115.0,33.542231,-101.926775,0.75,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,True,,water,site,7.0,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,744.3,False,0.0,,False,MAF,179.0,28.09,6.91,False,none
+LPLVK,LUBBOCK,LZ_WEST,115.0,33.567461,-101.918285,0.75,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,non_burnable,site,6.0,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,745.8,False,0.0,,False,MAF,182.0,28.09,6.91,False,none
+LPLWA,LUBBOCK,LZ_WEST,115.0,33.556694,-101.799205,0.75,site,A,,high,False,True,,moderate,site,1.0,3.0,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,736.9,False,0.0,,False,MAF,183.0,28.09,6.91,True,flood_sfha
+LPLYH,,LZ_WEST,345.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 LPNSW,COMAL,LZ_NORTH,345.0,29.702233,-98.160005,0.41,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,7.0,29.0,129.0,52.0,13.0,0.0,14.73,182.8,False,0.0,,False,SAT,36.0,23.87,0.65,,not_assessed
 LPPOD,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 LPRSH,ANGELINA,LZ_NORTH,138.0,31.327492,-94.73556,0.623,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,5.0,10.0,23.0,111.0,134.0,92.0,0.0,20.25,169.3,False,0.0,,False,IAH,161.0,9.3,0.39,False,none
@@ -2821,7 +2821,7 @@ MCPHERSN,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,
 MCPOD,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 MCQUEE,GUADALUPE,LZ_SOUTH,138.0,29.588548,-98.049585,0.796,site,A,,high,False,True,,low,site,2.0,2.0,1.0,9.0,23.0,93.0,78.0,15.0,2.0,15.21,166.6,False,0.0,,False,SAT,42.0,23.87,0.65,True,flood_sfha
 MCSES,DALLAS,LZ_NORTH,138.0,32.724366,-96.935385,0.955,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,383.4,False,9.0,3.6,True,DFW,21.0,23.61,2.83,False,none
-MCTYE,HAYS,LZ_NORTH,138.0,29.826483,-97.964747,0.265,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,15.0,24.0,124.0,63.0,13.0,5.0,343.36,177.0,False,0.0,,False,AUS,48.0,26.48,2.39,,not_assessed
+MCTYE,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 MCWHT,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 MDAIR,MIDLAND,LZ_WEST,138.0,31.935596,-102.229663,0.677,site,NOT_MAPPED,,unmapped,False,False,,low,site,1.0,2.0,0.0,11.0,31.0,189.0,202.0,1.0,3.0,174.29,649.7,False,32.0,3.7,True,MAF,2.0,28.09,6.91,False,none
 MDANP,ELLIS,LZ_NORTH,345.0,32.428479,-97.052824,0.97,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,28.0,28.0,87.0,149.0,58.0,4.0,58.14,361.4,False,5.0,4.0,True,DFW,52.0,23.61,2.83,False,none
@@ -2902,7 +2902,7 @@ MIDWY,ECTOR,LZ_WEST,138.0,31.841521,-102.727019,0.97,site,X,AREA OF MINIMAL FLOO
 MIEL,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 MIL,PALO PINTO,LZ_NORTH,138.0,32.6581,-98.3103,0.92,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,22.0,32.0,51.0,105.0,57.0,19.0,51.79,459.6,False,0.0,,False,DFW,124.0,23.61,2.83,False,none
 MILANO,MILAM,LZ_SOUTH,138.0,30.763577,-96.863527,0.855,site,NOT_MAPPED,,unmapped,False,False,,low,site,1.0,2.0,2.0,8.0,16.0,61.0,68.0,54.0,2.0,5.81,215.3,False,0.0,,False,AUS,101.0,26.48,2.39,False,none
-MILES,RUNNELS,LZ_WEST,69.0,31.59334,-100.178103,0.855,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,1.0,14.0,35.0,28.0,78.0,4.0,1.0,38.24,469.9,False,0.0,,False,ABI,102.0,25.35,6.61,False,none
+MILES,RUNNELS,LZ_WEST,69.0,31.59334,-100.178103,0.891,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,1.0,14.0,35.0,28.0,78.0,4.0,1.0,38.24,469.9,False,0.0,,False,ABI,102.0,25.35,6.61,False,none
 MILHWY,CAMERON,LZ_SOUTH,138.0,25.936851,-97.535693,0.73,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,21.0,26.0,11.0,141.0,173.0,171.0,0.0,1198.14,38.2,False,0.0,,False,BRO,12.0,4.48,0.0,False,none
 MILITARY,CAMERON,LZ_SOUTH,138.0,25.936851,-97.535693,0.777,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,21.0,26.0,11.0,141.0,173.0,171.0,0.0,1198.14,38.2,False,0.0,,False,BRO,12.0,4.48,0.0,False,none
 MILLER,BLANCO,LZ_SOUTH,138.0,30.262015,-98.29847,0.634,site,NOT_MAPPED,,unmapped,False,False,,low,site,2.0,2.0,0.0,9.0,20.0,65.0,16.0,7.0,7.0,34.4,234.5,False,0.0,,False,AUS,60.0,26.48,2.39,False,none
@@ -3020,8 +3020,8 @@ MULDOO,FAYETTE,LZ_SOUTH,138.0,29.806984,-97.07408,0.288,county,,,not_assessed,,,
 MULSW,,LZ_WEST,345.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 MUNDAYR2,KNOX,LZ_WEST,69.0,33.448296,-99.660382,0.902,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,9.0,19.0,21.0,119.0,15.0,1.0,2.08,601.1,False,0.0,,False,ABI,115.0,25.35,6.61,False,none
 MUNDAYST,KNOX,LZ_WEST,69.0,33.448296,-99.660382,0.727,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,9.0,19.0,21.0,119.0,15.0,1.0,2.08,601.1,False,0.0,,False,ABI,115.0,25.35,6.61,False,none
-MURPH,LUBBOCK,LZ_NORTH,138.0,33.533881,-101.965345,0.271,county,,,not_assessed,,,,very_low,county_site_max,,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,746.3,False,0.0,,False,MAF,178.0,28.09,6.91,,not_assessed
-MURRAY,TAYLOR,LZ_WEST,138.0,32.465924,-100.139149,0.494,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,20.0,61.0,84.0,221.0,13.0,10.0,462.46,538.1,False,0.0,,False,ABI,43.0,25.35,6.61,,not_assessed
+MURPH,LUBBOCK,LZ_NORTH,138.0,33.533881,-101.965345,0.271,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,746.3,False,0.0,,False,MAF,178.0,28.09,6.91,,not_assessed
+MURRAY,TAYLOR,LZ_WEST,138.0,32.465924,-100.139149,0.3,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,20.0,61.0,84.0,221.0,13.0,10.0,462.46,538.1,False,0.0,,False,ABI,43.0,25.35,6.61,,not_assessed
 MUSQUIZ,REEVES,LZ_WEST,138.0,31.238371,-103.158293,0.855,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,12.0,0.0,45.0,57.0,0.0,0.0,5.77,671.7,False,64.0,3.6,True,MAF,120.0,28.09,6.91,False,none
 MUSTANG,NUECES,LZ_SOUTH,69.0,27.72533,-97.142169,0.727,site,AE,,high,False,True,10.0,moderate,site,1.0,3.0,21.0,22.0,13.0,262.0,208.0,240.0,9.0,1470.44,0.6,True,0.0,,False,CRP,37.0,6.65,0.09,True,flood_sfha
 MUSTNGCK,JACKSON,LZ_SOUTH,138.0,29.109147,-96.528761,0.408,county,,,not_assessed,,,,low,county_site_max,,,5.0,6.0,3.0,17.0,29.0,17.0,0.0,503.13,38.7,False,0.0,,False,IAH,149.0,9.3,0.39,,not_assessed
@@ -3136,7 +3136,7 @@ NORDWE,DEWITT,LZ_SOUTH,138.0,28.911501,-97.624256,0.67,site,X,AREA OF MINIMAL FL
 NORSW,DALLAS,LZ_NORTH,345.0,32.815168,-96.918654,0.481,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,391.4,False,9.0,3.6,True,DFW,13.0,23.61,2.83,,not_assessed
 NORTHBR,BRAZOS,LZ_NORTH,69.0,30.691202,-96.394452,0.563,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,2.0,15.0,18.0,42.0,130.0,11.0,0.0,31.93,173.1,False,0.0,,False,IAH,127.0,9.3,0.39,False,none
 NORTHBRA,MCCULLOCH,LZ_SOUTH,69.0,31.135225,-99.341562,0.767,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,6.0,1.0,1.0,13.0,26.0,45.0,71.0,8.0,2.0,0.98,375.5,False,0.0,,False,ABI,145.0,25.35,6.61,False,none
-NORTHLAN,WEBB,LZ_SOUTH,138.0,27.692138,-99.477565,0.56,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,2.0,3.0,6.0,106.0,60.0,73.0,4.0,69.62,195.5,False,0.0,,False,CRP,194.0,6.65,0.09,False,none
+NORTHLAN,TRAVIS,LZ_SOUTH,138.0,30.335406,-97.754658,0.75,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,208.1,False,0.0,,False,AUS,18.0,26.48,2.39,False,none
 NORTHSDE,HARRIS,LZ_HOUSTON,69.0,29.784137,-95.349638,0.458,county,,,not_assessed,,,,moderate,county_site_max,,,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,33.5,False,0.0,,False,IAH,22.0,9.3,0.39,,not_assessed
 NORTHWES,WILLIAMSON,LZ_SOUTH,138.0,30.464599,-97.75731,0.66,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,moderate,site,3.0,3.0,0.0,27.0,42.0,142.0,117.0,11.0,5.0,368.19,220.4,False,0.0,,False,AUS,32.0,26.48,2.39,False,none
 NORTMC,UPTON,LZ_WEST,138.0,31.155063,-102.2268,0.671,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,10.0,11.0,39.0,30.0,1.0,0.0,0.85,592.3,False,0.0,,False,MAF,88.0,28.09,6.91,False,none
@@ -3308,7 +3308,7 @@ PALMHURS,HIDALGO,LZ_SOUTH,138.0,26.271984,-98.237894,0.618,site,NOT_MAPPED,,unma
 PALMITO,CAMERON,LZ_SOUTH,345.0,25.984557,-97.379889,0.95,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,False,,high,site,6.0,4.0,21.0,26.0,11.0,141.0,173.0,171.0,0.0,1198.14,22.6,True,0.0,,False,BRO,10.0,4.48,0.0,False,none
 PALMVIEW,HIDALGO,LZ_SOUTH,138.0,26.235191,-98.366398,0.924,site,NOT_MAPPED,,unmapped,False,False,,low,site,2.0,2.0,3.0,15.0,6.0,113.0,181.0,191.0,19.0,1044.17,113.1,False,0.0,,False,BRO,101.0,4.48,0.0,False,none
 PALMWIND,CAMERON,LZ_SOUTH,138.0,26.288889,-97.496389,0.55,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,non_burnable,site,6.0,,21.0,26.0,11.0,141.0,173.0,171.0,0.0,1198.14,29.0,False,0.0,,False,BRO,43.0,4.48,0.0,False,none
-PALOALTO,BEXAR,LZ_SOUTH,138.0,29.318207,-98.549711,0.724,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,1.0,28.0,29.0,414.0,180.0,21.0,4.0,1548.55,192.6,False,0.0,,False,SAT,26.0,23.87,0.65,False,none
+PALOALTO,CAMERON,LZ_SOUTH,138.0,26.002143,-97.514082,0.8,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,1.0,3.0,21.0,26.0,11.0,141.0,173.0,171.0,0.0,1198.14,35.6,False,0.0,,False,BRO,14.0,4.48,0.0,False,none
 PALODURO,FRIO,LZ_SOUTH,138.0,28.845922,-99.190583,0.891,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,3.0,3.0,1.0,3.0,6.0,68.0,12.0,6.0,0.0,1.23,200.0,False,0.0,,False,SAT,104.0,23.87,0.65,False,none
 PALOM,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 PALOUSE,UPTON,LZ_WEST,138.0,31.157269,-101.831603,0.385,county,,,not_assessed,,,,low,county_site_max,,,0.0,10.0,11.0,39.0,30.0,1.0,0.0,0.85,562.5,False,0.0,,False,MAF,95.0,28.09,6.91,,not_assessed
@@ -3332,7 +3332,7 @@ PATN_RC,TRAVIS,LZ_NORTH,138.0,30.238288,-97.870491,0.21,county,,,not_assessed,,,
 PATRICIA,DAWSON,LZ_WEST,138.0,32.549891,-102.008073,0.855,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,1.0,1.0,0.0,14.0,20.0,47.0,103.0,2.0,0.0,32.54,675.5,False,35.0,5.1,True,MAF,69.0,28.09,6.91,False,none
 PATTON,TRAVIS,LZ_SOUTH,138.0,30.238288,-97.870491,0.777,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,205.8,False,0.0,,False,AUS,19.0,26.48,2.39,False,none
 PATTSNST,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-PAUL,HENDERSON,LZ_WEST,138.0,32.336094,-96.056262,0.055,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,12.0,19.0,42.0,104.0,57.0,8.0,13.41,307.7,False,0.0,,False,DFW,110.0,23.61,2.83,,not_assessed
+PAUL,HARDEMAN,LZ_WEST,138.0,34.252326,-99.684751,0.75,site,NOT_MAPPED,,unmapped,False,False,,low,site,1.0,2.0,0.0,13.0,32.0,8.0,93.0,18.0,2.0,2.95,681.1,False,0.0,,False,ABI,205.0,25.35,6.61,False,none
 PAULANN,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 PAULN,HENDERSON,LZ_NORTH,138.0,32.336094,-96.056262,0.841,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,3.0,3.0,1.0,12.0,19.0,42.0,104.0,57.0,8.0,13.41,307.7,False,0.0,,False,DFW,110.0,23.61,2.83,False,none
 PAVLOV,MATAGORDA,LZ_SOUTH,138.0,28.993402,-96.126013,0.97,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,very_low,site,6.0,1.0,13.0,10.0,3.0,29.0,36.0,17.0,0.0,517.82,26.1,False,0.0,,False,IAH,132.0,9.3,0.39,False,none
@@ -3365,7 +3365,7 @@ PECAN_BY,CALLAHAN,LZ_WEST,138.0,32.366456,-99.526568,0.686,site,NOT_MAPPED,,unma
 PECKS,MIDLAND,LZ_WEST,138.0,31.784877,-101.836027,0.436,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,11.0,31.0,189.0,202.0,1.0,3.0,174.29,610.5,False,16.0,3.8,True,MAF,40.0,28.09,6.91,,not_assessed
 PECN_GRV,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 PECN_SLR,PARMER,LZ_NORTH,345.0,34.518098,-102.867197,0.159,county,,,not_assessed,,,,low,county_site_max,,,0.0,11.0,87.0,15.0,190.0,5.0,0.0,11.99,886.6,False,0.0,,False,MAF,292.0,28.09,6.91,,not_assessed
-PECOS,REEVES,LZ_WEST,138.0,31.275328,-103.117785,0.509,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,12.0,0.0,45.0,57.0,0.0,0.0,5.77,670.7,False,55.0,3.6,True,MAF,114.0,28.09,6.91,False,none
+PECOS,REEVES,LZ_WEST,138.0,31.429505,-103.498703,0.771,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,6.0,1.0,0.0,12.0,0.0,45.0,57.0,0.0,0.0,5.77,711.3,False,8.0,3.2,True,MAF,135.0,28.09,6.91,False,none
 PECOSRI,REEVES,LZ_WEST,69.0,31.428885,-103.498704,0.556,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,6.0,1.0,0.0,12.0,0.0,45.0,57.0,0.0,0.0,5.77,711.2,False,8.0,3.2,True,MAF,135.0,28.09,6.91,False,none
 PECV,PECOS,LZ_WEST,138.0,31.09668,-102.794867,0.57,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,47.0,16.0,113.0,155.0,0.0,1.0,7.48,633.3,False,2.0,3.1,False,MAF,110.0,28.09,6.91,False,none
 PEDENRD,TARRANT,LZ_NORTH,138.0,32.941015,-97.454479,0.95,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,0.0,48.0,83.0,251.0,583.0,77.0,8.0,1947.59,430.7,False,1.0,3.0,False,DFW,41.0,23.61,2.83,False,none
@@ -3447,7 +3447,7 @@ PLACIOS,MATAGORDA,LZ_SOUTH,69.0,28.756915,-96.201397,0.817,site,X,AREA OF MINIMA
 PLANO,COLLIN,LZ_NORTH,138.0,33.042482,-96.776622,0.416,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,22.0,56.0,84.0,252.0,63.0,3.0,2230.62,407.7,False,2.0,3.6,False,DFW,28.0,23.61,2.83,,not_assessed
 PLANVWS,SCURRY,LZ_SOUTH,69.0,32.733291,-100.82463,0.384,county,,,not_assessed,,,,very_high,county_site_max,,,0.0,11.0,20.0,68.0,142.0,1.0,1.0,19.88,604.7,False,69.0,5.1,True,ABI,113.0,25.35,6.61,,not_assessed
 PLASTPAK,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-PLATE,LUBBOCK,LZ_WEST,138.0,33.58505,-101.783271,0.369,county,,,not_assessed,,,,very_low,county_site_max,,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,738.1,False,0.0,,False,MAF,186.0,28.09,6.91,,not_assessed
+PLATE,LUBBOCK,LZ_WEST,138.0,33.58505,-101.783271,0.369,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,738.1,False,0.0,,False,MAF,186.0,28.09,6.91,,not_assessed
 PLATINUM,FANNIN,LZ_NORTH,345.0,33.609701,-96.370494,0.88,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,2.0,14.0,31.0,59.0,121.0,58.0,0.0,12.53,451.5,False,0.0,,False,DFW,99.0,23.61,2.83,False,none
 PLCEDOS,VICTORIA,LZ_SOUTH,69.0,28.66878,-96.859755,0.739,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,low,site,2.0,2.0,3.0,6.0,15.0,61.0,69.0,78.0,2.0,168.56,19.3,True,0.0,,False,CRP,118.0,6.65,0.09,False,none
 PLEAFA,ECTOR,LZ_WEST,138.0,31.739795,-102.316242,0.95,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,1.0,1.0,0.0,11.0,20.0,151.0,163.0,1.0,2.0,219.85,641.0,False,12.0,3.6,True,MAF,25.0,28.09,6.91,False,none
@@ -3661,7 +3661,7 @@ RDRSE,WILLIAMSON,LZ_SOUTH,138.0,30.485315,-97.645045,0.637,site,X,AREA OF MINIMA
 RDRUNNER,UPTON,LZ_WEST,138.0,31.207745,-102.181858,0.4,county,,,not_assessed,,,,low,county_site_max,,,0.0,10.0,11.0,39.0,30.0,1.0,0.0,0.85,592.5,False,0.0,,False,MAF,82.0,28.09,6.91,,not_assessed
 RDWELLS,DENTON,LZ_NORTH,138.0,33.208806,-97.181376,0.504,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,1.0,29.0,53.0,133.0,317.0,64.0,4.0,988.72,442.2,False,0.0,,False,DFW,38.0,23.61,2.83,False,none
 RE,FORT BEND,LZ_HOUSTON,138.0,29.563719,-95.762439,0.862,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,1.0,1.0,4.0,26.0,9.0,47.0,99.0,14.0,0.0,8431.37,66.8,False,0.0,,False,IAH,60.0,9.3,0.39,False,none
-READING,FORT BEND,LZ_SOUTH,138.0,29.563719,-95.762439,0.382,county,,,not_assessed,,,,low,county_site_max,,,4.0,26.0,9.0,47.0,99.0,14.0,0.0,8431.37,66.8,False,0.0,,False,IAH,60.0,9.3,0.39,,not_assessed
+READING,UVALDE,LZ_SOUTH,138.0,29.242617,-99.74213,0.55,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,1.0,1.0,0.0,6.0,16.0,146.0,40.0,8.0,1.0,4.93,269.6,False,0.0,,False,SAT,126.0,23.87,0.65,False,none
 REAST,DALLAS,LZ_NORTH,138.0,32.803684,-96.819205,0.473,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,385.7,False,9.0,3.6,True,DFW,21.0,23.61,2.83,,not_assessed
 REATA,CALLAHAN,LZ_NORTH,345.0,32.438238,-99.15766,0.42,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,13.0,51.0,26.0,66.0,9.0,7.0,68.79,479.3,False,0.0,,False,ABI,49.0,25.35,6.61,,not_assessed
 REBECCA,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -3683,7 +3683,7 @@ REDTAP,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,no
 REDWOO,HAYS,LZ_SOUTH,138.0,29.850531,-97.944756,0.777,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,1.0,15.0,24.0,124.0,63.0,13.0,5.0,343.36,177.5,False,0.0,,False,AUS,45.0,26.48,2.39,False,none
 RED_RIVR,HALL,LZ_NORTH,69.0,34.600219,-100.517909,0.342,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,21.0,65.0,16.0,195.0,4.0,0.0,13.42,754.2,False,0.0,,False,ABI,255.0,25.35,6.61,,not_assessed
 REF,MATAGORDA,LZ_HOUSTON,345.0,28.8433,-95.8631,0.589,site,A,,high,False,True,,low,site,1.0,2.0,13.0,10.0,3.0,29.0,36.0,17.0,0.0,517.82,12.5,True,0.0,,False,IAH,135.0,9.3,0.39,True,flood_sfha
-REFORZAR,NUECES,LZ_SOUTH,345.0,27.819197,-97.799938,0.595,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,1.0,1.0,21.0,22.0,13.0,262.0,208.0,240.0,9.0,1470.44,30.1,False,0.0,,False,CRP,29.0,6.65,0.09,False,none
+REFORZAR,,LZ_SOUTH,345.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 REFUGIO,REFUGIO,LZ_SOUTH,69.0,28.301214,-97.266491,0.727,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,1.0,3.0,15.0,12.0,10.0,41.0,19.0,17.0,2.0,501.1,38.3,False,0.0,,False,CRP,63.0,6.65,0.09,False,none
 REGST,DALLAS,LZ_NORTH,138.0,32.803684,-96.819205,0.817,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,non_burnable,site,6.0,,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,385.7,False,9.0,3.6,True,DFW,21.0,23.61,2.83,False,none
 RELLIS,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -3710,7 +3710,7 @@ RGH,MCLENNAN,LZ_NORTH,138.0,31.74611,-97.177305,0.584,site,X,AREA OF MINIMAL FLO
 RGLRW,DALLAS,LZ_NORTH,138.0,32.829742,-96.883348,0.584,site,X,AREA WITH REDUCED FLOOD RISK DUE TO LEVEE,moderate,False,False,,low,site,6.0,2.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,391.2,False,9.0,3.6,True,DFW,15.0,23.61,2.83,False,none
 RGPSW,MILLS,LZ_NORTH,345.0,31.39376,-98.35936,0.92,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,3.0,3.0,0.0,3.0,15.0,21.0,28.0,42.0,2.0,2.67,339.4,False,0.0,,False,AUS,149.0,26.48,2.39,False,none
 RGR,EASTLAND,LZ_HOUSTON,138.0,32.471776,-98.640892,0.315,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,15.0,35.0,31.0,60.0,43.0,14.0,17.56,458.2,False,0.0,,False,ABI,98.0,25.35,6.61,,not_assessed
-RGRSW,EASTLAND,LZ_WEST,345.0,32.471776,-98.640892,0.261,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,15.0,35.0,31.0,60.0,43.0,14.0,17.56,458.2,False,0.0,,False,ABI,98.0,25.35,6.61,,not_assessed
+RGRSW,,LZ_WEST,345.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 RG_LNG,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 RH,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 RHA,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -3726,7 +3726,7 @@ RICRDOS,KLEBERG,LZ_SOUTH,69.0,27.414054,-97.776483,0.767,site,X,AREA OF MINIMAL 
 RICSW,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 RIDGE,ROBERTSON,LZ_NORTH,138.0,31.104796,-96.294607,0.855,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,1.0,13.0,16.0,35.0,45.0,53.0,3.0,4.03,198.6,False,2.0,3.4,False,IAH,154.0,9.3,0.39,False,none
 RIDGMA,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-RIDGV,ROBERTSON,LZ_NORTH,138.0,31.104796,-96.294607,0.767,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,1.0,13.0,16.0,35.0,45.0,53.0,3.0,4.03,198.6,False,2.0,3.4,False,IAH,154.0,9.3,0.39,False,none
+RIDGV,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 RIESW,FALLS,LZ_NORTH,138.0,31.45,-96.86,0.94,site,NOT_MAPPED,,unmapped,False,False,,low,site,2.0,2.0,0.0,8.0,14.0,33.0,50.0,54.0,0.0,2.33,264.1,False,0.0,,False,AUS,161.0,26.48,2.39,False,none
 RIG,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 RIGGINS,PECOS,LZ_WEST,138.0,31.054402,-102.851033,0.855,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,47.0,16.0,113.0,155.0,0.0,1.0,7.48,635.2,False,2.0,3.1,False,MAF,117.0,28.09,6.91,False,none
@@ -3836,7 +3836,7 @@ RPUBRDS,ROBERTSON,LZ_NORTH,138.0,30.881449,-96.625216,0.848,site,X,AREA OF MINIM
 RRANCHES,REEVES,LZ_WEST,138.0,31.358307,-103.335667,0.873,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,12.0,0.0,45.0,57.0,0.0,0.0,5.77,693.6,False,36.0,3.6,True,MAF,125.0,28.09,6.91,False,none
 RRC_WIND,EASTLAND,LZ_NORTH,345.0,32.413713,-99.107808,0.784,site,NOT_MAPPED,,unmapped,False,False,,low,site,6.0,2.0,0.0,15.0,35.0,31.0,60.0,43.0,14.0,17.56,474.5,False,0.0,,False,ABI,54.0,25.35,6.61,False,none
 RRDSW,MCLENNAN,LZ_NORTH,345.0,31.473485,-96.960392,0.96,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,20.0,24.0,95.0,174.0,62.0,3.0,22.39,272.8,False,0.0,,False,DFW,158.0,23.61,2.83,False,none
-RRISW,EASTLAND,LZ_WEST,138.0,32.471776,-98.640892,0.652,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,0.0,15.0,35.0,31.0,60.0,43.0,14.0,17.56,458.2,False,0.0,,False,ABI,98.0,25.35,6.61,False,none
+RRISW,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 RRNES,WILLIAMSON,LZ_SOUTH,138.0,30.541459,-97.648899,0.687,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,27.0,42.0,142.0,117.0,11.0,5.0,368.19,222.7,False,0.0,,False,AUS,40.0,26.48,2.39,False,none
 RRPOD,UPTON,LZ_WEST,138.0,31.207745,-102.181858,0.422,county,,,not_assessed,,,,low,county_site_max,,,0.0,10.0,11.0,39.0,30.0,1.0,0.0,0.85,592.5,False,0.0,,False,MAF,82.0,28.09,6.91,,not_assessed
 RRSTH,WILLIAMSON,LZ_SOUTH,138.0,30.474241,-97.694171,0.627,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,0.0,27.0,42.0,142.0,117.0,11.0,5.0,368.19,218.2,False,0.0,,False,AUS,32.0,26.48,2.39,False,none
@@ -3853,7 +3853,7 @@ RT,BRAZORIA,LZ_HOUSTON,138.0,29.099849,-95.492773,0.804,site,X,0.2 PCT ANNUAL CH
 RTHGB,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 RTLSNAKE,WARD,LZ_WEST,138.0,31.568978,-103.226631,0.75,site,NOT_MAPPED,,unmapped,False,False,,low,site,2.0,2.0,0.0,3.0,8.0,17.0,44.0,1.0,0.0,1.0,698.3,False,0.0,,False,MAF,105.0,28.09,6.91,False,none
 RTPOD,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-RTRSW,COOKE,LZ_WEST,345.0,33.640505,-97.332538,0.054,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,18.0,36.0,69.0,139.0,58.0,3.0,58.56,491.5,False,0.0,,False,DFW,88.0,23.61,2.83,,not_assessed
+RTRSW,,LZ_WEST,345.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 RTS,MCCULLOCH,LZ_WEST,345.0,31.360331,-99.551356,0.265,county,,,not_assessed,,,,low,county_site_max,,,1.0,13.0,26.0,45.0,71.0,8.0,2.0,0.98,407.8,False,0.0,,False,ABI,117.0,25.35,6.61,,not_assessed
 RTS2,MCCULLOCH,LZ_WEST,345.0,31.242177,-99.421266,0.264,county,,,not_assessed,,,,low,county_site_max,,,1.0,13.0,26.0,45.0,71.0,8.0,2.0,0.98,389.5,False,0.0,,False,ABI,132.0,25.35,6.61,,not_assessed
 RTW,HARRIS,LZ_HOUSTON,345.0,30.090381,-95.48954,0.738,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,14.0,79.0,19.0,201.0,406.0,68.0,0.0,20621.62,62.0,False,0.0,,False,IAH,17.0,9.3,0.39,False,none
@@ -3897,12 +3897,12 @@ SACRC,SCURRY,LZ_WEST,138.0,32.742305,-100.98568,0.927,site,NOT_MAPPED,,unmapped,
 SADLBACK,REEVES,LZ_WEST,138.0,31.332282,-103.499936,0.873,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,6.0,1.0,0.0,12.0,0.0,45.0,57.0,0.0,0.0,5.77,705.4,False,14.0,3.3,True,MAF,140.0,28.09,6.91,False,none
 SAEM,PRESIDIO,LZ_WEST,69.0,29.821552,-104.324998,0.459,county,,,not_assessed,,,,high,county_site_max,,,0.0,0.0,0.0,18.0,29.0,0.0,0.0,1.61,705.6,False,1.0,3.2,False,MAF,311.0,28.09,6.91,,not_assessed
 SAGC,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-SAGE,TOM GREEN,LZ_WEST,69.0,31.395144,-100.492913,0.603,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,1.0,21.0,44.0,143.0,293.0,11.0,10.0,55.49,479.1,False,0.0,,False,ABI,136.0,25.35,6.61,False,none
+SAGE,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 SAGEDRAW,LYNN,LZ_WEST,345.0,33.303497,-101.65722,0.434,county,,,not_assessed,,,,,none,,,0.0,10.0,55.0,35.0,154.0,3.0,2.0,6.08,706.9,False,0.0,,False,MAF,159.0,28.09,6.91,,not_assessed
 SAH,,LZ_HOUSTON,345.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 SAINT_JO,,LZ_NORTH,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 SALDS,BELL,LZ_NORTH,138.0,30.971238,-97.513036,0.927,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,21.0,30.0,160.0,174.0,59.0,9.0,73.95,261.1,False,0.0,,False,AUS,89.0,26.48,2.39,False,none
-SALEM,TRAVIS,LZ_SOUTH,345.0,30.215809,-97.790029,0.584,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,True,,moderate,site,6.0,3.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,199.0,False,0.0,,False,AUS,11.0,26.48,2.39,False,none
+SALEM,WASHINGTON,LZ_SOUTH,345.0,30.111212,-96.425664,0.7,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,1.0,2.0,3.0,7.0,13.0,27.0,60.0,12.0,1.0,167.91,145.0,False,0.0,,False,IAH,104.0,9.3,0.39,False,none
 SALEM1,TRAVIS,LZ_SOUTH,138.0,30.215809,-97.790029,0.584,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,True,,moderate,site,6.0,3.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,199.0,False,0.0,,False,AUS,11.0,26.48,2.39,False,none
 SALEM11,HOWARD,LZ_NORTH,138.0,32.320653,-101.349858,0.318,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,10.0,18.0,81.0,104.0,1.0,2.0,4.1,609.6,False,5.0,3.9,True,MAF,91.0,28.09,6.91,,not_assessed
 SALSW,BELL,LZ_NORTH,345.0,30.972126,-97.511119,0.927,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,21.0,30.0,160.0,174.0,59.0,9.0,73.95,261.2,False,0.0,,False,AUS,89.0,26.48,2.39,False,none
@@ -3921,7 +3921,7 @@ SAMSW,HILL,LZ_NORTH,345.0,31.897696,-97.018086,0.97,site,X,AREA OF MINIMAL FLOOD
 SAN,WHARTON,LZ_HOUSTON,138.0,29.245055,-95.874765,0.351,county,,,not_assessed,,,,very_low,county_site_max,,,5.0,25.0,7.0,16.0,65.0,12.0,0.0,207.05,56.1,False,0.0,,False,IAH,96.0,9.3,0.39,,not_assessed
 SANA,TOM GREEN,LZ_WEST,69.0,31.395144,-100.492913,0.648,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,1.0,21.0,44.0,143.0,293.0,11.0,10.0,55.49,479.1,False,0.0,,False,ABI,136.0,25.35,6.61,False,none
 SANDCRAB,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-SANDHI,WASHINGTON,LZ_SOUTH,138.0,30.277981,-96.327276,0.523,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,3.0,7.0,13.0,27.0,60.0,12.0,1.0,167.91,142.9,False,0.0,,False,IAH,99.0,9.3,0.39,False,none
+SANDHI,WASHINGTON,LZ_SOUTH,138.0,30.277981,-96.327276,0.642,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,3.0,7.0,13.0,27.0,60.0,12.0,1.0,167.91,142.9,False,0.0,,False,IAH,99.0,9.3,0.39,False,none
 SANDHSYD,TRAVIS,LZ_SOUTH,138.0,30.209645,-97.614083,0.954,site,A,,high,False,True,,moderate,site,2.0,3.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,188.9,False,0.0,,False,AUS,7.0,26.48,2.39,True,flood_sfha
 SANDIAS,JIM WELLS,LZ_SOUTH,69.0,28.034846,-97.866708,0.767,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,5.0,15.0,9.0,64.0,107.0,115.0,19.0,9.71,42.0,False,0.0,,False,CRP,45.0,6.65,0.09,False,none
 SANDLAKE,REEVES,LZ_WEST,138.0,31.508579,-103.617338,0.586,site,NOT_MAPPED,,unmapped,False,False,,low,site,1.0,2.0,0.0,12.0,0.0,45.0,57.0,0.0,0.0,5.77,725.9,False,2.0,3.0,False,MAF,142.0,28.09,6.91,False,none
@@ -4074,7 +4074,7 @@ SHERSH,BURNET,LZ_SOUTH,138.0,30.609759,-98.379976,0.599,site,X,AREA OF MINIMAL F
 SHERY_LC,,LZ_NORTH,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 SHHA,DALLAS,LZ_WEST,69.0,32.661454,-96.861587,0.24,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,373.8,False,9.0,3.6,True,DFW,30.0,23.61,2.83,,not_assessed
 SHILO,COMANCHE,LZ_NORTH,138.0,31.893041,-98.572886,0.645,site,NOT_MAPPED,,unmapped,False,False,,low,site,6.0,2.0,0.0,5.0,22.0,32.0,65.0,44.0,2.0,3.32,398.0,False,0.0,,False,ABI,119.0,25.35,6.61,False,none
-SHILOH,COMANCHE,LZ_NORTH,138.0,31.893041,-98.572886,0.719,site,NOT_MAPPED,,unmapped,False,False,,low,site,6.0,2.0,0.0,5.0,22.0,32.0,65.0,44.0,2.0,3.32,398.0,False,0.0,,False,ABI,119.0,25.35,6.61,False,none
+SHILOH,DALLAS,LZ_NORTH,138.0,32.900481,-96.666877,0.75,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,0.0,34.0,66.0,262.0,360.0,87.0,3.0,5031.76,388.9,False,6.0,3.6,True,DFW,33.0,23.61,2.83,False,none
 SHINER,LAVACA,LZ_SOUTH,138.0,29.432644,-97.15465,0.855,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,3.0,11.0,9.0,83.0,30.0,4.0,0.0,1.91,91.9,False,1.0,3.1,False,AUS,98.0,26.48,2.39,False,none
 SHINOAK,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 SHLMT,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -4125,7 +4125,7 @@ SLBLF,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not
 SLCNHLS,TRAVIS,LZ_SOUTH,138.0,30.412393,-97.573747,0.848,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,0.0,21.0,37.0,244.0,183.0,23.0,3.0,844.56,206.5,False,0.0,,False,AUS,27.0,26.48,2.39,False,none
 SLD,ERATH,LZ_NORTH,138.0,32.186771,-98.157276,0.902,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,high,site,4.0,4.0,0.0,16.0,36.0,29.0,66.0,44.0,4.0,6.65,410.0,False,0.0,,False,DFW,133.0,23.61,2.83,False,none
 SLKPD,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-SLKSW,WARD,LZ_WEST,345.0,31.510501,-103.464513,0.755,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,3.0,8.0,17.0,44.0,1.0,0.0,1.0,713.6,False,2.0,3.0,False,MAF,128.0,28.09,6.91,False,none
+SLKSW,WARD,LZ_WEST,345.0,31.510501,-103.464513,0.816,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,3.0,8.0,17.0,44.0,1.0,0.0,1.0,713.6,False,2.0,3.0,False,MAF,128.0,28.09,6.91,False,none
 SLK_BESS,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 SLNSW,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 SLPOD,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -4251,7 +4251,7 @@ STEEPHLW,BRAZOS,LZ_NORTH,138.0,30.687674,-96.269464,0.684,site,X,AREA OF MINIMAL
 STEER,MASON,LZ_WEST,138.0,30.763745,-99.411128,0.615,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,1.0,6.0,13.0,27.0,32.0,6.0,6.0,9.06,352.4,False,0.0,,False,SAT,162.0,23.87,0.65,False,none
 STELLA,KENEDY,LZ_SOUTH,345.0,26.941667,-97.6425,0.55,site,NOT_MAPPED,,unmapped,False,False,,low,site,6.0,2.0,18.0,3.0,3.0,0.0,6.0,162.0,12.0,0.01,26.2,False,0.0,,False,CRP,93.0,6.65,0.09,False,none
 STELLATP,KENEDY,LZ_SOUTH,345.0,26.941667,-97.6425,0.385,county,,,not_assessed,,,,low,county_site_max,,,18.0,3.0,3.0,0.0,6.0,162.0,12.0,0.01,26.2,False,0.0,,False,CRP,93.0,6.65,0.09,,not_assessed
-STER,STERLING,LZ_WEST,69.0,31.839814,-101.011201,0.492,county,,,not_assessed,,,,high,county_site_max,,,1.0,12.0,39.0,15.0,32.0,4.0,6.0,0.02,549.7,False,0.0,,False,MAF,114.0,28.09,6.91,,not_assessed
+STER,STERLING,LZ_WEST,69.0,31.839814,-101.011201,0.619,site,NOT_MAPPED,,unmapped,False,False,,high,site,6.0,4.0,1.0,12.0,39.0,15.0,32.0,4.0,6.0,0.02,549.7,False,0.0,,False,MAF,114.0,28.09,6.91,False,none
 STERLING,STERLING,LZ_WEST,69.0,31.839814,-101.011201,0.618,site,NOT_MAPPED,,unmapped,False,False,,high,site,6.0,4.0,1.0,12.0,39.0,15.0,32.0,4.0,6.0,0.02,549.7,False,0.0,,False,MAF,114.0,28.09,6.91,False,none
 STERT,GALVESTON,LZ_NORTH,138.0,29.227786,-94.910684,0.229,county,,,not_assessed,,,,high,county_site_max,,,16.0,35.0,5.0,103.0,115.0,17.0,0.0,15076.62,1.0,True,0.0,,False,IAH,94.0,9.3,0.39,,not_assessed
 STEVENS,NUECES,LZ_SOUTH,69.0,27.860122,-97.619442,0.855,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,6.0,1.0,21.0,22.0,13.0,262.0,208.0,240.0,9.0,1470.44,12.4,True,0.0,,False,CRP,14.0,6.65,0.09,False,none
@@ -4446,7 +4446,7 @@ TINTOP,MATAGORDA,LZ_NORTH,138.0,28.772409,-96.12542,0.256,county,,,not_assessed,
 TINTOPS,MATAGORDA,LZ_SOUTH,69.0,28.772409,-96.12542,0.767,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,non_burnable,site,6.0,,13.0,10.0,3.0,29.0,36.0,17.0,0.0,517.82,4.6,True,0.0,,False,IAH,153.0,9.3,0.39,False,none
 TIODE,FORT BEND,LZ_WEST,138.0,29.637467,-95.571919,0.323,county,,,not_assessed,,,,low,county_site_max,,,4.0,26.0,9.0,47.0,99.0,14.0,0.0,8431.37,53.5,False,0.0,,False,IAH,43.0,9.3,0.39,,not_assessed
 TIPPET,PECOS,LZ_WEST,138.0,30.992147,-102.133835,0.855,site,NOT_MAPPED,,unmapped,False,False,,low,site,2.0,2.0,0.0,47.0,16.0,113.0,155.0,0.0,1.0,7.48,574.0,False,0.0,,False,MAF,107.0,28.09,6.91,False,none
-TITAN_SU,CAMERON,LZ_SOUTH,138.0,25.994602,-97.477941,0.614,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,21.0,26.0,11.0,141.0,173.0,171.0,0.0,1198.14,32.1,False,0.0,,False,BRO,11.0,4.48,0.0,False,none
+TITAN_SU,CAMERON,LZ_SOUTH,138.0,25.994602,-97.477941,0.825,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,21.0,26.0,11.0,141.0,173.0,171.0,0.0,1198.14,32.1,False,0.0,,False,BRO,11.0,4.48,0.0,False,none
 TI_SOLAR,CULBERSON,LZ_WEST,138.0,31.70038,-104.458136,0.6,site,NOT_MAPPED,,unmapped,False,False,,low,site,1.0,2.0,0.0,1.0,0.0,14.0,63.0,0.0,0.0,0.14,806.7,False,532.0,5.4,True,MAF,214.0,28.09,6.91,False,none
 TKNPD,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 TKR,,LZ_HOUSTON,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -4574,7 +4574,7 @@ TULETA,BEE,LZ_SOUTH,138.0,28.598227,-97.788544,0.796,site,X,AREA OF MINIMAL FLOO
 TUL_SLR,GOLIAD,LZ_SOUTH,138.0,28.628,-97.724,0.411,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,5.0,11.0,28.0,26.0,12.0,4.0,1.9,87.3,False,0.0,,False,CRP,97.0,6.65,0.09,,not_assessed
 TUNACR,PECOS,LZ_WEST,138.0,30.981827,-102.275468,0.761,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,47.0,16.0,113.0,155.0,0.0,1.0,7.48,584.4,False,0.0,,False,MAF,108.0,28.09,6.91,False,none
 TURKEY,HALL,LZ_WEST,69.0,34.342288,-100.898035,0.724,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,2.0,3.0,0.0,21.0,65.0,16.0,195.0,4.0,0.0,13.42,750.0,False,0.0,,False,ABI,243.0,25.35,6.61,False,none
-TURKEYFT,HALL,LZ_NORTH,69.0,34.342288,-100.898035,0.363,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,21.0,65.0,16.0,195.0,4.0,0.0,13.42,750.0,False,0.0,,False,ABI,243.0,25.35,6.61,,not_assessed
+TURKEYFT,,LZ_NORTH,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 TURKEYLH,HALL,LZ_WEST,69.0,34.342288,-100.898035,0.727,site,NOT_MAPPED,,unmapped,False,False,,moderate,site,2.0,3.0,0.0,21.0,65.0,16.0,195.0,4.0,0.0,13.42,750.0,False,0.0,,False,ABI,243.0,25.35,6.61,False,none
 TURL,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 TURNER,HAYS,LZ_SOUTH,138.0,30.073774,-97.78301,0.833,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,1.0,15.0,24.0,124.0,63.0,13.0,5.0,343.36,186.0,False,0.0,,False,AUS,16.0,26.48,2.39,False,none
@@ -4673,7 +4673,7 @@ VERDCR,KERR,LZ_SOUTH,138.0,29.933146,-99.055085,0.76,site,X,AREA OF MINIMAL FLOO
 VERH,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 VERIBST,TOM GREEN,LZ_WEST,138.0,31.419303,-100.252449,0.541,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,very_low,site,6.0,1.0,1.0,21.0,44.0,143.0,293.0,11.0,10.0,55.49,462.6,False,0.0,,False,ABI,123.0,25.35,6.61,False,none
 VERN,WILBARGER,LZ_WEST,138.0,34.022103,-98.956976,0.564,site,NOT_MAPPED,,unmapped,False,False,,high,site,3.0,4.0,0.0,20.0,25.0,15.0,124.0,63.0,5.0,2.15,615.2,False,0.0,,False,ABI,191.0,25.35,6.61,False,none
-VERS,TOM GREEN,LZ_WEST,69.0,31.419303,-100.252449,0.38,county,,,not_assessed,,,,high,county_site_max,,,1.0,21.0,44.0,143.0,293.0,11.0,10.0,55.49,462.6,False,0.0,,False,ABI,123.0,25.35,6.61,,not_assessed
+VERS,WILBARGER,LZ_WEST,69.0,34.162279,-99.296309,0.5,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,6.0,1.0,0.0,20.0,25.0,15.0,124.0,63.0,5.0,2.15,648.4,False,0.0,,False,ABI,198.0,25.35,6.61,False,none
 VERTIGO,BAYLOR,LZ_WEST,345.0,33.644636,-99.421394,0.899,site,NOT_MAPPED,,unmapped,False,False,,high,site,6.0,4.0,0.0,9.0,17.0,17.0,80.0,15.0,3.0,4.02,609.1,False,0.0,,False,ABI,139.0,25.35,6.61,False,none
 VERTREES,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 VERT_ESS,NUECES,LZ_HOUSTON,138.0,27.814961,-97.480781,0.21,county,,,not_assessed,,,,moderate,county_site_max,,,21.0,22.0,13.0,262.0,208.0,240.0,9.0,1470.44,1.3,True,0.0,,False,CRP,5.0,6.65,0.09,,not_assessed
@@ -4791,7 +4791,7 @@ WESMER,HIDALGO,LZ_SOUTH,138.0,26.13761,-97.942275,0.905,site,NOT_MAPPED,,unmappe
 WESSER,GOLIAD,LZ_SOUTH,69.0,28.831949,-97.367598,0.707,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,1.0,2.0,1.0,5.0,11.0,28.0,26.0,12.0,4.0,1.9,67.9,False,0.0,,False,CRP,118.0,6.65,0.09,False,none
 WESTBEND,DENTON,LZ_NORTH,138.0,33.047981,-97.035039,0.631,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,non_burnable,site,6.0,,1.0,29.0,53.0,133.0,317.0,64.0,4.0,988.72,419.7,False,4.0,3.3,True,DFW,17.0,23.61,2.83,False,none
 WESTOVER,ECTOR,LZ_WEST,69.0,31.835986,-102.443481,0.34,county,,,not_assessed,,,,low,county_site_max,,,0.0,11.0,20.0,151.0,163.0,1.0,2.0,219.85,657.5,False,17.0,3.6,True,MAF,25.0,28.09,6.91,,not_assessed
-WESTS,DENTON,LZ_NORTH,69.0,33.047981,-97.035039,0.592,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,non_burnable,site,6.0,,1.0,29.0,53.0,133.0,317.0,64.0,4.0,988.72,419.7,False,4.0,3.3,True,DFW,17.0,23.61,2.83,False,none
+WESTS,MCLENNAN,LZ_NORTH,69.0,31.794852,-97.096552,0.65,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,0.0,20.0,24.0,95.0,174.0,62.0,3.0,22.39,308.1,False,0.0,,False,DFW,123.0,23.61,2.83,False,none
 WESTSIDE,NUECES,LZ_SOUTH,138.0,27.73467,-97.452208,0.813,site,AE,,high,False,True,,very_low,site,6.0,1.0,21.0,22.0,13.0,262.0,208.0,240.0,9.0,1470.44,7.4,True,0.0,,False,CRP,7.0,6.65,0.09,True,flood_sfha
 WESTYA,PECOS,LZ_WEST,138.0,30.992163,-102.13376,0.434,county,,,not_assessed,,,,high,county_site_max,,,0.0,47.0,16.0,113.0,155.0,0.0,1.0,7.48,574.0,False,0.0,,False,MAF,107.0,28.09,6.91,,not_assessed
 WEST_OSO,NUECES,LZ_SOUTH,138.0,27.766205,-97.452128,0.855,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,1.0,1.0,21.0,22.0,13.0,262.0,208.0,240.0,9.0,1470.44,6.0,True,0.0,,False,CRP,6.0,6.65,0.09,False,none
@@ -4804,7 +4804,7 @@ WFCOGEN,WICHITA,LZ_WEST,138.0,33.8625,-98.5894,0.584,site,X,AREA OF MINIMAL FLOO
 WFNTH,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 WFPPG,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 WFSHP,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
-WFSSW,DENTON,LZ_WEST,138.0,33.006287,-97.010881,0.192,county,,,not_assessed,,,,high,county_site_max,,,1.0,29.0,53.0,133.0,317.0,64.0,4.0,988.72,414.4,False,9.0,3.6,True,DFW,12.0,23.61,2.83,,not_assessed
+WFSSW,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 WFTANK,WEBB,LZ_SOUTH,138.0,27.577132,-99.276307,0.873,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,True,,very_low,site,1.0,1.0,2.0,3.0,6.0,106.0,60.0,73.0,4.0,69.62,177.5,False,0.0,,False,CRP,175.0,6.65,0.09,False,none
 WGROB,TARRANT,LZ_NORTH,138.0,32.897014,-97.374492,0.542,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,0.0,48.0,83.0,251.0,583.0,77.0,8.0,1947.59,422.3,False,1.0,3.0,False,DFW,33.0,23.61,2.83,False,none
 WGU,BRAZORIA,LZ_HOUSTON,138.0,29.242304,-95.658144,0.6,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,very_low,site,1.0,1.0,15.0,39.0,6.0,55.0,121.0,18.0,0.0,3739.99,44.1,False,0.0,,False,IAH,87.0,9.3,0.39,False,none
@@ -4868,7 +4868,7 @@ WKN_BKR,,LZ_WEST,69.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not
 WKR,WALKER,LZ_HOUSTON,138.0,30.843375,-95.495178,0.902,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,5.0,5.0,12.0,54.0,96.0,12.0,0.0,628.79,133.3,False,0.0,,False,IAH,97.0,9.3,0.39,False,none
 WL,WALLER,LZ_HOUSTON,138.0,30.048264,-95.926426,0.807,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,4.0,7.0,10.0,15.0,36.0,11.0,0.0,370.81,96.5,False,0.0,,False,IAH,55.0,9.3,0.39,False,none
 WLASL,MCLENNAN,LZ_NORTH,138.0,31.54313,-97.071795,0.767,site,X,0.2 PCT ANNUAL CHANCE FLOOD HAZARD,moderate,False,False,,low,site,6.0,2.0,0.0,20.0,24.0,95.0,174.0,62.0,3.0,22.39,286.0,False,0.0,,False,DFW,151.0,23.61,2.83,False,none
-WLF,BASTROP,LZ_SOUTH,345.0,30.139461,-97.561401,0.237,county,,,not_assessed,,,,moderate,county_site_max,,,1.0,13.0,23.0,96.0,67.0,10.0,4.0,258.31,179.5,False,0.0,,False,AUS,12.0,26.48,2.39,,not_assessed
+WLF,,LZ_SOUTH,345.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 WLFCAMP,PECOS,LZ_WEST,138.0,31.18467,-103.035356,0.522,site,NOT_MAPPED,,unmapped,False,False,,very_low,site,1.0,1.0,0.0,47.0,16.0,113.0,155.0,0.0,1.0,7.48,658.3,False,49.0,3.6,True,MAF,116.0,28.09,6.91,False,none
 WLFSW,WARD,LZ_WEST,345.0,31.6018,-102.932799,0.636,site,NOT_MAPPED,,unmapped,False,False,,low,site,2.0,2.0,0.0,3.0,8.0,17.0,44.0,1.0,0.0,1.0,677.5,False,0.0,,False,MAF,79.0,28.09,6.91,False,none
 WLF_C_RC,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
@@ -4909,7 +4909,7 @@ WOLFBERR,REAGAN,LZ_WEST,138.0,31.109451,-101.389278,0.618,site,NOT_MAPPED,,unmap
 WOLFCR,KERR,LZ_SOUTH,138.0,30.123348,-99.08809,0.618,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,0.0,0.0,33.0,88.0,34.0,10.0,4.0,203.13,284.3,False,0.0,,False,SAT,87.0,23.87,0.65,False,none
 WOLFLA,BASTROP,LZ_SOUTH,138.0,30.139461,-97.561401,0.777,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,6.0,3.0,1.0,13.0,23.0,96.0,67.0,10.0,4.0,258.31,179.5,False,0.0,,False,AUS,12.0,26.48,2.39,False,none
 WOLFRIDG,COOKE,LZ_NORTH,138.0,33.733006,-97.428406,0.385,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,18.0,36.0,69.0,139.0,58.0,3.0,58.56,505.0,False,0.0,,False,DFW,100.0,23.61,2.83,,not_assessed
-WOOD,LUBBOCK,LZ_WEST,69.0,33.462353,-101.78914,0.425,county,,,not_assessed,,,,very_low,county_site_max,,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,728.6,False,0.0,,False,MAF,173.0,28.09,6.91,,not_assessed
+WOOD,LUBBOCK,LZ_WEST,69.0,33.462353,-101.78914,0.425,county,,,not_assessed,,,,moderate,county_site_max,,,0.0,31.0,83.0,67.0,407.0,5.0,9.0,1897.04,728.6,False,0.0,,False,MAF,173.0,28.09,6.91,,not_assessed
 WOODBINE,,LZ_NORTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 WOODIE,TYLER,LZ_NORTH,138.0,30.774474,-94.43248,0.437,county,,,not_assessed,,,,,none,,,4.0,12.0,13.0,30.0,77.0,4.0,3.0,142.09,112.1,False,0.0,,False,IAH,125.0,9.3,0.39,,not_assessed
 WOODROW,DENTON,LZ_NORTH,138.0,33.1994,-97.109205,0.432,county,,,not_assessed,,,,high,county_site_max,,,1.0,29.0,53.0,133.0,317.0,64.0,4.0,988.72,437.9,False,0.0,,False,DFW,35.0,23.61,2.83,,not_assessed
@@ -4997,7 +4997,7 @@ X2,MEDINA,LZ_SOUTH,138.0,29.216661,-98.844745,0.962,site,X,AREA OF MINIMAL FLOOD
 X3,BEXAR,LZ_SOUTH,138.0,29.275808,-98.373979,0.817,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,2.0,3.0,1.0,28.0,29.0,414.0,180.0,21.0,4.0,1548.55,176.7,False,0.0,,False,SAT,32.0,23.87,0.65,False,none
 X4,BEXAR,LZ_SOUTH,138.0,29.435478,-98.618524,0.873,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,1.0,28.0,29.0,414.0,180.0,21.0,4.0,1548.55,206.5,False,0.0,,False,SAT,18.0,23.87,0.65,False,none
 X5,BEXAR,LZ_SOUTH,138.0,29.271435,-98.455665,0.861,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,moderate,site,3.0,3.0,1.0,28.0,29.0,414.0,180.0,21.0,4.0,1548.55,183.2,False,0.0,,False,SAT,30.0,23.87,0.65,False,none
-X6,ATASCOSA,LZ_SOUTH,138.0,28.695225,-98.540023,0.652,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,2.0,2.0,1.0,2.0,8.0,64.0,33.0,11.0,6.0,3.07,139.0,False,4.0,3.3,True,SAT,95.0,23.87,0.65,False,none
+X6,,LZ_SOUTH,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 XTOSAINT,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 XTPOI,,LZ_WEST,138.0,,,0.0,none,,,not_assessed,,,,,none,,,,,,,,,,,,,,,,,,,,,not_assessed
 Y1,BEXAR,LZ_SOUTH,138.0,29.463473,-98.416598,0.95,site,X,AREA OF MINIMAL FLOOD HAZARD,minimal,False,False,,low,site,6.0,2.0,1.0,28.0,29.0,414.0,180.0,21.0,4.0,1548.55,190.7,False,0.0,,False,SAT,11.0,23.87,0.65,False,none

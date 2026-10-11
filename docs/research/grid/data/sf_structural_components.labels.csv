@@ -1,0 +1,28 @@
+column,label,source,note
+pattern,DERIVED,NMF component of the sign-split basis matrix,0 to k-1
+retained,DERIVED,retained_patterns(),True if the pattern is in sf_structural.parquet
+cid,DERIVED,retained_patterns(),constraint id it is stored under; blank if not retained
+grade,DERIVED,grade_target(),"A, B, C, D (name not supported) or U (unnamed regional pattern); blank if not retained"
+claimants,DERIVED,TARGETS,targets whose evidence picked this pattern
+pole_station,DERIVED,largest |SF|,substation
+pole_county,DERIVED,data/substations.csv,
+pole_sf,DERIVED,pole-normalised regression SF,sign: + export side
+n_sf05,DERIVED,count,stations with |SF| >= 0.5
+n_export,DERIVED,count,stations with SF >= 0.3
+n_import,DERIVED,count,stations with SF <= -0.3
+export_share,DERIVED,share of |SF| >= 0.3 mass on the export side,0 to 1
+peak_usd,DERIVED,pole shadow price scale,"$/MWh, maximum over the 1,008 hours (the price at the pole station, not a published shadow price)"
+mean_usd,DERIVED,,"$/MWh mean over 1,008 hours"
+sum_usd_h,DERIVED,,$ x hours over the window: the pattern's window shadow-price-hours at the pole
+active_share,DERIVED,share of hours with pole shadow price >= $1,0 to 1
+active_jul,DERIVED,"same, July",
+active_aug,DERIVED,"same, 1-11 August",
+active_hours,DERIVED,hours,"of 1,008"
+peak_hour_cpt,DERIVED,hour-beginning CPT of the highest mean,0 to 23
+peak_hour_mean,DERIVED,,$/MWh
+hour_profile,DERIVED,mean pole shadow price by hour-beginning CPT 0..23,';'-separated
+regions,DERIVED,share of |SF| >= 0.3 mass by region tag,top three
+regional,DERIVED,n_sf05 >= 4 and peak >= $5,False = a local pocket on one to three stations
+best_published,REAL,NP4-191-CD constraint whose published Sep-Oct shadow price the pattern's recovered activity tracks best (deseasonalised r),among constraints binding at least 20 hours
+best_published_r,DERIVED,deseasonalised correlation,
+best_published_element,DERIVED,data/constraints.csv,its element name

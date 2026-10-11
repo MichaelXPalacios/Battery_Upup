@@ -1,6 +1,6 @@
 column,label,source,note
-rank,DERIVED,score order,1 = highest screening score; 0 for the control lanes
-role,DERIVED,this module,"candidate or control_zone (the 8 arena load zones, run as lanes next to the candidates)"
+rank,DERIVED,score order,1 = highest screening score; 0 for the control lanes; for regional and rev1_only rows the position inside the group
+role,DERIVED,this module,"candidate (the 40-site list), control_zone (the 8 arena load zones, run as lanes next to the candidates), regional (R1's picks outside the 40) or rev1_only (a revision-1 candidate the rule no longer selects); the last two are valued, never ranked with the 40"
 sub,REAL,NP4-160 SUBSTATION,"substation code, or the load zone name for a control lane"
 kv_max,REAL,NP4-160 / data/substations.csv,highest bus voltage
 county,DERIVED,data/substations.csv (agent 1c),placement of the substation

@@ -1,0 +1,14 @@
+column,label,source,note
+sub,REAL,ERCOT NP4-160 SUBSTATION / constraint station name,"key into substations.csv; one row per audited substation (NA is a real code, read with keep_default_na=False)"
+lat,DERIVED,OSM / EIA / HIFLD point chosen by the G1 audit,"WGS84; blank for unplace and demote rows. Coordinates of the OSM substation (or EIA plant, HIFLD line end) named in matched_name"
+lon,DERIVED,OSM / EIA / HIFLD point chosen by the G1 audit,WGS84; blank for unplace and demote rows
+county,DERIVED,Census TIGER cb_2023_us_county_500k,"county of (lat, lon) for place rows; the unchanged county for demote rows; blank for unplace rows"
+method,DERIVED,notes/phase7-geo.md,how the row was decided: alt_site | name_partner | family_block | graph_adjacent | tpit_name (place); unplace_partner | unplace_county (unplace); demote_partner | demote_county | demote_block (demote)
+evidence,DERIVED,TPIT / RTP / ERCOT queue / GP&L N-GRIP / OSM / HIFLD / PSS/E bus names,"the reason, with the project ids and distances behind it, and what the matcher had (was at ...)"
+conf,ASSUMPTION,notes/phase7-geo.md rubric,"final match_conf for place rows, cap for demote rows; blank for unplace. 0.85 name+operator+partner/graph; 0.75 name+operator+county; 0.65 partial name + partner; 0.55 one weak ingredient; 0.45 hint. Not a calibrated probability"
+replaces_method,DERIVED,data/substations.csv before G1,match_method the matcher had given (none = unplaced)
+action,DERIVED,notes/phase7-geo.md,"place = pin the site; unplace = remove the site (the neighbour fill-in may place it again); demote = keep the site, cap the confidence"
+osm_id,REAL,OpenStreetMap,"substation id (w=way, n=node, r=relation) pinned as the graph node; blank when none"
+matched_name,REAL,OpenStreetMap name | EIA plant name | G1 description,what the place row was matched to
+old_county,DERIVED,data/substations.csv before G1,county the matcher had given (blank if unplaced)
+old_conf,ASSUMPTION,data/substations.csv before G1,match_conf the matcher had given

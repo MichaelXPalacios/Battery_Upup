@@ -1,32 +1,32 @@
 check,scope,metric,value,n,note
-a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",corr_pooled,0.9943,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",corr_node_median,0.9569,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",mae_usd_mwh,1.8512,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",rmse_usd_mwh,4.39,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",bias_usd_mwh,0.8426,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",corr_pooled,0.9935,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",corr_node_median,0.9555,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",mae_usd_mwh,1.9623,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",rmse_usd_mwh,4.6761,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",bias_usd_mwh,0.8874,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",mae_if_basis_were_zero_usd_mwh,8.1991,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",total_actual_mean_usd_per_mw,-492.3923,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",total_rebuilt_mean_usd_per_mw,-343.8891,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",total_rebuilt_mean_usd_per_mw,-335.9809,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",total_abs_actual_mean_usd_per_mw,1049.8016,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,"3-10 Oct, all intervals | all replayed constraints",total_corr_across_nodes,0.9959,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",corr_pooled,0.9944,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",corr_node_median,0.9586,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",mae_usd_mwh,1.8065,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",rmse_usd_mwh,4.3549,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",bias_usd_mwh,0.895,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",corr_pooled,0.9936,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",corr_node_median,0.9567,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",mae_usd_mwh,1.9142,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",rmse_usd_mwh,4.642,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",bias_usd_mwh,0.9399,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",mae_if_basis_were_zero_usd_mwh,8.1991,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",total_actual_mean_usd_per_mw,-492.3923,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",total_rebuilt_mean_usd_per_mw,-334.6464,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",total_rebuilt_mean_usd_per_mw,-326.7339,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",total_abs_actual_mean_usd_per_mw,1049.8016,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,"3-10 Oct, all intervals | rt_reg constraints only",total_corr_across_nodes,0.9957,705 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,corr_pooled,0.9835,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,corr_node_median,0.8817,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,mae_usd_mwh,1.518,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,rmse_usd_mwh,4.5373,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,bias_usd_mwh,-0.055,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,corr_node_median,0.8774,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,mae_usd_mwh,1.5311,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,rmse_usd_mwh,4.542,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,bias_usd_mwh,-0.0551,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,mae_if_basis_were_zero_usd_mwh,3.7749,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,total_actual_mean_usd_per_mw,-43.4318,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,total_rebuilt_mean_usd_per_mw,-45.9462,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,total_rebuilt_mean_usd_per_mw,-45.9505,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,total_abs_actual_mean_usd_per_mw,154.3082,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | all replayed constraints,total_corr_across_nodes,0.9945,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | rt_reg constraints only,corr_pooled,0.9799,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
@@ -39,26 +39,26 @@ a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sampl
 a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | rt_reg constraints only,total_rebuilt_mean_usd_per_mw,-41.4716,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | rt_reg constraints only,total_abs_actual_mean_usd_per_mw,154.3082,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,3-5 Oct (before the 5 Oct start of the fit window: out of sample in time) | rt_reg constraints only,total_corr_across_nodes,0.994,183 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,corr_pooled,0.9957,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,corr_node_median,0.9522,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,mae_usd_mwh,2.2581,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,rmse_usd_mwh,4.724,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,bias_usd_mwh,1.3581,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,corr_pooled,0.9948,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,corr_node_median,0.9473,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,mae_usd_mwh,2.4347,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,rmse_usd_mwh,5.1527,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,bias_usd_mwh,1.4317,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,mae_if_basis_were_zero_usd_mwh,10.6384,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,total_actual_mean_usd_per_mw,-429.2242,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,total_rebuilt_mean_usd_per_mw,-283.2246,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,total_rebuilt_mean_usd_per_mw,-275.3121,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,total_abs_actual_mean_usd_per_mw,849.8521,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,total_corr_across_nodes,0.9968,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,corr_pooled,0.9961,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,corr_node_median,0.9545,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,mae_usd_mwh,2.2354,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,rmse_usd_mwh,4.5008,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,bias_usd_mwh,1.4008,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | all replayed constraints,total_corr_across_nodes,0.9967,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,corr_pooled,0.9953,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,corr_node_median,0.9513,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,mae_usd_mwh,2.412,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,rmse_usd_mwh,4.9489,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,bias_usd_mwh,1.4744,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,mae_if_basis_were_zero_usd_mwh,10.6384,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,total_actual_mean_usd_per_mw,-429.2242,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,total_rebuilt_mean_usd_per_mw,-278.6414,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,total_rebuilt_mean_usd_per_mw,-270.729,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,total_abs_actual_mean_usd_per_mw,849.8521,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,total_corr_across_nodes,0.9968,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
+a_window_rebuild,5 Oct - 9 Oct noon (inside the fit window) | rt_reg constraints only,total_corr_across_nodes,0.9967,430 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,last 24 h of the RT fit (phase 2 holdout) | all replayed constraints,corr_pooled,0.9939,96 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,last 24 h of the RT fit (phase 2 holdout) | all replayed constraints,corr_node_median,0.981,96 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,last 24 h of the RT fit (phase 2 holdout) | all replayed constraints,mae_usd_mwh,0.5995,96 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
@@ -79,111 +79,108 @@ a_window_rebuild,last 24 h of the RT fit (phase 2 holdout) | rt_reg constraints 
 a_window_rebuild,last 24 h of the RT fit (phase 2 holdout) | rt_reg constraints only,total_rebuilt_mean_usd_per_mw,-14.8848,96 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,last 24 h of the RT fit (phase 2 holdout) | rt_reg constraints only,total_abs_actual_mean_usd_per_mw,104.338,96 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
 a_window_rebuild,last 24 h of the RT fit (phase 2 holdout) | rt_reg constraints only,total_corr_across_nodes,0.999,96 intervals x 1043 nodes,resource nodes; node basis = node SPP - zone SPP; rebuilt with the actual shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",corr_pooled,0.9692,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",corr_node_median,0.9733,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",mae_usd_mwh,1.14,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",rmse_usd_mwh,2.8309,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",bias_usd_mwh,0.2331,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",corr_pooled,0.9648,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",corr_node_median,0.97,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",mae_usd_mwh,1.2883,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",rmse_usd_mwh,3.0255,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",bias_usd_mwh,0.2924,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",mae_if_basis_were_zero_usd_mwh,4.6315,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",total_actual_mean_usd_per_mw,-316.9234,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",total_rebuilt_mean_usd_per_mw,-273.5648,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",total_rebuilt_mean_usd_per_mw,-262.5404,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",total_abs_actual_mean_usd_per_mw,639.3235,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",total_corr_across_nodes,0.9786,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",corr_pooled,0.843,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",corr_node_median,0.8203,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",mae_usd_mwh,2.4655,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",rmse_usd_mwh,6.1895,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",bias_usd_mwh,0.8138,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | all replayed constraints",total_corr_across_nodes,0.9762,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",corr_pooled,0.8385,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",corr_node_median,0.8153,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",mae_usd_mwh,2.5416,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",rmse_usd_mwh,6.2672,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",bias_usd_mwh,0.8202,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",mae_if_basis_were_zero_usd_mwh,4.6315,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",total_actual_mean_usd_per_mw,-316.9234,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",total_rebuilt_mean_usd_per_mw,-165.5481,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",total_rebuilt_mean_usd_per_mw,-164.3696,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",total_abs_actual_mean_usd_per_mw,639.3235,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",total_corr_across_nodes,0.7932,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",corr_pooled,0.5289,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",corr_node_median,0.5851,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",mae_usd_mwh,3.2463,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",rmse_usd_mwh,9.7418,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",bias_usd_mwh,1.1232,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | day-ahead-fitted constraints only",total_corr_across_nodes,0.7877,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",corr_pooled,0.5234,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",corr_node_median,0.5299,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",mae_usd_mwh,3.3504,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",rmse_usd_mwh,9.7887,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",bias_usd_mwh,1.1761,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",mae_if_basis_were_zero_usd_mwh,4.6315,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",total_actual_mean_usd_per_mw,-316.9234,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",total_rebuilt_mean_usd_per_mw,-108.0167,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",total_rebuilt_mean_usd_per_mw,-98.1708,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",total_abs_actual_mean_usd_per_mw,639.3235,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",total_corr_across_nodes,0.715,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,corr_pooled,0.955,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,corr_node_median,0.9626,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,mae_usd_mwh,1.4891,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,rmse_usd_mwh,3.6704,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,bias_usd_mwh,0.3808,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,"10 Sep - 10 Oct, all hours | rt_reg constraints only (cross-market)",total_corr_across_nodes,0.7124,744 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,corr_pooled,0.9509,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,corr_node_median,0.9555,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,mae_usd_mwh,1.6607,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,rmse_usd_mwh,3.8262,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,bias_usd_mwh,0.4593,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,mae_if_basis_were_zero_usd_mwh,6.1407,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,total_actual_mean_usd_per_mw,-73.4635,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,total_rebuilt_mean_usd_per_mw,-62.0388,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,total_rebuilt_mean_usd_per_mw,-59.6844,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,total_abs_actual_mean_usd_per_mw,147.4234,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,total_corr_across_nodes,0.9882,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,corr_pooled,0.6245,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,corr_node_median,0.7198,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,mae_usd_mwh,4.5321,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,rmse_usd_mwh,9.8287,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,bias_usd_mwh,1.5862,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | all replayed constraints,total_corr_across_nodes,0.9865,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,corr_pooled,0.623,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,corr_node_median,0.6706,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,mae_usd_mwh,4.538,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,rmse_usd_mwh,9.8273,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,bias_usd_mwh,1.5552,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,mae_if_basis_were_zero_usd_mwh,6.1407,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,total_actual_mean_usd_per_mw,-73.4635,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,total_rebuilt_mean_usd_per_mw,-25.8767,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,total_rebuilt_mean_usd_per_mw,-26.8062,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,total_abs_actual_mean_usd_per_mw,147.4234,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,total_corr_across_nodes,0.6717,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),corr_pooled,0.8122,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),corr_node_median,0.7963,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),mae_usd_mwh,2.8721,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),rmse_usd_mwh,7.2721,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),bias_usd_mwh,1.2434,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | day-ahead-fitted constraints only,total_corr_across_nodes,0.6814,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),corr_pooled,0.8034,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),corr_node_median,0.7791,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),mae_usd_mwh,3.0903,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),rmse_usd_mwh,7.4428,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),bias_usd_mwh,1.3528,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),mae_if_basis_were_zero_usd_mwh,6.1407,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),total_actual_mean_usd_per_mw,-73.4635,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),total_rebuilt_mean_usd_per_mw,-36.1621,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),total_rebuilt_mean_usd_per_mw,-32.8782,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),total_abs_actual_mean_usd_per_mw,147.4234,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
-a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),total_corr_across_nodes,0.9125,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
+a2_dam_rebuild,last 5 DAM days (phase 2 holdout) | rt_reg constraints only (cross-market),total_corr_across_nodes,0.9021,120 hours x 1036 nodes,resource nodes; hourly day-ahead SPP basis vs the rebuild with the actual day-ahead shadow prices
 d_scale,resource nodes,"mean |node - zone|, actual, RT window 3-10 Oct ($/MWh)",8.199,1043,an outage-heavy shoulder week
-d_scale,resource nodes,"mean |node - zone|, rebuilt with the actual mu, same window ($/MWh)",8.779,1043,
-d_scale,resource nodes,"mean |node - zone|, synthetic 2025 replay ($/MWh)",2.729,1043,annual mean of the SIM structure
+d_scale,resource nodes,"mean |node - zone|, rebuilt with the actual mu, same window ($/MWh)",8.673,1043,
+d_scale,resource nodes,"mean |node - zone|, synthetic 2025 replay ($/MWh)",3.585,1043,annual mean of the SIM structure
 d_scale,resource nodes,median over nodes of mean |node - zone|: actual window,5.683,1043,
-d_scale,resource nodes,median over nodes of mean |node - zone|: synthetic 2025,2.142,1043,
+d_scale,resource nodes,median over nodes of mean |node - zone|: synthetic 2025,2.755,1043,
 d_scale,resource nodes,90th percentile over nodes of mean |node - zone|: actual window,15.989,1043,
-d_scale,resource nodes,90th percentile over nodes of mean |node - zone|: synthetic 2025,5.371,1043,
-b_mu_tilde,year 2019,constraints replayed,260.0,260,
-b_mu_tilde,year 2019,max |annual shadow-price-hours / target - 1|,2.22e-16,260,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
-b_mu_tilde,year 2019,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,260,
-b_mu_tilde,year 2019,mean share of binding intervals sitting at the shadow-price cap,0.0026,260,
-b_mu_tilde,year 2020,constraints replayed,260.0,260,
-b_mu_tilde,year 2020,max |annual shadow-price-hours / target - 1|,2.22e-16,260,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
-b_mu_tilde,year 2020,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,260,
-b_mu_tilde,year 2020,mean share of binding intervals sitting at the shadow-price cap,0.0033,260,
-b_mu_tilde,year 2021,constraints replayed,260.0,260,
-b_mu_tilde,year 2021,max |annual shadow-price-hours / target - 1|,4.44e-16,260,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
-b_mu_tilde,year 2021,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,260,
-b_mu_tilde,year 2021,mean share of binding intervals sitting at the shadow-price cap,0.0024,260,
-b_mu_tilde,year 2022,constraints replayed,260.0,260,
-b_mu_tilde,year 2022,max |annual shadow-price-hours / target - 1|,2.22e-16,260,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
-b_mu_tilde,year 2022,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,260,
-b_mu_tilde,year 2022,mean share of binding intervals sitting at the shadow-price cap,0.0027,260,
-b_mu_tilde,year 2023,constraints replayed,260.0,260,
-b_mu_tilde,year 2023,max |annual shadow-price-hours / target - 1|,4.44e-16,260,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
-b_mu_tilde,year 2023,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,260,
-b_mu_tilde,year 2023,mean share of binding intervals sitting at the shadow-price cap,0.0022,260,
-b_mu_tilde,year 2024,constraints replayed,260.0,260,
-b_mu_tilde,year 2024,max |annual shadow-price-hours / target - 1|,3.33e-16,260,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
-b_mu_tilde,year 2024,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,260,
-b_mu_tilde,year 2024,mean share of binding intervals sitting at the shadow-price cap,0.0018,260,
-b_mu_tilde,year 2025,constraints replayed,260.0,260,
-b_mu_tilde,year 2025,max |annual shadow-price-hours / target - 1|,2.22e-16,260,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
-b_mu_tilde,year 2025,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,260,
-b_mu_tilde,year 2025,mean share of binding intervals sitting at the shadow-price cap,0.003,260,
-b_mu_tilde,year 2026,constraints replayed,260.0,260,
-b_mu_tilde,year 2026,max |annual shadow-price-hours / target - 1|,2.22e-16,260,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
-b_mu_tilde,year 2026,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,260,
-b_mu_tilde,year 2026,mean share of binding intervals sitting at the shadow-price cap,0.0024,260,
-b_mu_tilde,2025,max |binding 15-min intervals / (4 H_k) - 1|,0.0039,260,rounding of 4 H_k to whole intervals
+d_scale,resource nodes,90th percentile over nodes of mean |node - zone|: synthetic 2025,7.542,1043,
+b_mu_tilde,year 2019,constraints replayed,263.0,263,
+b_mu_tilde,year 2019,max |annual shadow-price-hours / target - 1|,2.22e-16,263,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
+b_mu_tilde,year 2019,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,263,
+b_mu_tilde,year 2019,mean share of binding intervals sitting at the shadow-price cap,0.0025,263,
+b_mu_tilde,year 2020,constraints replayed,263.0,263,
+b_mu_tilde,year 2020,max |annual shadow-price-hours / target - 1|,2.22e-16,263,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
+b_mu_tilde,year 2020,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,263,
+b_mu_tilde,year 2020,mean share of binding intervals sitting at the shadow-price cap,0.0033,263,
+b_mu_tilde,year 2021,constraints replayed,263.0,263,
+b_mu_tilde,year 2021,max |annual shadow-price-hours / target - 1|,4.44e-16,263,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
+b_mu_tilde,year 2021,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,263,
+b_mu_tilde,year 2021,mean share of binding intervals sitting at the shadow-price cap,0.0024,263,
+b_mu_tilde,year 2022,constraints replayed,263.0,263,
+b_mu_tilde,year 2022,max |annual shadow-price-hours / target - 1|,2.22e-16,263,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
+b_mu_tilde,year 2022,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,263,
+b_mu_tilde,year 2022,mean share of binding intervals sitting at the shadow-price cap,0.0027,263,
+b_mu_tilde,year 2023,constraints replayed,263.0,263,
+b_mu_tilde,year 2023,max |annual shadow-price-hours / target - 1|,4.44e-16,263,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
+b_mu_tilde,year 2023,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,263,
+b_mu_tilde,year 2023,mean share of binding intervals sitting at the shadow-price cap,0.0021,263,
+b_mu_tilde,year 2024,constraints replayed,263.0,263,
+b_mu_tilde,year 2024,max |annual shadow-price-hours / target - 1|,3.33e-16,263,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
+b_mu_tilde,year 2024,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,263,
+b_mu_tilde,year 2024,mean share of binding intervals sitting at the shadow-price cap,0.0018,263,
+b_mu_tilde,year 2025,constraints replayed,263.0,263,
+b_mu_tilde,year 2025,max |annual shadow-price-hours / target - 1|,2.22e-16,263,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
+b_mu_tilde,year 2025,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,263,
+b_mu_tilde,year 2025,mean share of binding intervals sitting at the shadow-price cap,0.003,263,
+b_mu_tilde,year 2026,constraints replayed,263.0,263,
+b_mu_tilde,year 2026,max |annual shadow-price-hours / target - 1|,2.22e-16,263,"target = IMM 2025 rent / limit, or the persistence-discounted window figure (x year fraction in 2026)"
+b_mu_tilde,year 2026,share of constraint-years that fall short of the target (shadow-price cap binds),0.0,263,
+b_mu_tilde,year 2026,mean share of binding intervals sitting at the shadow-price cap,0.0024,263,
+b_mu_tilde,2025,max |binding 15-min intervals / (4 H_k) - 1|,0.0039,263,rounding of 4 H_k to whole intervals
 b_mu_tilde,IMM-anchored element 6437__F|DMTSCOS5,"2025 realised rent, $M (shadow-price-hours x median limit)",68.14,1,IMM 2025 rent allocated to this cid: 68.14 $M; H_k 1099 h
 b_mu_tilde,IMM-anchored element HARGRO_TWINBU1_1|DBAKCED5,"2025 realised rent, $M (shadow-price-hours x median limit)",110.833,1,IMM 2025 rent allocated to this cid: 110.833 $M; H_k 945 h
-b_mu_tilde,IMM-anchored element STPWAP39_1|DWPWFWP5,"2025 realised rent, $M (shadow-price-hours x median limit)",17.667,1,IMM 2025 rent allocated to this cid: 17.6669 $M; H_k 150 h
-b_mu_tilde,IMM-anchored element 587__A|XW_2D58,"2025 realised rent, $M (shadow-price-hours x median limit)",50.83,1,IMM 2025 rent allocated to this cid: 50.83 $M; H_k 431 h
-b_mu_tilde,IMM-anchored element STPWAP39_1|DBLBYWF5,"2025 realised rent, $M (shadow-price-hours x median limit)",34.003,1,IMM 2025 rent allocated to this cid: 34.0031 $M; H_k 288 h
 b_mu_tilde,IMM-anchored element HARGRO_TWINBU1_1|SRUSBIG8,"2025 realised rent, $M (shadow-price-hours x median limit)",26.159,1,IMM 2025 rent allocated to this cid: 26.1594 $M; H_k 945 h
 c_controls,8 zone lanes,max |lane price - arena Market price| ($/MWh),0.0,2826,0 = bit-identical: the control lanes ARE the arena's zone prices
 c_controls,HB_BUSAVG,reference series identical to the arena's (1 = yes),1.0,2826,
@@ -195,7 +192,7 @@ e_zone_sf,dam_reg,zone regression R2 (in sample): minimum,0.9812,477,8 load zone
 e_zone_sf,dam_reg,zone regression R2 (in sample): median,0.9934,477,
 e_zone_sf,dam_reg,share of cid-zones using the direct regression (else the bus mean),1.0,3816,bus mean is used when the zone R2 is below 0.5
 e_zone_sf,dam_reg,correlation of direct SF_zone with the unweighted bus mean in the zone,0.946,3816,the bus mean is unweighted; the zone price is load-weighted
-f_driver,replayed constraints,driver fitted on the RT window,43.0,260,
-f_driver,replayed constraints,driver fitted on the DAM window,97.0,260,
-f_driver,replayed constraints,named geographic mapping (no usable fit),120.0,260,
-f_driver,fitted drivers,median signed correlation with the observed shadow price,0.371,140,
+f_driver,replayed constraints,driver fitted on the RT window,43.0,263,
+f_driver,replayed constraints,driver fitted on the DAM window,95.0,263,
+f_driver,replayed constraints,named geographic mapping (no usable fit),119.0,263,
+f_driver,fitted drivers,median signed correlation with the observed shadow price,0.373,144,

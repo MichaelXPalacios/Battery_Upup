@@ -46,16 +46,16 @@ FTCHADBT,FT_CHADB,prefix,0.517,,,,FTCHADBT starts with code FT_CHADB; 1 hop(s) f
 FVLSW,FVLSW,graph_neighbor,0.4,w1102655087,31.751271,-96.88929,only unclaimed 345 kV graph neighbour of partner(s) SAMSW
 GANSO,,graph_neighbor,0.4,w1330058936,28.837971,-100.548953,only unclaimed 138 kV graph neighbour of partner(s) ESCONDID
 GARNET,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
-GATEETP,,none,0.0,,,,"best GS 0.24: same OSM substation w910465306 (Gable Street Substation), name sim 0.55; far from partner UNIVERSI"
+GATEETP,GATE_WAY,osm_shared,0.69,,,,"same OSM substation w451971586 (Gateway Substation), name sim 0.89; 1 hop(s) from partner UNIVERSI"
 GIRA_TAP,GIRARD,osm_shared,0.69,,,,"same OSM substation w519686405 (Girard Substation), name sim 0.80; 1 hop(s) from partner SPUR"
 GLO,GLO,graph_neighbor,0.4,w522623912,28.985058,-95.358243,only unclaimed 138 kV graph neighbour of partner(s) VL
 GRDSW,GRDSW,graph_neighbor,0.4,w647578148,31.835486,-94.902849,only unclaimed 138 kV graph neighbour of partner(s) NACPW
 HAN1,HAN1,graph_neighbor,0.4,w1458638587,32.072203,-96.223533,"only unclaimed 138 kV graph neighbour of partner(s) HUBRD,REVSW"
-HIGH36,HIGHLAND,osm_shared,0.6,,,,"same OSM substation w341316597 (Highland Substation), name sim 0.67"
-HORIZON,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+HIGH36,,none,0.0,,,,best HIGH32 0.24: PSS/E bus-name stem HIGH; far from partner BRENNO
+HORIZON,,graph_neighbor,0.4,w1330014527,28.729866,-98.784024,only unclaimed 138 kV graph neighbour of partner(s) HRZN_SLR
 HTYTP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
-HUMBLTAP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
-HWRDTP,,none,0.0,,,,best HOWRD 0.08: fuzzy HWRD~HOWRD; far from partner WELLBR
+HUMBLTAP,,graph_neighbor,0.4,w507399238,31.758286,-99.547461,"only unclaimed 69 kV graph neighbour of partner(s) BALLINGE,NOVICTAP"
+HWRDTP,HWRDLN,osm_shared,0.69,,,,"same OSM substation w339125119 (Howard Lane Substation), name sim 0.80; 1 hop(s) from partner WELLBR"
 JACKSNTP,JACKSONS,fuzzy,0.4,,,,fuzzy JACKSN~JACKSONS
 KERRST,KERRST,graph_neighbor,0.4,w146741281,29.977998,-98.903202,only unclaimed 138 kV graph neighbour of partner(s) KENDAL
 KEYSB,KEYSB,graph_neighbor,0.4,w458726882,32.692502,-101.789336,only unclaimed 138 kV graph neighbour of partner(s) MPPOI
@@ -78,10 +78,10 @@ MNSES,MNSES,graph_neighbor,0.4,w595997267,33.102482,-95.051598,only unclaimed 34
 MRVLY,MRVLY,graph_neighbor,0.4,w463732829,35.217111,-101.838676,only unclaimed 69 kV graph neighbour of partner(s) ESTLD
 MV_HBRG4,MV_HBRG4,graph_neighbor,0.4,w1236079107,26.140436,-97.972076,only unclaimed 138 kV graph neighbour of partner(s) MV_WESL4
 NCSTP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
-NOVICTAP,,none,0.0,,,,"best NOVICE 0.31: code NOVICE starts with NOVIC; same OSM substation w507399223 (Novice Substation), name sim 0.91; far from partner HUMBLTAP"
-OLNEY,,none,0.0,,,,"best OLN 0.34: PSS/E bus-name stem OLNEY; same OSM substation w1473493000 (Olney), name sim 1.00; far from partner GRAHM"
+NOVICTAP,NOVICE,osm_shared+prefix,0.78,,,,"code NOVICE starts with NOVIC; same OSM substation w507399223 (Novice Substation), name sim 0.91"
+OLNEY,OLN,osm_shared+psse_name,0.95,,,,"PSS/E bus-name stem OLNEY; same OSM substation w1473493000 (Olney), name sim 1.00; 3 hop(s) from partner GRAHM"
 OWLS,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
-PADR,,none,0.0,,,,best PADRA 0.20: fuzzy PADR~PADRA
+PADR,PADC,osm_shared,0.69,,,,"same OSM substation w516679303 (Paducah City Substation), name sim 0.75; 2 hop(s) from partner MATADOR"
 PANCAKE,PCAKETNP,osm_shared,0.69,,,,"same OSM substation w508017130 (Pancake Substation), name sim 0.88; 0 hop(s) from partner PCAKETNP"
 PANTERA,PANTERA,graph_neighbor,0.4,w1312881406,26.108904,-97.824408,only unclaimed 138 kV graph neighbour of partner(s) WESMER
 PERSHING,,graph_neighbor,0.4,w171818899,32.300545,-99.974072,only unclaimed 138 kV graph neighbour of partner(s) OAKC
@@ -105,7 +105,7 @@ SAST,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
 SILT,,none,0.0,,,,best SFILT 0.20: fuzzy SILT~SFILT
 SMRTP,SMR,stem_short,0.46,,,,short stem SMR = code; 0 hop(s) from partner SMR
 SOLANUM,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
-STCO,STERLING,psse_name,0.6,,,,PSS/E bus-name stem STCO
+STCO,STERLING,psse_name,0.69,,,,PSS/E bus-name stem STCO; 0 hop(s) from partner STER
 STL,STL,graph_neighbor,0.4,w1299899531,30.054433,-95.73037,only unclaimed 138 kV graph neighbour of partner(s) TB
 TENNYSON,,graph_neighbor,0.4,w142658721,32.193555,-100.028204,only unclaimed 138 kV graph neighbour of partner(s) NICOLE
 THSTP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
@@ -114,7 +114,7 @@ TOMBSTNE,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
 TVWSW,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
 TYLSW,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
 V4_TAP,V4,stem_short,0.46,,,,short stem V4 = code; 1 hop(s) from partner LEON_CRK
-VRBS,VERS,osm_shared,0.6,,,,"same OSM substation w348493190 (Veribest Substation), name sim 0.75"
+VRBS,,none,0.0,,,,"best VERIBST 0.30: same OSM substation w348493190 (Veribest Substation), name sim 0.89"
 WBJDN,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
 WCRYSTS,WCRYSTS,graph_neighbor,0.4,w452115717,28.66504,-99.955587,only unclaimed 69 kV graph neighbour of partner(s) CARIZOS
 WEISS,,none,0.0,,,,best WEI 0.16: short stem WEI = code; far from partner REDCREEK

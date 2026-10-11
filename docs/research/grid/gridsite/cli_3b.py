@@ -47,7 +47,8 @@ def cmd_candidates(*args):
     cols = ["rank", "sub", "kv_max", "arena_zone", "county", "score_usd_mw_yr", "dominant_element", "dominant_side", "dominant_sf", "dominant_hops"]
     pd.set_option("display.width", 250)
     print(cand[cols].round(3).to_string(index=False))
-    print(f"{len(cand)} candidates + {int((c['role'] == 'control_zone').sum())} controls -> {S.CANDIDATES_CSV.name} ({time.time() - t0:.0f}s)")
+    extra = {r: int((c["role"] == r).sum()) for r in S.EXTRA_ROLES}
+    print(f"{len(cand)} candidates + {int((c['role'] == 'control_zone').sum())} controls + extra groups {extra} -> {S.CANDIDATES_CSV.name} ({time.time() - t0:.0f}s)")
 
 
 def cmd_lanes(*args):
@@ -62,6 +63,10 @@ def cmd_lanes(*args):
     S.select_candidates(refresh="refresh" in fl)
     z = S.ensure_lanes(refresh="refresh" in fl)
     print(f"lanes: {len(z['lanes'])} x {len(z['dates'])} days -> derived/nodal_lanes_{S.LANE_TAG}.npz ({time.time() - t0:.0f}s)")
+    from . import rev2
+
+    info = rev2.write_tables()                       # R2: data/constraint_structure_rev2.csv and data/anchor_2026_applied.csv for the configuration in force
+    print(f"revision-2 structure {rev2.config()}: {info}")
     if "skip-validation" not in fl:
         v = L.validation_table(struct, Mu, st)
         v.to_csv(S.VALIDATION_CSV, index=False)
@@ -80,11 +85,12 @@ def cmd_dispatch(*args):
     t0 = time.time()
     z = S.ensure_lanes()
     ctrl = list(S.L.ZONES)
-    cand = S.candidate_subs()
+    cand = S.lane_subs()                              # R2: the 40, the regional picks and the revision-1 sites that left the list
     if spec in ("grid", "all"):
         lanes = ctrl + cand
         if "skip-dispatch" not in fl:
-            res = S.run_dispatch(S.SPEC_2H, lanes, S.SIM_START, workers=workers, z=z)
+            chunk = int(kv.get("chunk", min(32, -(-len(lanes) // max(workers, 1)))))   # one chunk per worker: the cost of a task is nearly flat in its lanes (notes/phase3a.md section 5)
+            res = S.run_dispatch(S.SPEC_2H, lanes, S.SIM_START, workers=workers, z=z, chunk=chunk)
             print(f"2 h dispatch: {len(lanes)} lanes, wall {time.time() - t0:.0f}s")
         if "skip-oracle" not in fl:
             S.run_oracle(S.SPEC_2H, lanes, S.SIM_START, workers=workers, z=z)
@@ -93,7 +99,7 @@ def cmd_dispatch(*args):
         top = S.top_candidates_2h()
         lanes4 = ctrl + top
         if "skip-dispatch" not in fl:
-            S.run_dispatch(S.SPEC_4H, lanes4, S.SIM_START_4H, workers=workers, z=z)
+            S.run_dispatch(S.SPEC_4H, lanes4, S.SIM_START_4H, workers=workers, z=z, chunk=-(-len(lanes4) // max(workers, 1)))
             print(f"4 h dispatch: {len(lanes4)} lanes ({time.time() - t0:.0f}s)")
         if "skip-oracle" not in fl:
             S.run_oracle(S.SPEC_4H, lanes4, S.SIM_START_4H, workers=workers, z=z)
@@ -122,6 +128,8 @@ def cmd_sites(*args):
     from . import sites as S
 
     S.write_sites()
+    ex = S.write_sites(roles=S.EXTRA_ROLES)                   # R2: data/extra_sites.csv
+    print(f"extra_sites: {len(ex)} rows ({ex['role'].value_counts().to_dict()}) -> {S.EXTRA_SITES_CSV.name}")
     S.print_report()
 
 

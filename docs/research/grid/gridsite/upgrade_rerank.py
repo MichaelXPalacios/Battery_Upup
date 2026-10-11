@@ -68,7 +68,12 @@ def planned_bundle(last_year: int | None = PLANNED_LAST_YEAR) -> tuple[dict, pd.
     if last_year is not None:
         keep &= sched["isd"] <= pd.Timestamp(f"{last_year}-12-31")
     rows = sched[keep].sort_values(["isd", "cid"]).reset_index(drop=True)
-    return U.apply_upgrade(list(rows["cid"]), expand_element=False), rows
+    from . import rev2
+
+    own = rows[rows["cid"] == rev2.VALEXP_CID]                         # R2: the Valley export pattern is not a Phase 2 constraint, so Phase 4's apply_upgrade does not know it: its residual comes from the schedule
+    ms = U.apply_upgrade(list(rows.loc[rows["cid"] != rev2.VALEXP_CID, "cid"]), expand_element=False)
+    ms.update({r.cid: float(r.residual) for r in own.itertuples()})
+    return ms, rows
 
 
 def scenario_list() -> list[dict]:
@@ -167,7 +172,7 @@ def _spearman(a: pd.Series, b: pd.Series) -> float:
 
 
 def portfolio_groups_table() -> pd.DataFrame:
-    """The groups of the 200 MW portfolio (phase 3b caps): sub, dominant element, the group's cap in MW (whole 10 MW units of PRICE_TAKER_SHARE x limit)."""
+    """The groups of the nodal portfolio (phase 3b caps; 200 MW in revision 1, 220 MW in revision 2): sub, dominant element, the group's cap in MW (whole 10 MW units of PRICE_TAKER_SHARE x limit)."""
     cand = S.select_candidates()
     cand = cand[cand["role"] == "candidate"].sort_values("rank").reset_index(drop=True)
     g = S.portfolio_groups(cand)
@@ -355,7 +360,7 @@ LABELS = [
     ("scn_sum40_before_usd_kw_yr", "SIM", "this module", "sum over the 40 candidates of the learner value (1 kW at each site), $/kW-yr"),
     ("scn_sum40_after_usd_kw_yr", "SIM", "this module", ""),
     ("scn_sum40_change_pct", "SIM", "this module", "percent change of that sum"),
-    ("scn_portfolio200_before_musd_yr", "SIM", "this module", "the 200 MW the price-taker caps allow at the nodes (each constraint group's cap at its best node), $M a year at 2025 replay values"),
+    ("scn_portfolio200_before_musd_yr", "SIM", "this module", "the MW the price-taker caps allow at the nodes (each constraint group's cap at its best node; 200 MW in revision 1, 220 MW in revision 2, the column names keep the old figure), $M a year at 2025 replay values"),
     ("scn_portfolio200_static_after_musd_yr", "SIM", "this module", "the same MW at the same nodes, valued after the upgrade (the owner cannot move)"),
     ("scn_portfolio200_reopt_after_musd_yr", "SIM", "this module", "the best placement after the upgrade (the owner re-sites)"),
     ("scn_portfolio200_static_change_pct", "SIM", "this module", ""),
@@ -374,6 +379,64 @@ def write(df: pd.DataFrame) -> None:
     S.write_labels(OUT_CSV, LABELS, out)
 
 
+EXTRA_CSV = REPO_DATA / "upgrade_rerank_extra.csv"
+EXTRA_LABELS = [
+    ("scenario", "DERIVED", "data/upgrade_rerank.csv", "the same 12 scenarios as the 40-site rerank (U01..U10, PLANNED_2031, PLANNED_ALL)"),
+    ("role", "DERIVED", "data/site_candidates.csv", "regional (R1's picks) or rev1_only (revision-1 sites that left the 40)"),
+    ("sub", "REAL", "NP4-160 SUBSTATION", ""),
+    ("region", "DERIVED", "data/regional_candidates.csv (R1)", "blank for rev1_only"),
+    ("region_side", "DERIVED", "data/regional_candidates.csv (R1)", ""),
+    ("scenario_effect", "DERIVED", "this module", "evaluated = at least one constraint of the scenario is in the replayed structure"),
+    ("affected", "DERIVED", "this module", "the site has a non-zero shift-factor difference to a constraint the scenario scales; the others cannot move (their value is the baseline, delta exactly 0)"),
+    ("value_before_usd_kw_yr", "SIM", "gridsite.sites.value_sites", "2 h learner, oracle on the rebuilt 2025 lane x the lane's own learner/oracle ratio"),
+    ("value_after_usd_kw_yr", "SIM", "gridsite.sites.value_sites with mu_scale", "same, after the upgrade"),
+    ("delta_usd_kw_yr", "SIM", "after - before", "negative = the site loses"),
+    ("zone_control_usd_kw_yr", "SIM", "gridsite.sites.value_sites", "the same battery on the real zone price"),
+    ("uplift_before_usd_kw_yr", "SIM", "value - zone control", ""),
+    ("uplift_after_usd_kw_yr", "SIM", "value - zone control", ""),
+    ("value_effect", "DERIVED", "delta against MATERIAL_USD_KW_YR (1.0)", "loses / gains / unchanged"),
+]
+
+
+def build_extra(workers: int = WORKERS_DEFAULT, verbose: bool = True) -> pd.DataFrame:
+    """R2: the same upgrades applied to the regional and rev1_only lanes (data/upgrade_rerank_extra.csv). Only lanes with a non-zero shift-factor difference to a scaled
+    constraint are valued again; the others are exactly unchanged (their prices do not contain the constraint)."""
+    from . import nodal_lanes as L
+
+    scen = scenario_list()
+    lanes = S.extra_subs()
+    cand = S.select_candidates().set_index("sub")
+    reg = pd.read_csv(REPO_DATA / S.REGIONAL_CSV, keep_default_na=False, na_values=[""]).drop_duplicates("sub").set_index("sub")
+    struct, _, _ = L.mu_tilde()
+    M = L.sub_sf_matrix(lanes, struct)
+    base = S.value_sites(lanes, spec=SPEC, years=(YEAR,), baseline="none", workers=workers).set_index("lane")
+    rows = []
+    for sc in scen:
+        user, ign = S._user_scale(sc["mu_scale"], struct)
+        scaled = np.where(np.abs(user - 1.0) > 1e-12)[0]
+        hit = (np.abs(M["DSF"][:, scaled]) > 1e-9).any(1) if len(scaled) else np.zeros(len(lanes), bool)
+        aff = [x for x, h in zip(lanes, hit) if h]
+        t1 = time.time()
+        after = S.value_sites(aff, mu_scale=sc["mu_scale"], spec=SPEC, years=(YEAR,), baseline="none", workers=workers).set_index("lane") if aff else pd.DataFrame()
+        if verbose:
+            print(f"{sc['scenario']:12s} scaled cids {len(scaled):3d}  lanes affected {len(aff):2d} of {len(lanes)}  {time.time() - t1:.0f}s", flush=True)
+        for x, h in zip(lanes, hit):
+            v0 = float(base.at[x, "learner_usd_kw_yr"])
+            v1 = float(after.at[x, "learner_usd_kw_yr"]) if h else v0
+            z = float(base.at[x, "zone_learner_usd_kw_yr"])
+            rows.append(dict(scenario=sc["scenario"], role=cand.at[x, "role"], sub=x, region=reg["region"].get(x, ""), region_side=reg["side"].get(x, ""),
+                             scenario_effect="evaluated" if len(scaled) > 0 else "not_replayed",
+                             affected=bool(h), value_before_usd_kw_yr=v0, value_after_usd_kw_yr=v1, delta_usd_kw_yr=v1 - v0, zone_control_usd_kw_yr=z,
+                             uplift_before_usd_kw_yr=v0 - z, uplift_after_usd_kw_yr=v1 - z,
+                             value_effect="loses" if v1 - v0 < -MATERIAL_USD_KW_YR else "gains" if v1 - v0 > MATERIAL_USD_KW_YR else "unchanged"))
+    df = pd.DataFrame(rows)
+    num = df.select_dtypes("float").columns
+    df[num] = df[num].round(4)
+    df.to_csv(EXTRA_CSV, index=False)
+    S.write_labels(EXTRA_CSV, EXTRA_LABELS, df)
+    return df
+
+
 def run(*args) -> pd.DataFrame:
     kv, fl = {}, set()
     for a in args:
@@ -385,4 +448,6 @@ def run(*args) -> pd.DataFrame:
     workers = int(kv.get("workers", WORKERS_DEFAULT))
     df = build(workers=workers, with_first_order="skip-first-order" not in fl)
     write(df)
+    if "skip-extra" not in fl:
+        build_extra(workers=workers)                          # R2: the regional and rev1_only lanes under the same upgrades
     return df

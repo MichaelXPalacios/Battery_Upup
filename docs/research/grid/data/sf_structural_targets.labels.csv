@@ -1,0 +1,23 @@
+column,label,source,note
+target,DERIVED,TARGETS in gridsite/coverage.py (the brief's list),short key
+cid,REAL,data/constraints.csv / IMM,constraint id of the target as in data/constraints.csv
+label,REAL,IMM / ERCOT,name
+kind,ASSUMPTION,TARGETS,gtc (interface: tested against a region) or line (tested for a pocket around its two ends)
+side,ASSUMPTION,TARGETS,"export (SF > 0, price falls when it binds), import (SF < 0) or either"
+status,DERIVED,grade_target() in gridsite/coverage.py,"identified (A, B or C), pattern_only (D: a pattern fits the geography but the name is not supported) or not_identified (X)"
+grade,DERIVED,grade_target(),"A: published Sep-Oct shadow price tracked at r >= 0.6; B: 0.4-0.6; C: geography and side fit, no usable published test; D: published series contradicts; X: not identified"
+uses_cid,DERIVED,retained_patterns(),the constraint id under which its pattern is stored in sf_structural.parquet (an R1_ id when the name is not supported); blank if none
+pattern,DERIVED,NMF component number,index of the pattern (see data/sf_structural_components.csv); -1 if none
+nearest_pattern,DERIVED,evidence table,the pattern with the highest evidence score even when it fails the thresholds
+n_domain,DERIVED,domain_mask(),priced stations in the target's domain
+precision,DERIVED,share of the pattern's |SF| >= 0.3 mass inside the domain,0 to 1
+recall,DERIVED,share of the domain's stations with |SF| >= 0.3 on the right side,0 to 1
+n_cov,DERIVED,count,domain stations with |SF| >= 0.3 on the right side
+side_share,DERIVED,share of in-domain mass on the target's side,0 to 1
+oop_r,DERIVED,"deseasonalised correlation, Sep-Oct recovered pattern activity vs published shadow price (REAL)",blank if the constraint bound too few hours in 10 Sep-10 Oct
+n_bound_published,REAL,NP4-191-CD,hours of 744 in which the target's published shadow price is positive
+pocket_hours,DERIVED,pocket_series(),line targets: hours with the pocket's median basis more than $10 from the surround's
+pocket_r,DERIVED,correlation of the pattern's activity with the pocket series,line targets
+imm_july_share,REAL,"IMM monthly report, July 2026","share of July the element was binding (DA hours / 744 else RT intervals / 8,928); blank if not in the report"
+pattern_july_active,DERIVED,share of July hours with the pole shadow price >= $1,
+reason,DERIVED,grade_target(),the evidence in words

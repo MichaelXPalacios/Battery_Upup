@@ -1,0 +1,6 @@
+variant,description,n_lanes_changed_of_all,n_changed_of_40,rho_vs_primary_40,top15_overlap,top15_entering,top15_leaving,mean_change_of_40,max_gain,max_gain_lane,max_loss,max_loss_lane,method_mae_vs_dispatch_primary,method_rho_vs_dispatch_primary
+primary,"primary: 2026 RT-rent anchors, R1 rows without the grade-D Panhandle pattern",0,0,1.0,15,,,0.0,0.0,MIDW,0.0,MIDW,11.022,0.986
+geo_only,"S0: revision-1 structure on G1's geography and the refreshed risk flags (no R1 rows, no 2026 anchors)",84,39,0.977,15,,,-1.426,1.844,MPPOI,-21.049,LPLNE,11.022,0.986
+anchors2025,S1: 2025-only anchors (no 2026 re-anchoring),76,38,0.982,15,,,-1.584,0.815,COLLEGE,-21.331,LPLNE,11.022,0.986
+anchors2026da,"S2: also anchor on the day-ahead-only 2026 rents (SEA_AAT1, MDOPHR99_A)",32,21,0.846,13,"PGE,TMPTV","GT,PK",2.103,41.024,PGE,-1.153,BRENNO,11.022,0.986
+panhandle,S3: with R1's grade-D Panhandle pattern,8,3,0.999,15,,,-0.021,0.736,LPLNW,-2.212,LPLNE,11.022,0.986

@@ -1,0 +1,18 @@
+column,label,source,note
+sub,REAL,data/substations.csv (NP4-160),substation code
+cid,DERIVED,sf_structural_constraints.csv,
+sf,DERIVED,ERCOT 60-day DAM disclosure (NP3-966-ER) via the dispatch lake; gridsite/coverage.py,"shift factor, PLAN.md sign: negative = import side (price rises when it binds), positive = export side"
+sf_pole,DERIVED,ERCOT 60-day DAM disclosure (NP3-966-ER) via the dispatch lake; gridsite/coverage.py,the same on the pole-normalised scale (largest loadings = 1); pair with sph_pole_usd_mw_yr of sf_structural_constraints.csv
+side,DERIVED,sign of sf_pole,"import (sf < 0: price rises when it binds, a battery sells) or export (sf > 0: price falls, a battery charges)"
+method,DERIVED,this module,dam60_factor (priced resource node at the substation) or dam60_factor_interp (inverse-distance interpolation)
+quality,DERIVED,this module,"grade (A-D, U) + scale tag (+scale_published, +scale_rent, +scale_pole) + +shared +masked +weak +lowconf +interp +far"
+dist_km,DERIVED,great-circle km to the nearest priced station,0 for a priced substation
+n_support,DERIVED,count,priced stations behind the value (1 if measured)
+replay,DERIVED,sf_structural_constraints.csv,True if the constraint's row is to be replayed
+zone,REAL,data/settlement_points.csv,"NOIE zone first, else load zone"
+region,ASSUMPTION,region_of(),
+county,DERIVED,data/substations.csv,
+lat,DERIVED,data/substations.csv,
+lon,DERIVED,data/substations.csv,
+kv_max,REAL,data/substations.csv,
+match_conf,DERIVED,data/substations.csv,placement confidence

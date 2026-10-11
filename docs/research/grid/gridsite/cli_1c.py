@@ -2,6 +2,7 @@
 
   run_grid.py fetch-geo [osm|eia|geo|hifld|all]   download raw geography into research-data/grid/raw/{osm,eia,geo}
   run_grid.py match-geo [--fresh]                 match ERCOT subs to coordinates, build lines, write data/*.csv + geojson
+                                                  (G1: also applies the audited corrections in data/geo_overrides.csv, see notes/phase7-geo.md)
 """
 from . import fetch_geo, geomatch
 

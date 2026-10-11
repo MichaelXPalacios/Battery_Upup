@@ -1,0 +1,42 @@
+column,label,source,note
+settlement_point,REAL,ERCOT 60-day DAM disclosure (NP3-966-ER),"settlement point name as published (resource node, hub, load zone, DC tie)"
+sp_type,DERIVED,name prefix / data/settlement_points.csv,"resource_node, hub, load_zone, dc_tie or other"
+substation,REAL,data/settlement_points.csv (NP4-160),RESOURCE_NODE -> SUBSTATION
+bus,REAL,data/settlement_points.csv (NP4-160),electrical bus of the resource node
+kv,REAL,data/settlement_points.csv (NP4-160),voltage of the resource node's bus
+zone,REAL,data/settlement_points.csv (NP4-160),"NOIE zone (LZ_AEN, LZ_CPS, LZ_LCRA, LZ_RAYBN) if any, else the settlement load zone"
+hub,ASSUMPTION,HUB_OF_ZONE and the Panhandle rule in gridsite/coverage.py,"the hub the node is measured against: zone -> hub map, HB_PAN for the Panhandle"
+lat,DERIVED,"data/substations.csv (phase 1c geocoding, match_conf in geo_conf)",substation coordinates; a wrong placement gives a wrong region tag
+lon,DERIVED,data/substations.csv (phase 1c geocoding),
+county,DERIVED,data/substations.csv (phase 1c geocoding),
+geo_conf,DERIVED,data/substations.csv match_conf,"confidence of the substation placement, 0 to 1"
+region,ASSUMPTION,"region_of() in gridsite/coverage.py (PANHANDLE_BOX, county lists, boxes)","Panhandle, Rio Grande Valley, Far West, Laredo/South, Houston, DFW, Central, Other"
+region_how,DERIVED,this module,"coords (coordinate or county decided), zone (load zone only) or none"
+n_hours,REAL,ERCOT 60-day DAM disclosure,"delivery hours with a price (1,008 = 42 days x 24)"
+price_mean,REAL,ERCOT 60-day DAM disclosure,"mean day-ahead SPP over the window, $/MWh"
+basis_hub_mean,DERIVED,SPP minus the node's hub SPP,$/MWh; p05 and p95 are percentiles over the 42 days of hours
+basis_hub_p05,DERIVED,SPP minus the node's hub SPP,$/MWh; p05 and p95 are percentiles over the 42 days of hours
+basis_hub_p95,DERIVED,SPP minus the node's hub SPP,$/MWh; p05 and p95 are percentiles over the 42 days of hours
+basis_zone_mean,DERIVED,SPP minus the node's load-zone SPP,$/MWh; the zone price is what a settlement-only or ADER resource earns
+basis_zone_p05,DERIVED,SPP minus the node's load-zone SPP,$/MWh; the zone price is what a settlement-only or ADER resource earns
+basis_zone_p95,DERIVED,SPP minus the node's load-zone SPP,$/MWh; the zone price is what a settlement-only or ADER resource earns
+basis_sys_mean,DERIVED,SPP minus HB_BUSAVG,$/MWh; the reference the factor model uses
+basis_sys_p05,DERIVED,SPP minus HB_BUSAVG,$/MWh; the reference the factor model uses
+basis_sys_p95,DERIVED,SPP minus HB_BUSAVG,$/MWh; the reference the factor model uses
+hours_gt10_hub,DERIVED,count of hours with |basis vs hub| > $10,"hours of 1,008"
+hours_gt50_hub,DERIVED,count of hours with |basis vs hub| > $50,"hours of 1,008"
+hours_gt10_zone,DERIVED,count of hours with |basis vs zone| > $10,"hours of 1,008"
+hours_gt50_zone,DERIVED,count of hours with |basis vs zone| > $50,"hours of 1,008"
+hours_gt10_pos_hub,DERIVED,hours with basis vs hub above +$10 (premium),hours
+hours_gt10_neg_hub,DERIVED,hours with basis vs hub below -$10 (discount),hours
+hours_gt10_sys,DERIVED,count of hours with |basis vs HB_BUSAVG| > $10,"hours of 1,008"
+hours_gt50_sys,DERIVED,count of hours with |basis vs HB_BUSAVG| > $50,"hours of 1,008"
+top3_hours_hub,DERIVED,the three hours of the day with the largest mean |basis vs hub|,"hour-beginning in CPT, ';'-separated (19 = hour-ending 20), largest first"
+top3_mean_hub,DERIVED,mean basis vs hub at those three hours,"$/MWh, signed, same order"
+top3_hours_zone,DERIVED,the same against the load zone,"a Panhandle node's hub is HB_PAN, which averages the Panhandle itself, so use the zone or system profile there"
+top3_mean_zone,DERIVED,,$/MWh
+top3_hours_sys,DERIVED,the same against HB_BUSAVG,
+top3_mean_sys,DERIVED,,$/MWh
+dam_value_node,DERIVED,"2 h oracle (1 MW / 2 MWh, 85% round trip, $20/MWh wear) on the node's own day-ahead prices",$ per kW over the 42 days; not annualised (summer window)
+dam_value_zone,DERIVED,the same on the node's load-zone prices,$ per kW over the 42 days
+dam_uplift,DERIVED,dam_value_node - dam_value_zone,"$ per kW over the 42 days: what siting at the node added in this window (day-ahead only, perfect foresight)"

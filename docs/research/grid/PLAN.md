@@ -116,3 +116,17 @@ gets a one-line comment giving its label and source. Never inline a literal.
 
 The user asked for all phases to run without stopping. Gates A and B therefore become self-checks by the lead, and
 each one is recorded in `notes/gates.md`. The user still sees both in the final report.
+
+## Revision 2 (11 Oct 2026): contracts that changed
+
+Written by agent R2 after G1 (geography) and R1 (regional coverage). Details in `notes/phase7-geo.md`, `notes/phase7-coverage.md`, `notes/phase8-revision2.md`.
+
+- **The congestion structure is installed, not edited.** `gridsite/nodal_lanes.py` ends with `rev2.install()` (`gridsite/rev2.py`). It (1) re-anchors the annual shadow-price-hours target of every replayed element that has a 2026 IMM real-time rent
+  (`data/imm_2026_anchors.csv`, year-to-date x 12/8), (2) installs R1's structural rows through `coverage.install_into_nodal_lanes()` (grade D, the Panhandle pattern, left out), (3) gives the Valley export pattern a dated residual scale and
+  (4) patches `bus_sf_matrix` for the new rows. Environment switches (read at import): `GRIDSITE_REVISION=1` (revision-1 behaviour), `GRIDSITE_ANCHORS=2025|2026da`, `GRIDSITE_PANHANDLE=1`, `GRIDSITE_FAR_WEST=6945`.
+  `data/constraint_synth.csv` stays the Phase 3b table; the structure the lanes use is `data/constraint_structure_rev2.csv`; what the anchors did is `data/anchor_2026_applied.csv`.
+- **Lane roles.** `data/site_candidates.csv` has four roles: `candidate` (the 40-site rule, unchanged), `control_zone` (8), `regional` (R1's picks, `data/regional_candidates.csv`) and `rev1_only` (revision-1 sites the rule no longer selects,
+  `data/site_candidates_rev1.csv`). The last two are dispatched and valued (`data/extra_sites.csv`, same columns as `sites.csv`) but never ranked with the 40 and are not in the portfolio. Lane file: `derived/nodal_lanes_rev2.npz` (tag `rev2`).
+- **New commands** (`gridsite/cli_8.py`): `anchor-sensitivity` (oracle-ratio sensitivities, `data/anchor_sensitivity*.csv`), `regional-sites`.
+- **`nodal_lanes.READ_ONLY`.** When true no cache or table is written (a stale cache is recomputed in memory). `report-check` sets it and checks that it wrote nothing.
+- **Risk.** `risk fetch` is incremental for the USFS samples as it already was for FEMA (a station is refreshed by deleting its rows from `raw/hazard/*_sites.csv`).

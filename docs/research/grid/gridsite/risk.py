@@ -215,11 +215,20 @@ def _ring_points(lat, lon):
 def fetch_whp(force=False):
     RAW_HAZ.mkdir(parents=True, exist_ok=True)
     cache = RAW_HAZ / "whp_samples_sites.csv"
-    if cache.exists() and not force:
-        print("have whp_samples_sites.csv", flush=True)
-        return cache
     sites = _site_set()
     rows = []
+    # R2 (11 Oct 2026): incremental like fetch_fema. A rerun queries only the site-level subs that have no cached samples, so a station whose placement moved can be
+    # refreshed by deleting its rows (the cache is keyed by `sub`, not by coordinate). Before this edit an existing cache skipped the whole fetch.
+    if cache.exists() and not force:
+        have = pd.read_csv(cache, dtype={"sub": str}, keep_default_na=False, na_values=[""])
+        have = have[have["sub"].notna() & (have["sub"] != "")]
+        todo_subs = set(sites["sub"]) - set(have["sub"])
+        if not todo_subs:
+            print("have whp_samples_sites.csv", flush=True)
+            return cache
+        print(f"WHP: {len(set(have['sub']))} subs cached, {len(todo_subs)} to sample", flush=True)
+        rows = have.to_dict("records")
+        sites = sites[sites["sub"].isin(todo_subs)].reset_index(drop=True)
     sess = requests.Session()
     sess.headers.update({"User-Agent": BROWSER_UA})
     for i in range(0, len(sites), WHP_BATCH_SUBS):

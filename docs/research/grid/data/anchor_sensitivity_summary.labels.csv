@@ -1,0 +1,16 @@
+column,label,source,note
+variant,DERIVED,gridsite.anchor_sens,primary or the sensitivity variant
+description,DERIVED,gridsite.anchor_sens,
+n_lanes_changed_of_all,DERIVED,oracle-ratio values,lanes (of all valued) whose 2021-25 mean moves by more than $0.05/kW-yr against the primary
+n_changed_of_40,DERIVED,oracle-ratio values,"same, of the 40 candidates"
+rho_vs_primary_40,SIM,Spearman,rank correlation of the 40 candidates' oracle-ratio values with the primary's
+top15_overlap,DERIVED,oracle-ratio values,"of the primary's top 15 (of the 40), how many are in the variant's top 15"
+top15_entering,DERIVED,oracle-ratio values,sites in the variant's top 15 that are not in the primary's
+top15_leaving,DERIVED,oracle-ratio values,sites in the primary's top 15 that are not in the variant's
+mean_change_of_40,SIM,oracle-ratio values,"mean change of the 40 candidates' value against the primary, $/kW-yr"
+max_gain,SIM,oracle-ratio values,"largest gain against the primary among the 40, $/kW-yr"
+max_gain_lane,DERIVED,oracle-ratio values,
+max_loss,SIM,oracle-ratio values,"largest loss (negative) among the 40, $/kW-yr"
+max_loss_lane,DERIVED,oracle-ratio values,
+method_mae_vs_dispatch_primary,SIM,"oracle x ratio against the dispatch, primary","mean absolute error of the oracle-ratio method on the primary's 40 candidates, $/kW-yr (what the sensitivity numbers inherit)"
+method_rho_vs_dispatch_primary,SIM,Spearman,"rank correlation of the method with the dispatch, primary, 40 candidates"

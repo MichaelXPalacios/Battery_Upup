@@ -51,6 +51,7 @@ SF_REPORT_MIN = 0.05              # ASSUMPTION: an element is named for a site o
 CANDIDATES_CSV = REPO_DATA / "site_candidates.csv"
 SITE_YEARS_CSV = REPO_DATA / "site_years.csv"
 SITES_CSV = REPO_DATA / "sites.csv"
+EXTRA_SITES_CSV = REPO_DATA / "extra_sites.csv"      # R2: the regional picks and the revision-1 sites that left the list, valued with the same columns as sites.csv
 PORTFOLIO_CSV = REPO_DATA / "portfolio.csv"
 VALIDATION_CSV = REPO_DATA / "lane_validation.csv"
 
@@ -159,8 +160,42 @@ def screen_substations(struct: pd.DataFrame | None = None) -> pd.DataFrame:
     return out
 
 
+REGIONAL_CSV = "regional_candidates.csv"          # R2: R1's screened picks in the Panhandle, Valley, Far West, Laredo/South and the Bell County pocket (role = regional)
+REV1_LIST_CSV = "site_candidates_rev1.csv"        # R2: the 40 candidates of revision 1 (sub, rank_rev1)
+EXTRA_ROLES = ("regional", "rev1_only")           # R2: roles of the lanes that are valued next to the 40 candidates but are not part of the 40-site list or the portfolio
+
+
+def extra_groups(scr: pd.DataFrame, main_subs: list) -> pd.DataFrame:
+    """R2: the two groups valued beside the 40 candidates, as rows of the same shape as the candidate rows (screening columns recomputed on the structure in force).
+
+    regional   R1's picks (data/regional_candidates.csv, role = regional), in R1's order; a pick that is one of the 40 stays in the 40.
+    rev1_only  the sites of the revision-1 list that the rule no longer selects: valued so that a site that left the list can still be compared (not part of any ranking of the 40).
+    `rank` is the position inside the group. A site that the eligibility rules no longer admit (placement, voltage, physical risk) is dropped and listed in a warning."""
+    keep = set(main_subs)
+    reg = read_csv(REGIONAL_CSV)
+    reg = reg[reg["role"] == "regional"]
+    r1 = read_csv(REV1_LIST_CSV).sort_values("rank_rev1")
+    groups = [("regional", [s for s in reg["sub"] if s not in keep]), ("rev1_only", [s for s in r1["sub"] if s not in keep])]
+    rows, seen = [], set()
+    for role, subs in groups:
+        subs = [s for s in dict.fromkeys(subs) if s not in seen]
+        have = scr.set_index("sub")
+        miss = [s for s in subs if s not in have.index]
+        if miss:
+            warnings.warn(f"{role}: {len(miss)} sites are not eligible substations any more and are dropped: {miss}", stacklevel=2)
+        subs = [s for s in subs if s in have.index]
+        seen |= set(subs)
+        part = have.loc[subs].reset_index()
+        part.insert(0, "rank", np.arange(1, len(part) + 1))
+        part.insert(1, "role", role)
+        rows.append(part)
+    return pd.concat(rows, ignore_index=True, sort=False) if rows else pd.DataFrame()
+
+
 def select_candidates(refresh: bool = False) -> pd.DataFrame:
-    """The deterministic candidate list -> data/site_candidates.csv (and its labels). Rank 1 = highest score."""
+    """The deterministic candidate list -> data/site_candidates.csv (and its labels). Rank 1 = highest score.
+
+    R2 (revision 2): the rows of the two extra groups (`extra_groups`: regional, rev1_only) are written after the 8 controls. The 40-site rule itself is unchanged."""
     if CANDIDATES_CSV.exists() and not refresh:
         return read_csv("site_candidates.csv")
     struct = L.constraint_structure()
@@ -199,7 +234,8 @@ def select_candidates(refresh: bool = False) -> pd.DataFrame:
     sel.insert(0, "rank", np.arange(1, len(sel) + 1))
     sel.insert(1, "role", "candidate")
     ctrl = pd.DataFrame({"rank": 0, "role": "control_zone", "sub": L.ZONES, "arena_zone": L.ZONES})
-    allc = pd.concat([sel, ctrl], ignore_index=True, sort=False)
+    extra = extra_groups(scr, list(sel["sub"]))
+    allc = pd.concat([sel, ctrl, extra], ignore_index=True, sort=False)
     # hops to each reported cid (hops.csv covers the 40 best-priority constraints that have an SF)
     hp = read_csv("hops.csv")[["sub", "cid", "hops", "x_dist_pu", "side", "curtail_flag", "has_upgrade"]]
     for r in range(1, TOP_ELEMENTS_REPORTED + 1):
@@ -213,8 +249,8 @@ def select_candidates(refresh: bool = False) -> pd.DataFrame:
 
 
 CANDIDATE_LABELS = [
-    ("rank", "DERIVED", "score order", "1 = highest screening score; 0 for the control lanes"),
-    ("role", "DERIVED", "this module", "candidate or control_zone (the 8 arena load zones, run as lanes next to the candidates)"),
+    ("rank", "DERIVED", "score order", "1 = highest screening score; 0 for the control lanes; for regional and rev1_only rows the position inside the group"),
+    ("role", "DERIVED", "this module", "candidate (the 40-site list), control_zone (the 8 arena load zones, run as lanes next to the candidates), regional (R1's picks outside the 40) or rev1_only (a revision-1 candidate the rule no longer selects); the last two are valued, never ranked with the 40"),
     ("sub", "REAL", "NP4-160 SUBSTATION", "substation code, or the load zone name for a control lane"),
     ("kv_max", "REAL", "NP4-160 / data/substations.csv", "highest bus voltage"),
     ("county", "DERIVED", "data/substations.csv (agent 1c)", "placement of the substation"),
@@ -290,7 +326,7 @@ CANDIDATE_LABELS = [
 # 2. Lanes and dispatch (A1-A5 and the perfect-foresight oracle on every lane)
 # =================================================================================================================
 RUNS = DERIVED / "runs"
-LANE_TAG = "cand40"
+LANE_TAG = "rev2"                 # R2: the lane file holds the 40 candidates, the extra groups (regional, rev1_only) and, first, the 8 controls (revision 1: "cand40", 48 lanes)
 SIM_START = "2021-01-01"          # REAL: brief, first simulated day of the 2 h run
 SIM_START_4H = "2024-01-01"       # REAL: brief, first simulated day of the 4 h run
 SPEC_2H, SPEC_4H = "grid", "grid4h"
@@ -306,14 +342,36 @@ EXPERT_NAMES = ["Clockwork", "Forecaster", "Weather-regime", "Spike hunter q97",
 
 
 def candidate_subs() -> list:
+    """The 40 candidates of the main list, in rank order."""
     c = select_candidates()
     return list(c[c["role"] == "candidate"].sort_values("rank")["sub"])
+
+
+def extra_subs() -> list:
+    """R2: the lanes valued next to the 40 (regional picks, then the revision-1 sites that left the list), in table order."""
+    c = select_candidates()
+    e = c[c["role"].isin(EXTRA_ROLES)]
+    return list(e.assign(_o=e["role"].map({r: i for i, r in enumerate(EXTRA_ROLES)})).sort_values(["_o", "rank"])["sub"])
+
+
+def lane_subs() -> list:
+    """Every substation lane of the lane file: the 40, then the extra groups. The 8 controls come first in the file."""
+    return candidate_subs() + extra_subs()
+
+
+def role_of(lane: str) -> str:
+    """control_zone, candidate, regional or rev1_only (a lane that is none of them is a candidate-like lane of some other valuation)."""
+    if lane in L.ZONES:
+        return "control_zone"
+    c = select_candidates()
+    r = c.loc[c["sub"] == lane, "role"]
+    return str(r.iloc[0]) if len(r) else "candidate"
 
 
 def ensure_lanes(refresh: bool = False) -> dict:
     """The lane file for the candidates and the 8 controls (derived/nodal_lanes_cand40.npz), rebuilt if missing or if its key (constants, structure, prices, substations) changed."""
     f = DERIVED / f"nodal_lanes_{LANE_TAG}.npz"
-    subs = candidate_subs()
+    subs = lane_subs()
     sig = L.lane_signature(subs)
     if f.exists() and not refresh:
         z = L.load_lanes(LANE_TAG)
@@ -391,7 +449,7 @@ def site_years_table(res, orc: np.ndarray, spec: str, cand: pd.DataFrame, z: dic
     ycal = sorted(set(years))
     periods = [(str(y), [y]) for y in ycal]
     periods += [("mean_2021_25", list(BACKTEST_YEARS)), ("mean_2023_25", list(RATIO_YEARS))] if spec == SPEC_2H else [("mean_2024_25", [2024, 2025])]
-    cinfo = cand[cand["role"] == "candidate"].set_index("sub")
+    cinfo = cand[cand["role"].isin(("candidate",) + EXTRA_ROLES)].set_index("sub")
     zone_of = dict(zip(z["lanes"], z["zones"]))
     rows = []
     shares = res.pick_shares()
@@ -409,7 +467,7 @@ def site_years_table(res, orc: np.ndarray, spec: str, cand: pd.DataFrame, z: dic
             zl = zone_of[ln]
             zi = lanes.index(zl)
             is_ctrl = ln in L.ZONES
-            row = {"spec": spec, "lane": ln, "role": "control_zone" if is_ctrl else "candidate",
+            row = {"spec": spec, "lane": ln, "role": "control_zone" if is_ctrl else str(cinfo.at[ln, "role"]),
                    "rank": 0 if is_ctrl else int(cinfo.at[ln, "rank"]), "zone": zl, "period": name, "days": days, "partial_year": bool(n_years == 1 and days < FULL_YEAR_MIN_DAYS)}
             for a in ALGOS:
                 row[f"usd_kw_yr_{a}"] = ann[a][i]
@@ -431,8 +489,8 @@ def site_years_table(res, orc: np.ndarray, spec: str, cand: pd.DataFrame, z: dic
 SITE_YEARS_LABELS = [
     ("spec", "DERIVED", "this module", "grid = 1 MW / 2 MWh, grid4h = 1 MW / 4 MWh (gridsite.specs)"),
     ("lane", "REAL", "NP4-160 SUBSTATION / arena zone name", "a candidate substation (its highest-kV bus as a new resource node) or one of the 8 arena load zones (control)"),
-    ("role", "DERIVED", "this module", "candidate or control_zone"),
-    ("rank", "DERIVED", "data/site_candidates.csv", "screening rank; 0 for controls"),
+    ("role", "DERIVED", "this module", "candidate (the 40-site list), control_zone, regional (R1's picks) or rev1_only (a revision-1 candidate that left the list)"),
+    ("rank", "DERIVED", "data/site_candidates.csv", "screening rank; 0 for controls; the position inside the group for regional and rev1_only"),
     ("zone", "DERIVED", "NP4-160 NOIE zone, else load zone", "the zone control the uplift is measured against"),
     ("period", "DERIVED", "this module", "a calendar year, or mean_2021_25 / mean_2023_25 / mean_2024_25 (mean of the annual values)"),
     ("days", "DERIVED", "this module", "simulated days in the period"),
@@ -730,12 +788,15 @@ def run_forward(workers: int = DISPATCH_WORKERS, specs=(SPEC_2H, SPEC_4H)) -> pd
     ctrl = list(L.ZONES)
     parts, vs = [], None
     if SPEC_2H in specs:
-        cand = candidate_subs()
+        cand = lane_subs()                                       # R2: the 40, then the regional and rev1_only lanes
         yrs = (BASE_YEAR,) + tuple(SA.FORWARD_YEARS)
         vs = value_sites(ctrl + cand, spec=SPEC_2H, years=yrs, baseline="both", workers=workers)
+        vs["role"] = [role_of(x) for x in vs["lane"]]
         parts.append(vs)
-        parts.append(value_sites(ctrl + cand, spec=SPEC_2H, years=(2031,), baseline="saturation", workers=workers))
-        parts.append(value_sites(ctrl + cand, spec=SPEC_2H, years=(2031,), baseline="upgrades", workers=workers))
+        for scen in ("saturation", "upgrades"):
+            v1 = value_sites(ctrl + cand, spec=SPEC_2H, years=(2031,), baseline=scen, workers=workers)
+            v1["role"] = [role_of(x) for x in v1["lane"]]
+            parts.append(v1)
         print(f"2 h forward done ({time.time() - t0:.0f}s)", flush=True)
     if SPEC_4H in specs:
         top = top_candidates_2h()
@@ -978,10 +1039,13 @@ def _wide(d: pd.DataFrame, period: str, cols: list, prefix: str) -> pd.DataFrame
     return x
 
 
-def write_sites() -> pd.DataFrame:
-    """data/sites.csv (+labels): one row per candidate site, joined from the screening, the dispatch, the forward run, connection costs, risk and reliability."""
+def write_sites(roles: tuple = ("candidate",), out=None) -> pd.DataFrame:
+    """data/sites.csv (+labels): one row per candidate site, joined from the screening, the dispatch, the forward run, connection costs, risk and reliability.
+
+    R2: `roles` selects the group (default the 40; ("regional", "rev1_only") builds data/extra_sites.csv with the same 150 columns, the 4 h columns empty)."""
     cand = select_candidates()
-    cand = cand[cand["role"] == "candidate"].sort_values("rank").reset_index(drop=True)
+    order = {r: i for i, r in enumerate(roles)}
+    cand = cand[cand["role"].isin(roles)].assign(_o=lambda d: d["role"].map(order)).sort_values(["_o", "rank"]).drop(columns="_o").reset_index(drop=True)
     sy = read_csv("site_years.csv")
     s2 = sy[sy["spec"] == SPEC_2H]
     s4 = sy[sy["spec"] == SPEC_4H]
@@ -1028,7 +1092,7 @@ def write_sites() -> pd.DataFrame:
     # ---- forward
     fv = pd.read_parquet(RUNS / "forward_values.parquet")
     f2 = fv[(fv["spec"] == SPEC_2H) & (fv["baseline"] == "both")]
-    f2 = f2[f2["role"] == "candidate"]
+    f2 = f2[f2["role"].isin(roles)]
     for y in SITES_FWD_YEARS:
         g = f2[f2["year"] == y].set_index("lane")
         h[f"fwd_learner_{y}"] = g["learner_usd_kw_yr"]
@@ -1041,11 +1105,11 @@ def write_sites() -> pd.DataFrame:
     h["sat_adjusted_learner_2027_31_mean"] = mean_fwd
     h["fwd_exposure_scale_2031"] = f2[f2["year"] == 2031].set_index("lane")["exposure_weighted_scale"]
     for scen, tag in (("saturation", "sat_only"), ("upgrades", "upgrades_only")):
-        g = fv[(fv["spec"] == SPEC_2H) & (fv["baseline"] == scen) & (fv["year"] == 2031) & (fv["role"] == "candidate")].set_index("lane")
+        g = fv[(fv["spec"] == SPEC_2H) & (fv["baseline"] == scen) & (fv["year"] == 2031) & (fv["role"].isin(roles))].set_index("lane")
         h[f"fwd_learner_2031_{tag}"] = g["learner_usd_kw_yr"]
     hl = pd.read_parquet(RUNS / "forward_halflife.parquet").set_index("lane")
     h["basis_half_life"] = hl["half_life_year"]
-    f4 = fv[(fv["spec"] == SPEC_4H) & (fv["baseline"] == "both") & (fv["role"] == "candidate")]
+    f4 = fv[(fv["spec"] == SPEC_4H) & (fv["baseline"] == "both") & (fv["role"].isin(roles))]
     if len(f4):
         for y in (2027, 2031):
             h[f"h4_fwd_learner_{y}"] = f4[f4["year"] == y].set_index("lane")["learner_usd_kw_yr"]
@@ -1084,10 +1148,42 @@ def write_sites() -> pd.DataFrame:
         columns={"reliability_need_score": "reliability_need_score", "need_rank": "reliability_need_rank", "main_driver": "reliability_main_driver",
                  "voll_usd_yr_duration": "reliability_voll_usd_yr_duration"}))
     h = h.reset_index()
-    h.round(4).to_csv(SITES_CSV, index=False)
-    write_labels(SITES_CSV, SITES_LABELS, h)
+    if tuple(roles) != ("candidate",):
+        h.insert(1, "role", h["sub"].map(dict(zip(cand["sub"], cand["role"]))))
+        reg = read_csv(REGIONAL_CSV)
+        reg = reg[reg["role"] == "regional"].drop_duplicates("sub").set_index("sub")
+        keep = {"region": "region", "side": "region_side", "basis_source": "basis_source", "dist_priced_km": "dist_priced_km", "basis_zone_mean": "obs_basis_vs_zone_mean_usd_mwh",
+                "basis_zone_p05": "obs_basis_vs_zone_p05_usd_mwh", "basis_zone_p95": "obs_basis_vs_zone_p95_usd_mwh", "dam_uplift": "obs_dam_uplift_42d_usd_kw"}
+        for src, dst in keep.items():
+            h[dst] = h["sub"].map(reg[src])
+        from . import tier2_value as T                                    # distance from the site to the nearest placed end of its dominant element (Tier 2's caution, 150 km)
+
+        d = T.distance_to_element(list(h["sub"]), list(h["dominant_element"]))
+        h["dominant_distance_km"] = d
+        h["dominant_distance_class"] = np.where(np.isnan(d), T.CLASS_UNPLACED, np.where(d <= T.FAR_KM, T.CLASS_NEAR, T.CLASS_FAR))
+        out = out or EXTRA_SITES_CSV
+        h.round(4).to_csv(out, index=False)
+        write_labels(out, EXTRA_SITES_LABELS + SITES_LABELS, h)
+        return h
+    h = h.sort_values("h2_mean2125_A5", ascending=False, kind="stable").reset_index(drop=True)      # R2: the rows are the queue of settlement points (README section 8): best 2 h learner first (`rank` stays the screening rank)
+    h.round(4).to_csv(out or SITES_CSV, index=False)
+    write_labels(out or SITES_CSV, SITES_LABELS, h)
     return h
 
+
+EXTRA_SITES_LABELS = [
+    ("role", "DERIVED", "data/site_candidates.csv", "regional (R1's pick in the Panhandle, Valley, Far West, Laredo/South or the Bell County pocket) or rev1_only (a revision-1 candidate the rule no longer selects)"),
+    ("region", "DERIVED", "data/regional_candidates.csv (R1)", "region of the pick; blank for rev1_only"),
+    ("region_side", "DERIVED", "data/regional_candidates.csv (R1)", "import (sell high) or export (charge low) side R1 picked the site for"),
+    ("basis_source", "DERIVED", "data/regional_candidates.csv (R1)", "measured (a priced resource node at the substation) or interpolated (nearest priced stations)"),
+    ("dist_priced_km", "DERIVED", "data/regional_candidates.csv (R1)", "distance to the nearest priced station"),
+    ("obs_basis_vs_zone_mean_usd_mwh", "REAL", "NP4-190-style 60-day DAM disclosure, 1 Jul - 11 Aug 2026 (data/regional_candidates.csv)", "mean day-ahead price at the node minus its load zone, $/MWh; measured prices, not a model"),
+    ("obs_basis_vs_zone_p05_usd_mwh", "REAL", "same", "5th percentile of the hourly node-minus-zone basis, $/MWh"),
+    ("obs_basis_vs_zone_p95_usd_mwh", "REAL", "same", "95th percentile, $/MWh"),
+    ("obs_dam_uplift_42d_usd_kw", "DERIVED", "same: 2 h day-ahead perfect-foresight value at the node minus at the zone", "$ per kW over the 42 delivery days (NOT annualised; one summer window; compare with the SIM columns only in sign and rank)"),
+    ("dominant_distance_km", "DERIVED", "gridsite.tier2_value.distance_to_element", "km from the site to the nearest placed end of its dominant element; blank if no end is placed"),
+    ("dominant_distance_class", "DERIVED", "gridsite.tier2_value.FAR_KM (150 km, ASSUMPTION)", "within_150km, beyond_150km (a shift factor this large at this distance is unlikely: a day-ahead fit artifact, so the modelled value is not credible) or element_not_placed"),
+]
 
 _ALGO_LABEL = "SIM: arena dispatch (walk-forward, energy only, after $20/MWh wear) on the rebuilt price lane; $/kW-yr"
 SITES_LABELS = [

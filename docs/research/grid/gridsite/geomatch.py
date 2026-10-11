@@ -21,6 +21,7 @@ import numpy as np
 import pandas as pd
 from scipy.spatial import cKDTree
 
+from . import geo_overrides  # G1: audited corrections applied inside match_geo
 from . import paths
 from .paths import DERIVED, RAW, REPO_DATA, SP_MAPPING_SEP2026
 
@@ -1604,7 +1605,13 @@ def match_geo(*args):
                 p["osm_snap_km"] = dkm
     osm_xy = {r.osm_id: (r.lat, r.lon) for r in osm.itertuples()}
     kv_sets = {sub: list(subs.at[sub, "kv_set"]) for sub in subs.index}
+    # G1: pin the audited corrections (data/geo_overrides.csv) before the neighbour stage, so confident neighbours are judged against corrected positions,
+    # and again after it, because the stage rewrites confidences (an override confidence is final). See gridsite/geo_overrides.py and notes/phase7-geo.md.
+    ov_link = lambda lat, lon, kv: osm_link(lat, lon, kv, tree, tree_ids, snap_kv, OSM_LINK_KM)[0]   # noqa: E731
+    res, ov_stats = geo_overrides.apply_overrides(res, subs, link=ov_link)
     res, nb_stats, graph = neighbor_stage(res, pairs, edges, osm_xy, kv_sets)
+    res, _ = geo_overrides.apply_overrides(res, subs, link=ov_link, post=True)
+    log(f"G1 overrides: {dict(ov_stats)}")
     log(f"method (c) neighbor: {dict(nb_stats)}")
     return _write_outputs(subs, res, ea, nm, edges, geoms, osm, hs, hl, plants, gens, counties, counts, pairs, hits, gis_names, polys, tree, tree_ids, log)
 
@@ -1664,7 +1671,7 @@ def _write_outputs(subs, res, ea, nm, edges, geoms, osm, hs, hl, plants, gens, c
         "lat": ("DERIVED", "geomatch fused site", "WGS84; blank when unmatched. Coordinates of the matched OSM / HIFLD substation or EIA plant"),
         "lon": ("DERIVED", "geomatch fused site", "WGS84; blank when unmatched"),
         "county": ("DERIVED", "Census TIGER cb_2023_us_county_500k", "county containing (lat, lon); blank outside Texas or unmatched"),
-        "match_method": ("DERIVED", "geomatch", "eia_unit | osm_name | hifld_name | neighbor | none (see notes/phase1-geo.md)"),
+        "match_method": ("DERIVED", "geomatch", "eia_unit | osm_name | hifld_name | neighbor | override | none (see notes/phase1-geo.md; override = audited correction from data/geo_overrides.csv, notes/phase7-geo.md)"),
         "match_conf": ("ASSUMPTION", "geomatch", "0-1 heuristic score, not a calibrated probability; formula in notes/phase1-geo.md; every constant in it is an ASSUMPTION checked only by the independent tests in the notes"),
         "osm_id": ("REAL", "OpenStreetMap", "substation id (w=way, n=node, r=relation) linked to this sub; graph node for lines.csv"),
         "hifld_id": ("REAL", "HIFLD Electric Substations mirror", "HIFLD ID of the matched substation, when that layer supplied the name match"),
@@ -1672,7 +1679,7 @@ def _write_outputs(subs, res, ea, nm, edges, geoms, osm, hs, hl, plants, gens, c
         "name_guess": ("DERIVED", "OSM / HIFLD / EIA name of the match", "readable name of the matched substation or plant"),
         "methods_agree": ("DERIVED", "geomatch", "methods supporting the chosen site, joined with +"),
         "evidence": ("DERIVED", "geomatch", "short text: which name variant matched what, voltage and county checks"),
-        "osm_link": ("DERIVED", "geomatch", "name = matched an OSM name; snap = nearest compatible OSM substation within OSM_LINK_KM / OSM_LINK_PLANT_KM; neighbor"),
+        "osm_link": ("DERIVED", "geomatch", "name = matched an OSM name; snap = nearest compatible OSM substation within OSM_LINK_KM / OSM_LINK_PLANT_KM; neighbor; override = osm_id pinned by data/geo_overrides.csv"),
         "neighbor_ok": ("DERIVED", "binding-constraint adjacency", "number of confident constraint neighbours consistent with the site (0 = contradicted)"),
         "n_sites": ("DERIVED", "geomatch", "distinct candidate sites that were considered"),
         "eia_dist_km": ("DERIVED", "haversine", "distance between the chosen site and the EIA plant matched to the sub's units"),

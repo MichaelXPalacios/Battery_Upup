@@ -1,0 +1,553 @@
+scenario,role,sub,region,region_side,scenario_effect,affected,value_before_usd_kw_yr,value_after_usd_kw_yr,delta_usd_kw_yr,zone_control_usd_kw_yr,uplift_before_usd_kw_yr,uplift_after_usd_kw_yr,value_effect
+U01,regional,BLFSW,Central (Bell County),export,evaluated,True,18.0535,18.047,-0.0065,21.462,-3.4084,-3.4149,unchanged
+U01,regional,PANDA_T2,Central (Bell County),export,evaluated,True,19.0816,18.9518,-0.1298,21.462,-2.3804,-2.5101,unchanged
+U01,regional,EDDYS,Central (Bell County),export,evaluated,True,17.9336,17.8981,-0.0355,21.462,-3.5284,-3.5639,unchanged
+U01,regional,MOODY,Central (Bell County),export,evaluated,True,19.0805,18.9446,-0.1359,21.462,-2.3814,-2.5174,unchanged
+U01,regional,LTFRD,Central (Bell County),export,evaluated,True,17.3681,17.4011,0.033,21.462,-4.0939,-4.0608,unchanged
+U01,regional,GEORSO,Central (Bell County),import,evaluated,True,25.2129,25.2357,0.0228,17.6529,7.56,7.5828,unchanged
+U01,regional,ROKSW,Central (Bell County),import,evaluated,True,19.1183,19.0968,-0.0215,17.6529,1.4654,1.4439,unchanged
+U01,regional,ANDICE,Central (Bell County),import,evaluated,True,31.37,31.3407,-0.0294,28.4286,2.9415,2.9121,unchanged
+U01,regional,JUNG_SLR,Central (Bell County),import,evaluated,True,20.5722,20.434,-0.1382,21.462,-0.8897,-1.0279,unchanged
+U01,regional,JREST,Central (Bell County),import,evaluated,True,30.8647,30.9284,0.0637,17.6529,13.2118,13.2755,unchanged
+U01,regional,JUNO,Far West,export,evaluated,True,25.171,25.4016,0.2306,27.3224,-2.1515,-1.9209,unchanged
+U01,regional,BOCO_ESS,Far West,export,evaluated,True,25.2022,25.4377,0.2355,27.3224,-2.1203,-1.8848,unchanged
+U01,regional,WLVSW,Far West,export,evaluated,True,24.7305,25.0112,0.2807,27.3224,-2.5919,-2.3113,unchanged
+U01,regional,CEDACA,Far West,export,evaluated,True,25.407,25.5038,0.0968,27.3224,-1.9154,-1.8186,unchanged
+U01,regional,SOLC_SLR,Far West,export,evaluated,True,25.1747,24.2258,-0.9489,27.3224,-2.1477,-3.0966,unchanged
+U01,regional,LMESA,Far West,import,evaluated,True,40.2991,34.0513,-6.2478,27.3224,12.9767,6.7289,loses
+U01,regional,PIGCREEK,Far West,import,evaluated,True,31.5582,31.3962,-0.1621,27.3224,4.2358,4.0737,unchanged
+U01,regional,CHERRYCR,Far West,import,evaluated,True,48.7868,47.0998,-1.687,27.3224,21.4643,19.7773,loses
+U01,regional,FLAT_TOP,Far West,import,evaluated,True,31.5102,31.3334,-0.1768,27.3224,4.1877,4.011,unchanged
+U01,regional,LINTERNA,Far West,import,evaluated,True,30.9271,30.8103,-0.1168,27.3224,3.6046,3.4879,unchanged
+U01,regional,MARANA,Laredo/South,export,evaluated,True,17.9169,17.8962,-0.0207,17.6529,0.264,0.2433,unchanged
+U01,regional,TGW,Laredo/South,export,evaluated,True,17.9165,17.8957,-0.0207,17.6529,0.2636,0.2428,unchanged
+U01,regional,AVANZADA,Laredo/South,export,evaluated,True,16.7397,16.7128,-0.027,17.6529,-0.9131,-0.9401,unchanged
+U01,regional,CORAZON,Laredo/South,export,evaluated,True,17.0109,16.9819,-0.0289,17.6529,-0.642,-0.671,unchanged
+U01,regional,RELOJ,Laredo/South,export,evaluated,True,17.2777,17.2538,-0.0239,17.6529,-0.3752,-0.3991,unchanged
+U01,regional,ELARA_SL,Laredo/South,import,evaluated,True,19.4589,19.5138,0.0549,17.6529,1.806,1.8609,unchanged
+U01,regional,DOWNIES,Laredo/South,import,evaluated,True,21.0064,21.1367,0.1303,17.6529,3.3535,3.4838,unchanged
+U01,regional,CARRIZO,Laredo/South,import,evaluated,True,24.1714,24.3746,0.2033,17.6529,6.5185,6.7217,unchanged
+U01,regional,ASHERTON,Laredo/South,import,evaluated,True,23.3663,23.5551,0.1888,17.6529,5.7134,5.9022,unchanged
+U01,regional,COTULLA,Laredo/South,import,evaluated,True,20.6379,20.6789,0.041,17.6529,2.9851,3.026,unchanged
+U01,regional,FAGUSSLR,Panhandle,export,evaluated,True,29.7029,27.167,-2.5358,27.3224,2.3804,-0.1554,loses
+U01,regional,TULECNYN,Panhandle,export,evaluated,True,30.9387,28.3283,-2.6104,27.3224,3.6162,1.0058,loses
+U01,regional,DEAFSMIT,Panhandle,export,evaluated,True,31.358,28.8588,-2.4993,27.3224,4.0356,1.5363,loses
+U01,regional,WINDMILL,Panhandle,export,evaluated,True,31.1674,28.7209,-2.4465,27.3224,3.845,1.3985,loses
+U01,regional,MIAM1,Panhandle,export,evaluated,True,30.6215,28.0509,-2.5705,27.3224,3.299,0.7285,loses
+U01,regional,GRND_SLR,Panhandle,import,evaluated,True,30.6259,30.5076,-0.1184,27.3224,3.3035,3.1851,unchanged
+U01,regional,RIOHONDO,Rio Grande Valley,export,evaluated,True,15.6803,15.6654,-0.0149,17.6529,-1.9726,-1.9875,unchanged
+U01,regional,PAREDES,Rio Grande Valley,export,evaluated,True,18.9457,18.9334,-0.0123,17.6529,1.2928,1.2805,unchanged
+U01,regional,LMAJADAS,Rio Grande Valley,export,evaluated,True,16.8764,16.8507,-0.0257,17.6529,-0.7765,-0.8022,unchanged
+U01,regional,LASPULGA,Rio Grande Valley,export,evaluated,True,15.9411,15.9343,-0.0068,17.6529,-1.7118,-1.7186,unchanged
+U01,regional,POMELO,Rio Grande Valley,export,evaluated,True,16.6537,16.6404,-0.0133,17.6529,-0.9992,-1.0125,unchanged
+U01,rev1_only,NOVICE,Other,export,evaluated,True,83.0125,82.575,-0.4374,27.3224,55.69,55.2526,unchanged
+U01,rev1_only,SEA,Central,export,evaluated,True,36.6192,36.9075,0.2883,21.462,15.1573,15.4456,unchanged
+U01,rev1_only,CRNTH,DFW,export,evaluated,True,57.5585,57.5744,0.0158,21.462,36.0966,36.1124,unchanged
+U01,rev1_only,CENTRVIL,DFW,export,evaluated,True,28.4395,28.4262,-0.0132,21.462,6.9775,6.9643,unchanged
+U01,rev1_only,ECRSW,Other,export,evaluated,True,36.2848,32.3945,-3.8903,27.3224,8.9623,5.072,loses
+U02,regional,BLFSW,Central (Bell County),export,not_replayed,False,18.0535,18.0535,0.0,21.462,-3.4084,-3.4084,unchanged
+U02,regional,PANDA_T2,Central (Bell County),export,not_replayed,False,19.0816,19.0816,0.0,21.462,-2.3804,-2.3804,unchanged
+U02,regional,EDDYS,Central (Bell County),export,not_replayed,False,17.9336,17.9336,0.0,21.462,-3.5284,-3.5284,unchanged
+U02,regional,MOODY,Central (Bell County),export,not_replayed,False,19.0805,19.0805,0.0,21.462,-2.3814,-2.3814,unchanged
+U02,regional,LTFRD,Central (Bell County),export,not_replayed,False,17.3681,17.3681,0.0,21.462,-4.0939,-4.0939,unchanged
+U02,regional,GEORSO,Central (Bell County),import,not_replayed,False,25.2129,25.2129,0.0,17.6529,7.56,7.56,unchanged
+U02,regional,ROKSW,Central (Bell County),import,not_replayed,False,19.1183,19.1183,0.0,17.6529,1.4654,1.4654,unchanged
+U02,regional,ANDICE,Central (Bell County),import,not_replayed,False,31.37,31.37,0.0,28.4286,2.9415,2.9415,unchanged
+U02,regional,JUNG_SLR,Central (Bell County),import,not_replayed,False,20.5722,20.5722,0.0,21.462,-0.8897,-0.8897,unchanged
+U02,regional,JREST,Central (Bell County),import,not_replayed,False,30.8647,30.8647,0.0,17.6529,13.2118,13.2118,unchanged
+U02,regional,JUNO,Far West,export,not_replayed,False,25.171,25.171,0.0,27.3224,-2.1515,-2.1515,unchanged
+U02,regional,BOCO_ESS,Far West,export,not_replayed,False,25.2022,25.2022,0.0,27.3224,-2.1203,-2.1203,unchanged
+U02,regional,WLVSW,Far West,export,not_replayed,False,24.7305,24.7305,0.0,27.3224,-2.5919,-2.5919,unchanged
+U02,regional,CEDACA,Far West,export,not_replayed,False,25.407,25.407,0.0,27.3224,-1.9154,-1.9154,unchanged
+U02,regional,SOLC_SLR,Far West,export,not_replayed,False,25.1747,25.1747,0.0,27.3224,-2.1477,-2.1477,unchanged
+U02,regional,LMESA,Far West,import,not_replayed,False,40.2991,40.2991,0.0,27.3224,12.9767,12.9767,unchanged
+U02,regional,PIGCREEK,Far West,import,not_replayed,False,31.5582,31.5582,0.0,27.3224,4.2358,4.2358,unchanged
+U02,regional,CHERRYCR,Far West,import,not_replayed,False,48.7868,48.7868,0.0,27.3224,21.4643,21.4643,unchanged
+U02,regional,FLAT_TOP,Far West,import,not_replayed,False,31.5102,31.5102,0.0,27.3224,4.1877,4.1877,unchanged
+U02,regional,LINTERNA,Far West,import,not_replayed,False,30.9271,30.9271,0.0,27.3224,3.6046,3.6046,unchanged
+U02,regional,MARANA,Laredo/South,export,not_replayed,False,17.9169,17.9169,0.0,17.6529,0.264,0.264,unchanged
+U02,regional,TGW,Laredo/South,export,not_replayed,False,17.9165,17.9165,0.0,17.6529,0.2636,0.2636,unchanged
+U02,regional,AVANZADA,Laredo/South,export,not_replayed,False,16.7397,16.7397,0.0,17.6529,-0.9131,-0.9131,unchanged
+U02,regional,CORAZON,Laredo/South,export,not_replayed,False,17.0109,17.0109,0.0,17.6529,-0.642,-0.642,unchanged
+U02,regional,RELOJ,Laredo/South,export,not_replayed,False,17.2777,17.2777,0.0,17.6529,-0.3752,-0.3752,unchanged
+U02,regional,ELARA_SL,Laredo/South,import,not_replayed,False,19.4589,19.4589,0.0,17.6529,1.806,1.806,unchanged
+U02,regional,DOWNIES,Laredo/South,import,not_replayed,False,21.0064,21.0064,0.0,17.6529,3.3535,3.3535,unchanged
+U02,regional,CARRIZO,Laredo/South,import,not_replayed,False,24.1714,24.1714,0.0,17.6529,6.5185,6.5185,unchanged
+U02,regional,ASHERTON,Laredo/South,import,not_replayed,False,23.3663,23.3663,0.0,17.6529,5.7134,5.7134,unchanged
+U02,regional,COTULLA,Laredo/South,import,not_replayed,False,20.6379,20.6379,0.0,17.6529,2.9851,2.9851,unchanged
+U02,regional,FAGUSSLR,Panhandle,export,not_replayed,False,29.7029,29.7029,0.0,27.3224,2.3804,2.3804,unchanged
+U02,regional,TULECNYN,Panhandle,export,not_replayed,False,30.9387,30.9387,0.0,27.3224,3.6162,3.6162,unchanged
+U02,regional,DEAFSMIT,Panhandle,export,not_replayed,False,31.358,31.358,0.0,27.3224,4.0356,4.0356,unchanged
+U02,regional,WINDMILL,Panhandle,export,not_replayed,False,31.1674,31.1674,0.0,27.3224,3.845,3.845,unchanged
+U02,regional,MIAM1,Panhandle,export,not_replayed,False,30.6215,30.6215,0.0,27.3224,3.299,3.299,unchanged
+U02,regional,GRND_SLR,Panhandle,import,not_replayed,False,30.6259,30.6259,0.0,27.3224,3.3035,3.3035,unchanged
+U02,regional,RIOHONDO,Rio Grande Valley,export,not_replayed,False,15.6803,15.6803,0.0,17.6529,-1.9726,-1.9726,unchanged
+U02,regional,PAREDES,Rio Grande Valley,export,not_replayed,False,18.9457,18.9457,0.0,17.6529,1.2928,1.2928,unchanged
+U02,regional,LMAJADAS,Rio Grande Valley,export,not_replayed,False,16.8764,16.8764,0.0,17.6529,-0.7765,-0.7765,unchanged
+U02,regional,LASPULGA,Rio Grande Valley,export,not_replayed,False,15.9411,15.9411,0.0,17.6529,-1.7118,-1.7118,unchanged
+U02,regional,POMELO,Rio Grande Valley,export,not_replayed,False,16.6537,16.6537,0.0,17.6529,-0.9992,-0.9992,unchanged
+U02,rev1_only,NOVICE,Other,export,not_replayed,False,83.0125,83.0125,0.0,27.3224,55.69,55.69,unchanged
+U02,rev1_only,SEA,Central,export,not_replayed,False,36.6192,36.6192,0.0,21.462,15.1573,15.1573,unchanged
+U02,rev1_only,CRNTH,DFW,export,not_replayed,False,57.5585,57.5585,0.0,21.462,36.0966,36.0966,unchanged
+U02,rev1_only,CENTRVIL,DFW,export,not_replayed,False,28.4395,28.4395,0.0,21.462,6.9775,6.9775,unchanged
+U02,rev1_only,ECRSW,Other,export,not_replayed,False,36.2848,36.2848,0.0,27.3224,8.9623,8.9623,unchanged
+U03,regional,BLFSW,Central (Bell County),export,evaluated,True,18.0535,18.0828,0.0293,21.462,-3.4084,-3.3792,unchanged
+U03,regional,PANDA_T2,Central (Bell County),export,evaluated,True,19.0816,18.6829,-0.3987,21.462,-2.3804,-2.779,unchanged
+U03,regional,EDDYS,Central (Bell County),export,evaluated,True,17.9336,17.9016,-0.032,21.462,-3.5284,-3.5604,unchanged
+U03,regional,MOODY,Central (Bell County),export,evaluated,True,19.0805,18.1068,-0.9737,21.462,-2.3814,-3.3551,unchanged
+U03,regional,LTFRD,Central (Bell County),export,evaluated,True,17.3681,16.7535,-0.6146,21.462,-4.0939,-4.7085,unchanged
+U03,regional,GEORSO,Central (Bell County),import,evaluated,True,25.2129,25.1094,-0.1035,17.6529,7.56,7.4565,unchanged
+U03,regional,ROKSW,Central (Bell County),import,evaluated,True,19.1183,18.8982,-0.2201,17.6529,1.4654,1.2454,unchanged
+U03,regional,ANDICE,Central (Bell County),import,evaluated,True,31.37,29.9042,-1.4658,28.4286,2.9415,1.4756,loses
+U03,regional,JUNG_SLR,Central (Bell County),import,evaluated,True,20.5722,19.8571,-0.7151,21.462,-0.8897,-1.6049,unchanged
+U03,regional,JREST,Central (Bell County),import,evaluated,True,30.8647,30.3527,-0.5121,17.6529,13.2118,12.6998,unchanged
+U03,regional,JUNO,Far West,export,evaluated,True,25.171,26.4633,1.2923,27.3224,-2.1515,-0.8592,gains
+U03,regional,BOCO_ESS,Far West,export,evaluated,True,25.2022,26.3025,1.1003,27.3224,-2.1203,-1.0199,gains
+U03,regional,WLVSW,Far West,export,evaluated,True,24.7305,25.8678,1.1373,27.3224,-2.5919,-1.4546,gains
+U03,regional,CEDACA,Far West,export,evaluated,True,25.407,27.3811,1.9741,27.3224,-1.9154,0.0586,gains
+U03,regional,SOLC_SLR,Far West,export,evaluated,True,25.1747,23.043,-2.1317,27.3224,-2.1477,-4.2794,loses
+U03,regional,LMESA,Far West,import,evaluated,True,40.2991,31.985,-8.3141,27.3224,12.9767,4.6625,loses
+U03,regional,PIGCREEK,Far West,import,evaluated,True,31.5582,27.4595,-4.0987,27.3224,4.2358,0.137,loses
+U03,regional,CHERRYCR,Far West,import,evaluated,True,48.7868,23.9977,-24.7891,27.3224,21.4643,-3.3248,loses
+U03,regional,FLAT_TOP,Far West,import,evaluated,True,31.5102,27.3816,-4.1286,27.3224,4.1877,0.0591,loses
+U03,regional,LINTERNA,Far West,import,evaluated,True,30.9271,27.4175,-3.5096,27.3224,3.6046,0.095,loses
+U03,regional,MARANA,Laredo/South,export,evaluated,True,17.9169,16.3153,-1.6016,17.6529,0.264,-1.3375,loses
+U03,regional,TGW,Laredo/South,export,evaluated,True,17.9165,16.3152,-1.6013,17.6529,0.2636,-1.3377,loses
+U03,regional,AVANZADA,Laredo/South,export,evaluated,True,16.7397,15.7632,-0.9765,17.6529,-0.9131,-1.8897,unchanged
+U03,regional,CORAZON,Laredo/South,export,evaluated,True,17.0109,15.8873,-1.1236,17.6529,-0.642,-1.7656,loses
+U03,regional,RELOJ,Laredo/South,export,evaluated,True,17.2777,16.3926,-0.8851,17.6529,-0.3752,-1.2603,unchanged
+U03,regional,ELARA_SL,Laredo/South,import,evaluated,True,19.4589,19.0813,-0.3777,17.6529,1.806,1.4284,unchanged
+U03,regional,DOWNIES,Laredo/South,import,evaluated,True,21.0064,20.1038,-0.9026,17.6529,3.3535,2.451,unchanged
+U03,regional,CARRIZO,Laredo/South,import,evaluated,True,24.1714,19.2237,-4.9476,17.6529,6.5185,1.5708,loses
+U03,regional,ASHERTON,Laredo/South,import,evaluated,True,23.3663,19.1383,-4.2281,17.6529,5.7134,1.4854,loses
+U03,regional,COTULLA,Laredo/South,import,evaluated,True,20.6379,20.4102,-0.2277,17.6529,2.9851,2.7573,unchanged
+U03,regional,FAGUSSLR,Panhandle,export,evaluated,True,29.7029,24.1927,-5.5102,27.3224,2.3804,-3.1298,loses
+U03,regional,TULECNYN,Panhandle,export,evaluated,True,30.9387,25.2298,-5.7088,27.3224,3.6162,-2.0926,loses
+U03,regional,DEAFSMIT,Panhandle,export,evaluated,True,31.358,25.6386,-5.7195,27.3224,4.0356,-1.6839,loses
+U03,regional,WINDMILL,Panhandle,export,evaluated,True,31.1674,25.5041,-5.6633,27.3224,3.845,-1.8183,loses
+U03,regional,MIAM1,Panhandle,export,evaluated,True,30.6215,24.9301,-5.6913,27.3224,3.299,-2.3923,loses
+U03,regional,GRND_SLR,Panhandle,import,evaluated,True,30.6259,27.3452,-3.2807,27.3224,3.3035,0.0228,loses
+U03,regional,RIOHONDO,Rio Grande Valley,export,evaluated,True,15.6803,15.3698,-0.3105,17.6529,-1.9726,-2.2831,unchanged
+U03,regional,PAREDES,Rio Grande Valley,export,evaluated,True,18.9457,16.7835,-2.1622,17.6529,1.2928,-0.8694,loses
+U03,regional,LMAJADAS,Rio Grande Valley,export,evaluated,True,16.8764,15.4787,-1.3977,17.6529,-0.7765,-2.1742,loses
+U03,regional,LASPULGA,Rio Grande Valley,export,evaluated,True,15.9411,15.7504,-0.1907,17.6529,-1.7118,-1.9025,unchanged
+U03,regional,POMELO,Rio Grande Valley,export,evaluated,True,16.6537,16.1969,-0.4568,17.6529,-0.9992,-1.456,unchanged
+U03,rev1_only,NOVICE,Other,export,evaluated,True,83.0125,34.3818,-48.6307,27.3224,55.69,7.0593,loses
+U03,rev1_only,SEA,Central,export,evaluated,True,36.6192,32.3287,-4.2906,21.462,15.1573,10.8667,loses
+U03,rev1_only,CRNTH,DFW,export,evaluated,True,57.5585,57.2366,-0.3219,21.462,36.0966,35.7746,unchanged
+U03,rev1_only,CENTRVIL,DFW,export,evaluated,True,28.4395,27.9439,-0.4955,21.462,6.9775,6.482,unchanged
+U03,rev1_only,ECRSW,Other,export,evaluated,True,36.2848,30.096,-6.1888,27.3224,8.9623,2.7735,loses
+U04,regional,BLFSW,Central (Bell County),export,evaluated,True,18.0535,18.0587,0.0052,21.462,-3.4084,-3.4032,unchanged
+U04,regional,PANDA_T2,Central (Bell County),export,evaluated,True,19.0816,19.0871,0.0055,21.462,-2.3804,-2.3748,unchanged
+U04,regional,EDDYS,Central (Bell County),export,evaluated,True,17.9336,17.938,0.0045,21.462,-3.5284,-3.5239,unchanged
+U04,regional,MOODY,Central (Bell County),export,evaluated,True,19.0805,19.086,0.0054,21.462,-2.3814,-2.376,unchanged
+U04,regional,LTFRD,Central (Bell County),export,evaluated,True,17.3681,17.3719,0.0038,21.462,-4.0939,-4.0901,unchanged
+U04,regional,GEORSO,Central (Bell County),import,evaluated,True,25.2129,25.3011,0.0882,17.6529,7.56,7.6482,unchanged
+U04,regional,ROKSW,Central (Bell County),import,evaluated,True,19.1183,19.1325,0.0142,17.6529,1.4654,1.4796,unchanged
+U04,regional,ANDICE,Central (Bell County),import,evaluated,True,31.37,31.3819,0.0119,28.4286,2.9415,2.9534,unchanged
+U04,regional,JUNG_SLR,Central (Bell County),import,evaluated,True,20.5722,20.5731,0.0009,21.462,-0.8897,-0.8888,unchanged
+U04,regional,JREST,Central (Bell County),import,evaluated,True,30.8647,30.8841,0.0193,17.6529,13.2118,13.2312,unchanged
+U04,regional,JUNO,Far West,export,evaluated,True,25.171,25.1812,0.0103,27.3224,-2.1515,-2.1412,unchanged
+U04,regional,BOCO_ESS,Far West,export,evaluated,True,25.2022,25.2049,0.0027,27.3224,-2.1203,-2.1176,unchanged
+U04,regional,WLVSW,Far West,export,evaluated,True,24.7305,24.7339,0.0034,27.3224,-2.5919,-2.5885,unchanged
+U04,regional,CEDACA,Far West,export,evaluated,True,25.407,25.2994,-0.1076,27.3224,-1.9154,-2.023,unchanged
+U04,regional,SOLC_SLR,Far West,export,evaluated,True,25.1747,25.181,0.0063,27.3224,-2.1477,-2.1415,unchanged
+U04,regional,LMESA,Far West,import,evaluated,True,40.2991,40.2708,-0.0283,27.3224,12.9767,12.9484,unchanged
+U04,regional,PIGCREEK,Far West,import,evaluated,True,31.5582,31.5221,-0.0361,27.3224,4.2358,4.1997,unchanged
+U04,regional,CHERRYCR,Far West,import,evaluated,True,48.7868,48.7621,-0.0247,27.3224,21.4643,21.4397,unchanged
+U04,regional,FLAT_TOP,Far West,import,evaluated,True,31.5102,31.475,-0.0352,27.3224,4.1877,4.1526,unchanged
+U04,regional,LINTERNA,Far West,import,evaluated,True,30.9271,30.8983,-0.0288,27.3224,3.6046,3.5758,unchanged
+U04,regional,MARANA,Laredo/South,export,evaluated,True,17.9169,17.9109,-0.006,17.6529,0.264,0.258,unchanged
+U04,regional,TGW,Laredo/South,export,evaluated,True,17.9165,17.9104,-0.006,17.6529,0.2636,0.2576,unchanged
+U04,regional,AVANZADA,Laredo/South,export,evaluated,True,16.7397,16.7381,-0.0016,17.6529,-0.9131,-0.9148,unchanged
+U04,regional,CORAZON,Laredo/South,export,evaluated,True,17.0109,17.009,-0.0018,17.6529,-0.642,-0.6439,unchanged
+U04,regional,RELOJ,Laredo/South,export,evaluated,True,17.2777,17.276,-0.0017,17.6529,-0.3752,-0.3769,unchanged
+U04,regional,ELARA_SL,Laredo/South,import,evaluated,True,19.4589,19.4676,0.0087,17.6529,1.806,1.8147,unchanged
+U04,regional,DOWNIES,Laredo/South,import,evaluated,True,21.0064,21.0184,0.012,17.6529,3.3535,3.3655,unchanged
+U04,regional,CARRIZO,Laredo/South,import,evaluated,True,24.1714,24.1197,-0.0516,17.6529,6.5185,6.4669,unchanged
+U04,regional,ASHERTON,Laredo/South,import,evaluated,True,23.3663,23.3776,0.0113,17.6529,5.7134,5.7247,unchanged
+U04,regional,COTULLA,Laredo/South,import,evaluated,True,20.6379,20.649,0.011,17.6529,2.9851,2.9961,unchanged
+U04,regional,FAGUSSLR,Panhandle,export,evaluated,True,29.7029,29.7147,0.0118,27.3224,2.3804,2.3922,unchanged
+U04,regional,TULECNYN,Panhandle,export,evaluated,True,30.9387,30.9444,0.0058,27.3224,3.6162,3.622,unchanged
+U04,regional,DEAFSMIT,Panhandle,export,evaluated,True,31.358,31.363,0.005,27.3224,4.0356,4.0406,unchanged
+U04,regional,WINDMILL,Panhandle,export,evaluated,True,31.1674,31.1717,0.0043,27.3224,3.845,3.8493,unchanged
+U04,regional,MIAM1,Panhandle,export,evaluated,True,30.6215,30.6294,0.0079,27.3224,3.299,3.307,unchanged
+U04,regional,GRND_SLR,Panhandle,import,evaluated,True,30.6259,30.4988,-0.1272,27.3224,3.3035,3.1763,unchanged
+U04,regional,RIOHONDO,Rio Grande Valley,export,evaluated,True,15.6803,15.6773,-0.003,17.6529,-1.9726,-1.9756,unchanged
+U04,regional,PAREDES,Rio Grande Valley,export,evaluated,True,18.9457,18.9437,-0.002,17.6529,1.2928,1.2908,unchanged
+U04,regional,LMAJADAS,Rio Grande Valley,export,evaluated,True,16.8764,16.8728,-0.0036,17.6529,-0.7765,-0.7801,unchanged
+U04,regional,LASPULGA,Rio Grande Valley,export,evaluated,True,15.9411,15.9414,0.0003,17.6529,-1.7118,-1.7115,unchanged
+U04,regional,POMELO,Rio Grande Valley,export,evaluated,True,16.6537,16.6523,-0.0015,17.6529,-0.9992,-1.0006,unchanged
+U04,rev1_only,NOVICE,Other,export,evaluated,True,83.0125,83.0128,0.0003,27.3224,55.69,55.6903,unchanged
+U04,rev1_only,SEA,Central,export,evaluated,True,36.6192,36.6205,0.0012,21.462,15.1573,15.1585,unchanged
+U04,rev1_only,CRNTH,DFW,export,evaluated,True,57.5585,57.5547,-0.0039,21.462,36.0966,36.0927,unchanged
+U04,rev1_only,CENTRVIL,DFW,export,evaluated,True,28.4395,28.4399,0.0004,21.462,6.9775,6.9779,unchanged
+U04,rev1_only,ECRSW,Other,export,evaluated,True,36.2848,36.2933,0.0085,27.3224,8.9623,8.9708,unchanged
+U05,regional,BLFSW,Central (Bell County),export,evaluated,True,18.0535,18.0375,-0.016,21.462,-3.4084,-3.4244,unchanged
+U05,regional,PANDA_T2,Central (Bell County),export,evaluated,True,19.0816,19.0614,-0.0202,21.462,-2.3804,-2.4006,unchanged
+U05,regional,EDDYS,Central (Bell County),export,evaluated,True,17.9336,17.9168,-0.0167,21.462,-3.5284,-3.5451,unchanged
+U05,regional,MOODY,Central (Bell County),export,evaluated,True,19.0805,19.0808,0.0003,21.462,-2.3814,-2.3812,unchanged
+U05,regional,LTFRD,Central (Bell County),export,evaluated,True,17.3681,17.3613,-0.0068,21.462,-4.0939,-4.1007,unchanged
+U05,regional,GEORSO,Central (Bell County),import,evaluated,True,25.2129,25.2913,0.0783,17.6529,7.56,7.6384,unchanged
+U05,regional,ROKSW,Central (Bell County),import,evaluated,True,19.1183,19.2703,0.1519,17.6529,1.4654,1.6174,unchanged
+U05,regional,ANDICE,Central (Bell County),import,evaluated,True,31.37,32.8448,1.4747,28.4286,2.9415,4.4162,gains
+U05,regional,JUNG_SLR,Central (Bell County),import,evaluated,True,20.5722,20.633,0.0608,21.462,-0.8897,-0.8289,unchanged
+U05,regional,JREST,Central (Bell County),import,evaluated,True,30.8647,30.7962,-0.0686,17.6529,13.2118,13.1433,unchanged
+U05,regional,JUNO,Far West,export,evaluated,True,25.171,25.1707,-0.0003,27.3224,-2.1515,-2.1518,unchanged
+U05,regional,BOCO_ESS,Far West,export,evaluated,True,25.2022,25.2049,0.0027,27.3224,-2.1203,-2.1175,unchanged
+U05,regional,WLVSW,Far West,export,evaluated,True,24.7305,24.7321,0.0015,27.3224,-2.5919,-2.5904,unchanged
+U05,regional,CEDACA,Far West,export,evaluated,True,25.407,25.4207,0.0137,27.3224,-1.9154,-1.9017,unchanged
+U05,regional,SOLC_SLR,Far West,export,evaluated,True,25.1747,25.1763,0.0016,27.3224,-2.1477,-2.1462,unchanged
+U05,regional,LMESA,Far West,import,evaluated,True,40.2991,40.3025,0.0034,27.3224,12.9767,12.9801,unchanged
+U05,regional,PIGCREEK,Far West,import,evaluated,True,31.5582,31.5687,0.0105,27.3224,4.2358,4.2463,unchanged
+U05,regional,CHERRYCR,Far West,import,evaluated,True,48.7868,48.798,0.0113,27.3224,21.4643,21.4756,unchanged
+U05,regional,FLAT_TOP,Far West,import,evaluated,True,31.5102,31.521,0.0109,27.3224,4.1877,4.1986,unchanged
+U05,regional,LINTERNA,Far West,import,evaluated,True,30.9271,30.9383,0.0112,27.3224,3.6046,3.6158,unchanged
+U05,regional,MARANA,Laredo/South,export,evaluated,True,17.9169,17.9396,0.0227,17.6529,0.264,0.2867,unchanged
+U05,regional,TGW,Laredo/South,export,evaluated,True,17.9165,17.9391,0.0227,17.6529,0.2636,0.2862,unchanged
+U05,regional,AVANZADA,Laredo/South,export,evaluated,True,16.7397,16.7587,0.019,17.6529,-0.9131,-0.8942,unchanged
+U05,regional,CORAZON,Laredo/South,export,evaluated,True,17.0109,17.0495,0.0387,17.6529,-0.642,-0.6034,unchanged
+U05,regional,RELOJ,Laredo/South,export,evaluated,True,17.2777,17.312,0.0343,17.6529,-0.3752,-0.3409,unchanged
+U05,regional,ELARA_SL,Laredo/South,import,evaluated,True,19.4589,19.4865,0.0275,17.6529,1.806,1.8336,unchanged
+U05,regional,DOWNIES,Laredo/South,import,evaluated,True,21.0064,21.0433,0.0369,17.6529,3.3535,3.3904,unchanged
+U05,regional,CARRIZO,Laredo/South,import,evaluated,True,24.1714,24.195,0.0237,17.6529,6.5185,6.5421,unchanged
+U05,regional,ASHERTON,Laredo/South,import,evaluated,True,23.3663,23.3828,0.0165,17.6529,5.7134,5.7299,unchanged
+U05,regional,COTULLA,Laredo/South,import,evaluated,True,20.6379,20.675,0.0371,17.6529,2.9851,3.0221,unchanged
+U05,regional,FAGUSSLR,Panhandle,export,evaluated,True,29.7029,29.7043,0.0014,27.3224,2.3804,2.3818,unchanged
+U05,regional,TULECNYN,Panhandle,export,evaluated,True,30.9387,30.9406,0.002,27.3224,3.6162,3.6182,unchanged
+U05,regional,DEAFSMIT,Panhandle,export,evaluated,True,31.358,31.3602,0.0022,27.3224,4.0356,4.0378,unchanged
+U05,regional,WINDMILL,Panhandle,export,evaluated,True,31.1674,31.1695,0.0021,27.3224,3.845,3.8471,unchanged
+U05,regional,MIAM1,Panhandle,export,evaluated,True,30.6215,30.6232,0.0018,27.3224,3.299,3.3008,unchanged
+U05,regional,GRND_SLR,Panhandle,import,evaluated,True,30.6259,30.6366,0.0107,27.3224,3.3035,3.3142,unchanged
+U05,regional,RIOHONDO,Rio Grande Valley,export,evaluated,True,15.6803,15.7007,0.0203,17.6529,-1.9726,-1.9522,unchanged
+U05,regional,PAREDES,Rio Grande Valley,export,evaluated,True,18.9457,18.9743,0.0286,17.6529,1.2928,1.3214,unchanged
+U05,regional,LMAJADAS,Rio Grande Valley,export,evaluated,True,16.8764,16.8904,0.0141,17.6529,-0.7765,-0.7625,unchanged
+U05,regional,LASPULGA,Rio Grande Valley,export,evaluated,True,15.9411,15.9679,0.0269,17.6529,-1.7118,-1.685,unchanged
+U05,regional,POMELO,Rio Grande Valley,export,evaluated,True,16.6537,16.6788,0.0251,17.6529,-0.9992,-0.9741,unchanged
+U05,rev1_only,NOVICE,Other,export,evaluated,True,83.0125,82.9951,-0.0173,27.3224,55.69,55.6727,unchanged
+U05,rev1_only,SEA,Central,export,evaluated,True,36.6192,36.5904,-0.0288,21.462,15.1573,15.1284,unchanged
+U05,rev1_only,CRNTH,DFW,export,evaluated,True,57.5585,57.5526,-0.0059,21.462,36.0966,36.0906,unchanged
+U05,rev1_only,CENTRVIL,DFW,export,evaluated,True,28.4395,28.3606,-0.0789,21.462,6.9775,6.8986,unchanged
+U05,rev1_only,ECRSW,Other,export,evaluated,True,36.2848,36.2842,-0.0005,27.3224,8.9623,8.9618,unchanged
+U06,regional,BLFSW,Central (Bell County),export,evaluated,True,18.0535,17.9689,-0.0847,21.462,-3.4084,-3.4931,unchanged
+U06,regional,PANDA_T2,Central (Bell County),export,evaluated,True,19.0816,18.9819,-0.0997,21.462,-2.3804,-2.4801,unchanged
+U06,regional,EDDYS,Central (Bell County),export,evaluated,True,17.9336,17.8793,-0.0543,21.462,-3.5284,-3.5827,unchanged
+U06,regional,MOODY,Central (Bell County),export,evaluated,True,19.0805,19.0134,-0.0671,21.462,-2.3814,-2.4486,unchanged
+U06,regional,LTFRD,Central (Bell County),export,evaluated,True,17.3681,17.3744,0.0063,21.462,-4.0939,-4.0875,unchanged
+U06,regional,GEORSO,Central (Bell County),import,evaluated,True,25.2129,25.0226,-0.1904,17.6529,7.56,7.3697,unchanged
+U06,regional,ROKSW,Central (Bell County),import,evaluated,True,19.1183,18.9482,-0.1701,17.6529,1.4654,1.2953,unchanged
+U06,regional,ANDICE,Central (Bell County),import,evaluated,True,31.37,31.3794,0.0094,28.4286,2.9415,2.9509,unchanged
+U06,regional,JUNG_SLR,Central (Bell County),import,evaluated,True,20.5722,20.4966,-0.0756,21.462,-0.8897,-0.9653,unchanged
+U06,regional,JREST,Central (Bell County),import,evaluated,True,30.8647,30.6254,-0.2393,17.6529,13.2118,12.9725,unchanged
+U06,regional,JUNO,Far West,export,evaluated,True,25.171,25.1715,0.0005,27.3224,-2.1515,-2.1509,unchanged
+U06,regional,BOCO_ESS,Far West,export,evaluated,True,25.2022,25.2027,0.0005,27.3224,-2.1203,-2.1198,unchanged
+U06,regional,WLVSW,Far West,export,evaluated,True,24.7305,24.7308,0.0003,27.3224,-2.5919,-2.5917,unchanged
+U06,regional,CEDACA,Far West,export,evaluated,True,25.407,25.3831,-0.0239,27.3224,-1.9154,-1.9394,unchanged
+U06,regional,SOLC_SLR,Far West,export,evaluated,True,25.1747,25.1655,-0.0092,27.3224,-2.1477,-2.1569,unchanged
+U06,regional,LMESA,Far West,import,evaluated,True,40.2991,40.3019,0.0028,27.3224,12.9767,12.9794,unchanged
+U06,regional,PIGCREEK,Far West,import,evaluated,True,31.5582,31.5519,-0.0063,27.3224,4.2358,4.2295,unchanged
+U06,regional,CHERRYCR,Far West,import,evaluated,True,48.7868,48.7475,-0.0393,27.3224,21.4643,21.425,unchanged
+U06,regional,FLAT_TOP,Far West,import,evaluated,True,31.5102,31.504,-0.0061,27.3224,4.1877,4.1816,unchanged
+U06,regional,LINTERNA,Far West,import,evaluated,True,30.9271,30.9205,-0.0066,27.3224,3.6046,3.5981,unchanged
+U06,regional,MARANA,Laredo/South,export,evaluated,True,17.9169,17.8747,-0.0422,17.6529,0.264,0.2218,unchanged
+U06,regional,TGW,Laredo/South,export,evaluated,True,17.9165,17.8743,-0.0422,17.6529,0.2636,0.2214,unchanged
+U06,regional,AVANZADA,Laredo/South,export,evaluated,True,16.7397,16.7266,-0.0131,17.6529,-0.9131,-0.9263,unchanged
+U06,regional,CORAZON,Laredo/South,export,evaluated,True,17.0109,16.9954,-0.0155,17.6529,-0.642,-0.6575,unchanged
+U06,regional,RELOJ,Laredo/South,export,evaluated,True,17.2777,17.2542,-0.0235,17.6529,-0.3752,-0.3987,unchanged
+U06,regional,ELARA_SL,Laredo/South,import,evaluated,True,19.4589,19.4506,-0.0083,17.6529,1.806,1.7977,unchanged
+U06,regional,DOWNIES,Laredo/South,import,evaluated,True,21.0064,20.9839,-0.0225,17.6529,3.3535,3.331,unchanged
+U06,regional,CARRIZO,Laredo/South,import,evaluated,True,24.1714,24.1553,-0.016,17.6529,6.5185,6.5024,unchanged
+U06,regional,ASHERTON,Laredo/South,import,evaluated,True,23.3663,23.3525,-0.0138,17.6529,5.7134,5.6996,unchanged
+U06,regional,COTULLA,Laredo/South,import,evaluated,True,20.6379,20.6353,-0.0027,17.6529,2.9851,2.9824,unchanged
+U06,regional,FAGUSSLR,Panhandle,export,evaluated,True,29.7029,29.689,-0.0139,27.3224,2.3804,2.3665,unchanged
+U06,regional,TULECNYN,Panhandle,export,evaluated,True,30.9387,30.9275,-0.0111,27.3224,3.6162,3.6051,unchanged
+U06,regional,DEAFSMIT,Panhandle,export,evaluated,True,31.358,31.3469,-0.0111,27.3224,4.0356,4.0245,unchanged
+U06,regional,WINDMILL,Panhandle,export,evaluated,True,31.1674,31.1566,-0.0108,27.3224,3.845,3.8341,unchanged
+U06,regional,MIAM1,Panhandle,export,evaluated,True,30.6215,30.6092,-0.0122,27.3224,3.299,3.2868,unchanged
+U06,regional,GRND_SLR,Panhandle,import,evaluated,True,30.6259,30.6156,-0.0103,27.3224,3.3035,3.2932,unchanged
+U06,regional,RIOHONDO,Rio Grande Valley,export,evaluated,True,15.6803,15.6349,-0.0454,17.6529,-1.9726,-2.018,unchanged
+U06,regional,PAREDES,Rio Grande Valley,export,evaluated,True,18.9457,18.9088,-0.0369,17.6529,1.2928,1.2559,unchanged
+U06,regional,LMAJADAS,Rio Grande Valley,export,evaluated,True,16.8764,16.8305,-0.0459,17.6529,-0.7765,-0.8224,unchanged
+U06,regional,LASPULGA,Rio Grande Valley,export,evaluated,True,15.9411,15.9059,-0.0351,17.6529,-1.7118,-1.747,unchanged
+U06,regional,POMELO,Rio Grande Valley,export,evaluated,True,16.6537,16.6155,-0.0382,17.6529,-0.9992,-1.0374,unchanged
+U06,rev1_only,NOVICE,Other,export,evaluated,True,83.0125,83.0251,0.0126,27.3224,55.69,55.7026,unchanged
+U06,rev1_only,SEA,Central,export,evaluated,True,36.6192,36.6046,-0.0146,21.462,15.1573,15.1426,unchanged
+U06,rev1_only,CRNTH,DFW,export,evaluated,True,57.5585,57.5601,0.0015,21.462,36.0966,36.0981,unchanged
+U06,rev1_only,CENTRVIL,DFW,export,evaluated,True,28.4395,28.4436,0.0041,21.462,6.9775,6.9816,unchanged
+U06,rev1_only,ECRSW,Other,export,evaluated,True,36.2848,36.2807,-0.0041,27.3224,8.9623,8.9583,unchanged
+U07,regional,BLFSW,Central (Bell County),export,not_replayed,False,18.0535,18.0535,0.0,21.462,-3.4084,-3.4084,unchanged
+U07,regional,PANDA_T2,Central (Bell County),export,not_replayed,False,19.0816,19.0816,0.0,21.462,-2.3804,-2.3804,unchanged
+U07,regional,EDDYS,Central (Bell County),export,not_replayed,False,17.9336,17.9336,0.0,21.462,-3.5284,-3.5284,unchanged
+U07,regional,MOODY,Central (Bell County),export,not_replayed,False,19.0805,19.0805,0.0,21.462,-2.3814,-2.3814,unchanged
+U07,regional,LTFRD,Central (Bell County),export,not_replayed,False,17.3681,17.3681,0.0,21.462,-4.0939,-4.0939,unchanged
+U07,regional,GEORSO,Central (Bell County),import,not_replayed,False,25.2129,25.2129,0.0,17.6529,7.56,7.56,unchanged
+U07,regional,ROKSW,Central (Bell County),import,not_replayed,False,19.1183,19.1183,0.0,17.6529,1.4654,1.4654,unchanged
+U07,regional,ANDICE,Central (Bell County),import,not_replayed,False,31.37,31.37,0.0,28.4286,2.9415,2.9415,unchanged
+U07,regional,JUNG_SLR,Central (Bell County),import,not_replayed,False,20.5722,20.5722,0.0,21.462,-0.8897,-0.8897,unchanged
+U07,regional,JREST,Central (Bell County),import,not_replayed,False,30.8647,30.8647,0.0,17.6529,13.2118,13.2118,unchanged
+U07,regional,JUNO,Far West,export,not_replayed,False,25.171,25.171,0.0,27.3224,-2.1515,-2.1515,unchanged
+U07,regional,BOCO_ESS,Far West,export,not_replayed,False,25.2022,25.2022,0.0,27.3224,-2.1203,-2.1203,unchanged
+U07,regional,WLVSW,Far West,export,not_replayed,False,24.7305,24.7305,0.0,27.3224,-2.5919,-2.5919,unchanged
+U07,regional,CEDACA,Far West,export,not_replayed,False,25.407,25.407,0.0,27.3224,-1.9154,-1.9154,unchanged
+U07,regional,SOLC_SLR,Far West,export,not_replayed,False,25.1747,25.1747,0.0,27.3224,-2.1477,-2.1477,unchanged
+U07,regional,LMESA,Far West,import,not_replayed,False,40.2991,40.2991,0.0,27.3224,12.9767,12.9767,unchanged
+U07,regional,PIGCREEK,Far West,import,not_replayed,False,31.5582,31.5582,0.0,27.3224,4.2358,4.2358,unchanged
+U07,regional,CHERRYCR,Far West,import,not_replayed,False,48.7868,48.7868,0.0,27.3224,21.4643,21.4643,unchanged
+U07,regional,FLAT_TOP,Far West,import,not_replayed,False,31.5102,31.5102,0.0,27.3224,4.1877,4.1877,unchanged
+U07,regional,LINTERNA,Far West,import,not_replayed,False,30.9271,30.9271,0.0,27.3224,3.6046,3.6046,unchanged
+U07,regional,MARANA,Laredo/South,export,not_replayed,False,17.9169,17.9169,0.0,17.6529,0.264,0.264,unchanged
+U07,regional,TGW,Laredo/South,export,not_replayed,False,17.9165,17.9165,0.0,17.6529,0.2636,0.2636,unchanged
+U07,regional,AVANZADA,Laredo/South,export,not_replayed,False,16.7397,16.7397,0.0,17.6529,-0.9131,-0.9131,unchanged
+U07,regional,CORAZON,Laredo/South,export,not_replayed,False,17.0109,17.0109,0.0,17.6529,-0.642,-0.642,unchanged
+U07,regional,RELOJ,Laredo/South,export,not_replayed,False,17.2777,17.2777,0.0,17.6529,-0.3752,-0.3752,unchanged
+U07,regional,ELARA_SL,Laredo/South,import,not_replayed,False,19.4589,19.4589,0.0,17.6529,1.806,1.806,unchanged
+U07,regional,DOWNIES,Laredo/South,import,not_replayed,False,21.0064,21.0064,0.0,17.6529,3.3535,3.3535,unchanged
+U07,regional,CARRIZO,Laredo/South,import,not_replayed,False,24.1714,24.1714,0.0,17.6529,6.5185,6.5185,unchanged
+U07,regional,ASHERTON,Laredo/South,import,not_replayed,False,23.3663,23.3663,0.0,17.6529,5.7134,5.7134,unchanged
+U07,regional,COTULLA,Laredo/South,import,not_replayed,False,20.6379,20.6379,0.0,17.6529,2.9851,2.9851,unchanged
+U07,regional,FAGUSSLR,Panhandle,export,not_replayed,False,29.7029,29.7029,0.0,27.3224,2.3804,2.3804,unchanged
+U07,regional,TULECNYN,Panhandle,export,not_replayed,False,30.9387,30.9387,0.0,27.3224,3.6162,3.6162,unchanged
+U07,regional,DEAFSMIT,Panhandle,export,not_replayed,False,31.358,31.358,0.0,27.3224,4.0356,4.0356,unchanged
+U07,regional,WINDMILL,Panhandle,export,not_replayed,False,31.1674,31.1674,0.0,27.3224,3.845,3.845,unchanged
+U07,regional,MIAM1,Panhandle,export,not_replayed,False,30.6215,30.6215,0.0,27.3224,3.299,3.299,unchanged
+U07,regional,GRND_SLR,Panhandle,import,not_replayed,False,30.6259,30.6259,0.0,27.3224,3.3035,3.3035,unchanged
+U07,regional,RIOHONDO,Rio Grande Valley,export,not_replayed,False,15.6803,15.6803,0.0,17.6529,-1.9726,-1.9726,unchanged
+U07,regional,PAREDES,Rio Grande Valley,export,not_replayed,False,18.9457,18.9457,0.0,17.6529,1.2928,1.2928,unchanged
+U07,regional,LMAJADAS,Rio Grande Valley,export,not_replayed,False,16.8764,16.8764,0.0,17.6529,-0.7765,-0.7765,unchanged
+U07,regional,LASPULGA,Rio Grande Valley,export,not_replayed,False,15.9411,15.9411,0.0,17.6529,-1.7118,-1.7118,unchanged
+U07,regional,POMELO,Rio Grande Valley,export,not_replayed,False,16.6537,16.6537,0.0,17.6529,-0.9992,-0.9992,unchanged
+U07,rev1_only,NOVICE,Other,export,not_replayed,False,83.0125,83.0125,0.0,27.3224,55.69,55.69,unchanged
+U07,rev1_only,SEA,Central,export,not_replayed,False,36.6192,36.6192,0.0,21.462,15.1573,15.1573,unchanged
+U07,rev1_only,CRNTH,DFW,export,not_replayed,False,57.5585,57.5585,0.0,21.462,36.0966,36.0966,unchanged
+U07,rev1_only,CENTRVIL,DFW,export,not_replayed,False,28.4395,28.4395,0.0,21.462,6.9775,6.9775,unchanged
+U07,rev1_only,ECRSW,Other,export,not_replayed,False,36.2848,36.2848,0.0,27.3224,8.9623,8.9623,unchanged
+U08,regional,BLFSW,Central (Bell County),export,evaluated,True,18.0535,18.7907,0.7372,21.462,-3.4084,-2.6712,unchanged
+U08,regional,PANDA_T2,Central (Bell County),export,evaluated,True,19.0816,19.8468,0.7652,21.462,-2.3804,-1.6152,unchanged
+U08,regional,EDDYS,Central (Bell County),export,evaluated,True,17.9336,18.5489,0.6153,21.462,-3.5284,-2.913,unchanged
+U08,regional,MOODY,Central (Bell County),export,evaluated,True,19.0805,19.7477,0.6672,21.462,-2.3814,-1.7142,unchanged
+U08,regional,LTFRD,Central (Bell County),export,evaluated,True,17.3681,17.8994,0.5313,21.462,-4.0939,-3.5626,unchanged
+U08,regional,GEORSO,Central (Bell County),import,evaluated,True,25.2129,23.8254,-1.3875,17.6529,7.56,6.1725,loses
+U08,regional,ROKSW,Central (Bell County),import,evaluated,True,19.1183,19.2214,0.1031,17.6529,1.4654,1.5685,unchanged
+U08,regional,ANDICE,Central (Bell County),import,evaluated,True,31.37,30.8044,-0.5656,28.4286,2.9415,2.3759,unchanged
+U08,regional,JUNG_SLR,Central (Bell County),import,evaluated,True,20.5722,20.7631,0.1908,21.462,-0.8897,-0.6989,unchanged
+U08,regional,JREST,Central (Bell County),import,evaluated,True,30.8647,30.2335,-0.6313,17.6529,13.2118,12.5806,unchanged
+U08,regional,JUNO,Far West,export,evaluated,True,25.171,25.098,-0.073,27.3224,-2.1515,-2.2245,unchanged
+U08,regional,BOCO_ESS,Far West,export,evaluated,True,25.2022,25.1302,-0.072,27.3224,-2.1203,-2.1922,unchanged
+U08,regional,WLVSW,Far West,export,evaluated,True,24.7305,24.6564,-0.0741,27.3224,-2.5919,-2.666,unchanged
+U08,regional,CEDACA,Far West,export,evaluated,True,25.407,25.3383,-0.0687,27.3224,-1.9154,-1.9842,unchanged
+U08,regional,SOLC_SLR,Far West,export,evaluated,True,25.1747,25.1003,-0.0744,27.3224,-2.1477,-2.2222,unchanged
+U08,regional,LMESA,Far West,import,evaluated,True,40.2991,40.2403,-0.0588,27.3224,12.9767,12.9178,unchanged
+U08,regional,PIGCREEK,Far West,import,evaluated,True,31.5582,31.4911,-0.0672,27.3224,4.2358,4.1686,unchanged
+U08,regional,CHERRYCR,Far West,import,evaluated,True,48.7868,48.7348,-0.0519,27.3224,21.4643,21.4124,unchanged
+U08,regional,FLAT_TOP,Far West,import,evaluated,True,31.5102,31.4431,-0.067,27.3224,4.1877,4.1207,unchanged
+U08,regional,LINTERNA,Far West,import,evaluated,True,30.9271,30.8585,-0.0685,27.3224,3.6046,3.5361,unchanged
+U08,regional,MARANA,Laredo/South,export,evaluated,True,17.9169,17.9002,-0.0167,17.6529,0.264,0.2473,unchanged
+U08,regional,TGW,Laredo/South,export,evaluated,True,17.9165,17.8998,-0.0167,17.6529,0.2636,0.2469,unchanged
+U08,regional,AVANZADA,Laredo/South,export,evaluated,True,16.7397,16.7365,-0.0032,17.6529,-0.9131,-0.9164,unchanged
+U08,regional,CORAZON,Laredo/South,export,evaluated,True,17.0109,17.007,-0.0039,17.6529,-0.642,-0.6459,unchanged
+U08,regional,RELOJ,Laredo/South,export,evaluated,True,17.2777,17.2742,-0.0036,17.6529,-0.3752,-0.3787,unchanged
+U08,regional,ELARA_SL,Laredo/South,import,evaluated,True,19.4589,19.9583,0.4994,17.6529,1.806,2.3054,unchanged
+U08,regional,DOWNIES,Laredo/South,import,evaluated,True,21.0064,21.1392,0.1328,17.6529,3.3535,3.4863,unchanged
+U08,regional,CARRIZO,Laredo/South,import,evaluated,True,24.1714,24.3031,0.1317,17.6529,6.5185,6.6502,unchanged
+U08,regional,ASHERTON,Laredo/South,import,evaluated,True,23.3663,23.4905,0.1242,17.6529,5.7134,5.8376,unchanged
+U08,regional,COTULLA,Laredo/South,import,evaluated,True,20.6379,20.7764,0.1384,17.6529,2.9851,3.1235,unchanged
+U08,regional,FAGUSSLR,Panhandle,export,evaluated,True,29.7029,29.6492,-0.0537,27.3224,2.3804,2.3267,unchanged
+U08,regional,TULECNYN,Panhandle,export,evaluated,True,30.9387,30.8807,-0.058,27.3224,3.6162,3.5582,unchanged
+U08,regional,DEAFSMIT,Panhandle,export,evaluated,True,31.358,31.2995,-0.0586,27.3224,4.0356,3.977,unchanged
+U08,regional,WINDMILL,Panhandle,export,evaluated,True,31.1674,31.11,-0.0574,27.3224,3.845,3.7875,unchanged
+U08,regional,MIAM1,Panhandle,export,evaluated,True,30.6215,30.5655,-0.056,27.3224,3.299,3.243,unchanged
+U08,regional,GRND_SLR,Panhandle,import,evaluated,True,30.6259,30.5646,-0.0614,27.3224,3.3035,3.2421,unchanged
+U08,regional,RIOHONDO,Rio Grande Valley,export,evaluated,True,15.6803,15.6941,0.0137,17.6529,-1.9726,-1.9588,unchanged
+U08,regional,PAREDES,Rio Grande Valley,export,evaluated,True,18.9457,18.965,0.0193,17.6529,1.2928,1.3121,unchanged
+U08,regional,LMAJADAS,Rio Grande Valley,export,evaluated,True,16.8764,16.8944,0.018,17.6529,-0.7765,-0.7585,unchanged
+U08,regional,LASPULGA,Rio Grande Valley,export,evaluated,True,15.9411,15.9645,0.0234,17.6529,-1.7118,-1.6884,unchanged
+U08,regional,POMELO,Rio Grande Valley,export,evaluated,True,16.6537,16.6637,0.01,17.6529,-0.9992,-0.9892,unchanged
+U08,rev1_only,NOVICE,Other,export,evaluated,True,83.0125,82.9562,-0.0563,27.3224,55.69,55.6338,unchanged
+U08,rev1_only,SEA,Central,export,evaluated,True,36.6192,37.1428,0.5235,21.462,15.1573,15.6808,unchanged
+U08,rev1_only,CRNTH,DFW,export,evaluated,True,57.5585,57.8468,0.2883,21.462,36.0966,36.3849,unchanged
+U08,rev1_only,CENTRVIL,DFW,export,evaluated,True,28.4395,28.6595,0.2201,21.462,6.9775,7.1976,unchanged
+U08,rev1_only,ECRSW,Other,export,evaluated,True,36.2848,36.2266,-0.0582,27.3224,8.9623,8.9041,unchanged
+U09,regional,BLFSW,Central (Bell County),export,evaluated,True,18.0535,18.035,-0.0185,21.462,-3.4084,-3.4269,unchanged
+U09,regional,PANDA_T2,Central (Bell County),export,evaluated,True,19.0816,18.9863,-0.0953,21.462,-2.3804,-2.4756,unchanged
+U09,regional,EDDYS,Central (Bell County),export,evaluated,True,17.9336,17.9083,-0.0253,21.462,-3.5284,-3.5536,unchanged
+U09,regional,MOODY,Central (Bell County),export,evaluated,True,19.0805,18.9949,-0.0856,21.462,-2.3814,-2.4671,unchanged
+U09,regional,LTFRD,Central (Bell County),export,evaluated,True,17.3681,17.3777,0.0096,21.462,-4.0939,-4.0843,unchanged
+U09,regional,GEORSO,Central (Bell County),import,evaluated,True,25.2129,25.223,0.0101,17.6529,7.56,7.5701,unchanged
+U09,regional,ROKSW,Central (Bell County),import,evaluated,True,19.1183,19.1049,-0.0134,17.6529,1.4654,1.452,unchanged
+U09,regional,ANDICE,Central (Bell County),import,evaluated,True,31.37,31.36,-0.01,28.4286,2.9415,2.9315,unchanged
+U09,regional,JUNG_SLR,Central (Bell County),import,evaluated,True,20.5722,20.4646,-0.1077,21.462,-0.8897,-0.9974,unchanged
+U09,regional,JREST,Central (Bell County),import,evaluated,True,30.8647,30.8957,0.031,17.6529,13.2118,13.2428,unchanged
+U09,regional,JUNO,Far West,export,evaluated,True,25.171,25.5696,0.3986,27.3224,-2.1515,-1.7529,unchanged
+U09,regional,BOCO_ESS,Far West,export,evaluated,True,25.2022,25.6043,0.4021,27.3224,-2.1203,-1.7181,unchanged
+U09,regional,WLVSW,Far West,export,evaluated,True,24.7305,25.0908,0.3603,27.3224,-2.5919,-2.2316,unchanged
+U09,regional,CEDACA,Far West,export,evaluated,True,25.407,25.6229,0.2159,27.3224,-1.9154,-1.6996,unchanged
+U09,regional,SOLC_SLR,Far West,export,evaluated,True,25.1747,24.4358,-0.7389,27.3224,-2.1477,-2.8866,unchanged
+U09,regional,LMESA,Far West,import,evaluated,True,40.2991,41.1884,0.8893,27.3224,12.9767,13.8659,unchanged
+U09,regional,PIGCREEK,Far West,import,evaluated,True,31.5582,31.7252,0.167,27.3224,4.2358,4.4028,unchanged
+U09,regional,CHERRYCR,Far West,import,evaluated,True,48.7868,47.9414,-0.8454,27.3224,21.4643,20.619,unchanged
+U09,regional,FLAT_TOP,Far West,import,evaluated,True,31.5102,31.6711,0.161,27.3224,4.1877,4.3487,unchanged
+U09,regional,LINTERNA,Far West,import,evaluated,True,30.9271,31.1096,0.1825,27.3224,3.6046,3.7871,unchanged
+U09,regional,MARANA,Laredo/South,export,evaluated,True,17.9169,17.9111,-0.0059,17.6529,0.264,0.2582,unchanged
+U09,regional,TGW,Laredo/South,export,evaluated,True,17.9165,17.9106,-0.0059,17.6529,0.2636,0.2577,unchanged
+U09,regional,AVANZADA,Laredo/South,export,evaluated,True,16.7397,16.7253,-0.0145,17.6529,-0.9131,-0.9276,unchanged
+U09,regional,CORAZON,Laredo/South,export,evaluated,True,17.0109,16.9957,-0.0151,17.6529,-0.642,-0.6571,unchanged
+U09,regional,RELOJ,Laredo/South,export,evaluated,True,17.2777,17.265,-0.0128,17.6529,-0.3752,-0.3879,unchanged
+U09,regional,ELARA_SL,Laredo/South,import,evaluated,True,19.4589,19.4975,0.0386,17.6529,1.806,1.8446,unchanged
+U09,regional,DOWNIES,Laredo/South,import,evaluated,True,21.0064,21.0854,0.079,17.6529,3.3535,3.4325,unchanged
+U09,regional,CARRIZO,Laredo/South,import,evaluated,True,24.1714,24.283,0.1116,17.6529,6.5185,6.6301,unchanged
+U09,regional,ASHERTON,Laredo/South,import,evaluated,True,23.3663,23.476,0.1097,17.6529,5.7134,5.8231,unchanged
+U09,regional,COTULLA,Laredo/South,import,evaluated,True,20.6379,20.6662,0.0283,17.6529,2.9851,3.0133,unchanged
+U09,regional,FAGUSSLR,Panhandle,export,evaluated,True,29.7029,27.832,-1.8709,27.3224,2.3804,0.5096,loses
+U09,regional,TULECNYN,Panhandle,export,evaluated,True,30.9387,29.0406,-1.898,27.3224,3.6162,1.7182,loses
+U09,regional,DEAFSMIT,Panhandle,export,evaluated,True,31.358,29.54,-1.818,27.3224,4.0356,2.2175,loses
+U09,regional,WINDMILL,Panhandle,export,evaluated,True,31.1674,29.3913,-1.7761,27.3224,3.845,2.0688,loses
+U09,regional,MIAM1,Panhandle,export,evaluated,True,30.6215,28.7383,-1.8831,27.3224,3.299,1.4159,loses
+U09,regional,GRND_SLR,Panhandle,import,evaluated,True,30.6259,30.7943,0.1683,27.3224,3.3035,3.4718,unchanged
+U09,regional,RIOHONDO,Rio Grande Valley,export,evaluated,True,15.6803,15.6753,-0.0051,17.6529,-1.9726,-1.9776,unchanged
+U09,regional,PAREDES,Rio Grande Valley,export,evaluated,True,18.9457,18.9359,-0.0098,17.6529,1.2928,1.283,unchanged
+U09,regional,LMAJADAS,Rio Grande Valley,export,evaluated,True,16.8764,16.8682,-0.0082,17.6529,-0.7765,-0.7847,unchanged
+U09,regional,LASPULGA,Rio Grande Valley,export,evaluated,True,15.9411,15.9368,-0.0043,17.6529,-1.7118,-1.7161,unchanged
+U09,regional,POMELO,Rio Grande Valley,export,evaluated,True,16.6537,16.6458,-0.0079,17.6529,-0.9992,-1.0071,unchanged
+U09,rev1_only,NOVICE,Other,export,evaluated,True,83.0125,82.9891,-0.0233,27.3224,55.69,55.6667,unchanged
+U09,rev1_only,SEA,Central,export,evaluated,True,36.6192,36.7614,0.1421,21.462,15.1573,15.2994,unchanged
+U09,rev1_only,CRNTH,DFW,export,evaluated,True,57.5585,57.5714,0.0128,21.462,36.0966,36.1094,unchanged
+U09,rev1_only,CENTRVIL,DFW,export,evaluated,True,28.4395,28.4462,0.0067,21.462,6.9775,6.9842,unchanged
+U09,rev1_only,ECRSW,Other,export,evaluated,True,36.2848,28.6799,-7.6048,27.3224,8.9623,1.3575,loses
+U10,regional,BLFSW,Central (Bell County),export,evaluated,True,18.0535,17.9668,-0.0867,21.462,-3.4084,-3.4951,unchanged
+U10,regional,PANDA_T2,Central (Bell County),export,evaluated,True,19.0816,19.0235,-0.0581,21.462,-2.3804,-2.4385,unchanged
+U10,regional,EDDYS,Central (Bell County),export,evaluated,True,17.9336,17.7384,-0.1951,21.462,-3.5284,-3.7235,unchanged
+U10,regional,MOODY,Central (Bell County),export,evaluated,True,19.0805,18.9092,-0.1713,21.462,-2.3814,-2.5527,unchanged
+U10,regional,LTFRD,Central (Bell County),export,evaluated,True,17.3681,17.3343,-0.0338,21.462,-4.0939,-4.1276,unchanged
+U10,regional,GEORSO,Central (Bell County),import,evaluated,True,25.2129,23.3555,-1.8574,17.6529,7.56,5.7026,loses
+U10,regional,ROKSW,Central (Bell County),import,evaluated,True,19.1183,19.0495,-0.0688,17.6529,1.4654,1.3966,unchanged
+U10,regional,ANDICE,Central (Bell County),import,evaluated,True,31.37,30.5862,-0.7838,28.4286,2.9415,2.1577,unchanged
+U10,regional,JUNG_SLR,Central (Bell County),import,evaluated,True,20.5722,21.395,0.8227,21.462,-0.8897,-0.067,unchanged
+U10,regional,JREST,Central (Bell County),import,evaluated,True,30.8647,25.8933,-4.9714,17.6529,13.2118,8.2404,loses
+U10,regional,JUNO,Far West,export,evaluated,True,25.171,25.175,0.004,27.3224,-2.1515,-2.1475,unchanged
+U10,regional,BOCO_ESS,Far West,export,evaluated,True,25.2022,25.2064,0.0042,27.3224,-2.1203,-2.1161,unchanged
+U10,regional,WLVSW,Far West,export,evaluated,True,24.7305,24.7356,0.0051,27.3224,-2.5919,-2.5868,unchanged
+U10,regional,CEDACA,Far West,export,evaluated,True,25.407,25.3892,-0.0178,27.3224,-1.9154,-1.9333,unchanged
+U10,regional,SOLC_SLR,Far West,export,evaluated,True,25.1747,25.1825,0.0078,27.3224,-2.1477,-2.1399,unchanged
+U10,regional,LMESA,Far West,import,evaluated,True,40.2991,40.3011,0.002,27.3224,12.9767,12.9787,unchanged
+U10,regional,PIGCREEK,Far West,import,evaluated,True,31.5582,31.5507,-0.0076,27.3224,4.2358,4.2282,unchanged
+U10,regional,CHERRYCR,Far West,import,evaluated,True,48.7868,48.722,-0.0648,27.3224,21.4643,21.3996,unchanged
+U10,regional,FLAT_TOP,Far West,import,evaluated,True,31.5102,31.5031,-0.007,27.3224,4.1877,4.1807,unchanged
+U10,regional,LINTERNA,Far West,import,evaluated,True,30.9271,30.9177,-0.0093,27.3224,3.6046,3.5953,unchanged
+U10,regional,MARANA,Laredo/South,export,evaluated,True,17.9169,17.9076,-0.0094,17.6529,0.264,0.2547,unchanged
+U10,regional,TGW,Laredo/South,export,evaluated,True,17.9165,17.9071,-0.0094,17.6529,0.2636,0.2542,unchanged
+U10,regional,AVANZADA,Laredo/South,export,evaluated,True,16.7397,16.7389,-0.0008,17.6529,-0.9131,-0.9139,unchanged
+U10,regional,CORAZON,Laredo/South,export,evaluated,True,17.0109,17.0138,0.0029,17.6529,-0.642,-0.6391,unchanged
+U10,regional,RELOJ,Laredo/South,export,evaluated,True,17.2777,17.2803,0.0026,17.6529,-0.3752,-0.3725,unchanged
+U10,regional,ELARA_SL,Laredo/South,import,evaluated,True,19.4589,19.4687,0.0098,17.6529,1.806,1.8158,unchanged
+U10,regional,DOWNIES,Laredo/South,import,evaluated,True,21.0064,21.0242,0.0178,17.6529,3.3535,3.3713,unchanged
+U10,regional,CARRIZO,Laredo/South,import,evaluated,True,24.1714,24.1937,0.0224,17.6529,6.5185,6.5408,unchanged
+U10,regional,ASHERTON,Laredo/South,import,evaluated,True,23.3663,23.3809,0.0146,17.6529,5.7134,5.728,unchanged
+U10,regional,COTULLA,Laredo/South,import,evaluated,True,20.6379,20.6698,0.0318,17.6529,2.9851,3.0169,unchanged
+U10,regional,FAGUSSLR,Panhandle,export,evaluated,True,29.7029,29.7063,0.0035,27.3224,2.3804,2.3839,unchanged
+U10,regional,TULECNYN,Panhandle,export,evaluated,True,30.9387,30.9426,0.004,27.3224,3.6162,3.6202,unchanged
+U10,regional,DEAFSMIT,Panhandle,export,evaluated,True,31.358,31.3621,0.0041,27.3224,4.0356,4.0397,unchanged
+U10,regional,WINDMILL,Panhandle,export,evaluated,True,31.1674,31.1712,0.0038,27.3224,3.845,3.8488,unchanged
+U10,regional,MIAM1,Panhandle,export,evaluated,True,30.6215,30.6253,0.0039,27.3224,3.299,3.3029,unchanged
+U10,regional,GRND_SLR,Panhandle,import,evaluated,True,30.6259,30.6189,-0.007,27.3224,3.3035,3.2965,unchanged
+U10,regional,RIOHONDO,Rio Grande Valley,export,evaluated,True,15.6803,15.6731,-0.0072,17.6529,-1.9726,-1.9798,unchanged
+U10,regional,PAREDES,Rio Grande Valley,export,evaluated,True,18.9457,18.9649,0.0193,17.6529,1.2928,1.3121,unchanged
+U10,regional,LMAJADAS,Rio Grande Valley,export,evaluated,True,16.8764,16.8692,-0.0072,17.6529,-0.7765,-0.7837,unchanged
+U10,regional,LASPULGA,Rio Grande Valley,export,evaluated,True,15.9411,15.9614,0.0204,17.6529,-1.7118,-1.6915,unchanged
+U10,regional,POMELO,Rio Grande Valley,export,evaluated,True,16.6537,16.6574,0.0037,17.6529,-0.9992,-0.9955,unchanged
+U10,rev1_only,NOVICE,Other,export,evaluated,True,83.0125,83.0658,0.0533,27.3224,55.69,55.7433,unchanged
+U10,rev1_only,SEA,Central,export,evaluated,True,36.6192,37.1428,0.5236,21.462,15.1573,15.6808,unchanged
+U10,rev1_only,CRNTH,DFW,export,evaluated,True,57.5585,57.5518,-0.0068,21.462,36.0966,36.0898,unchanged
+U10,rev1_only,CENTRVIL,DFW,export,evaluated,True,28.4395,28.4407,0.0012,21.462,6.9775,6.9787,unchanged
+U10,rev1_only,ECRSW,Other,export,evaluated,True,36.2848,36.2913,0.0066,27.3224,8.9623,8.9689,unchanged
+PLANNED_2031,regional,BLFSW,Central (Bell County),export,evaluated,True,18.0535,19.0231,0.9696,21.462,-3.4084,-2.4389,unchanged
+PLANNED_2031,regional,PANDA_T2,Central (Bell County),export,evaluated,True,19.0816,20.4014,1.3198,21.462,-2.3804,-1.0606,gains
+PLANNED_2031,regional,EDDYS,Central (Bell County),export,evaluated,True,17.9336,19.0473,1.1137,21.462,-3.5284,-2.4147,gains
+PLANNED_2031,regional,MOODY,Central (Bell County),export,evaluated,True,19.0805,20.2152,1.1347,21.462,-2.3814,-1.2467,gains
+PLANNED_2031,regional,LTFRD,Central (Bell County),export,evaluated,True,17.3681,18.6973,1.3293,21.462,-4.0939,-2.7646,gains
+PLANNED_2031,regional,GEORSO,Central (Bell County),import,evaluated,True,25.2129,21.3261,-3.8869,17.6529,7.56,3.6732,loses
+PLANNED_2031,regional,ROKSW,Central (Bell County),import,evaluated,True,19.1183,18.8042,-0.3141,17.6529,1.4654,1.1513,unchanged
+PLANNED_2031,regional,ANDICE,Central (Bell County),import,evaluated,True,31.37,30.2549,-1.1152,28.4286,2.9415,1.8263,loses
+PLANNED_2031,regional,JUNG_SLR,Central (Bell County),import,evaluated,True,20.5722,22.1959,1.6236,21.462,-0.8897,0.7339,gains
+PLANNED_2031,regional,JREST,Central (Bell County),import,evaluated,True,30.8647,24.3281,-6.5366,17.6529,13.2118,6.6752,loses
+PLANNED_2031,regional,JUNO,Far West,export,evaluated,True,25.171,25.3163,0.1453,27.3224,-2.1515,-2.0062,unchanged
+PLANNED_2031,regional,BOCO_ESS,Far West,export,evaluated,True,25.2022,25.3793,0.1771,27.3224,-2.1203,-1.9432,unchanged
+PLANNED_2031,regional,WLVSW,Far West,export,evaluated,True,24.7305,24.9125,0.1819,27.3224,-2.5919,-2.41,unchanged
+PLANNED_2031,regional,CEDACA,Far West,export,evaluated,True,25.407,25.4804,0.0734,27.3224,-1.9154,-1.8421,unchanged
+PLANNED_2031,regional,SOLC_SLR,Far West,export,evaluated,True,25.1747,25.1755,0.0008,27.3224,-2.1477,-2.1469,unchanged
+PLANNED_2031,regional,LMESA,Far West,import,evaluated,True,40.2991,40.2951,-0.004,27.3224,12.9767,12.9726,unchanged
+PLANNED_2031,regional,PIGCREEK,Far West,import,evaluated,True,31.5582,31.673,0.1148,27.3224,4.2358,4.3506,unchanged
+PLANNED_2031,regional,CHERRYCR,Far West,import,evaluated,True,48.7868,48.753,-0.0338,27.3224,21.4643,21.4306,unchanged
+PLANNED_2031,regional,FLAT_TOP,Far West,import,evaluated,True,31.5102,31.6317,0.1216,27.3224,4.1877,4.3093,unchanged
+PLANNED_2031,regional,LINTERNA,Far West,import,evaluated,True,30.9271,30.9809,0.0538,27.3224,3.6046,3.6584,unchanged
+PLANNED_2031,regional,MARANA,Laredo/South,export,evaluated,True,17.9169,16.4614,-1.4555,17.6529,0.264,-1.1915,loses
+PLANNED_2031,regional,TGW,Laredo/South,export,evaluated,True,17.9165,16.461,-1.4555,17.6529,0.2636,-1.1919,loses
+PLANNED_2031,regional,AVANZADA,Laredo/South,export,evaluated,True,16.7397,16.0438,-0.696,17.6529,-0.9131,-1.6091,unchanged
+PLANNED_2031,regional,CORAZON,Laredo/South,export,evaluated,True,17.0109,16.2815,-0.7293,17.6529,-0.642,-1.3714,unchanged
+PLANNED_2031,regional,RELOJ,Laredo/South,export,evaluated,True,17.2777,16.7379,-0.5399,17.6529,-0.3752,-0.915,unchanged
+PLANNED_2031,regional,ELARA_SL,Laredo/South,import,evaluated,True,19.4589,18.802,-0.6569,17.6529,1.806,1.1491,unchanged
+PLANNED_2031,regional,DOWNIES,Laredo/South,import,evaluated,True,21.0064,19.7533,-1.2531,17.6529,3.3535,2.1004,loses
+PLANNED_2031,regional,CARRIZO,Laredo/South,import,evaluated,True,24.1714,22.9264,-1.245,17.6529,6.5185,5.2735,loses
+PLANNED_2031,regional,ASHERTON,Laredo/South,import,evaluated,True,23.3663,22.2973,-1.069,17.6529,5.7134,4.6444,loses
+PLANNED_2031,regional,COTULLA,Laredo/South,import,evaluated,True,20.6379,19.3347,-1.3032,17.6529,2.9851,1.6818,loses
+PLANNED_2031,regional,FAGUSSLR,Panhandle,export,evaluated,True,29.7029,29.6749,-0.028,27.3224,2.3804,2.3524,unchanged
+PLANNED_2031,regional,TULECNYN,Panhandle,export,evaluated,True,30.9387,30.9176,-0.021,27.3224,3.6162,3.5952,unchanged
+PLANNED_2031,regional,DEAFSMIT,Panhandle,export,evaluated,True,31.358,31.3373,-0.0207,27.3224,4.0356,4.0149,unchanged
+PLANNED_2031,regional,WINDMILL,Panhandle,export,evaluated,True,31.1674,31.1492,-0.0182,27.3224,3.845,3.8268,unchanged
+PLANNED_2031,regional,MIAM1,Panhandle,export,evaluated,True,30.6215,30.5983,-0.0231,27.3224,3.299,3.2759,unchanged
+PLANNED_2031,regional,GRND_SLR,Panhandle,import,evaluated,True,30.6259,30.6643,0.0384,27.3224,3.3035,3.3419,unchanged
+PLANNED_2031,regional,RIOHONDO,Rio Grande Valley,export,evaluated,True,15.6803,15.9555,0.2751,17.6529,-1.9726,-1.6974,unchanged
+PLANNED_2031,regional,PAREDES,Rio Grande Valley,export,evaluated,True,18.9457,19.463,0.5174,17.6529,1.2928,1.8102,unchanged
+PLANNED_2031,regional,LMAJADAS,Rio Grande Valley,export,evaluated,True,16.8764,17.3676,0.4912,17.6529,-0.7765,-0.2853,unchanged
+PLANNED_2031,regional,LASPULGA,Rio Grande Valley,export,evaluated,True,15.9411,16.3484,0.4073,17.6529,-1.7118,-1.3045,unchanged
+PLANNED_2031,regional,POMELO,Rio Grande Valley,export,evaluated,True,16.6537,16.5094,-0.1443,17.6529,-0.9992,-1.1435,unchanged
+PLANNED_2031,rev1_only,NOVICE,Other,export,evaluated,True,83.0125,81.1204,-1.8921,27.3224,55.69,53.798,loses
+PLANNED_2031,rev1_only,SEA,Central,export,evaluated,True,36.6192,38.7761,2.1568,21.462,15.1573,17.3141,gains
+PLANNED_2031,rev1_only,CRNTH,DFW,export,evaluated,True,57.5585,57.6856,0.127,21.462,36.0966,36.2236,unchanged
+PLANNED_2031,rev1_only,CENTRVIL,DFW,export,evaluated,True,28.4395,28.8988,0.4594,21.462,6.9775,7.4369,unchanged
+PLANNED_2031,rev1_only,ECRSW,Other,export,evaluated,True,36.2848,36.4082,0.1235,27.3224,8.9623,9.0858,unchanged
+PLANNED_ALL,regional,BLFSW,Central (Bell County),export,evaluated,True,18.0535,19.7969,1.7434,21.462,-3.4084,-1.6651,gains
+PLANNED_ALL,regional,PANDA_T2,Central (Bell County),export,evaluated,True,19.0816,21.2298,2.1482,21.462,-2.3804,-0.2321,gains
+PLANNED_ALL,regional,EDDYS,Central (Bell County),export,evaluated,True,17.9336,19.8029,1.8693,21.462,-3.5284,-1.659,gains
+PLANNED_ALL,regional,MOODY,Central (Bell County),export,evaluated,True,19.0805,20.9916,1.911,21.462,-2.3814,-0.4704,gains
+PLANNED_ALL,regional,LTFRD,Central (Bell County),export,evaluated,True,17.3681,19.4997,2.1316,21.462,-4.0939,-1.9623,gains
+PLANNED_ALL,regional,GEORSO,Central (Bell County),import,evaluated,True,25.2129,21.3425,-3.8705,17.6529,7.56,3.6896,loses
+PLANNED_ALL,regional,ROKSW,Central (Bell County),import,evaluated,True,19.1183,18.8306,-0.2877,17.6529,1.4654,1.1777,unchanged
+PLANNED_ALL,regional,ANDICE,Central (Bell County),import,evaluated,True,31.37,30.4427,-0.9274,28.4286,2.9415,2.0141,unchanged
+PLANNED_ALL,regional,JUNG_SLR,Central (Bell County),import,evaluated,True,20.5722,22.9389,2.3667,21.462,-0.8897,1.477,gains
+PLANNED_ALL,regional,JREST,Central (Bell County),import,evaluated,True,30.8647,24.3779,-6.4868,17.6529,13.2118,6.725,loses
+PLANNED_ALL,regional,JUNO,Far West,export,evaluated,True,25.171,25.3192,0.1482,27.3224,-2.1515,-2.0033,unchanged
+PLANNED_ALL,regional,BOCO_ESS,Far West,export,evaluated,True,25.2022,25.3819,0.1797,27.3224,-2.1203,-1.9406,unchanged
+PLANNED_ALL,regional,WLVSW,Far West,export,evaluated,True,24.7305,24.9144,0.1838,27.3224,-2.5919,-2.4081,unchanged
+PLANNED_ALL,regional,CEDACA,Far West,export,evaluated,True,25.407,25.4895,0.0825,27.3224,-1.9154,-1.833,unchanged
+PLANNED_ALL,regional,SOLC_SLR,Far West,export,evaluated,True,25.1747,25.1649,-0.0098,27.3224,-2.1477,-2.1576,unchanged
+PLANNED_ALL,regional,LMESA,Far West,import,evaluated,True,40.2991,40.2996,0.0005,27.3224,12.9767,12.9771,unchanged
+PLANNED_ALL,regional,PIGCREEK,Far West,import,evaluated,True,31.5582,31.6796,0.1214,27.3224,4.2358,4.3572,unchanged
+PLANNED_ALL,regional,CHERRYCR,Far West,import,evaluated,True,48.7868,48.7275,-0.0592,27.3224,21.4643,21.4051,unchanged
+PLANNED_ALL,regional,FLAT_TOP,Far West,import,evaluated,True,31.5102,31.6378,0.1277,27.3224,4.1877,4.3154,unchanged
+PLANNED_ALL,regional,LINTERNA,Far West,import,evaluated,True,30.9271,30.9875,0.0605,27.3224,3.6046,3.6651,unchanged
+PLANNED_ALL,regional,MARANA,Laredo/South,export,evaluated,True,17.9169,16.4553,-1.4616,17.6529,0.264,-1.1976,loses
+PLANNED_ALL,regional,TGW,Laredo/South,export,evaluated,True,17.9165,16.4548,-1.4617,17.6529,0.2636,-1.1981,loses
+PLANNED_ALL,regional,AVANZADA,Laredo/South,export,evaluated,True,16.7397,16.0554,-0.6843,17.6529,-0.9131,-1.5975,unchanged
+PLANNED_ALL,regional,CORAZON,Laredo/South,export,evaluated,True,17.0109,16.295,-0.7159,17.6529,-0.642,-1.3579,unchanged
+PLANNED_ALL,regional,RELOJ,Laredo/South,export,evaluated,True,17.2777,16.7573,-0.5205,17.6529,-0.3752,-0.8956,unchanged
+PLANNED_ALL,regional,ELARA_SL,Laredo/South,import,evaluated,True,19.4589,18.8791,-0.5798,17.6529,1.806,1.2262,unchanged
+PLANNED_ALL,regional,DOWNIES,Laredo/South,import,evaluated,True,21.0064,19.8309,-1.1755,17.6529,3.3535,2.178,loses
+PLANNED_ALL,regional,CARRIZO,Laredo/South,import,evaluated,True,24.1714,22.9877,-1.1837,17.6529,6.5185,5.3348,loses
+PLANNED_ALL,regional,ASHERTON,Laredo/South,import,evaluated,True,23.3663,22.3608,-1.0055,17.6529,5.7134,4.7079,loses
+PLANNED_ALL,regional,COTULLA,Laredo/South,import,evaluated,True,20.6379,19.4277,-1.2103,17.6529,2.9851,1.7748,loses
+PLANNED_ALL,regional,FAGUSSLR,Panhandle,export,evaluated,True,29.7029,29.6651,-0.0377,27.3224,2.3804,2.3427,unchanged
+PLANNED_ALL,regional,TULECNYN,Panhandle,export,evaluated,True,30.9387,30.9088,-0.0298,27.3224,3.6162,3.5864,unchanged
+PLANNED_ALL,regional,DEAFSMIT,Panhandle,export,evaluated,True,31.358,31.3286,-0.0294,27.3224,4.0356,4.0061,unchanged
+PLANNED_ALL,regional,WINDMILL,Panhandle,export,evaluated,True,31.1674,31.141,-0.0264,27.3224,3.845,3.8186,unchanged
+PLANNED_ALL,regional,MIAM1,Panhandle,export,evaluated,True,30.6215,30.5893,-0.0322,27.3224,3.299,3.2668,unchanged
+PLANNED_ALL,regional,GRND_SLR,Panhandle,import,evaluated,True,30.6259,30.6686,0.0427,27.3224,3.3035,3.3462,unchanged
+PLANNED_ALL,regional,RIOHONDO,Rio Grande Valley,export,evaluated,True,15.6803,15.9803,0.2999,17.6529,-1.9726,-1.6726,unchanged
+PLANNED_ALL,regional,PAREDES,Rio Grande Valley,export,evaluated,True,18.9457,19.5228,0.5771,17.6529,1.2928,1.8699,unchanged
+PLANNED_ALL,regional,LMAJADAS,Rio Grande Valley,export,evaluated,True,16.8764,17.4,0.5237,17.6529,-0.7765,-0.2529,unchanged
+PLANNED_ALL,regional,LASPULGA,Rio Grande Valley,export,evaluated,True,15.9411,16.3839,0.4428,17.6529,-1.7118,-1.269,unchanged
+PLANNED_ALL,regional,POMELO,Rio Grande Valley,export,evaluated,True,16.6537,16.5405,-0.1132,17.6529,-0.9992,-1.1124,unchanged
+PLANNED_ALL,rev1_only,NOVICE,Other,export,evaluated,True,83.0125,81.0649,-1.9475,27.3224,55.69,53.7425,loses
+PLANNED_ALL,rev1_only,SEA,Central,export,evaluated,True,36.6192,39.2583,2.6391,21.462,15.1573,17.7964,gains
+PLANNED_ALL,rev1_only,CRNTH,DFW,export,evaluated,True,57.5585,24.1809,-33.3777,21.462,36.0966,2.7189,loses
+PLANNED_ALL,rev1_only,CENTRVIL,DFW,export,evaluated,True,28.4395,29.6676,1.2282,21.462,6.9775,8.2057,gains
+PLANNED_ALL,rev1_only,ECRSW,Other,export,evaluated,True,36.2848,36.4096,0.1249,27.3224,8.9623,9.0872,unchanged

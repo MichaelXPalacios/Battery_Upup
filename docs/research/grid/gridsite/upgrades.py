@@ -1117,7 +1117,9 @@ def sph_table() -> pd.DataFrame:
     basis[todo & use_rt] = "window_rt"
     basis[todo & use_dam] = "window_dam"
     basis[todo & (scale < 1)] = basis[todo & (scale < 1)] + "_capped"
-    return pd.DataFrame({"cid": c["cid"], "sph_usd_mw_yr": sph, "sph_basis": basis, "limit_mw": lim})
+    from . import rev2                                                  # R2: the elements with an IMM 2026 year-to-date rent take their annual target from it (the same rule as the lanes)
+
+    return rev2.anchor_sph_table(pd.DataFrame({"cid": c["cid"], "sph_usd_mw_yr": sph, "sph_basis": basis, "limit_mw": lim}))
 
 
 @lru_cache(maxsize=1)

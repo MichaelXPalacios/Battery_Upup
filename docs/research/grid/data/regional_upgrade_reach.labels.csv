@@ -1,0 +1,13 @@
+column,label,source,note
+upgrade_id,REAL,data/upgrades.csv,U01-U10
+element,REAL,data/upgrades.csv,
+evaluated_by,DERIVED,this module,"phase6_full (the dispatch valuation of Phase 6) or first_order (|DSF| x sph x capture x (1 - residual) from sf_structural), or none"
+moves_a_site,DERIVED,any site above UPGRADE_MOVE_USD,True/False
+n_sites_above_1usd,DERIVED,count,sites (40 existing + regional picks) whose value changes by more than $1/kW-yr
+n_sites_above_0p25usd,DERIVED,count,same threshold at $0.25
+max_change_usd_kw_yr,DERIVED,largest |change|,$/kW-yr
+largest_site,DERIVED,,site with the largest change
+n_existing_40_exposed,DERIVED,count,"of the 40 Phase 3b candidates, those with a first-order change above $0.05 (first_order rows) or any change above $0.05 (phase6_full rows)"
+n_regional_exposed,DERIVED,count,of the regional picks
+status_before_phase7,DERIVED,notes/phase6.md / README section 3.2,what Phase 6 could say: evaluated or not evaluable
+note,DERIVED,,

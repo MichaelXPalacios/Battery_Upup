@@ -1,0 +1,22 @@
+column,label,source,note
+region,ASSUMPTION,region_of() in gridsite/coverage.py,"Panhandle, Rio Grande Valley, Far West, Laredo/South, Houston, DFW, Central, Other (resource nodes only)"
+reference,DERIVED,this module,"what the basis is measured against: hub (the node's hub; HB_PAN in the Panhandle, so its own hub nets it out), zone (its load zone) or system (HB_BUSAVG)"
+n_nodes,DERIVED,count of resource nodes,
+n_substations,DERIVED,count of distinct substations,
+basis_mean,DERIVED,mean over the nodes of the node's mean basis,$/MWh
+basis_median,DERIVED,median over the nodes of the node's mean basis,$/MWh
+pooled_p05,DERIVED,5th percentile of all node-hours of basis,$/MWh; the typical bad hour
+pooled_p95,DERIVED,95th percentile of all node-hours of basis,$/MWh
+share_hours_gt10,DERIVED,share of node-hours with |basis| > $10,0 to 1
+share_hours_gt50,DERIVED,share of node-hours with |basis| > $50,0 to 1
+share_hours_neg10,DERIVED,share of node-hours with basis below -$10 (discount),0 to 1
+share_hours_pos10,DERIVED,share of node-hours with basis above +$10 (premium),0 to 1
+worst_hour_cpt,DERIVED,hour-beginning (CPT) at which the region's mean basis is lowest,0 to 23 (19 = hour-ending 20)
+worst_hour_mean,DERIVED,region mean basis at that hour,$/MWh
+best_hour_cpt,DERIVED,hour-beginning (CPT) at which the region's mean basis is highest,0 to 23
+best_hour_mean,DERIVED,region mean basis at that hour,$/MWh
+basis_mean_jul,DERIVED,"region mean basis, July hours",$/MWh
+basis_mean_aug,DERIVED,"region mean basis, 1-11 August hours",$/MWh
+dam_uplift_mean,DERIVED,mean over the nodes of dam_uplift (the same on all three reference rows),$ per kW over 42 days: 2 h day-ahead oracle at the node minus at its load zone
+dam_uplift_p90,DERIVED,90th percentile over the nodes of dam_uplift,$ per kW over 42 days
+verdict,ASSUMPTION,VERDICT_TAIL_SHARE / VERDICT_HOUR_MEAN rules in region_summary(),"discount (export side), premium (import side), two-sided or little"

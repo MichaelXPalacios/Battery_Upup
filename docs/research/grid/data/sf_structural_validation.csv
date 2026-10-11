@@ -1,0 +1,207 @@
+cid,check,scope,metric,value,note
+R1_PANHANDLE_P10|BASE CASE,holdout_split,last 10 days,pattern_match_r_train_only,0.9478,best correlation of this pattern's shift factors with any pattern fitted on days 1-32 only
+R1_PANHANDLE_P10|BASE CASE,stability,k=28,pattern_match_r,0.9227,best correlation with any pattern of the refit with 4 fewer components
+R1_PANHANDLE_P10|BASE CASE,stability,k=36,pattern_match_r,0.8507,best correlation with any pattern of the refit with 4 more components
+R1_PANHANDLE_P10|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_with_pattern,0.8454,"R2 (standardised) at held-out footprint stations, scores from the other half of the stations"
+R1_PANHANDLE_P10|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_without_pattern,0.5899,the same with the matching pattern removed: the gap is what the pattern adds out of sample
+R1_PANHANDLE_P10|BASE CASE,sepoct_published,PNHNDL|BASE CASE,bound_hours,130.0,hours of 744 in which the published day-ahead shadow price is positive
+R1_PANHANDLE_P10|BASE CASE,sepoct_published,PNHNDL|BASE CASE,corr_raw,-0.1252,correlation of the pattern's recovered Sep-Oct activity with the published shadow price
+R1_PANHANDLE_P10|BASE CASE,sepoct_published,PNHNDL|BASE CASE,corr_deseasonalised,-0.0107,same after removing the hour-of-day mean of both series
+R1_PANHANDLE_P10|BASE CASE,sepoct_published,PNHNDL|BASE CASE,sf_corr_with_supervised,0.2315,correlation over stations of this pattern's shift factor with the one implied by the published series alone (confounded by co-binding constraints)
+R1_PANHANDLE_P10|BASE CASE,sepoct_published,PNHNDL|BASE CASE,sf_sign_agreement,0.9429,share of the pattern's footprint stations (nonzero shift factor) with |supervised SF| >= 0.1 whose sign agrees
+R1_PANHANDLE_P10|BASE CASE,phase2_comparison,PNHNDL|BASE CASE,sf_corr_with_phase2_dam_reg,0.4814,correlation over stations with the Phase 2 day-ahead regression shift factor of the same constraint
+R1_PANHANDLE_P10|BASE CASE,phase2_comparison,PNHNDL|BASE CASE,phase2_top10_in_domain_share,0.9,share of the 10 largest |SF| of the Phase 2 fit that lie in the target's domain (a coherent interface pattern is near 1)
+R1_PANHANDLE_P10|BASE CASE,scale,pole,scale_used,1.0,factor applied to the pole-normalised shift factor
+R1_PANHANDLE_P10|BASE CASE,scale,published,slope,-1.6288,OLS slope of the recovered Sep-Oct activity on the published shadow price
+R1_PANHANDLE_P10|BASE CASE,scale,rent,rent_scale,,IMM-rent based scale
+R1_PANHANDLE_P10|BASE CASE,pattern,window,active_hours,232.0,"hours of 1,008 with the pole shadow price at least $1"
+R1_PANHANDLE_P10|BASE CASE,pattern,window,stations_sf05,19.0,stations with |SF| >= 0.5 on the pole scale
+BELCNTY-SALSW|UNSEEN,holdout_split,last 10 days,pattern_match_r_train_only,0.8035,best correlation of this pattern's shift factors with any pattern fitted on days 1-32 only
+BELCNTY-SALSW|UNSEEN,stability,k=28,pattern_match_r,0.9741,best correlation with any pattern of the refit with 4 fewer components
+BELCNTY-SALSW|UNSEEN,stability,k=36,pattern_match_r,0.8208,best correlation with any pattern of the refit with 4 more components
+BELCNTY-SALSW|UNSEEN,holdout_split,"footprint stations, last 10 days",r2_with_pattern,0.8762,"R2 (standardised) at held-out footprint stations, scores from the other half of the stations"
+BELCNTY-SALSW|UNSEEN,holdout_split,"footprint stations, last 10 days",r2_without_pattern,0.8588,the same with the matching pattern removed: the gap is what the pattern adds out of sample
+BELCNTY-SALSW|UNSEEN,scale,pole,scale_used,1.0,factor applied to the pole-normalised shift factor
+BELCNTY-SALSW|UNSEEN,scale,published,slope,,OLS slope of the recovered Sep-Oct activity on the published shadow price
+BELCNTY-SALSW|UNSEEN,scale,rent,rent_scale,,IMM-rent based scale
+BELCNTY-SALSW|UNSEEN,pattern,window,active_hours,170.0,"hours of 1,008 with the pole shadow price at least $1"
+BELCNTY-SALSW|UNSEEN,pattern,window,stations_sf05,35.0,stations with |SF| >= 0.5 on the pole scale
+VALEXP|BASE CASE,holdout_split,last 10 days,pattern_match_r_train_only,0.9524,best correlation of this pattern's shift factors with any pattern fitted on days 1-32 only
+VALEXP|BASE CASE,stability,k=28,pattern_match_r,0.9985,best correlation with any pattern of the refit with 4 fewer components
+VALEXP|BASE CASE,stability,k=36,pattern_match_r,0.9931,best correlation with any pattern of the refit with 4 more components
+VALEXP|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_with_pattern,0.9318,"R2 (standardised) at held-out footprint stations, scores from the other half of the stations"
+VALEXP|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_without_pattern,0.8711,the same with the matching pattern removed: the gap is what the pattern adds out of sample
+VALEXP|BASE CASE,sepoct_published,NE_LOB|BASE CASE,bound_hours,54.0,hours of 744 in which the published day-ahead shadow price is positive
+VALEXP|BASE CASE,sepoct_published,NE_LOB|BASE CASE,corr_raw,-0.0287,correlation of the pattern's recovered Sep-Oct activity with the published shadow price
+VALEXP|BASE CASE,sepoct_published,NE_LOB|BASE CASE,corr_deseasonalised,0.0111,same after removing the hour-of-day mean of both series
+VALEXP|BASE CASE,sepoct_published,NE_LOB|BASE CASE,sf_corr_with_supervised,-0.1558,correlation over stations of this pattern's shift factor with the one implied by the published series alone (confounded by co-binding constraints)
+VALEXP|BASE CASE,sepoct_published,NE_LOB|BASE CASE,sf_sign_agreement,0.6222,share of the pattern's footprint stations (nonzero shift factor) with |supervised SF| >= 0.1 whose sign agrees
+VALEXP|BASE CASE,phase2_comparison,NE_LOB|BASE CASE,sf_corr_with_phase2_dam_reg,-0.0288,correlation over stations with the Phase 2 day-ahead regression shift factor of the same constraint
+VALEXP|BASE CASE,phase2_comparison,NE_LOB|BASE CASE,phase2_top10_in_domain_share,0.0,share of the 10 largest |SF| of the Phase 2 fit that lie in the target's domain (a coherent interface pattern is near 1)
+VALEXP|BASE CASE,imm_timing,NE_LOB RT,imm_july_share,0.1277,"share of July the IMM reports the element bound (DA hours / 744, RT intervals / 8,928)"
+VALEXP|BASE CASE,imm_timing,NE_LOB RT,pattern_july_active_share,0.4274,share of July hours in which the pattern's pole shadow price is at least $1
+VALEXP|BASE CASE,scale,pole,scale_used,1.0,factor applied to the pole-normalised shift factor
+VALEXP|BASE CASE,scale,published,slope,-0.086,OLS slope of the recovered Sep-Oct activity on the published shadow price
+VALEXP|BASE CASE,scale,rent,rent_scale,,IMM-rent based scale
+VALEXP|BASE CASE,pattern,window,active_hours,397.0,"hours of 1,008 with the pole shadow price at least $1"
+VALEXP|BASE CASE,pattern,window,stations_sf05,44.0,stations with |SF| >= 0.5 on the pole scale
+I_FW_N|BASE CASE,holdout_split,last 10 days,pattern_match_r_train_only,0.9435,best correlation of this pattern's shift factors with any pattern fitted on days 1-32 only
+I_FW_N|BASE CASE,stability,k=28,pattern_match_r,0.94,best correlation with any pattern of the refit with 4 fewer components
+I_FW_N|BASE CASE,stability,k=36,pattern_match_r,0.9443,best correlation with any pattern of the refit with 4 more components
+I_FW_N|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_with_pattern,0.9228,"R2 (standardised) at held-out footprint stations, scores from the other half of the stations"
+I_FW_N|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_without_pattern,0.8919,the same with the matching pattern removed: the gap is what the pattern adds out of sample
+I_FW_N|BASE CASE,sepoct_published,I_FW_N|BASE CASE,bound_hours,9.0,hours of 744 in which the published day-ahead shadow price is positive
+I_FW_N|BASE CASE,sepoct_published,I_FW_N|BASE CASE,corr_raw,0.1374,correlation of the pattern's recovered Sep-Oct activity with the published shadow price
+I_FW_N|BASE CASE,sepoct_published,I_FW_N|BASE CASE,corr_deseasonalised,0.1404,same after removing the hour-of-day mean of both series
+I_FW_N|BASE CASE,sepoct_published,I_FW_N|BASE CASE,sf_corr_with_supervised,0.5875,correlation over stations of this pattern's shift factor with the one implied by the published series alone (confounded by co-binding constraints)
+I_FW_N|BASE CASE,sepoct_published,I_FW_N|BASE CASE,sf_sign_agreement,0.927,share of the pattern's footprint stations (nonzero shift factor) with |supervised SF| >= 0.1 whose sign agrees
+I_FW_N|BASE CASE,sepoct_published,I_FW_S|BASE CASE,bound_hours,1.0,hours of 744 in which the published day-ahead shadow price is positive
+I_FW_N|BASE CASE,sepoct_published,I_FW_S|BASE CASE,corr_raw,0.0611,correlation of the pattern's recovered Sep-Oct activity with the published shadow price
+I_FW_N|BASE CASE,sepoct_published,I_FW_S|BASE CASE,corr_deseasonalised,0.0646,same after removing the hour-of-day mean of both series
+I_FW_N|BASE CASE,scale,pole,scale_used,1.0,factor applied to the pole-normalised shift factor
+I_FW_N|BASE CASE,scale,published,slope,,OLS slope of the recovered Sep-Oct activity on the published shadow price
+I_FW_N|BASE CASE,scale,rent,rent_scale,,IMM-rent based scale
+I_FW_N|BASE CASE,pattern,window,active_hours,323.0,"hours of 1,008 with the pole shadow price at least $1"
+I_FW_N|BASE CASE,pattern,window,stations_sf05,103.0,stations with |SF| >= 0.5 on the pole scale
+E_PASP|BASE CASE,holdout_split,last 10 days,pattern_match_r_train_only,0.9489,best correlation of this pattern's shift factors with any pattern fitted on days 1-32 only
+E_PASP|BASE CASE,stability,k=28,pattern_match_r,0.9982,best correlation with any pattern of the refit with 4 fewer components
+E_PASP|BASE CASE,stability,k=36,pattern_match_r,0.9922,best correlation with any pattern of the refit with 4 more components
+E_PASP|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_with_pattern,0.9402,"R2 (standardised) at held-out footprint stations, scores from the other half of the stations"
+E_PASP|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_without_pattern,0.9382,the same with the matching pattern removed: the gap is what the pattern adds out of sample
+E_PASP|BASE CASE,sepoct_published,E_PASP|BASE CASE,bound_hours,118.0,hours of 744 in which the published day-ahead shadow price is positive
+E_PASP|BASE CASE,sepoct_published,E_PASP|BASE CASE,corr_raw,0.7751,correlation of the pattern's recovered Sep-Oct activity with the published shadow price
+E_PASP|BASE CASE,sepoct_published,E_PASP|BASE CASE,corr_deseasonalised,0.7786,same after removing the hour-of-day mean of both series
+E_PASP|BASE CASE,sepoct_published,E_PASP|BASE CASE,sf_corr_with_supervised,0.3088,correlation over stations of this pattern's shift factor with the one implied by the published series alone (confounded by co-binding constraints)
+E_PASP|BASE CASE,sepoct_published,E_PASP|BASE CASE,sf_sign_agreement,0.6942,share of the pattern's footprint stations (nonzero shift factor) with |supervised SF| >= 0.1 whose sign agrees
+E_PASP|BASE CASE,phase2_comparison,E_PASP|BASE CASE,sf_corr_with_phase2_dam_reg,0.9702,correlation over stations with the Phase 2 day-ahead regression shift factor of the same constraint
+E_PASP|BASE CASE,phase2_comparison,E_PASP|BASE CASE,phase2_top10_in_domain_share,0.9,share of the 10 largest |SF| of the Phase 2 fit that lie in the target's domain (a coherent interface pattern is near 1)
+E_PASP|BASE CASE,imm_rent,E_PASP,imm_da_rent_window_musd,5.3642,"IMM day-ahead rent for July plus 11/31 of August, $M"
+E_PASP|BASE CASE,imm_rent,E_PASP,pole_rent_window_musd,0.8407,"limit x sum of the pattern's pole shadow price over the window, $M: the rent if the pole shift factor were 1"
+E_PASP|BASE CASE,imm_rent,E_PASP,implied_pole_sf,0.1567,pole rent / IMM rent: above 1.2 the pattern is larger than this constraint alone can explain
+E_PASP|BASE CASE,scale,published,scale_used,0.0988,factor applied to the pole-normalised shift factor
+E_PASP|BASE CASE,scale,published,slope,0.0988,OLS slope of the recovered Sep-Oct activity on the published shadow price
+E_PASP|BASE CASE,scale,rent,rent_scale,0.1567,IMM-rent based scale
+E_PASP|BASE CASE,pattern,window,active_hours,157.0,"hours of 1,008 with the pole shadow price at least $1"
+E_PASP|BASE CASE,pattern,window,stations_sf05,111.0,stations with |SF| >= 0.5 on the pole scale
+WESTEX|BASE CASE,holdout_split,last 10 days,pattern_match_r_train_only,0.9896,best correlation of this pattern's shift factors with any pattern fitted on days 1-32 only
+WESTEX|BASE CASE,stability,k=28,pattern_match_r,0.988,best correlation with any pattern of the refit with 4 fewer components
+WESTEX|BASE CASE,stability,k=36,pattern_match_r,0.9881,best correlation with any pattern of the refit with 4 more components
+WESTEX|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_with_pattern,0.9238,"R2 (standardised) at held-out footprint stations, scores from the other half of the stations"
+WESTEX|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_without_pattern,0.9024,the same with the matching pattern removed: the gap is what the pattern adds out of sample
+WESTEX|BASE CASE,sepoct_published,WESTEX|BASE CASE,bound_hours,67.0,hours of 744 in which the published day-ahead shadow price is positive
+WESTEX|BASE CASE,sepoct_published,WESTEX|BASE CASE,corr_raw,0.4785,correlation of the pattern's recovered Sep-Oct activity with the published shadow price
+WESTEX|BASE CASE,sepoct_published,WESTEX|BASE CASE,corr_deseasonalised,0.4708,same after removing the hour-of-day mean of both series
+WESTEX|BASE CASE,sepoct_published,WESTEX|BASE CASE,sf_corr_with_supervised,0.7322,correlation over stations of this pattern's shift factor with the one implied by the published series alone (confounded by co-binding constraints)
+WESTEX|BASE CASE,sepoct_published,WESTEX|BASE CASE,sf_sign_agreement,0.9861,share of the pattern's footprint stations (nonzero shift factor) with |supervised SF| >= 0.1 whose sign agrees
+WESTEX|BASE CASE,phase2_comparison,WESTEX|BASE CASE,sf_corr_with_phase2_dam_reg,0.95,correlation over stations with the Phase 2 day-ahead regression shift factor of the same constraint
+WESTEX|BASE CASE,phase2_comparison,WESTEX|BASE CASE,phase2_top10_in_domain_share,1.0,share of the 10 largest |SF| of the Phase 2 fit that lie in the target's domain (a coherent interface pattern is near 1)
+WESTEX|BASE CASE,imm_timing,WESTEX RT,imm_july_share,0.0483,"share of July the IMM reports the element bound (DA hours / 744, RT intervals / 8,928)"
+WESTEX|BASE CASE,imm_timing,WESTEX RT,pattern_july_active_share,0.125,share of July hours in which the pattern's pole shadow price is at least $1
+WESTEX|BASE CASE,imm_rent,WESTEX,imm_da_rent_window_musd,6.5606,"IMM day-ahead rent for July plus 11/31 of August, $M"
+WESTEX|BASE CASE,imm_rent,WESTEX,pole_rent_window_musd,9.6441,"limit x sum of the pattern's pole shadow price over the window, $M: the rent if the pole shift factor were 1"
+WESTEX|BASE CASE,imm_rent,WESTEX,implied_pole_sf,1.47,pole rent / IMM rent: above 1.2 the pattern is larger than this constraint alone can explain
+WESTEX|BASE CASE,scale,pole,scale_used,1.0,factor applied to the pole-normalised shift factor
+WESTEX|BASE CASE,scale,published,slope,1.4641,OLS slope of the recovered Sep-Oct activity on the published shadow price
+WESTEX|BASE CASE,scale,rent,rent_scale,1.47,IMM-rent based scale
+WESTEX|BASE CASE,pattern,window,active_hours,139.0,"hours of 1,008 with the pole shadow price at least $1"
+WESTEX|BASE CASE,pattern,window,stations_sf05,209.0,stations with |SF| >= 0.5 on the pole scale
+NELRIO|BASE CASE,holdout_split,last 10 days,pattern_match_r_train_only,0.9898,best correlation of this pattern's shift factors with any pattern fitted on days 1-32 only
+NELRIO|BASE CASE,stability,k=28,pattern_match_r,0.9983,best correlation with any pattern of the refit with 4 fewer components
+NELRIO|BASE CASE,stability,k=36,pattern_match_r,0.9903,best correlation with any pattern of the refit with 4 more components
+NELRIO|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_with_pattern,0.9485,"R2 (standardised) at held-out footprint stations, scores from the other half of the stations"
+NELRIO|BASE CASE,holdout_split,"footprint stations, last 10 days",r2_without_pattern,0.898,the same with the matching pattern removed: the gap is what the pattern adds out of sample
+NELRIO|BASE CASE,sepoct_published,NELRIO|BASE CASE,bound_hours,192.0,hours of 744 in which the published day-ahead shadow price is positive
+NELRIO|BASE CASE,sepoct_published,NELRIO|BASE CASE,corr_raw,0.733,correlation of the pattern's recovered Sep-Oct activity with the published shadow price
+NELRIO|BASE CASE,sepoct_published,NELRIO|BASE CASE,corr_deseasonalised,0.6625,same after removing the hour-of-day mean of both series
+NELRIO|BASE CASE,sepoct_published,NELRIO|BASE CASE,sf_corr_with_supervised,0.3517,correlation over stations of this pattern's shift factor with the one implied by the published series alone (confounded by co-binding constraints)
+NELRIO|BASE CASE,sepoct_published,NELRIO|BASE CASE,sf_sign_agreement,0.8611,share of the pattern's footprint stations (nonzero shift factor) with |supervised SF| >= 0.1 whose sign agrees
+NELRIO|BASE CASE,phase2_comparison,NELRIO|BASE CASE,sf_corr_with_phase2_dam_reg,0.667,correlation over stations with the Phase 2 day-ahead regression shift factor of the same constraint
+NELRIO|BASE CASE,phase2_comparison,NELRIO|BASE CASE,phase2_top10_in_domain_share,0.5,share of the 10 largest |SF| of the Phase 2 fit that lie in the target's domain (a coherent interface pattern is near 1)
+NELRIO|BASE CASE,imm_timing,NELRIO DA,imm_july_share,0.3737,"share of July the IMM reports the element bound (DA hours / 744, RT intervals / 8,928)"
+NELRIO|BASE CASE,imm_timing,NELRIO DA,pattern_july_active_share,0.3602,share of July hours in which the pattern's pole shadow price is at least $1
+NELRIO|BASE CASE,imm_timing,NELRIO RT,imm_july_share,0.2263,"share of July the IMM reports the element bound (DA hours / 744, RT intervals / 8,928)"
+NELRIO|BASE CASE,imm_timing,NELRIO RT,pattern_july_active_share,0.3602,share of July hours in which the pattern's pole shadow price is at least $1
+NELRIO|BASE CASE,scale,pole,scale_used,1.0,factor applied to the pole-normalised shift factor
+NELRIO|BASE CASE,scale,published,slope,1.614,OLS slope of the recovered Sep-Oct activity on the published shadow price
+NELRIO|BASE CASE,scale,rent,rent_scale,,IMM-rent based scale
+NELRIO|BASE CASE,pattern,window,active_hours,331.0,"hours of 1,008 with the pole shadow price at least $1"
+NELRIO|BASE CASE,pattern,window,stations_sf05,5.0,stations with |SF| >= 0.5 on the pole scale
+ALL,k_sweep,k=8,pca_cumulative_variance,0.9075,share of the standardised variance of days 1-32 in the first k principal components
+ALL,k_sweep,k=8,r2_half_to_half_all_patterns,0.6396,patterns fitted on days 1-32; activity re-estimated on days 33-42 from half the stations; prediction of the other half (standardised units)
+ALL,k_sweep,k=8,r2_half_to_half_regional_patterns,0.6871,patterns fitted on days 1-32; activity re-estimated on days 33-42 from half the stations; prediction of the other half (standardised units)
+ALL,k_sweep,k=16,pca_cumulative_variance,0.9627,share of the standardised variance of days 1-32 in the first k principal components
+ALL,k_sweep,k=16,r2_half_to_half_all_patterns,0.7577,patterns fitted on days 1-32; activity re-estimated on days 33-42 from half the stations; prediction of the other half (standardised units)
+ALL,k_sweep,k=16,r2_half_to_half_regional_patterns,0.7535,patterns fitted on days 1-32; activity re-estimated on days 33-42 from half the stations; prediction of the other half (standardised units)
+ALL,k_sweep,k=24,pca_cumulative_variance,0.9793,share of the standardised variance of days 1-32 in the first k principal components
+ALL,k_sweep,k=24,r2_half_to_half_all_patterns,0.8171,patterns fitted on days 1-32; activity re-estimated on days 33-42 from half the stations; prediction of the other half (standardised units)
+ALL,k_sweep,k=24,r2_half_to_half_regional_patterns,0.7529,patterns fitted on days 1-32; activity re-estimated on days 33-42 from half the stations; prediction of the other half (standardised units)
+ALL,k_sweep,k=32,pca_cumulative_variance,0.9865,share of the standardised variance of days 1-32 in the first k principal components
+ALL,k_sweep,k=32,r2_half_to_half_all_patterns,0.7839,patterns fitted on days 1-32; activity re-estimated on days 33-42 from half the stations; prediction of the other half (standardised units)
+ALL,k_sweep,k=32,r2_half_to_half_regional_patterns,0.7721,patterns fitted on days 1-32; activity re-estimated on days 33-42 from half the stations; prediction of the other half (standardised units)
+ALL,k_sweep,k=40,pca_cumulative_variance,0.9909,share of the standardised variance of days 1-32 in the first k principal components
+ALL,k_sweep,k=40,r2_half_to_half_all_patterns,0.8595,patterns fitted on days 1-32; activity re-estimated on days 33-42 from half the stations; prediction of the other half (standardised units)
+ALL,k_sweep,k=40,r2_half_to_half_regional_patterns,0.8184,patterns fitted on days 1-32; activity re-estimated on days 33-42 from half the stations; prediction of the other half (standardised units)
+R1_PANHANDLE_P10|BASE CASE,interp_loo,priced stations,corr_pole_scale,0.8908,"leave-one-out: the shift factor of each priced station predicted (weighted median) from its nearest priced neighbours (>= 2 within 60 km), correlation over stations"
+R1_PANHANDLE_P10|BASE CASE,interp_loo,priced stations,mae_pole_scale,0.0085,"mean absolute error of the interpolation, pole-normalised shift-factor units"
+R1_PANHANDLE_P10|BASE CASE,interp_loo,footprint stations,sign_agreement,0.7419,share of footprint stations (|SF| >= 0.2) whose interpolated shift factor has the right sign
+R1_PANHANDLE_P10|BASE CASE,interp_loo,footprint stations,n_evaluated,31.0,stations
+BELCNTY-SALSW|UNSEEN,interp_loo,priced stations,corr_pole_scale,0.7535,"leave-one-out: the shift factor of each priced station predicted (weighted median) from its nearest priced neighbours (>= 2 within 60 km), correlation over stations"
+BELCNTY-SALSW|UNSEEN,interp_loo,priced stations,mae_pole_scale,0.0349,"mean absolute error of the interpolation, pole-normalised shift-factor units"
+BELCNTY-SALSW|UNSEEN,interp_loo,footprint stations,sign_agreement,0.6216,share of footprint stations (|SF| >= 0.2) whose interpolated shift factor has the right sign
+BELCNTY-SALSW|UNSEEN,interp_loo,footprint stations,n_evaluated,74.0,stations
+VALEXP|BASE CASE,interp_loo,priced stations,corr_pole_scale,0.9151,"leave-one-out: the shift factor of each priced station predicted (weighted median) from its nearest priced neighbours (>= 2 within 60 km), correlation over stations"
+VALEXP|BASE CASE,interp_loo,priced stations,mae_pole_scale,0.0197,"mean absolute error of the interpolation, pole-normalised shift-factor units"
+VALEXP|BASE CASE,interp_loo,footprint stations,sign_agreement,0.8791,share of footprint stations (|SF| >= 0.2) whose interpolated shift factor has the right sign
+VALEXP|BASE CASE,interp_loo,footprint stations,n_evaluated,91.0,stations
+I_FW_N|BASE CASE,interp_loo,priced stations,corr_pole_scale,0.8977,"leave-one-out: the shift factor of each priced station predicted (weighted median) from its nearest priced neighbours (>= 2 within 60 km), correlation over stations"
+I_FW_N|BASE CASE,interp_loo,priced stations,mae_pole_scale,0.0383,"mean absolute error of the interpolation, pole-normalised shift-factor units"
+I_FW_N|BASE CASE,interp_loo,footprint stations,sign_agreement,0.808,share of footprint stations (|SF| >= 0.2) whose interpolated shift factor has the right sign
+I_FW_N|BASE CASE,interp_loo,footprint stations,n_evaluated,125.0,stations
+E_PASP|BASE CASE,interp_loo,priced stations,corr_pole_scale,0.8903,"leave-one-out: the shift factor of each priced station predicted (weighted median) from its nearest priced neighbours (>= 2 within 60 km), correlation over stations"
+E_PASP|BASE CASE,interp_loo,priced stations,mae_pole_scale,0.0355,"mean absolute error of the interpolation, pole-normalised shift-factor units"
+E_PASP|BASE CASE,interp_loo,footprint stations,sign_agreement,0.8686,share of footprint stations (|SF| >= 0.2) whose interpolated shift factor has the right sign
+E_PASP|BASE CASE,interp_loo,footprint stations,n_evaluated,137.0,stations
+WESTEX|BASE CASE,interp_loo,priced stations,corr_pole_scale,0.9251,"leave-one-out: the shift factor of each priced station predicted (weighted median) from its nearest priced neighbours (>= 2 within 60 km), correlation over stations"
+WESTEX|BASE CASE,interp_loo,priced stations,mae_pole_scale,0.0346,"mean absolute error of the interpolation, pole-normalised shift-factor units"
+WESTEX|BASE CASE,interp_loo,footprint stations,sign_agreement,0.943,share of footprint stations (|SF| >= 0.2) whose interpolated shift factor has the right sign
+WESTEX|BASE CASE,interp_loo,footprint stations,n_evaluated,193.0,stations
+NELRIO|BASE CASE,interp_loo,priced stations,corr_pole_scale,0.8038,"leave-one-out: the shift factor of each priced station predicted (weighted median) from its nearest priced neighbours (>= 2 within 60 km), correlation over stations"
+NELRIO|BASE CASE,interp_loo,priced stations,mae_pole_scale,0.0145,"mean absolute error of the interpolation, pole-normalised shift-factor units"
+NELRIO|BASE CASE,interp_loo,footprint stations,sign_agreement,0.6176,share of footprint stations (|SF| >= 0.2) whose interpolated shift factor has the right sign
+NELRIO|BASE CASE,interp_loo,footprint stations,n_evaluated,34.0,stations
+ALL,lane_formula,Panhandle,corr_node_minus_zone,0.9719,"pooled correlation over the region's priced stations x 1,008 hours: observed node minus zone price vs -sum (SF - SF_zone) x pole shadow price of the retained patterns (in sample)"
+ALL,lane_formula,Panhandle,mae_usd_mwh,1.1411,"mean absolute error, $/MWh"
+ALL,lane_formula,Panhandle,mae_if_no_basis_usd_mwh,3.7074,the same if the node traded at its zone price
+ALL,lane_formula,Panhandle,n_stations,15.0,priced stations
+ALL,lane_formula,Rio Grande Valley,corr_node_minus_zone,0.8706,"pooled correlation over the region's priced stations x 1,008 hours: observed node minus zone price vs -sum (SF - SF_zone) x pole shadow price of the retained patterns (in sample)"
+ALL,lane_formula,Rio Grande Valley,mae_usd_mwh,1.9447,"mean absolute error, $/MWh"
+ALL,lane_formula,Rio Grande Valley,mae_if_no_basis_usd_mwh,3.8859,the same if the node traded at its zone price
+ALL,lane_formula,Rio Grande Valley,n_stations,49.0,priced stations
+ALL,lane_formula,Far West,corr_node_minus_zone,0.3893,"pooled correlation over the region's priced stations x 1,008 hours: observed node minus zone price vs -sum (SF - SF_zone) x pole shadow price of the retained patterns (in sample)"
+ALL,lane_formula,Far West,mae_usd_mwh,1.1434,"mean absolute error, $/MWh"
+ALL,lane_formula,Far West,mae_if_no_basis_usd_mwh,1.3995,the same if the node traded at its zone price
+ALL,lane_formula,Far West,n_stations,81.0,priced stations
+ALL,lane_formula,Laredo/South,corr_node_minus_zone,0.7743,"pooled correlation over the region's priced stations x 1,008 hours: observed node minus zone price vs -sum (SF - SF_zone) x pole shadow price of the retained patterns (in sample)"
+ALL,lane_formula,Laredo/South,mae_usd_mwh,3.5922,"mean absolute error, $/MWh"
+ALL,lane_formula,Laredo/South,mae_if_no_basis_usd_mwh,5.6157,the same if the node traded at its zone price
+ALL,lane_formula,Laredo/South,n_stations,38.0,priced stations
+ALL,lane_formula,Houston,corr_node_minus_zone,0.2256,"pooled correlation over the region's priced stations x 1,008 hours: observed node minus zone price vs -sum (SF - SF_zone) x pole shadow price of the retained patterns (in sample)"
+ALL,lane_formula,Houston,mae_usd_mwh,1.5052,"mean absolute error, $/MWh"
+ALL,lane_formula,Houston,mae_if_no_basis_usd_mwh,1.334,the same if the node traded at its zone price
+ALL,lane_formula,Houston,n_stations,100.0,priced stations
+ALL,lane_formula,DFW,corr_node_minus_zone,0.1745,"pooled correlation over the region's priced stations x 1,008 hours: observed node minus zone price vs -sum (SF - SF_zone) x pole shadow price of the retained patterns (in sample)"
+ALL,lane_formula,DFW,mae_usd_mwh,1.039,"mean absolute error, $/MWh"
+ALL,lane_formula,DFW,mae_if_no_basis_usd_mwh,1.0332,the same if the node traded at its zone price
+ALL,lane_formula,DFW,n_stations,28.0,priced stations
+ALL,lane_formula,Central,corr_node_minus_zone,0.7089,"pooled correlation over the region's priced stations x 1,008 hours: observed node minus zone price vs -sum (SF - SF_zone) x pole shadow price of the retained patterns (in sample)"
+ALL,lane_formula,Central,mae_usd_mwh,2.3805,"mean absolute error, $/MWh"
+ALL,lane_formula,Central,mae_if_no_basis_usd_mwh,3.4581,the same if the node traded at its zone price
+ALL,lane_formula,Central,n_stations,70.0,priced stations
+ALL,lane_formula,Other,corr_node_minus_zone,0.4667,"pooled correlation over the region's priced stations x 1,008 hours: observed node minus zone price vs -sum (SF - SF_zone) x pole shadow price of the retained patterns (in sample)"
+ALL,lane_formula,Other,mae_usd_mwh,2.0614,"mean absolute error, $/MWh"
+ALL,lane_formula,Other,mae_if_no_basis_usd_mwh,2.8007,the same if the node traded at its zone price
+ALL,lane_formula,Other,n_stations,274.0,priced stations
+ALL,holdout_split,last 10 days,r2_all_stations,0.9267,"patterns fitted on days 1-32, activity re-estimated on days 33-42 from all stations (standardised units)"
+ALL,holdout_split,last 10 days,r2_half_to_half,0.8206,"activity from half of the stations, prediction of the other half"
+ALL,sepoct_recovery,10 Sep-10 Oct,r2_all_patterns,0.3948,"loadings from 1 Jul-11 Aug, activity re-estimated hour by hour (standardised units)"
+ALL,fit,1 Jul-11 Aug,nmf_reconstruction_r2,0.9686,of the sign-split thresholded standardised basis

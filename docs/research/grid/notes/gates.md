@@ -119,3 +119,24 @@ Recorded by agent 6 for the lead. Agent 6 re-ran the quick test suites of the ea
 - `map/index.html` loads its data as a classic `<script src="index_data.js">` (no `fetch`), so it works opened as a local file.
 - Leaflet (cdnjs, SRI-pinned) and the OSM tiles need a network connection.
 - A real phone check is still pending.
+
+## Revision 2 checks (11 Oct 2026). PASS, with one deviation for the lead to confirm
+
+Agent R2 (`notes/phase8-revision2.md`). The geography fixes (G1), the regional coverage (R1) and a re-anchoring on the market monitor's 2026 rents were carried through risk flags, Phase 3b, Phase 4, Phase 6, the map and the report. Run from `docs/research/grid`.
+
+| Check | Result |
+|---|---|
+| Risk flags refreshed for the 38 moved stations (network: FEMA and USFS point queries, throttled), reliability and Tier 2 rebuilt | 38 of 38 answered, no errors; 148 of 2,884 excluded (147 of 2,869); none of the 40 excluded |
+| Control lanes against revision 1 (`site_years.csv`, 96 rows, 12 value columns) | maximum difference 0.0 |
+| Lane rebuild against the real week 3–10 Oct, published shadow prices | correlation 0.9935, mean error $1.96/MWh (revision 1: 0.9943, $1.85) |
+| Candidate rule recomputed read-only on the structure in force | the 40 sites of `sites.csv`; ATBR, JUPITER, LPLNE, LPLMK, LPLNW in, NOVICE, CRNTH, SEA, ECRSW, CENTRVIL out |
+| `report-check` | 84 of 84; recomputes `constraint_synth.csv` and `constraint_structure_rev2.csv` in memory and finds them equal to the committed tables; **writes nothing** (a before and after snapshot of every table, the map, the README, the lane and structure caches and the value cache) |
+| Generated README tables equal their CSVs, row by row | anchors, regions, targets, regional picks (two tables), churn, sensitivities (two), upgrade effects |
+| Tests | `test_6` 16 of 16, `test_3b` 36 of 36, `test_4_upgrades` 16 of 16, `test_7_coverage` 27 of 27, `test_geo_overrides` 12 of 12, `test_arena_compat` 18 of 18 (stale numbers fixed: listed in `notes/phase8-revision2.md` section 6) |
+| `python gridsite/check_labels.py` | 65 of 65 tables |
+| Map in a browser (local server, stopped afterwards) | regional candidates and measured basis layers, popups show measured and modelled values side by side, light and dark, 375 px without horizontal scroll, no console messages |
+| No process left running, at most 4 workers, nothing committed | confirmed with `Get-Process` |
+
+**To confirm (D1).** The primary run does not anchor on the two day-ahead-only 2026 rents (SEA 138/69 kV $33.8M, MDO–PHR $31.9M); the brief said to use the 2026 anchor wherever one exists. Reasons and the sensitivity (S2) are in `notes/phase8-revision2.md` section 0; flipping it is `GRIDSITE_ANCHORS=2026da` and about 90 minutes of re-running. With it, PGE and TMPTV enter the top 15 (+$41 and +$38) and PK and GT leave.
+
+**Limits carried.** The sensitivities use the oracle-ratio method (levels $6 to $17 above dispatch, rank correlation 0.986); 4 h, Tier 2 and the portfolio were not re-run under them; S4 (keep Mgses–Catsw) was not run. The regional lanes are weaker than the 40 (Twin Buttes shift factors far from the line; grade C and D patterns; one summer of day-ahead prices).

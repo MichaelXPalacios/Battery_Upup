@@ -1,0 +1,7 @@
+column,label,source,note
+cid,DERIVED,sf_structural_constraints.csv,ALL = whole-model rows
+check,DERIVED,this module,"holdout_split, stability, k_sweep, interp_loo, lane_formula, sepoct_published, sepoct_recovery, phase2_comparison, imm_timing, imm_rent, scale, pattern, fit"
+scope,DERIVED,this module,what the number is computed on
+metric,DERIVED,this module,
+value,DERIVED,"REAL prices (60-day and Sep-Oct DAM), REAL published shadow prices and IMM reports",see note
+note,DERIVED,this module,how to read the number

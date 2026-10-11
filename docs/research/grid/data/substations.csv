@@ -193,7 +193,7 @@ ASPIRE,5,345.0,345,LZ_NORTH,True,1,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 ASPM,3,138.0,138;69,LZ_WEST,False,0,33.178004,-100.233459,STONEWALL,osm_name,0.722,w519749909,,68666,Aspermont Substation,osm_name,"gis:Aspermont ~ Aspermont Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,4,17.12,0,0,,True,2
 ASTRA,5,345.0,345;34.5,LZ_WEST,True,1,34.786443,-102.073101,RANDALL,hifld_name,0.706,w1106488370,310536,60856,ASTRA WIND FARM SUBSTATION,eia_unit+hifld_name,"code:ASTRA ~ ASTRA WIND FARM SUBSTATION (name 0.90, kv x0.60, county 0 km)",snap,,2,2.66,0,0,,True,1
 AT,5,138.0,138,LZ_HOUSTON,False,0,30.004896,-95.097025,HARRIS,osm_name,0.95,w336061354,300937,,Atascocita Substation,osm_name,"gis:Atascocita ~ Atascocita Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,1,,0,0,,True,1
-ATBR,1,69.0,69,LZ_WEST,False,0,32.14506,-102.805782,ANDREWS,osm_name,0.27,w459231620,,,Amoco Three-Bar Substation,osm_name,"code:ATBR ~ Amoco Three-Bar Substation (name 0.59, kv x0.60, no county)",name,0,1,,0,26,,True,0
+ATBR,1,69.0,69,LZ_WEST,False,0,31.821876,-100.311015,COKE,override,0.6,w491401626,,,Bronte Atlantic Substation,override_name_partner,"G1 override (name_partner): ATBR = Atlantic Bronte: 'Bronte Atlantic Substation' (AEP 69 kV, Coke Co.) is a 1-hop 69 kV neighbour of MILES (Runnels Co., TPIT-55421) in the graph, 28 km away | was at Amoco Three-Bar Substation (ANDREWS, conf 0.27, osm_name); 256 km from MILES (conf 0.85, RUNNELS) on a 69 kV constraint",override,,1,,0,26,,True,1
 ATH,8,138.0,138,LZ_HOUSTON,False,0,29.240399,-96.011535,WHARTON,eia_unit,0.28,w336976542,,65893,OCI SunRoper,eia_unit,EIA plant OCI SunRoper (WHARTON) score 0.53,snap,,1,0.0,0,0,,True,2
 ATHNS,3,138.0,138;69,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,53,,True,0
 ATHNW,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,16,7,,True,0
@@ -337,7 +337,7 @@ BENEDU,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 BENFICKL,1,138.0,138,LZ_WEST,False,0,31.40236,-100.438311,TOM GREEN,osm_name,0.727,w192543746,,,Ben Ficklin Substation,osm_name,"code:BENFICKL ~ Ben Ficklin Substation (name 0.77, kv x1.00, no county)",name,,1,,0,36,,True,1
 BENJAMIN,1,138.0,138,LZ_WEST,False,0,33.584578,-99.800969,KNOX,osm_name,0.855,w518902999,,,Benjamin Substation,osm_name,"code:BENJAMIN ~ Benjamin Substation (name 0.90, kv x1.00, county 0 km)",name,,1,,0,0,,True,1
 BENTSEN,1,138.0,138,LZ_SOUTH,False,0,26.150788,-98.290988,HIDALGO,osm_name,0.855,w512936500,,,Bentsen Substation,osm_name,"code:BENTSEN ~ Bentsen Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
-BENWH_RC,3,138.0,138,LZ_NORTH,False,0,35.372848,-100.243781,WHEELER,osm_name,0.084,w183502012,307725,,Wheeler Substation,osm_name,"gis:Ben Wheeler ~ Wheeler Substation (name 0.80, kv x0.60, county 487 km)",name,,1,,0,177,,True,0
+BENWH_RC,3,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,177,,True,0
 BEPRISS,1,69.0,69,LZ_SOUTH,False,0,28.334825,-97.806112,BEE,osm_name,0.767,w489376567,,,Bee Prison Substation,osm_name,"psse:BEEPRISONSB ~ Bee Prison Substation (name 0.81, kv x1.00, no county)",name,,2,,0,0,,True,1
 BER,4,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 BERCLAIR,2,69.0,69,LZ_SOUTH,False,0,28.493301,-97.598521,BEE,osm_name,0.855,w489376740,,,Berclair Substation,osm_name,"code:BERCLAIR ~ Berclair Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -465,7 +465,7 @@ BNT,1,69.0,69,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 BNTDR,2,138.0,138,LZ_NORTH,False,0,32.704812,-96.764232,DALLAS,hifld_name,0.646,w466733923,301490,,BUNTIN DR,hifld_name,"psse:BUNTIN ~ BUNTIN DR (name 0.81, kv x1.00, no county)",snap,,1,,0,101,,True,1
 BNTSW,0,69.0,69,,False,0,,,,none,0.0,,,,,,,,,,,0,10,,False,0
 BOARDCRK,5,345.0,345;34.5,LZ_NORTH,True,1,31.85346,-96.624458,NAVARRO,eia_unit,0.265,w1188600264,,65306,Limestone Wind Project,eia_unit,EIA plant Limestone Wind Project (NAVARRO) score 0.55,snap,,1,0.0,0,0,,True,0
-BOATC,2,138.0,138,LZ_NORTH,False,0,31.821876,-100.311015,COKE,osm_name,0.173,w491401626,,,Bronte Atlantic Substation,osm_name,"code:BOATC ~ Bronte Atlantic Substation (name 0.61, kv x0.60, no county)",name,,1,,0,0,,True,0
+BOATC,2,138.0,138,LZ_NORTH,False,0,31.821876,-100.311015,COKE,osm_name,0.173,w491401626,,,Bronte Atlantic Substation,osm_name,"code:BOATC ~ Bronte Atlantic Substation (name 0.61, kv x0.60, no county)",name,,1,,0,0,,True,1
 BOBCAT,1,69.0,69,LZ_WEST,False,0,31.105004,-102.296574,UPTON,osm_name,0.727,w496524818,,,Bobcat Hills Substation,osm_name,"code:BOBCAT ~ Bobcat Hills Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,1
 BOBWHITE,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 BOCO_ESS,4,138.0,138;34.5,LZ_WEST,True,1,32.722258,-101.638467,BORDEN,osm_name,0.837,w1490401497,,66804,Borden County BESS,eia_unit+osm_name,"code:BOCO ~ Borden County BESS (name 0.60, kv x0.85, county 0 km)",snap,,4,0.01,0,0,,True,1
@@ -502,7 +502,7 @@ BRADSO,2,69.0,69,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 BRADYCIT,3,69.0,69,LZ_SOUTH,False,0,31.135225,-99.341562,MCCULLOCH,osm_name,0.727,w493666730,,,Brady Substation,osm_name,"code:BRADYCIT ~ Brady Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,LZ_LCRA,True,2
 BRANCHVL,1,69.0,69,LZ_NORTH,False,0,30.873383,-96.769741,MILAM,osm_name,0.722,w510537895,,,Branchville Substation,osm_name,"psse:BRANCHVILE ~ Branchville Substation (name 0.76, kv x1.00, no county)",name,,1,,0,0,,True,1
 BRAND,0,138.0,138,,False,0,32.783499,-100.944338,SCURRY,osm_name,0.709,w467959316,,,Brand Substation,osm_name,"code:BRAND ~ Brand Substation (name 0.90, kv x1.00, no county)",name,,4,,834,73,,False,1
-BRAND_C,4,138.0,138,LZ_NORTH,False,0,32.952256,-96.637703,DALLAS,osm_name,0.76,w284642870,310386,,Brand Substation,osm_name,"psse:BRAND ~ Brand Substation (name 0.95, kv x1.00, no county)",name,0,4,,250,4,,True,1
+BRAND_C,4,138.0,138,LZ_NORTH,False,0,32.952256,-96.637703,DALLAS,osm_name,0.95,w284642870,310386,,Brand Substation,osm_name,"psse:BRAND ~ Brand Substation (name 0.95, kv x1.00, no county)",name,,4,,250,4,,True,1
 BRAN_ESS,5,345.0,345;34.5,LZ_NORTH,True,1,32.704489,-97.325037,TARRANT,osm_name,0.294,w340879855,308860,,Bryan Avenue Substation,osm_name,"code:BRAN_E ~ Bryan Avenue Substation (name 0.64, kv x0.60, no county)",name,,4,,0,0,,True,0
 BRAUNIG,34,345.0,345;138;22;20;18;13.8,LZ_SOUTH,True,7,29.258031,-98.382684,BEXAR,osm_name,0.97,w319115059,310535,3612;7512,Braunig Switchyard,eia_unit+osm_name,"gis:Braunig ~ Braunig Switchyard (name 1.00, kv x1.00, county 0 km)",name,1,4,0.15,0,50,LZ_CPS,True,1
 BRAZORIA,12,138.0,138;69,LZ_HOUSTON,True,1,29.062266,-95.577575,BRAZORIA,osm_name,0.97,w338876676,303603,64296,Brazoria Substation,eia_unit+osm_name,"code:BRAZORIA ~ Brazoria Substation (name 0.90, kv x1.00, county 0 km)",name,1,1,0.04,0,6,,True,1
@@ -515,7 +515,7 @@ BRDSPRYT,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 BRDSW,2,69.0,69,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 BRELN,1,138.0,138,LZ_WEST,False,0,30.187691,-97.848219,TRAVIS,osm_name,0.311,w340000205,300628,,Brodie Lane Substation,osm_name,"code:BRELN ~ Brodie Lane Substation (name 0.65, kv x1.00, no county)",name,,1,,0,0,,True,1
 BRENHA,4,138.0,138,LZ_SOUTH,False,0,30.181824,-96.381758,WASHINGTON,osm_name,0.727,w99881513,,,Brenham North Substation,osm_name,"code:BRENHA ~ Brenham North Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,LZ_LCRA,True,2
-BRENNO,2,138.0,138,LZ_SOUTH,False,0,30.181824,-96.381758,WASHINGTON,osm_name,0.62,w99881513,,,Brenham North Substation,osm_name,"code:BRENNO ~ Brenham North Substation (name 0.65, kv x1.00, no county)",name,,1,,0,140,LZ_LCRA,True,2
+BRENNO,2,138.0,138,LZ_SOUTH,False,0,30.181824,-96.381758,WASHINGTON,osm_name,0.715,w99881513,,,Brenham North Substation,osm_name,"code:BRENNO ~ Brenham North Substation (name 0.65, kv x1.00, no county)",name,1,1,,0,140,LZ_LCRA,True,2
 BRG,4,138.0,138,LZ_NORTH,False,0,33.123219,-96.859768,DENTON,osm_name,0.95,w171718430,310292,,Bridges Substation,osm_name,"psse:BRIDGES ~ Bridges Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
 BRGPR,3,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 BRGRS,2,138.0,138,LZ_NORTH,False,0,31.376985,-96.206287,LEON,osm_name,0.902,w172718057,,,Bear Grass Substation,osm_name,"psse:BEARGRASS ~ Bear Grass Substation (name 0.95, kv x1.00, no county)",name,,3,,0,0,,True,1
@@ -671,7 +671,7 @@ CALONPTR,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 CALVERT,2,69.0,69,LZ_NORTH,False,0,30.974692,-96.672819,ROBERTSON,osm_name,0.727,w510537842,,,Calvert Substation,osm_name,"code:CALVERT ~ Calvert Substation (name 0.90, kv x1.00, no county)",name,,2,,0,0,,True,1
 CAM,6,138.0,138,LZ_HOUSTON,False,0,28.988132,-95.357392,BRAZORIA,osm_name,0.902,w521377903,,,Camden Substation,osm_name,"psse:CAMDEN ~ Camden Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
 CAMERON,5,138.0,138,LZ_SOUTH,False,0,30.339624,-97.686349,TRAVIS,osm_name,0.762,w509006502,300473,,Cameron Substation,osm_name,"code:CAMERON ~ Cameron Substation (name 0.90, kv x1.00, no county)",name,,4,,0,0,LZ_AEN,True,1
-CAMPBELL,5,138.0,138,LZ_NORTH,False,0,29.818242,-95.524671,HARRIS,osm_name,0.41,w126442969,303148,,Campbell Substation,osm_name,"code:CAMPBELL ~ Campbell Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
+CAMPBELL,5,138.0,138,LZ_NORTH,False,0,29.818242,-95.524671,HARRIS,osm_name,0.35,w126442969,303148,,Campbell Substation,osm_name,"G1 demoted (demote_block): PSS/E 838 is in the GP&L block 802-860 (Garland); Campbell (Harris Co.) is 362 km away | was at Campbell Substation (HARRIS, conf 0.41, osm_name) | matcher: code:CAMPBELL ~ Campbell Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 CAMPGA,2,138.0,138,LZ_SOUTH,False,0,29.881236,-97.866407,CALDWELL,osm_name,0.486,w232387824,305104,,Camp Gary Substation,osm_name,"code:CAMPGA ~ Camp Gary Substation (name 0.77, kv x0.60, no county)",name,,1,,0,0,,True,0
 CAMPN,2,138.0,138,LZ_NORTH,False,0,32.759305,-100.823569,SCURRY,osm_name,0.203,w467959140,,,Camp Springs Wind 2 Substation,osm_name,"code:CAMPN ~ Camp Springs Wind 2 Substation (name 0.59, kv x1.00, no county)",name,,3,,0,0,,True,0
 CAMPSANS,1,69.0,69,LZ_SOUTH,False,0,30.960269,-99.281636,MCCULLOCH,osm_name,0.727,w493666715,,,Camp San Saba Substation,osm_name,"code:CAMPSANS ~ Camp San Saba Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -708,7 +708,7 @@ CARRIZO,6,69.0,69,LZ_SOUTH,True,1,28.493284,-99.884543,DIMMIT,osm_name,0.942,w45
 CARSON,4,138.0,138,LZ_SOUTH,False,0,30.203187,-97.687111,TRAVIS,osm_name,0.777,w224820000,304376,,Carson Creek Substation,osm_name,"code:CARSON ~ Carson Creek Substation (name 0.77, kv x1.00, no county)",name,,2,,0,0,LZ_AEN,True,1
 CARTER,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 CARTWHL,3,345.0,345;34.5,LZ_NORTH,True,1,33.085046,-95.621605,HOPKINS,osm_name,0.844,w1560205591,,68513,Cartwheel 1 - Storage,eia_unit+osm_name,"code:CARTWHL ~ Cartwheel 1 - Storage (name 0.72, kv x0.85, county 0 km)",snap,,1,0.91,0,0,,True,1
-CARVER,3,138.0,138;69,LZ_WEST,False,0,33.564455,-101.831477,LUBBOCK,osm_name,0.134,w466088494,,,Carver Substation,osm_name,"gis:CARVER ~ Carver Substation (name 1.00, kv x0.85, county 328 km)",name,0,2,,0,9,,True,0
+CARVER,3,138.0,138;69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,9,,True,0
 CASA_BLA,2,69.0,69,LZ_SOUTH,False,0,27.998275,-97.907994,JIM WELLS,osm_name,0.727,w489453635,,,Casa Blanca Substation,osm_name,"code:CASA_BLA ~ Casa Blanca Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,1
 CASL_GAP,5,138.0,138;34.5,LZ_WEST,True,1,31.255,-102.272,UPTON,eia_unit,0.7,w579799487,,60123,Castle Gap Solar Hybrid,eia_unit,EIA plant Castle Gap Solar Hybrid (UPTON) score 0.91,snap,1,3,0.0,0,23,,True,2
 CASSAVA,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,11,,True,0
@@ -766,7 +766,7 @@ CEDARVAL,1,138.0,138,LZ_NORTH,False,0,30.929263,-97.68633,BELL,osm_name,0.533,w4
 CEDAVA,4,138.0,138,LZ_SOUTH,False,0,30.929263,-97.68633,BELL,osm_name,0.531,w462426736,,,Cedar Valley Substation,osm_name,"code:CEDAVA ~ Cedar Valley Substation (name 0.67, kv x1.00, no county)",name,,2,,0,0,LZ_LCRA,True,2
 CEDRHILL,1,69.0,69,LZ_WEST,False,0,32.014413,-100.738961,COKE,osm_name,0.684,w491401754,,,Cedar Hill Switching Station,osm_name,"code:CEDRHILL ~ Cedar Hill Switching Station (name 0.72, kv x1.00, no county)",name,,4,,0,11,,True,1
 CEDROHIL,5,138.0,138;34.5,LZ_SOUTH,True,1,27.563807,-98.920098,WEBB,osm_name,0.891,w451971739,,57260,Cedro Hill Substation,eia_unit+osm_name,"cdr:cedro hill ~ Cedro Hill Substation (name 0.85, kv x1.00, county 0 km)",name,,1,2.0,0,0,,True,1
-CEDRVALE,24,138.0,138,LZ_WEST,True,2,31.040031,-103.652607,REEVES,eia_unit,0.52,w501036527,,69350,Matta Power Station,eia_unit,EIA plant Matta Power Station (REEVES) score 0.55,snap,1,3,0.0,0,40,,True,2
+CEDRVALE,24,138.0,138,LZ_WEST,True,2,31.515353,-103.450689,WARD,override,0.65,w501745975,,69350,Cedarvale Gas (EIA 69267) at the OSM Cochise Substation,override_tpit_name,"G1 override (tpit_name): TNMP Cedarvale station, Ward Co.: TPIT-76291/76293/77807 (TNMP) name it in Ward Co.; EIA 'Cedarvale Gas' (Ward Co.) is at 31.5154,-103.4507, within 1.5 km of the OSM node 'Cochise Substation' (TNMP) and of SLKSW (Ward). The matcher's EIA plant Matta (Reeves Co.) is 47 km away | was at Matta Power Station (REEVES, conf 0.52, eia_unit)",override,,1,56.23,0,40,,True,1
 CELANEBC,4,138.0,138,LZ_SOUTH,False,0,28.867944,-96.015597,MATAGORDA,osm_name,0.644,w515869165,,,Celanese Bay City Substation,osm_name,"psse:CELNEBC ~ Celanese Bay City Substation (name 0.68, kv x1.00, no county)",name,,1,,0,0,,True,1
 CELANEBI,9,138.0,138;13.8,LZ_SOUTH,False,0,27.560572,-97.830356,NUECES,osm_name,0.652,w490190270,,,Celanese Bishop Substation,osm_name,"code:CELANEBI ~ Celanese Bishop Substation (name 0.68, kv x1.00, no county)",name,2,2,,0,415,,True,1
 CELINARC,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_RAYBN,True,0
@@ -779,15 +779,15 @@ CERRORIC,0,138.0,138,,False,0,,,,none,0.0,,,,,,,,,,,0,9,,False,0
 CF,4,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 CFLATS,5,138.0,138;34.5;13.8,LZ_WEST,True,1,31.112474,-100.028142,CONCHO,eia_unit,0.55,w1107612363,,61001,Cactus Flats Wind Energy Project,eia_unit,EIA plant Cactus Flats Wind Energy Project (CONCHO) score 1.00,snap,,2,0.0,0,0,,True,2
 CFLAT_ES,3,138.0,138;34.5,LZ_SOUTH,True,1,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-CFRSW,4,345.0,345,LZ_WEST,True,1,32.7683,-99.4228,SHACKELFORD,eia_unit,0.51,w171742083,,56823,Hackberry Wind Farm,eia_unit,EIA plant Hackberry Wind Farm (SHACKELFORD) score 0.75,snap,,2,0.0,0,0,,True,3
+CFRSW,4,345.0,345,LZ_WEST,True,1,32.7683,-99.4228,SHACKELFORD,eia_unit,0.51,w171742083,,56823,Hackberry Wind Farm,eia_unit,EIA plant Hackberry Wind Farm (SHACKELFORD) score 0.75,snap,,2,0.0,0,0,,True,2
 CG,3,138.0,138,LZ_HOUSTON,False,0,29.659718,-95.244847,HARRIS,osm_name,0.812,w338341255,,,College Substation,osm_name,"code:CG ~ College Substation (name 0.85, kv x1.00, no county)",name,,2,,0,68,,True,1
 CGR,8,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 CGRSW,3,138.0,138;69,LZ_WEST,False,0,32.523498,-100.873678,MITCHELL,osm_name,0.694,w458556059,,,China Grove Switching Station,osm_name,"psse:CHINAGRV ~ China Grove Switching Station (name 0.76, kv x1.00, no county)",name,1,2,,0,106,,True,1
 CH20,2,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-CHALK,2,69.0,69,LZ_WEST,False,0,33.526537,-101.914173,LUBBOCK,osm_name,0.534,w442013545,,,Chalker Substation,osm_name,"code:CHALK ~ Chalker Substation (name 0.77, kv x1.00, no county)",name,,2,,0,0,,True,1
+CHALK,2,69.0,69,LZ_WEST,False,0,32.111229,-101.276429,HOWARD,override,0.7,w20989583,,,Chalk Substation,override_alt_site,"G1 override (alt_site): 'Chalk Substation' (Oncor 69 kV, Howard Co.; the matcher's alternative at 0.64): TPIT lists Glasscock/Howard; the Lubbock 'Chalker Substation' that CHALK was matched to belongs to LPLCH | was at Chalker Substation (LUBBOCK, conf 0.53, osm_name)",override,,1,,0,0,,True,1
 CHALMERS,1,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 CHALUPA,4,138.0,138;34.5,LZ_SOUTH,True,1,26.249888,-97.511842,CAMERON,eia_unit,0.55,w1105085783,,63624,"La Chalupa, LLC",eia_unit,"EIA plant La Chalupa, LLC (CAMERON) score 0.91",snap,,1,0.0,0,0,,True,1
-CHAL_SLR,5,138.0,138;21.6,LZ_WEST,True,1,32.111229,-101.276429,HOWARD,osm_name,0.349,w20989583,,,Chalk Substation,osm_name,"code:CHAL ~ Chalk Substation (name 0.77, kv x0.60, no county)",name,,4,,0,0,,True,0
+CHAL_SLR,5,138.0,138;21.6,LZ_WEST,True,1,32.111229,-101.276429,HOWARD,osm_name,0.349,w20989583,,,Chalk Substation,osm_name,"code:CHAL ~ Chalk Substation (name 0.77, kv x0.60, no county)",name,,4,,0,0,,True,1
 CHAMB_RC,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_RAYBN,True,0
 CHAMON,8,138.0,138;13.8,LZ_HOUSTON,True,2,29.883214,-95.111345,HARRIS,eia_unit,0.92,w336780027,,60460,Chamon,eia_unit,EIA plant Chamon (HARRIS) score 0.95 LMP-node designation,snap,,2,0.0,0,0,,True,2
 CHAMP,2,138.0,138,LZ_NORTH,False,0,31.358348,-94.67938,ANGELINA,osm_name,0.632,w631186752,,,Champion Paper Mill Substation,osm_name,"psse:CHAMPION ~ Champion Paper Mill Substation (name 0.66, kv x1.00, no county)",name,,3,,0,0,,True,1
@@ -810,7 +810,7 @@ CHE,9,345.0,345;138;18,LZ_HOUSTON,True,3,31.720987,-94.637711,NACOGDOCHES,osm_na
 CHEAPS,3,138.0,138,LZ_SOUTH,False,0,29.308986,-97.395322,GONZALES,osm_name,0.727,w337363735,,,Cheapside Substation,osm_name,"code:CHEAPS ~ Cheapside Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,1
 CHENIERE,2,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 CHEROKEE,7,138.0,138,LZ_HOUSTON,False,0,29.367131,-94.915826,GALVESTON,osm_name,0.905,w338817755,300003,,Cherokee Switching Station,osm_name,"code:CHEROKEE ~ Cherokee Switching Station (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
-CHERRTAP,0,69.0,69,,False,0,32.814053,-96.881503,DALLAS,hifld_name,0.174,,307489,,CHANCELLOR ROW,hifld_name,"code:CHERR ~ CHANCELLOR ROW (name 0.62, kv x1.00, no county)",,0,2,,0,51,,False,0
+CHERRTAP,0,69.0,69,,False,0,,,,none,0.0,,,,,,,,,,,0,51,,False,0
 CHERRYCR,5,138.0,138;69,LZ_WEST,True,1,31.112002,-103.666361,REEVES,osm_name,0.738,w1556378634,,65836,Toyah Power Station,eia_unit+osm_name,"cdr:toyah ~ Toyah Power Station (name 0.85, kv x0.85, county 0 km)",snap,,2,0.23,0,51,,True,1
 CHERYGRV,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 CHERY_RC,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_RAYBN,True,0
@@ -868,7 +868,7 @@ CLBRN,2,138.0,138,LZ_NORTH,False,0,32.354098,-97.374871,JOHNSON,osm_name,0.738,w
 CLBSN,1,69.0,69,LZ_WEST,False,0,32.530057,-100.836427,SCURRY,osm_name,0.498,w467959279,,,Colorado Basin Substation,osm_name,"psse:COLBASIN ~ Colorado Basin Substation (name 0.73, kv x1.00, no county)",name,,2,,0,0,,True,0
 CLBSW,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,8,,True,0
 CLBWS,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-CLCRK,1,138.0,138,LZ_WEST,False,0,33.072102,-99.556983,HASKELL,osm_name,0.382,w517461632,,,California Creek Substation,osm_name,"code:CLCRK ~ California Creek Substation (name 0.60, kv x1.00, no county)",name,0,4,,0,4,,True,3
+CLCRK,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,4,,True,0
 CLCTY,2,69.0,69,LZ_WEST,False,0,32.392243,-100.841487,MITCHELL,osm_name,0.58,w467959271,,,Colorado City Substation,osm_name,"psse:COLOCITY ~ Colorado City Substation (name 0.74, kv x1.00, no county)",name,,3,,0,112,,True,1
 CLEAFO,3,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 CLEARCRO,16,345.0,345,LZ_WEST,True,1,33.001374,-99.605494,HASKELL,osm_name,0.95,w453376936,307734,66691;68874,Clear Crossing Substation,osm_name,"gis:Clear Crossing ~ Clear Crossing Substation (name 1.00, kv x1.00, county 0 km)",name,,2,16.46,0,0,,True,2
@@ -937,7 +937,7 @@ CO,2,138.0,138,LZ_HOUSTON,False,0,26.515062,-98.609226,STARR,osm_name,0.237,,,,C
 COACHWHP,4,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 COBSW,4,345.0,345,LZ_WEST,True,1,33.509722,-98.360833,CLAY,eia_unit,0.604,w686972909,,59034,1370 Shannon,eia_unit,EIA plant 1370 Shannon (CLAY) score 0.64,snap,,1,0.0,0,0,,True,2
 COCORG,1,69.0,69,LZ_WEST,False,0,30.639241,-102.943661,PECOS,osm_name,0.902,w503331187,,,Conoco Substation,osm_name,"psse:CONOCO ~ Conoco Substation (name 0.95, kv x1.00, no county)",name,,3,,0,0,,True,1
-COCS,1,69.0,69,LZ_WEST,False,0,31.513953,-103.452069,WARD,osm_name,0.376,w501745975,303572,,Cochise Substation,osm_name,"code:COCS ~ Cochise Substation (name 0.63, kv x1.00, no county)",name,0,3,,0,147,,True,0
+COCS,1,69.0,69,LZ_WEST,False,0,31.513953,-103.452069,WARD,osm_name,0.376,w501745975,303572,,Cochise Substation,osm_name,"code:COCS ~ Cochise Substation (name 0.63, kv x1.00, no county)",name,0,3,,0,147,,True,1
 COFESSRC,4,138.0,138,LZ_NORTH,False,0,32.169946,-95.580297,HENDERSON,eia_unit,0.41,,,68903,Solex Ridge Solar,eia_unit,EIA plant Solex Ridge Solar (HENDERSON) score 0.55,,,3,0.0,0,23,LZ_RAYBN,True,0
 COFFPORT,1,138.0,138,LZ_SOUTH,False,0,25.938037,-97.426299,CAMERON,osm_name,0.734,w513362274,301631,,Coffee Port Substation,osm_name,"code:COFFPORT ~ Coffee Port Substation (name 0.72, kv x1.00, no county)",name,,1,,0,0,,True,1
 COHMA,2,69.0,69,LZ_WEST,False,0,32.303883,-101.308347,HOWARD,osm_name,0.902,w468019553,,,Coahoma Substation,osm_name,"psse:COAHOMA ~ Coahoma Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -947,7 +947,7 @@ COLETAP,1,138.0,138,LZ_WEST,False,0,31.814543,-99.404055,COLEMAN,osm_name,0.604,
 COLETO,13,345.0,345;138;24,LZ_SOUTH,True,1,28.716894,-97.212842,GOLIAD,osm_name,0.97,w174682092,,6178,Coleto Creek Substation,eia_unit+osm_name,"gis:Coleto Creek ~ Coleto Creek Substation (name 1.00, kv x1.00, county 0 km)",name,,1,0.47,0,0,,True,1
 COLE_IVI,3,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,11,,True,0
 COLJ,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-COLLEGE,2,138.0,138,LZ_NORTH,False,0,30.627725,-96.294291,BRAZOS,osm_name,0.684,w100103260,,,College Station Switching Station,osm_name,"code:COLLEGE ~ College Station Switching Station (name 0.90, kv x1.00, no county)",name,0,2,,745,51,,True,1
+COLLEGE,2,138.0,138,LZ_NORTH,False,0,32.93418,-96.680038,DALLAS,override,0.55,w346508738,,,(unnamed 138 kV OSM substation between Apollo and Fairdale),override_graph_adjacent,"G1 override (graph_adjacent): GP&L substation in north Garland (Dallas Co.): TPIT-110751 and RTP 2025-NC06 (GPL, Dallas, Jupiter 806 - College 829 138 kV, 2.82 mi); PSS/E 829 is in the GP&L block 802-860 (its 8 members placed at 0.85 or more cluster around 32.93,-96.64, spread 7 km by 8 km); ERCOT N-GRIP (Jan 2017) lists College on GP&L's Apollo 69 kV loop. The only unclaimed OSM node 2.7 km from Apollo and 3.5 km from Fairdale (HIFLD 69 kV chain College-tap-Jupiter = 1.4+3.1 km = 4.5 km = 2.82 mi). Site good to a few km | was at College Station Switching Station (BRAZOS, conf 0.68, osm_name); 261 km from BRAND_C (conf 0.76, DALLAS) on a 138 kV constraint; 257 km from FAIRDALE (conf 0.91, DALLAS) on a 138 kV constraint",override,,1,,745,51,,True,1
 COLNY,3,138.0,138,LZ_NORTH,False,0,33.084828,-96.883813,DENTON,osm_name,0.902,w171718429,,,Colony Substation,osm_name,"psse:COLONY ~ Colony Substation (name 0.95, kv x1.00, no county)",name,,2,,0,0,,True,1
 COLORA,2,138.0,138,LZ_SOUTH,False,0,29.289146,-96.068919,WHARTON,osm_name,0.618,w520385215,,,Colorado Bend Substation,osm_name,"code:COLORA ~ Colorado Bend Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,,True,2
 COLTON,2,138.0,138,LZ_SOUTH,False,0,30.139053,-97.678923,TRAVIS,osm_name,0.905,w217282853,309830,,Colton Substation,osm_name,"code:COLTON ~ Colton Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,LZ_LCRA,True,1
@@ -961,7 +961,7 @@ COMPASS,4,138.0,138,LZ_NORTH,False,0,32.297768,-97.78986,SOMERVELL,osm_name,0.43
 COMRC,2,138.0,138,LZ_NORTH,False,0,29.435478,-98.618524,BEXAR,osm_name,0.343,w278460528,,,Commerce ESS,osm_name,"psse:COMMERCE ~ Commerce ESS (name 0.95, kv x0.85, no county)",snap,,1,,0,0,,True,1
 COMSO,2,138.0,138,LZ_NORTH,False,0,33.179664,-95.809217,HOPKINS,eia_unit,0.621,w286177046,,68171,Mcmurtre Storage,eia_unit,EIA plant Mcmurtre Storage (HUNT) score 1.00,snap,,5,0.0,0,0,,True,2
 COMSTOCK,5,138.0,138,LZ_WEST,False,0,29.747458,-101.139455,VAL VERDE,osm_name,0.525,w344841821,308801,,Comstock Substation,osm_name,"gis:Comstock ~ Comstock Substation (name 1.00, kv x1.00, county 0 km)",name,,1,,0,0,,True,1
-COMSW,1,138.0,138,LZ_NORTH,False,0,27.285037,-99.411874,ZAPATA,eia_unit,0.525,w451971721,,68350,Bravo ESS,eia_unit,EIA plant Bravo ESS (ZAPATA) score 0.90 name-only,snap,,5,0.0,0,0,,True,2
+COMSW,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,68350,Bravo ESS,,,,,,,0,0,,True,0
 COMSW_RC,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_RAYBN,True,0
 CONA,1,69.0,69,LZ_WEST,False,0,31.26296,-102.96182,PECOS,hifld_name,0.313,w1540372722,304436,,COYONOSA,hifld_name,"code:CONA ~ COYONOSA (name 0.61, kv x1.00, no county)",snap,,4,,0,0,,True,0
 CONAN,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -1076,12 +1076,12 @@ CRNHU,2,69.0,69,LZ_WEST,False,0,31.428714,-102.347217,CRANE,osm_name,0.817,w4999
 CRNRD,2,138.0,138,LZ_NORTH,False,0,32.90001,-96.89869,DALLAS,hifld_name,0.646,w448568015,310070,,CROWN ROAD,hifld_name,"psse:CROWN ~ CROWN ROAD (name 0.81, kv x1.00, no county)",snap,,2,,0,0,,True,1
 CRNSO,3,138.0,138,LZ_NORTH,False,0,33.158569,-97.088596,DENTON,hifld_name,0.646,w346938538,308795,,CORINTH,hifld_name,"psse:CORINTHS ~ CORINTH (name 0.81, kv x1.00, no county)",snap,,2,,0,0,,True,2
 CRNTH,3,138.0,138,LZ_NORTH,False,0,33.158569,-97.088596,DENTON,hifld_name,0.76,w346938538,308795,,CORINTH,hifld_name,"psse:CORINTH ~ CORINTH (name 0.95, kv x1.00, no county)",snap,,2,,0,0,,True,2
-CROSS,1,138.0,138,LZ_SOUTH,False,0,28.695225,-98.540023,ATASCOSA,osm_name,0.855,w452545512,,,Cross Substation,osm_name,"code:CROSS ~ Cross Substation (name 0.90, kv x1.00, no county)",name,,3,,0,0,,True,3
+CROSS,1,138.0,138,LZ_SOUTH,False,0,28.695225,-98.540023,ATASCOSA,osm_name,0.855,w452545512,,,Cross Substation,osm_name,"code:CROSS ~ Cross Substation (name 0.90, kv x1.00, no county)",name,,3,,0,0,,True,2
 CROSSETT,5,138.0,138;34.5,LZ_WEST,True,1,31.190956,-102.318534,CRANE,osm_name,0.848,w1454964075,,66009;68581,Crossett Power Management LLC,eia_unit+osm_name,"cdr:crossett ~ Crossett Power Management LLC (name 0.68, kv x0.85, county 0 km)",snap,,3,0.15,0,0,,True,1
-CROSSOVE,1,138.0,138,LZ_WEST,False,0,34.343992,-100.893934,HALL,osm_name,0.269,w453794429,304966,,Cross Substation,osm_name,"code:CROSSOVE ~ Cross Substation (name 0.77, kv x0.60, no county)",name,,2,,0,203,,True,1
+CROSSOVE,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,203,,True,0
 CROSSPLA,2,69.0,69,LZ_WEST,False,0,32.121804,-99.168728,CALLAHAN,osm_name,0.581,w516664074,,,Cross Plains Substation,osm_name,"code:CROSSPLA ~ Cross Plains Substation (name 0.77, kv x1.00, no county)",name,,3,,0,0,,True,1
 CROSSTRL,4,69.0,69;34.5,LZ_WEST,True,1,32.745,-100.757,SCURRY,eia_unit,0.75,w467959216,,69244,Cross Trails Energy Storage Project,eia_unit,EIA plant Cross Trails Energy Storage Project (SCURRY) score 1.00,snap,,3,0.0,0,3,,True,1
-CROSSWI,1,138.0,138,LZ_SOUTH,False,0,28.695225,-98.540023,ATASCOSA,osm_name,0.767,w452545512,,,Cross Substation,osm_name,"psse:CROSSW ~ Cross Substation (name 0.81, kv x1.00, no county)",name,,2,,0,0,,True,3
+CROSSWI,1,138.0,138,LZ_SOUTH,False,0,28.695225,-98.540023,ATASCOSA,osm_name,0.767,w452545512,,,Cross Substation,osm_name,"psse:CROSSW ~ Cross Substation (name 0.81, kv x1.00, no county)",name,,2,,0,0,,True,2
 CROWELL,2,69.0,69,LZ_WEST,False,0,33.982294,-99.722776,FOARD,osm_name,0.855,w518859368,,,Crowell Substation,osm_name,"code:CROWELL ~ Crowell Substation (name 0.90, kv x1.00, no county)",name,,2,,0,0,,True,1
 CROWLEY,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 CRS,6,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -1120,7 +1120,7 @@ CTECBU,3,69.0,69,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,37,,True,0
 CTFLD,3,138.0,138,LZ_WEST,False,0,30.584456,-95.934128,GRIMES,osm_name,0.282,w452817052,,,Crutchfield Substation,osm_name,"code:CTFLD ~ Crutchfield Substation (name 0.59, kv x1.00, no county)",name,,1,,0,0,,True,1
 CTHR,1,138.0,138,LZ_WEST,False,0,30.304783,-100.674816,SUTTON,osm_name,0.95,w345127790,306893,,Cauthorn Substation,osm_name,"psse:CAUTHORN ~ Cauthorn Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
 CTLSW,5,345.0,345,LZ_NORTH,True,1,31.818833,-98.663648,COMANCHE,osm_name,0.95,w632208850,,61212,Corn Trail Switching Station,osm_name,"gis:Corn Trail Switch Substation ~ Corn Trail Switching Station (name 1.00, kv x1.00, county 0 km)",name,,2,15.99,0,0,,True,1
-CTR,4,345.0,345,LZ_HOUSTON,False,0,32.870834,-96.634586,DALLAS,osm_name,0.158,w346527373,309481,,Centerville Substation,osm_name,"psse:CENTER ~ Centerville Substation (name 0.81, kv x1.00, no county)",name,0,3,,0,19,,True,2
+CTR,4,345.0,345,LZ_HOUSTON,False,0,29.7731,-94.9019,CHAMBERS,override,0.55,w39962318,,,Baytown Energy Center (EIA 55327),override_name_partner,"G1 override (name_partner): PSS/E CENTER_POI_5 (CenterPoint 345 kV POI) = Baytown Energy Center (EIA 55327, 345 kV, Chambers Co.), 3.6 km from CBY (Cedar Bayou), the other end of the 345 kV constraint; the matcher had matched 'Centerville' in Dallas Co. | was at Centerville Substation (DALLAS, conf 0.16, osm_name); 383 km from CBY (conf 0.97, CHAMBERS) on a 345 kV constraint",override,,1,,0,19,,True,1
 CTRLA,4,138.0,138,LZ_WEST,False,0,29.985672,-94.010948,JEFFERSON,osm_name,0.276,w338452541,,,Central Substation,osm_name,"psse:CENTRALIA ~ Central Substation (name 0.81, kv x1.00, no county)",name,,4,,0,0,,True,0
 CTT_CROS,4,345.0,345,LZ_WEST,False,0,34.343992,-100.893934,HALL,osm_name,0.95,w453794429,304966,,Cross Substation,osm_name,"psse:CROSS ~ Cross Substation (name 0.95, kv x1.00, tap-county 6 km)",name,,4,,0,0,,True,1
 CTT_GRAY,9,345.0,345,LZ_WEST,False,0,35.407782,-100.819931,GRAY,osm_name,0.95,w453794456,306646,68203,Gray Substation,osm_name,"gis:Gray ~ Gray Substation (name 1.00, kv x1.00, county 0 km)",name,,5,20.61,0,0,,True,1
@@ -1219,7 +1219,7 @@ DERMOTT,6,345.0,345;34.5,LZ_WEST,True,1,32.863835,-101.009682,SCURRY,osm_name,0.
 DERRICK,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 DESEME,3,138.0,138,LZ_WEST,True,1,30.9178,-102.0867,PECOS,eia_unit,0.381,w496524810,,55992,Desert Sky,eia_unit,EIA plant Desert Sky (PECOS) score 0.79,snap,,1,0.0,0,0,,True,2
 DESHR,3,138.0,138,LZ_NORTH,False,0,32.609231,-96.857886,DALLAS,hifld_name,0.512,w342687354,307826,,DESOTO HAMPTON RD,hifld_name,"psse:DESHPR ~ DESOTO HAMPTON RD (name 0.64, kv x1.00, no county)",snap,,1,,0,0,,True,1
-DESN_ESS,3,138.0,138;34.5,LZ_HOUSTON,True,1,29.886867,-95.018969,HARRIS,osm_name,0.493,w1560186737,,,Destiny Storage,osm_name,"code:DESN ~ Destiny Storage (name 0.63, kv x0.85, no county)",snap,1,2,,0,1,,True,0
+DESN_ESS,3,138.0,138;34.5,LZ_HOUSTON,True,1,29.064429,-95.734929,BRAZORIA,override,0.65,w583058250,,,Desna / FM 524 Substation,override_alt_site,"G1 override (alt_site): the OSM node w583058250 carries two names, 'FM 524 Substation' and 'Desna' (the matcher's alternative, name 0.77, conf 0.44): Destiny Storage (DESN_ESS) connects to FM524 by the 138 kV line 138_FMF_DES_1, so it sits at the same station (Brazoria Co.) | was at Destiny Storage (HARRIS, conf 0.49, osm_name)",override,,1,,0,1,,True,2
 DESPR,3,138.0,138,LZ_NORTH,False,0,32.601553,-96.827631,DALLAS,hifld_name,0.512,w550156480,302854,,DESOTO PLEASANT RUN,hifld_name,"psse:DESPLR ~ DESOTO PLEASANT RUN (name 0.64, kv x1.00, no county)",snap,,1,,0,0,,True,1
 DESSAU,12,138.0,138,LZ_SOUTH,False,0,30.373484,-97.643015,TRAVIS,osm_name,0.905,w156262424,300998,,Dessau Substation,osm_name,"code:DESSAU ~ Dessau Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,LZ_AEN,True,1
 DESSW,3,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -1302,7 +1302,7 @@ DOWNING,3,138.0,138,LZ_NORTH,False,0,32.020957,-98.551755,COMANCHE,osm_name,0.51
 DOW_PUMP,1,69.0,69,LZ_HOUSTON,False,0,29.053216,-95.552002,BRAZORIA,osm_name,0.855,w582995963,,,Dow Pump Substation,osm_name,"code:DOW_PUMP ~ Dow Pump Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 DPCRK,4,138.0,138,LZ_WEST,True,1,32.703972,-100.902637,SCURRY,osm_name,0.833,w467959259,,69411,Snyder Substation,eia_unit+osm_name,"cdr:snyder ~ Snyder Substation (name 0.85, kv x1.00, county 0 km)",name,1,2,0.33,0,81,,True,2
 DPO,7,138.0,138,LZ_HOUSTON,False,0,29.752071,-95.1268,HARRIS,osm_name,0.95,w42982862,308287,,Depot Substation,osm_name,"psse:DEPOT ~ Depot Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
-DPREA,2,138.0,138,LZ_NORTH,False,0,29.752071,-95.1268,HARRIS,osm_name,0.244,w42982862,308287,,Depot Substation,osm_name,"gis:Deport ~ Depot Substation (name 0.82, kv x1.00, tap-county 398 km)",name,,1,,0,8,,True,1
+DPREA,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,8,,True,0
 DPW,18,345.0,345;138;69,LZ_HOUSTON,True,1,29.72038,-95.226943,HARRIS,hifld_name,0.8,w43705092,308162,,DEEPWATER,hifld_name,"gis:Deepwater ~ DEEPWATER (name 1.00, kv x1.00, county 0 km)",snap,,1,,0,0,,True,1
 DQ,2,138.0,138,LZ_HOUSTON,False,0,29.964388,-95.383,HARRIS,osm_name,0.902,w336061355,,,Drilco Substation,osm_name,"psse:DRILCO ~ Drilco Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
 DR,3,138.0,138,LZ_HOUSTON,False,0,29.667151,-95.283038,HARRIS,osm_name,0.95,w15341266,308886,,Drouet Substation,osm_name,"psse:DROUET ~ Drouet Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -1315,7 +1315,7 @@ DRIVER,12,138.0,138,LZ_WEST,True,1,31.733343,-101.799399,MIDLAND,osm_name,0.855,
 DRMSW,3,138.0,138,LZ_WEST,True,1,32.064804,-101.408552,GLASSCOCK,osm_name,0.607,w468019569,,56959,Drumright Switching Station,osm_name,"psse:DRUMRIGT ~ Drumright Switching Station (name 0.76, kv x1.00, tap-county 13 km)",name,,2,6.69,0,3,,True,1
 DRSCOLS,2,69.0,69,LZ_SOUTH,False,0,27.626465,-97.740948,NUECES,osm_name,0.613,w490190235,,65589,Driscoll Substation,osm_name,"psse:DRISCOLLSUB ~ Driscoll Substation (name 0.81, kv x1.00, county 0 km)",name,,2,29.47,0,0,,True,1
 DRYFK,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-DRYFRIO,3,138.0,138,LZ_SOUTH,True,1,29.259299,-99.725131,UVALDE,eia_unit,0.571,w1378736024,,69245,Nightfall Solar,eia_unit,EIA plant Nightfall Solar (UVALDE) score 0.76,snap,,1,0.0,0,0,,True,1
+DRYFRIO,3,138.0,138,LZ_SOUTH,True,1,29.259299,-99.725131,UVALDE,eia_unit,0.571,w1378736024,,69245,Nightfall Solar,eia_unit,EIA plant Nightfall Solar (UVALDE) score 0.76,snap,,1,0.0,0,0,,True,2
 DSHAM,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 DSKYTAP1,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 DSKYTAP2,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -1354,7 +1354,7 @@ E3,4,138.0,138,LZ_SOUTH,False,0,29.242098,-98.649378,BEXAR,osm_name,0.962,w12528
 E4,2,138.0,138,LZ_SOUTH,False,0,29.210178,-98.504607,BEXAR,osm_name,0.97,w320565591,303856,69660,Trumbo Substation,eia_unit+osm_name,"gis:Trumbo ~ Trumbo Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,1,3.41,0,0,LZ_CPS,True,1
 EAB,2,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 EAF,2,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-EAG,5,138.0,138,LZ_HOUSTON,False,0,28.716031,-100.490413,MAVERICK,osm_name,0.255,w21108292,306968,,Eagle Pass Substation,osm_name,"psse:EAGLE ~ Eagle Pass Substation (name 0.81, kv x1.00, no county)",name,0,4,,0,4,,True,1
+EAG,5,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,4,,True,0
 EAGLECLP,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 EAGLECLT,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 EAGLECLW,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -1478,7 +1478,7 @@ ENTPR,5,345.0,345,LZ_NORTH,True,1,32.017826,-94.619743,RUSK,eia_unit,0.68,w17236
 ENTPR_RC,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_RAYBN,True,0
 ENTRPS2,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 ENTUG,3,138.0,138,LZ_NORTH,False,0,32.785665,-96.776914,DALLAS,hifld_name,0.515,w471993657,301824,,EAST NETWORK,hifld_name,"psse:ENET ~ EAST NETWORK (name 0.64, kv x1.00, no county)",snap,,1,,0,0,,True,1
-ENWSW,1,138.0,138,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.312,w341316599,304049,,West Substation,osm_name,"gis:Ennis W ~ West Substation (name 0.80, kv x1.00, tap-county 56 km)",name,,3,,46,19,,True,5
+ENWSW,1,138.0,138,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.312,w341316599,304049,,West Substation,osm_name,"gis:Ennis W ~ West Substation (name 0.80, kv x1.00, tap-county 56 km)",name,,3,,46,19,,True,4
 EOLA,1,69.0,69,LZ_WEST,False,0,31.414023,-100.089892,CONCHO,osm_name,0.855,w493048273,,,Eola Substation,osm_name,"code:EOLA ~ Eola Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 EP,6,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 EPCO_RC,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_RAYBN,True,0
@@ -1544,7 +1544,7 @@ F3,4,138.0,138,LZ_SOUTH,False,0,29.272392,-99.084383,MEDINA,osm_name,0.653,w3200
 F4,2,138.0,138,LZ_SOUTH,False,0,30.555549,-98.371282,LLANO,osm_name,0.495,w192736943,,,Ferguson Substation,osm_name,"psse:FERN ~ Ferguson Substation (name 0.64, kv x1.00, no county)",name,,2,,0,0,,True,2
 F5,4,138.0,138,LZ_SOUTH,False,0,29.610032,-98.270836,GUADALUPE,osm_name,0.962,w319202883,307686,,Tri-County Substation,osm_name,"psse:TRI CNTY ~ Tri-County Substation (name 0.95, kv x1.00, no county)",name,1,1,,0,6,LZ_CPS,True,1
 FAGUSSLR,5,345.0,345;34.5,LZ_WEST,True,1,34.350994,-100.049306,CHILDRESS,eia_unit,0.6,w1559075090,,67123,Fagus Solar Park,eia_unit,EIA plant Fagus Solar Park (CHILDRESS) score 1.00,snap,,1,0.0,0,0,,True,1
-FAIRDALE,5,138.0,138,LZ_NORTH,False,0,32.913861,-96.661597,DALLAS,osm_name,0.905,w284642873,309873,,Fairdale Substation,osm_name,"code:FAIRDALE ~ Fairdale Substation (name 0.90, kv x1.00, no county)",name,,1,,0,5,,True,1
+FAIRDALE,5,138.0,138,LZ_NORTH,False,0,32.913861,-96.661597,DALLAS,osm_name,0.905,w284642873,309873,,Fairdale Substation,osm_name,"code:FAIRDALE ~ Fairdale Substation (name 0.90, kv x1.00, no county)",name,,1,,0,5,,True,2
 FAIRLA,3,138.0,138,LZ_SOUTH,False,0,30.645263,-98.258139,BURNET,osm_name,0.727,w504635078,,,Fairland Substation,osm_name,"code:FAIRLA ~ Fairland Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,LZ_LCRA,True,1
 FAIROA,2,138.0,138,LZ_SOUTH,False,0,29.732795,-98.612384,BEXAR,osm_name,0.66,w239512095,304822,,Fair Oaks Ranch Substation,osm_name,"code:FAIROA ~ Fair Oaks Ranch Substation (name 0.77, kv x1.00, no county)",name,,2,,0,0,LZ_LCRA,True,1
 FAIRVIEW,2,138.0,138,LZ_NORTH,False,0,32.363298,-101.486636,HOWARD,osm_name,0.427,w456417962,,,Fairview Substation,osm_name,"code:FAIRVIEW ~ Fairview Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,0
@@ -1580,7 +1580,7 @@ FERRISW,0,69.0,69,,False,0,29.323129,-99.74536,UVALDE,osm_name,0.795,w343881260,
 FFD,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 FGLSW,0,138.0,138,,False,0,,,,none,0.0,,,,,,,,,,,16,7,,False,0
 FGPOD,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-FGRSW,4,345.0,345;138;13.8,LZ_NORTH,False,0,32.234711,-95.949366,HENDERSON,osm_name,0.803,w172588219,310213,69026,Forest Grove Substation,osm_name,"gis:Forest Grove ~ Forest Grove Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,4,10.52,0,0,,True,3
+FGRSW,4,345.0,345;138;13.8,LZ_NORTH,False,0,32.234711,-95.949366,HENDERSON,osm_name,0.803,w172588219,310213,69026,Forest Grove Substation,osm_name,"gis:Forest Grove ~ Forest Grove Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,4,10.52,0,0,,True,2
 FHPOD,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 FIDSW,2,345.0,345,LZ_WEST,False,0,29.499149,-95.201336,GALVESTON,osm_name,0.219,w338758520,307149,,Friendswood Substation,osm_name,"code:FIDSW ~ Friendswood Substation (name 0.59, kv x0.60, no county)",name,,1,,0,0,,True,1
 FIESTA,4,69.0,69,LZ_SOUTH,False,0,30.294959,-97.718654,TRAVIS,osm_name,0.905,w508542024,304559,,Fiesta Substation,osm_name,"code:FIESTA ~ Fiesta Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,LZ_AEN,True,1
@@ -1604,7 +1604,7 @@ FLATROCK,2,138.0,138,LZ_NORTH,False,0,32.870503,-97.597692,PARKER,osm_name,0.727
 FLAT_TOP,8,138.0,138,LZ_WEST,True,3,31.199547,-103.359518,REEVES,osm_name,0.956,w501745939,,66007,Flat Top Substation,eia_unit+osm_name,"code:FLAT_TOP ~ Flat Top Substation (name 0.90, kv x1.00, county 0 km)",name,,1,0.33,0,0,,True,1
 FLCNS,14,345.0,345;138;13.8,LZ_WEST,True,3,32.274718,-101.422762,HOWARD,osm_name,0.97,r6775540,,52176,Falcon Seaboard Substation,eia_unit+osm_name,"gis:The Falcon Seaboard substation ~ Falcon Seaboard Substation (name 1.00, kv x1.00, county 0 km)",name,,3,0.17,0,322,,True,1
 FLGRV,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,2,,True,0
-FLINT,2,138.0,138,LZ_NORTH,False,0,32.481513,-100.338892,NOLAN,osm_name,0.218,w491192898,,,Flintkote Substation,osm_name,"code:FLINT ~ Flintkote Substation (name 0.77, kv x0.60, no county)",name,,1,,0,2,,True,1
+FLINT,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,2,,True,0
 FLMSO,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 FLNTK,1,69.0,69,LZ_WEST,False,0,32.481513,-100.338892,NOLAN,osm_name,0.767,w491192898,,,Flintkote Substation,osm_name,"psse:FLINTKOT ~ Flintkote Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,1
 FLOMOT,1,69.0,69,LZ_WEST,False,0,34.252422,-100.989779,MOTLEY,osm_name,0.855,w470322318,,,Flomot Substation,osm_name,"code:FLOMOT ~ Flomot Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,2
@@ -1618,18 +1618,18 @@ FLTCK,6,138.0,138;34.5,LZ_NORTH,True,1,32.331076,-98.465772,ERATH,osm_name,0.678
 FLTSW,6,138.0,138,LZ_NORTH,True,1,,,,none,0.0,,,,,,,,,,,106,341,,True,0
 FLUVANNA,6,138.0,138;34.5,LZ_WEST,True,1,32.886084,-101.094632,SCURRY,osm_name,0.69,w580070021,,59245,Fluvanna Wind 1 Substation,osm_name,"code:FLUVANNA ~ Fluvanna Wind 1 Substation (name 0.90, kv x1.00, county 0 km)",name,,2,6.85,0,0,,True,1
 FLWRGRVE,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-FM,2,138.0,138,LZ_HOUSTON,False,0,29.875213,-95.841348,HARRIS,osm_name,0.862,w338688814,309913,,Freeman Substation,osm_name,"code:FM ~ Freeman Substation (name 0.85, kv x1.00, no county)",name,,1,,0,0,,True,3
+FM,2,138.0,138,LZ_HOUSTON,False,0,29.875213,-95.841348,HARRIS,osm_name,0.862,w338688814,309913,,Freeman Substation,osm_name,"code:FM ~ Freeman Substation (name 0.85, kv x1.00, no county)",name,,1,,0,0,,True,2
 FM237Y,2,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_LCRA,True,0
-FM524,17,138.0,138;69,LZ_HOUSTON,False,0,29.875213,-95.841348,HARRIS,osm_name,0.812,w338688814,,,Freeman Substation,osm_name,"code:FM524 ~ Freeman Substation (name 0.85, kv x1.00, no county)",name,,1,,0,9,,True,3
+FM524,17,138.0,138;69,LZ_HOUSTON,False,0,29.064429,-95.734929,BRAZORIA,override,0.8,w583058250,,,FM 524 Substation,override_tpit_name,"G1 override (tpit_name): queue 25INR0554 and 27INR0096: '39703 TNMP FM524 138kV' in Brazoria Co.; OSM 'FM 524 Substation' (Texas-New Mexico Power, Brazoria Co.). The matcher read FM524 as Freeman (Harris Co.) | was at Freeman Substation (HARRIS, conf 0.81, osm_name)",override,,1,,0,9,,True,2
 FMCK,1,69.0,69,LZ_WEST,False,0,30.747376,-100.264226,SCHLEICHER,osm_name,0.57,w493442347,,,Fort McKavett Substation,osm_name,"code:FMCK ~ Fort McKavett Substation (name 0.60, kv x1.00, no county)",name,,1,,0,0,,True,1
-FMRVL,3,345.0,345,LZ_NORTH,False,0,33.426498,-95.357449,LAMAR,eia_unit,0.588,w1132203362,,63882;63883,Samson Solar Energy III LLC,eia_unit,EIA plant Samson Solar Energy III LLC (LAMAR) score 0.60,snap,1,1,0.0,19,28,,True,3
-FM_802,3,138.0,138,LZ_SOUTH,False,0,29.875213,-95.841348,HARRIS,osm_name,0.812,w338688814,,,Freeman Substation,osm_name,"code:FM_802 ~ Freeman Substation (name 0.85, kv x1.00, no county)",name,,1,,0,0,,True,3
+FMRVL,3,345.0,345,LZ_NORTH,False,0,33.19071,-96.337939,COLLIN,override,0.8,w171694579,,63882;63883,Farmersville Substation,override_name_partner,"G1 override (name_partner): FARMVLSW_5 = Farmersville Switch: TPIT-99066 'Royse Switch - Farmersville Switch 345 kV' (Oncor, Collin/Rockwall) and TPIT-105747 (Collin/Hunt); OSM 'Farmersville Substation' (Oncor 345 kV, Collin Co.), 25 km from RYSSW (Royse) | was at Samson Solar Energy III LLC (LAMAR, conf 0.59, eia_unit)",override,,1,94.81,19,28,,True,1
+FM_802,3,138.0,138,LZ_SOUTH,False,0,29.875213,-95.841348,HARRIS,osm_name,0.812,w338688814,,,Freeman Substation,osm_name,"code:FM_802 ~ Freeman Substation (name 0.85, kv x1.00, no county)",name,,1,,0,0,,True,2
 FNDRS,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 FNDSW,3,138.0,138,LZ_WEST,False,0,31.410828,-102.337292,CRANE,osm_name,0.858,w499938043,310158,,Crane Substation,osm_name,"gis:NS Crane Switch ~ Crane Substation (name 0.80, kv x1.00, county 0 km)",name,1,2,,0,6,,True,1
 FOARDCTY,5,345.0,345;34.5,LZ_WEST,True,1,33.915315,-99.740278,FOARD,eia_unit,0.663,w256153397,,61402,Foard City Wind,eia_unit,EIA plant Foard City Wind (FOARD) score 1.00,snap,1,1,0.0,0,2,,True,2
 FORCRNS,2,138.0,138,LZ_SOUTH,False,0,28.871613,-97.16447,VICTORIA,osm_name,0.661,w174682117,,,Four Corners Substation,osm_name,"code:FORCRNS ~ Four Corners Substation (name 0.70, kv x1.00, no county)",name,,1,,0,0,,True,1
 FORDTRN,1,69.0,69,LZ_SOUTH,False,0,29.105132,-97.022112,DEWITT,osm_name,0.767,w515820484,,,Fordtran Substation,osm_name,"psse:FORDTR ~ Fordtran Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,1
-FOREST,1,138.0,138,LZ_NORTH,False,0,32.234711,-95.949366,HENDERSON,osm_name,0.617,w172588219,310213,,Forest Grove Substation,osm_name,"code:FOREST ~ Forest Grove Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,,True,3
+FOREST,1,138.0,138,LZ_NORTH,False,0,32.234711,-95.949366,HENDERSON,osm_name,0.35,w172588219,310213,,Forest Grove Substation,osm_name,"G1 demoted (demote_block): PSS/E 836 is in the GP&L block 802-860 (Garland), whose 8 members placed at 0.85 or more cluster around 32.93,-96.64 (spread 7 km by 8 km); Forest Grove (Henderson Co.) is 100 km away | was at Forest Grove Substation (HENDERSON, conf 0.62, osm_name) | matcher: code:FOREST ~ Forest Grove Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,,True,2
 FORESTON,2,69.0,69,LZ_NORTH,False,0,32.255551,-96.864552,ELLIS,osm_name,0.767,w552002257,,,Forreston Substation,osm_name,"psse:FORRESTON ~ Forreston Substation (name 0.95, kv x0.85, no county)",name,,2,,0,0,,True,1
 FORKS,1,69.0,69,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 FORMOSA,59,138.0,138;69;13.8;12.5,LZ_SOUTH,True,17,28.68363,-96.551087,CALHOUN,osm_name,0.85,w337764365,,,Formosa Substation,osm_name,"code:FORMOSA ~ Formosa Substation (name 0.90, kv x1.00, no county)",name,1,1,,0,2,,True,1
@@ -1700,7 +1700,7 @@ FSCRK,8,138.0,138,LZ_NORTH,False,0,32.731533,-96.986598,DALLAS,hifld_name,0.426,
 FSHSW,3,345.0,345;138,LZ_WEST,False,0,33.8865,-98.429437,WICHITA,osm_name,0.833,w171321012,,68479,Fisher Road Substation,osm_name,"gis:Fisher Road Switch ~ Fisher Road Substation (name 1.00, kv x1.00, tap-county 0 km)",name,1,2,37.27,0,1,,True,1
 FSREA,1,69.0,69,LZ_NORTH,False,0,31.543761,-96.248305,FREESTONE,osm_name,0.722,w629783078,,,Freestone Substation,osm_name,"psse:FRESTONE ~ Freestone Substation (name 0.76, kv x1.00, no county)",name,,1,,0,0,,True,2
 FSTHL,3,138.0,138,LZ_NORTH,False,0,32.644664,-97.287118,TARRANT,osm_name,0.767,w340879857,308530,,Forest Hill Switching Station,osm_name,"psse:FRSTHIL ~ Forest Hill Switching Station (name 0.76, kv x1.00, no county)",name,,1,,0,0,,True,1
-FSTVW,2,138.0,138,LZ_NORTH,False,0,32.234711,-95.949366,HENDERSON,osm_name,0.674,w172588219,310213,,Forest Grove Substation,osm_name,"psse:FORSTV ~ Forest Grove Substation (name 0.66, kv x1.00, no county)",name,,1,,0,0,,True,3
+FSTVW,2,138.0,138,LZ_NORTH,False,0,32.234711,-95.949366,HENDERSON,osm_name,0.674,w172588219,310213,,Forest Grove Substation,osm_name,"psse:FORSTV ~ Forest Grove Substation (name 0.66, kv x1.00, no county)",name,,1,,0,0,,True,2
 FT,11,138.0,138,LZ_HOUSTON,False,0,29.649528,-95.102761,HARRIS,osm_name,0.862,w335719105,300987,,Fairmont Substation,osm_name,"code:FT ~ Fairmont Substation (name 0.85, kv x1.00, no county)",name,,2,,0,0,,True,1
 FTBLOCKS,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 FTBOBCAT,1,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -1755,11 +1755,11 @@ GARZA,3,138.0,138;69,LZ_SOUTH,False,0,26.452273,-98.741121,STARR,osm_name,0.891,
 GASCCR,4,345.0,345,LZ_WEST,True,1,31.939326,-100.830184,STERLING,osm_name,0.965,w172185178,,56754,Gasconades Creek Substation,eia_unit+osm_name,"gis:Gasconades Creek ~ Gasconades Creek Substation (name 1.00, kv x1.00, county 0 km)",name,,1,3.92,0,0,,True,1
 GASLD,2,138.0,138,LZ_WEST,False,0,32.249692,-102.827388,ANDREWS,osm_name,0.902,w490381950,,,Gasland Substation,osm_name,"psse:GASLAND ~ Gasland Substation (name 0.95, kv x1.00, no county)",name,,2,,0,0,,True,1
 GASPAD,3,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-GATEETP,0,138.0,138,,False,0,29.764427,-95.352508,HARRIS,osm_name,0.402,w910465306,310055,,Gable Street Substation,osm_name,"code:GATEE ~ Gable Street Substation (name 0.59, kv x1.00, no county)",name,0,4,,0,21,,False,1
+GATEETP,0,138.0,138,,False,0,27.513479,-99.44421,WEBB,override,0.7,w451971586,,,Gateway Substation,override_name_partner,"G1 override (name_partner): GATEETP = Gateway + ETP (Energy Transfer tap): AEP 'Gateway Substation', Webb Co., 1 hop from UNIVERSI (Webb Co., TPIT-57906) in the line graph | was at Gable Street Substation (HARRIS, conf 0.40, osm_name); 466 km from UNIVERSI (conf 0.70, WEBB) on a 138 kV constraint",override,,1,,0,21,,False,2
 GATESVIL,1,69.0,69,LZ_NORTH,False,0,31.438222,-97.734265,CORYELL,osm_name,0.632,w508017101,,,Gatesville #1 Substation,osm_name,"psse:GATESVILLE ~ Gatesville #1 Substation (name 0.95, kv x1.00, no county)",name,,4,,0,0,,True,1
 GATESVL2,2,69.0,69,LZ_NORTH,False,0,31.378532,-97.621788,CORYELL,osm_name,0.446,w462426719,,,Gatesville Switching Station,osm_name,"code:GATESVL2 ~ Gatesville Switching Station (name 0.67, kv x1.00, no county)",name,,4,,0,0,,True,1
-GATEWAY,2,138.0,138,LZ_NORTH,False,0,27.513479,-99.44421,WEBB,osm_name,0.427,w451971586,,,Gateway Substation,osm_name,"code:GATEWAY ~ Gateway Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
-GATE_WAY,2,138.0,138,LZ_SOUTH,False,0,27.513479,-99.44421,WEBB,osm_name,0.855,w451971586,,,Gateway Substation,osm_name,"code:GATE_WAY ~ Gateway Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
+GATEWAY,2,138.0,138,LZ_NORTH,False,0,27.513479,-99.44421,WEBB,osm_name,0.427,w451971586,,,Gateway Substation,osm_name,"code:GATEWAY ~ Gateway Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,2
+GATE_WAY,2,138.0,138,LZ_SOUTH,False,0,27.513479,-99.44421,WEBB,osm_name,0.855,w451971586,,,Gateway Substation,osm_name,"code:GATE_WAY ~ Gateway Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,2
 GATOR,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 GAUSS,3,345.0,345,LZ_WEST,False,0,33.478938,-99.661551,KNOX,osm_name,0.238,w454066871,,,Gauss Substation,osm_name,"gis:Gauss ~ Gauss Substation (name 1.00, kv x1.00, county 32 km)",name,,1,,0,0,,True,0
 GAVSW,3,138.0,138,LZ_NORTH,False,0,29.651032,-95.314435,HARRIS,osm_name,0.314,w45765506,310112,,Garden Villas Substation,osm_name,"psse:GRNVL ~ Garden Villas Substation (name 0.66, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -1848,7 +1848,7 @@ GOHLKE,3,138.0,138,LZ_SOUTH,False,0,28.746453,-96.733198,VICTORIA,osm_name,0.891
 GOLDTH,8,138.0,138,LZ_NORTH,True,1,31.414954,-98.511879,MILLS,osm_name,0.97,w505345704,,58321,Goldthwaite Wind Substation,eia_unit+osm_name,"gis:the Goldthwaite ~ Goldthwaite Wind Substation (name 1.00, kv x1.00, county 0 km)",name,1,2,5.55,0,5,LZ_LCRA,True,2
 GOLIAD,2,69.0,69,LZ_SOUTH,False,0,28.662183,-97.383835,GOLIAD,osm_name,0.855,w515061683,,,Goliad Substation,osm_name,"code:GOLIAD ~ Goliad Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 GOLINDA,3,138.0,138;34.5,LZ_NORTH,True,1,31.346717,-97.082774,FALLS,eia_unit,0.409,,,64259;64260,BPL Crown Solar LLC,eia_unit,EIA plant BPL Crown Solar LLC (FALLS) score 0.55,,,1,0.0,0,0,,True,0
-GOMZ,2,138.0,138,LZ_WEST,True,1,31.040031,-103.652607,REEVES,eia_unit,0.298,w501036527,,69350,Matta Power Station,eia_unit,EIA plant Matta Power Station (REEVES) score 0.55,snap,,2,0.0,0,0,,True,2
+GOMZ,2,138.0,138,LZ_WEST,True,1,31.040031,-103.652607,REEVES,eia_unit,0.298,w501036527,,69350,Matta Power Station,eia_unit,EIA plant Matta Power Station (REEVES) score 0.55,snap,,2,0.0,0,0,,True,1
 GONZAL,5,138.0,138;69,LZ_SOUTH,False,0,29.517896,-97.468061,GONZALES,osm_name,0.571,w337363741,,,Gonzales Substation,osm_name,"code:GONZAL ~ Gonzales Substation (name 0.77, kv x1.00, no county)",name,,2,,0,0,LZ_LCRA,True,1
 GONZALES,2,69.0,69,LZ_WEST,False,0,29.566239,-104.355757,PRESIDIO,osm_name,0.866,w503420910,,,Gonzales Substation,hifld_name+osm_name,"code:GONZALES ~ Gonzales Substation (name 0.90, kv x1.00, no county)",name,,2,,0,0,,True,1
 GONZGV,2,69.0,69,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -1870,9 +1870,9 @@ GPLND,3,69.0,69,LZ_NORTH,False,0,31.460113,-95.68741,HOUSTON,osm_name,0.258,w630
 GPMEP,1,138.0,138,LZ_NORTH,False,0,31.422216,-95.66802,HOUSTON,osm_name,0.767,w630115185,,,Explorer Substation,osm_name,"psse:EXPLOR ~ Explorer Substation (name 0.81, kv x1.00, no county)",name,,2,,0,0,,True,1
 GR,2,138.0,138,LZ_HOUSTON,False,0,29.950798,-95.333213,HARRIS,osm_name,0.812,w336554481,,,Greens Road Substation,osm_name,"code:GR ~ Greens Road Substation (name 0.85, kv x1.00, no county)",name,,2,,0,0,,True,1
 GRADY,3,138.0,138,LZ_WEST,False,0,32.30742,-101.932378,MARTIN,osm_name,0.855,w457051875,,,Grady Substation,osm_name,"code:GRADY ~ Grady Substation (name 0.90, kv x1.00, no county)",name,,2,,0,0,,True,1
-GRAHAM,1,69.0,69,LZ_WEST,False,0,33.18666,-101.408049,GARZA,osm_name,0.6,w563976707,309917,,Graham Interchange,osm_name,"code:GRAHAM ~ Graham Interchange (name 0.90, kv x1.00, no county)",name,,3,,0,0,,True,2
+GRAHAM,1,69.0,69,LZ_WEST,False,0,33.18666,-101.408049,GARZA,osm_name,0.6,w563976707,309917,,Graham Interchange,osm_name,"code:GRAHAM ~ Graham Interchange (name 0.90, kv x1.00, no county)",name,,3,,0,0,,True,1
 GRAHAMRD,2,138.0,138,LZ_NORTH,False,0,30.57962,-96.291233,BRAZOS,osm_name,0.763,w1354064018,,,Graham Road Substation,osm_name,"code:GRAHAMRD ~ Graham Road Substation (name 0.72, kv x1.00, no county)",name,1,3,,0,4,,True,1
-GRAHM,4,69.0,69,LZ_WEST,False,0,33.18666,-101.408049,GARZA,osm_name,0.631,w563976707,309917,,Graham Interchange,osm_name,"psse:GRAHAM ~ Graham Interchange (name 0.95, kv x1.00, no county)",name,,4,,0,7,,True,2
+GRAHM,4,69.0,69,LZ_WEST,False,0,33.138433,-98.60955,YOUNG,override,0.7,w171410588,,,Graham Substation,override_alt_site,"G1 override (alt_site): PSS/E GRAHAM_9 = 'Graham Substation', Young Co. (the matcher's alternative at 0.54); TPIT-72958 (Oncor) lists Young Co. for this bus; 28 km from OLNEY, the other end of the 69 kV constraint | was at Graham Interchange (GARZA, conf 0.63, osm_name); 251 km from OLNEY (conf 0.65, YOUNG) on a 69 kV constraint",override,,1,,0,7,,True,3
 GRAIN,1,138.0,138,LZ_NORTH,False,0,35.401934,-100.890966,GRAY,hifld_name,0.15,,302049,,GRAPEVINE,hifld_name,"code:GRAIN ~ GRAPEVINE (name 0.62, kv x0.60, no county)",,,1,,0,0,,True,0
 GRANDVW1,11,345.0,345;34.5,LZ_WEST,True,1,35.238333,-101.310833,CARSON,eia_unit,0.92,w453589128,,58596,"Grandview Wind Farm, LLC",eia_unit,"EIA plant Grandview Wind Farm, LLC (CARSON) score 0.95 LMP-node designation",snap,,5,0.0,0,0,,True,2
 GRANMO,3,138.0,138,LZ_SOUTH,False,0,30.588027,-98.2938,BURNET,osm_name,0.59,w504607231,,,Granite Mountain Substation,osm_name,"code:GRANMO ~ Granite Mountain Substation (name 0.62, kv x1.00, no county)",name,,2,,0,0,LZ_LCRA,True,1
@@ -1909,8 +1909,8 @@ GRLND,2,138.0,138,LZ_NORTH,False,0,31.508508,-95.458449,HOUSTON,osm_name,0.461,w
 GRLRD,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 GRLTC,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 GRLWS,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-GRMES,4,138.0,138,LZ_WEST,False,0,33.138433,-98.609549,YOUNG,osm_name,0.538,w171410588,,,Graham Substation,osm_name,"psse:GRAHAME ~ Graham Substation (name 0.81, kv x0.60, no county)",name,1,3,,0,9,,True,2
-GRMSW,1,69.0,69,LZ_WEST,False,0,33.186702,-101.407918,GARZA,hifld_name,0.494,w563976707,309917,,GRAHAM,hifld_name,"psse:GRAHAMSW ~ GRAHAM (name 0.81, kv x1.00, no county)",snap,,2,,0,0,,True,2
+GRMES,4,138.0,138,LZ_WEST,False,0,33.138433,-98.609549,YOUNG,osm_name,0.538,w171410588,,,Graham Substation,osm_name,"psse:GRAHAME ~ Graham Substation (name 0.81, kv x0.60, no county)",name,1,3,,0,9,,True,3
+GRMSW,1,69.0,69,LZ_WEST,False,0,33.186702,-101.407918,GARZA,hifld_name,0.494,w563976707,309917,,GRAHAM,hifld_name,"psse:GRAHAMSW ~ GRAHAM (name 0.81, kv x1.00, no county)",snap,,2,,0,0,,True,1
 GRNBELT,3,138.0,138,LZ_HOUSTON,False,0,29.379627,-94.934582,GALVESTON,osm_name,0.71,w338794652,302325,,Greenbelt Substation,osm_name,"code:GRNBELT ~ Greenbelt Substation (name 0.69, kv x1.00, no county)",name,,1,,0,0,,True,1
 GRND_SLR,3,345.0,345;34.5,LZ_WEST,True,1,35.254122,-101.185785,CARSON,osm_name,0.603,w453794548,,,Grandview Wind Farm 1 Substation,osm_name,"code:GRND ~ Grandview Wind Farm 1 Substation (name 0.64, kv x1.00, no county)",name,,3,,0,0,,True,1
 GRNPRCS,2,138.0,138,LZ_NORTH,False,0,31.115715,-102.295052,UPTON,osm_name,0.243,w343434428,,,Castle Gap Substation,osm_name,"psse:CSGP ~ Castle Gap Substation (name 0.67, kv x1.00, no county)",name,,2,,0,0,,True,1
@@ -1920,7 +1920,7 @@ GROVE,5,138.0,138,LZ_SOUTH,False,0,30.216481,-97.710971,TRAVIS,osm_name,0.905,w3
 GRPTT,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 GRPVN,4,138.0,138,LZ_NORTH,False,0,35.401934,-100.890966,GRAY,hifld_name,0.15,,302049,,GRAPEVINE,hifld_name,"code:GRPVN ~ GRAPEVINE (name 0.62, kv x0.60, no county)",,,1,,0,0,,True,0
 GRSBK,2,138.0,138;69,LZ_NORTH,False,0,31.521189,-96.541021,LIMESTONE,osm_name,0.82,w461754673,,,Groesbeck Main Substation,osm_name,"gis:Groesbeck ~ Groesbeck Main Substation (name 0.80, kv x1.00, tap-county 0 km)",name,1,4,,0,1,,True,2
-GRSES,22,345.0,345;138;22;20,LZ_WEST,True,2,33.138433,-98.609549,YOUNG,osm_name,0.968,w171410588,,3490,Graham Substation,eia_unit+osm_name,"gis:Graham ~ Graham Substation (name 1.00, kv x1.00, county 0 km)",name,,4,0.49,0,9,,True,2
+GRSES,22,345.0,345;138;22;20,LZ_WEST,True,2,33.138433,-98.609549,YOUNG,osm_name,0.968,w171410588,,3490,Graham Substation,eia_unit+osm_name,"gis:Graham ~ Graham Substation (name 1.00, kv x1.00, county 0 km)",name,,4,0.49,0,9,,True,3
 GRSHCMRX,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 GRSLK,2,138.0,138,LZ_NORTH,False,0,32.279801,-95.346474,SMITH,osm_name,0.767,w172356180,,,Tyler Substation,osm_name,"psse:TYLERGLAKE ~ Tyler Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,11
 GRSMN,1,138.0,138,LZ_NORTH,False,0,31.521189,-96.541021,LIMESTONE,osm_name,0.564,w461754673,,,Groesbeck Main Substation,osm_name,"gis:Groesbeck Main ~ Groesbeck Main Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,4,,0,0,,True,2
@@ -1931,7 +1931,7 @@ GS,15,138.0,138;69,LZ_HOUSTON,False,0,29.764427,-95.352508,HARRIS,osm_name,0.862
 GSMTH,2,138.0,138,LZ_WEST,False,0,31.929953,-102.614862,ECTOR,osm_name,0.677,w457948545,,,Goldsmith South Substation,osm_name,"psse:GOLDSMTH ~ Goldsmith South Substation (name 0.71, kv x1.00, no county)",name,,1,,0,0,,True,2
 GSPOI,2,138.0,138,LZ_WEST,False,0,31.929953,-102.614862,ECTOR,osm_name,0.699,w457948545,,,Goldsmith South Substation,osm_name,"psse:GOLDSOUTH ~ Goldsmith South Substation (name 0.74, kv x1.00, no county)",name,,1,,0,0,,True,2
 GSTHW,5,138.0,138,LZ_NORTH,False,0,32.746199,-97.073806,TARRANT,osm_name,0.609,w97574291,,,Great Southwest Substation,osm_name,"psse:GRT SW ~ Great Southwest Substation (name 0.64, kv x1.00, no county)",name,,1,,0,0,,True,1
-GT,7,138.0,138,LZ_HOUSTON,False,0,29.73289,-95.385982,HARRIS,osm_name,0.653,w51823152,310508,,Garrott Substation,osm_name,"code:GT ~ Garrott Substation (name 0.85, kv x1.00, no county)",name,2,1,,0,39,,True,1
+GT,7,138.0,138,LZ_HOUSTON,False,0,29.73289,-95.385982,HARRIS,osm_name,0.653,w51823152,310508,,Garrott Substation,osm_name,"code:GT ~ Garrott Substation (name 0.85, kv x1.00, no county)",name,3,1,,0,39,,True,1
 GTNSW,6,138.0,138,LZ_WEST,True,1,,,,none,0.0,,,,,,,,,,,0,3,,True,0
 GTRSW,11,345.0,345;138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 GTVAR,1,69.0,69,LZ_NORTH,False,0,31.378532,-97.621788,CORYELL,osm_name,0.537,w462426719,,,Gatesville Switching Station,osm_name,"psse:GATESVIL ~ Gatesville Switching Station (name 0.81, kv x1.00, no county)",name,,4,,0,0,,True,1
@@ -1961,7 +1961,7 @@ H2,3,138.0,138,LZ_SOUTH,False,0,29.518608,-98.657884,BEXAR,osm_name,0.767,w13655
 H3,4,138.0,138,LZ_SOUTH,False,0,29.548178,-98.681869,BEXAR,osm_name,0.799,w97043744,310431,66400,Helotes Substation,osm_name,"gis:Helotes ~ Helotes Substation (name 1.00, kv x1.00, county 0 km)",name,,2,37.8,0,0,LZ_CPS,True,1
 H4,2,138.0,138,LZ_SOUTH,False,0,29.546442,-98.459414,BEXAR,osm_name,0.902,w494445035,,,Blossom Substation,osm_name,"psse:BLOSSOM ~ Blossom Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,LZ_CPS,True,1
 HA,3,138.0,138,LZ_HOUSTON,False,0,29.589329,-95.240205,HARRIS,osm_name,0.812,w336780054,,,Hall Substation,osm_name,"code:HA ~ Hall Substation (name 0.85, kv x1.00, no county)",name,,1,,0,0,,True,1
-HACKBERY,1,138.0,138,LZ_WEST,False,0,32.768426,-99.422825,SHACKELFORD,osm_name,0.349,w171742083,,,Hackberry Wind Substation,osm_name,"code:HACKBERY ~ Hackberry Wind Substation (name 0.72, kv x0.60, no county)",name,,2,,0,0,,True,3
+HACKBERY,1,138.0,138,LZ_WEST,False,0,32.768426,-99.422825,SHACKELFORD,osm_name,0.349,w171742083,,,Hackberry Wind Substation,osm_name,"code:HACKBERY ~ Hackberry Wind Substation (name 0.72, kv x0.60, no county)",name,,2,,0,0,,True,2
 HAD,2,138.0,138,LZ_HOUSTON,False,0,29.759674,-95.173007,HARRIS,osm_name,0.95,w340128556,309492,,Haden Substation,osm_name,"psse:HADEN ~ Haden Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
 HAINE_DR,2,138.0,138,LZ_SOUTH,False,0,26.167194,-97.650786,CAMERON,osm_name,0.795,w513282587,,,Haine Drive Substation,osm_name,"code:HAINE_DR ~ Haine Drive Substation (name 0.77, kv x1.00, no county)",name,1,1,,0,106,,True,1
 HAISLEY,6,138.0,138,LZ_SOUTH,False,0,28.094943,-97.4936,SAN PATRICIO,osm_name,0.95,w514767405,,,Haisley Substation,osm_name,"gis:Haisley ~ Haisley Substation (name 1.00, kv x1.00, county 0 km)",name,,1,,0,0,,True,1
@@ -1985,7 +1985,7 @@ HANNIBAL,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HAPGOOD,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HAPV,1,69.0,69,LZ_WEST,False,0,32.143186,-100.099313,TAYLOR,osm_name,0.669,w493048298,,,Happy Valley Substation,osm_name,"psse:HAPVAL ~ Happy Valley Substation (name 0.70, kv x1.00, no county)",name,,1,,0,0,,True,1
 HARALD,5,345.0,345;34.5,LZ_WEST,True,1,31.766046,-101.531499,GLASSCOCK,osm_name,0.902,w453310293,,63342,Bearkat Substation,osm_name,"psse:BEARKAT ~ Bearkat Substation (name 0.95, kv x1.00, county 0 km)",name,,2,13.65,0,0,,True,3
-HARDN,2,138.0,138,LZ_NORTH,False,0,30.43315,-97.688767,TRAVIS,osm_name,0.293,w339125119,304481,,Howard Lane Substation,osm_name,"code:HARDN ~ Howard Lane Substation (name 0.61, kv x1.00, no county)",name,,1,,0,0,,True,1
+HARDN,2,138.0,138,LZ_NORTH,False,0,30.43315,-97.688767,TRAVIS,osm_name,0.293,w339125119,304481,,Howard Lane Substation,osm_name,"code:HARDN ~ Howard Lane Substation (name 0.61, kv x1.00, no county)",name,,1,,0,0,,True,2
 HARDY,1,138.0,138,LZ_NORTH,False,0,29.818573,-95.353486,HARRIS,osm_name,0.356,w128290599,305013,,Hardy Substation,osm_name,"code:HARDY ~ Hardy Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,1
 HARGROVE,1,138.0,138,LZ_WEST,False,0,31.308311,-100.938971,IRION,osm_name,0.891,w503821577,,,Hargrove Substation,osm_name,"code:HARGROVE ~ Hargrove Substation (name 0.90, kv x1.00, no county)",name,1,1,,0,628,,True,1
 HARI,1,69.0,69,LZ_WEST,False,0,31.551732,-100.258149,TOM GREEN,osm_name,0.468,w493048334,,,Harriett Substation,osm_name,"code:HARI ~ Harriett Substation (name 0.61, kv x1.00, no county)",name,,4,,52,13,,True,0
@@ -1999,7 +1999,7 @@ HARRBR,3,138.0,138,LZ_SOUTH,False,0,30.371251,-97.580913,TRAVIS,osm_name,0.67,w3
 HARRELL,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HARRIS,12,69.0,69,LZ_SOUTH,False,0,30.288263,-97.732551,TRAVIS,osm_name,0.683,w508542015,307371,,Harris Substation,osm_name,"code:HARRIS ~ Harris Substation (name 0.90, kv x1.00, no county)",name,,4,,0,0,LZ_AEN,True,1
 HARROLD,1,69.0,69,LZ_WEST,False,0,34.042709,-99.093744,WILBARGER,osm_name,0.855,w498671835,,,Harrold Substation,osm_name,"code:HARROLD ~ Harrold Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
-HARRY,2,138.0,138,LZ_NORTH,False,0,32.768426,-99.422825,SHACKELFORD,osm_name,0.303,w171742083,,,Hackberry Wind Substation,osm_name,"code:HARRY ~ Hackberry Wind Substation (name 0.62, kv x0.60, no county)",name,,2,,0,0,,True,3
+HARRY,2,138.0,138,LZ_NORTH,False,0,32.768426,-99.422825,SHACKELFORD,osm_name,0.303,w171742083,,,Hackberry Wind Substation,osm_name,"code:HARRY ~ Hackberry Wind Substation (name 0.62, kv x0.60, no county)",name,,2,,0,0,,True,2
 HARTFORD,1,69.0,69,LZ_WEST,False,0,32.433663,-99.785303,TAYLOR,osm_name,0.727,w516457787,,,Hartford Street Substation,osm_name,"code:HARTFORD ~ Hartford Street Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,1
 HARTR,2,138.0,138,LZ_WEST,False,0,34.30498,-102.134156,LAMB,osm_name,0.505,w1370313920,,,Hart Substation No. 2,osm_name,"code:HARTR ~ Hart Substation No. 2 (name 0.62, kv x0.85, no county)",name,,2,,0,0,,True,1
 HART_WND,3,345.0,345;34.5,LZ_WEST,True,1,34.378546,-102.053717,CASTRO,eia_unit,0.402,,,67763,Hart Wind,eia_unit,EIA plant Hart Wind (CASTRO) score 0.99,,,5,0.0,0,0,,True,0
@@ -2064,9 +2064,9 @@ HICROSS,6,138.0,138,LZ_SOUTH,False,0,30.186198,-97.769111,TRAVIS,osm_name,0.905,
 HIDALGO,2,138.0,138,LZ_SOUTH,False,0,26.111779,-98.255517,HIDALGO,osm_name,0.905,w512936467,308728,,Hidalgo Substation,osm_name,"code:HIDALGO ~ Hidalgo Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 HIDDENVL,3,138.0,138,LZ_SOUTH,False,0,30.384082,-97.900244,TRAVIS,osm_name,0.604,w206173697,303343,,Hidden Valley Substation,osm_name,"code:HIDDENVL ~ Hidden Valley Substation (name 0.70, kv x1.00, no county)",name,,3,,0,0,LZ_AEN,True,1
 HIGH32,2,138.0,138,LZ_SOUTH,False,0,29.945744,-98.093575,HAYS,osm_name,0.544,w341351760,308280,,Highway 32 Substation,osm_name,"code:HIGH32 ~ Highway 32 Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,LZ_LCRA,True,3
-HIGH36,0,138.0,138,,False,0,33.085944,-97.051985,DENTON,osm_name,0.544,w341316597,309017,,Highland Substation,osm_name,"code:HIGH36 ~ Highland Substation (name 0.77, kv x1.00, no county)",name,,4,,0,134,,False,2
+HIGH36,0,138.0,138,,False,0,30.122617,-96.373799,WASHINGTON,override,0.7,w97843772,,,Highway 36 Substation,override_name_partner,"G1 override (name_partner): code HIGH36 = 'Highway 36 Substation' (LCRA TSC, Washington Co.), 6.6 km from BRENNO and 5.1 km from SALEM, the other ends of the 138 kV constraints 215T215_1 and 105T105_1; the matcher's own alternative site (conf 0.36), as Highway 36 runs through Washington and Burleson counties | was at Highland Substation (DENTON, conf 0.54, osm_name); 329 km from BRENNO (conf 0.62, WASHINGTON) on a 138 kV constraint; 327 km from SALEM (conf 0.58, TRAVIS) on a 138 kV constraint",override,,1,,0,134,,False,1
 HIGH46,2,138.0,138,LZ_SOUTH,False,0,29.945744,-98.093575,HAYS,osm_name,0.544,w341351760,308280,,Highway 32 Substation,osm_name,"code:HIGH46 ~ Highway 32 Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,,True,3
-HIGHLAND,1,138.0,138,LZ_WEST,False,0,33.085944,-97.051985,DENTON,osm_name,0.371,w341316597,309017,,Highland Substation,osm_name,"code:HIGHLAND ~ Highland Substation (name 0.90, kv x1.00, no county)",name,,4,,0,0,,True,2
+HIGHLAND,1,138.0,138,LZ_WEST,False,0,33.085944,-97.051985,DENTON,osm_name,0.371,w341316597,309017,,Highland Substation,osm_name,"code:HIGHLAND ~ Highland Substation (name 0.90, kv x1.00, no county)",name,,4,,0,0,,True,1
 HIGHLAS,2,69.0,69,LZ_SOUTH,False,0,28.893276,-96.995451,VICTORIA,osm_name,0.593,w515655289,,,Highlands Substation,osm_name,"psse:HIGHLANDSSB ~ Highlands Substation (name 0.81, kv x1.00, no county)",name,,4,,0,0,,True,1
 HIGHPNT,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HIL,1,138.0,138,LZ_NORTH,False,0,31.080042,-96.222179,LEON,osm_name,0.617,w344015197,,,Hilltop Lakes Substation,osm_name,"psse:HILLTOP ~ Hilltop Lakes Substation (name 0.81, kv x1.00, no county)",name,,2,,0,0,,True,2
@@ -2079,7 +2079,7 @@ HILLCTRY,9,345.0,345;138,LZ_SOUTH,False,0,29.619451,-98.571836,BEXAR,osm_name,0.
 HILLJE,1,69.0,69,LZ_SOUTH,False,0,29.0297,-96.236487,WHARTON,osm_name,0.574,w100064466,304466,,Hillje Substation,osm_name,"code:HILLJE ~ Hillje Substation (name 0.90, kv x1.00, no county)",name,,2,,0,0,,True,3
 HILLTO,3,138.0,138,LZ_SOUTH,False,0,29.898602,-97.941489,HAYS,osm_name,0.777,w30886499,302322,,Hilltop Substation,osm_name,"code:HILLTO ~ Hilltop Substation (name 0.77, kv x1.00, no county)",name,,2,,0,0,LZ_LCRA,True,1
 HILL_CO,1,138.0,138,LZ_NORTH,False,0,29.619451,-98.571836,BEXAR,osm_name,0.293,w159253739,308634,,Hill Country Substation,osm_name,"code:HILL_CO ~ Hill Country Substation (name 0.77, kv x1.00, no county)",name,,2,,0,0,,True,1
-HILND,2,138.0,138,LZ_NORTH,False,0,33.085944,-97.051985,DENTON,osm_name,0.772,w341316597,309017,,Highland Substation,osm_name,"psse:HIGHLND ~ Highland Substation (name 0.76, kv x1.00, no county)",name,,4,,0,0,,True,2
+HILND,2,138.0,138,LZ_NORTH,False,0,33.085944,-97.051985,DENTON,osm_name,0.772,w341316597,309017,,Highland Substation,osm_name,"psse:HIGHLND ~ Highland Substation (name 0.76, kv x1.00, no county)",name,,4,,0,0,,True,1
 HIM,5,138.0,138,LZ_HOUSTON,False,0,29.634286,-95.055879,HARRIS,osm_name,0.902,w45171025,,,Himont Substation,osm_name,"psse:HIMONT ~ Himont Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
 HINDES,1,138.0,138,LZ_SOUTH,False,0,28.646329,-98.902656,LA SALLE,osm_name,0.855,w452303872,,,Hindes Substation,osm_name,"code:HINDES ~ Hindes Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 HISKY,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -2087,7 +2087,7 @@ HIWAY_9,9,138.0,138;69,LZ_SOUTH,False,0,29.945744,-98.093575,HAYS,osm_name,0.529
 HI_LONE,13,345.0,345;34.5,LZ_WEST,True,1,30.91,-101.263,CROCKETT,eia_unit,0.378,w1191329163,,64710,White Mesa Wind,eia_unit,EIA plant White Mesa Wind (CROCKETT) score 0.55,snap,,5,0.0,0,0,,True,2
 HI_LONEB,3,345.0,345;34.5,LZ_WEST,True,1,30.99219,-101.962435,CROCKETT,osm_name,0.35,w1130768042,,62562,"High Lonesome Wind Power, LLC Hybrid",osm_name,"cdr:high lonesome ~ High Lonesome Wind Power, LLC Hybrid (name 0.68, kv x0.85, county 0 km)",snap,,2,21.4,0,0,,True,0
 HK,11,138.0,138,LZ_HOUSTON,False,0,30.021283,-95.846097,HARRIS,osm_name,0.95,w128704003,,,Hockley Substation,osm_name,"gis:Hockley ~ Hockley Substation (name 1.00, kv x1.00, county 0 km)",name,,1,,0,0,,True,1
-HKBRY,6,345.0,345;138,LZ_NORTH,False,0,32.768426,-99.422825,SHACKELFORD,osm_name,0.697,w171742083,,,Hackberry Wind Substation,osm_name,"psse:HACKBRY ~ Hackberry Wind Substation (name 0.73, kv x1.00, no county)",name,,2,,0,5,,True,3
+HKBRY,6,345.0,345;138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,5,,True,0
 HKHTS,3,138.0,138,LZ_NORTH,False,0,31.053869,-97.637018,BELL,osm_name,0.689,w351450874,,,Harker Heights South Substation,osm_name,"psse:HARK HTS ~ Harker Heights South Substation (name 0.73, kv x1.00, no county)",name,,1,,0,0,,True,2
 HKSN_SLR,6,345.0,345;34.5,LZ_NORTH,True,1,31.819958,-97.517494,BOSQUE,eia_unit,0.6,w1447259603,,66903,"BT Hickerson Solar, LLC",eia_unit,"EIA plant BT Hickerson Solar, LLC (BOSQUE) score 0.91",snap,,1,0.0,0,0,,True,1
 HK_GIS,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -2126,10 +2126,10 @@ HOLDY,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HOLFORD,9,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HOLIDAY,3,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HOLLMI,1,138.0,138,LZ_SOUTH,False,0,30.252309,-98.882029,GILLESPIE,osm_name,0.727,w504095357,,,Hollmig Substation,osm_name,"code:HOLLMI ~ Hollmig Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,1
-HOLLY,2,69.0,69,LZ_SOUTH,False,0,30.250898,-97.719689,TRAVIS,osm_name,0.739,w508530553,304484,,Holly Plant Switchyard,osm_name,"code:HOLLY ~ Holly Plant Switchyard (name 0.90, kv x1.00, no county)",name,,4,,0,0,,True,2
-HOLLY4,4,138.0,138,LZ_SOUTH,False,0,30.250898,-97.719689,TRAVIS,osm_name,0.574,w508530553,304484,,Holly Plant Switchyard,osm_name,"code:HOLLY4 ~ Holly Plant Switchyard (name 0.90, kv x1.00, no county)",name,,4,,0,0,,True,2
+HOLLY,2,69.0,69,LZ_SOUTH,False,0,30.250898,-97.719689,TRAVIS,osm_name,0.739,w508530553,304484,,Holly Plant Switchyard,osm_name,"code:HOLLY ~ Holly Plant Switchyard (name 0.90, kv x1.00, no county)",name,,4,,0,0,,True,1
+HOLLY4,4,138.0,138,LZ_SOUTH,False,0,27.708453,-97.397347,NUECES,override,0.7,w203621090,,,Holly Substation,override_alt_site,"G1 override (alt_site): 'Holly Substation' (AEP 138 kV, Nueces Co.; the matcher's alternative at 0.65); TPIT (AEP TCC) lists Nueces Co. (Corpus Christi); the Travis Co. site is 251 km from Nueces Co. | was at Holly Plant Switchyard (TRAVIS, conf 0.57, osm_name)",override,,1,,0,0,,True,1
 HOLMAN,2,345.0,345,LZ_SOUTH,False,0,29.795554,-96.878383,FAYETTE,osm_name,0.95,w93770408,,,Holman Substation,osm_name,"gis:Holman ~ Holman Substation (name 1.00, kv x1.00, county 0 km)",name,,1,,0,0,,True,1
-HOLSP,1,69.0,69,LZ_NORTH,False,0,30.250898,-97.719689,TRAVIS,osm_name,0.285,w508530553,304484,,Holly Plant Switchyard,osm_name,"psse:HOLLYSPRGS ~ Holly Plant Switchyard (name 0.81, kv x1.00, no county)",name,,3,,0,0,,True,2
+HOLSP,1,69.0,69,LZ_NORTH,False,0,30.250898,-97.719689,TRAVIS,osm_name,0.285,w508530553,304484,,Holly Plant Switchyard,osm_name,"psse:HOLLYSPRGS ~ Holly Plant Switchyard (name 0.81, kv x1.00, no county)",name,,3,,0,0,,True,1
 HOLSTEIN,5,345.0,345;34.5,LZ_WEST,True,1,32.104125,-100.162375,NOLAN,eia_unit,0.6,w1058313857,,61962,Holstein 1 Solar Farm,eia_unit,EIA plant Holstein 1 Solar Farm (NOLAN) score 0.99,snap,,1,0.0,0,0,,True,1
 HOLZ_SLR,5,138.0,138;24.9,LZ_WEST,True,1,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HOMEPORT,1,138.0,138,LZ_SOUTH,False,0,27.827874,-97.20955,SAN PATRICIO,osm_name,0.855,w514740542,,,Homeport Substation,osm_name,"code:HOMEPORT ~ Homeport Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -2138,7 +2138,7 @@ HONDOCS,1,69.0,69,LZ_SOUTH,False,0,29.345238,-99.150994,MEDINA,osm_name,0.696,w3
 HONEY_WD,3,345.0,345;34.5,LZ_WEST,True,1,30.398469,-94.445947,HARDIN,osm_name,0.268,w193601238,301383,,Honey Substation,osm_name,"code:HONEY_WD ~ Honey Substation (name 0.77, kv x0.60, no county)",name,,1,,0,0,,True,0
 HOP,12,138.0,138,LZ_HOUSTON,False,0,29.836925,-94.893163,CHAMBERS,neighbor,0.4,w52986064,,,,neighbor,only compatible OSM substation within 2 line hops of 1 confident binding-constraint neighbour(s),neighbor,1,1,,0,1,,True,0
 HOPKNSLR,5,345.0,345;34.5,LZ_NORTH,True,1,33.21732,-95.4621,HOPKINS,eia_unit,0.6,,,67424,Hopkins Energy LLC,eia_unit,EIA plant Hopkins Energy LLC (HOPKINS) score 1.00,,,1,0.0,0,0,,True,0
-HORIZON,0,138.0,138,,False,0,31.685197,-106.197977,EL PASO,osm_name,0.358,w1287149379,309320,,Horizon Substation,osm_name,"code:HORIZON ~ Horizon Substation (name 0.90, kv x0.60, no county)",name,,1,,0,1,,False,0
+HORIZON,0,138.0,138,,False,0,,,,none,0.0,,,,,,,,,,,0,1,,False,0
 HORNE,7,138.0,138,LZ_NORTH,False,0,30.687096,-99.82382,KIMBLE,osm_name,0.153,w493526435,,,Hornet Substation,osm_name,"code:HORNE ~ Hornet Substation (name 0.77, kv x0.60, no county)",name,,3,,0,0,,True,1
 HORNET,1,69.0,69,LZ_SOUTH,False,0,30.687096,-99.82382,KIMBLE,osm_name,0.855,w493526435,,,Hornet Substation,osm_name,"code:HORNET ~ Hornet Substation (name 0.90, kv x1.00, no county)",name,,3,,0,0,,True,1
 HORNSB,15,345.0,345,LZ_SOUTH,True,1,30.231977,-97.613865,TRAVIS,osm_name,0.97,w1217222649,,67860,Hornsby Substation,eia_unit+osm_name,"gis:HORNSBY Substation ~ Hornsby Substation (name 1.00, kv x1.00, county 0 km)",name,,1,0.63,0,0,,True,1
@@ -2172,27 +2172,27 @@ HT,7,138.0,138,LZ_HOUSTON,False,0,29.722109,-95.497696,HARRIS,osm_name,0.862,w12
 HTYTP,0,138.0,138,,False,0,,,,none,0.0,,,,,,,,,,,0,3,,False,0
 HUB1,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HUB2,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-HUBRD,2,138.0,138,LZ_NORTH,False,0,32.83698,-96.547701,DALLAS,osm_name,0.414,w30741837,306845,67788,Lake Hubbard Station,hifld_name+osm_name,"gis:Hubbard ~ Lake Hubbard Station (name 0.80, kv x1.00, tap-county 59 km)",name,,4,111.19,104,86,,True,1
+HUBRD,2,138.0,138,LZ_NORTH,False,0,31.751271,-96.88929,HILL,override,0.45,w1102655087,,67788,Hubbard 1 Wind Farm Substation,override_alt_site,"G1 override (alt_site): TPIT-110010 (Oncor, 4 buses with HANEY) lists Hill and Navarro Cos.; the matcher's alternative 'Hubbard 1 Wind Farm Substation' (Hill Co., 0.54) is 50 km from HAN1. A hint: it is a 345 kV wind substation, HUBBARD_8 is 138 kV | was at Lake Hubbard Station (DALLAS, conf 0.41, osm_name); 95 km from HAN1 (conf 0.41, NAVARRO) on a 138 kV constraint",override,,1,16.94,104,86,,True,0
 HUD,14,138.0,138;13.8,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HUDSN,2,138.0,138,LZ_NORTH,False,0,31.33092,-94.771558,ANGELINA,osm_name,0.902,w506852029,,,Hudson Substation,osm_name,"psse:HUDSON ~ Hudson Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,2
 HUECSP,1,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HUG,8,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HULLDALE,1,69.0,69,LZ_WEST,False,0,31.00492,-100.55538,SCHLEICHER,osm_name,0.855,w346768799,,,Hulldale Substation,osm_name,"code:HULLDALE ~ Hulldale Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 HULLTOWN,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-HUMBLTAP,0,69.0,69,,False,0,30.856545,-96.570193,ROBERTSON,osm_name,0.335,w510537831,,,Humble Hearne Substation,osm_name,"code:HUMBL ~ Humble Hearne Substation (name 0.63, kv x1.00, no county)",name,0,3,,0,28,,False,0
+HUMBLTAP,0,69.0,69,,False,0,,,,none,0.0,,,,,,,,,,,0,28,,False,0
 HUN,9,138.0,138,LZ_HOUSTON,False,0,29.601419,-95.014441,HARRIS,osm_name,0.902,w585135212,,,Hunter Substation,osm_name,"psse:HUNTER ~ Hunter Substation (name 0.95, kv x1.00, no county)",name,,3,,0,0,,True,1
-HUNT,2,138.0,138,LZ_SOUTH,False,0,29.414989,-98.667085,BEXAR,osm_name,0.584,w301979794,301859,,Hunt Lane Substation,osm_name,"code:HUNT ~ Hunt Lane Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,,True,2
+HUNT,2,138.0,138,LZ_SOUTH,False,0,30.076126,-99.336016,KERR,override,0.65,w339059838,,,Hunt Substation,override_alt_site,"G1 override (alt_site): 'Hunt Substation' (LCRA TSC 138 kV, Kerr Co.; the matcher's alternative at 0.64); TPIT (LCRATSC) lists Kerr Co.; the Bexar Co. site is 47 km from Kerr Co. | was at Hunt Lane Substation (BEXAR, conf 0.58, osm_name)",override,,1,,0,0,,True,1
 HUNTER,2,138.0,138,LZ_SOUTH,False,0,29.822986,-98.003356,HAYS,hifld_name,0.592,w32041691,305988,,HUNTER,hifld_name,"code:HUNTER ~ HUNTER (name 0.90, kv x1.00, no county)",snap,,3,,0,0,LZ_LCRA,True,1
 HURST,5,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 HUTCH,4,138.0,138,LZ_NORTH,False,0,32.630356,-96.705334,DALLAS,osm_name,0.777,w342687365,308602,,Hutchins Substation,osm_name,"code:HUTCH ~ Hutchins Substation (name 0.77, kv x1.00, no county)",name,,2,,0,0,,True,1
 HUTTO,7,345.0,345;138,LZ_SOUTH,False,0,30.551167,-97.561343,WILLIAMSON,osm_name,0.855,w174024844,,,Hutto Switching Station,osm_name,"code:HUTTO ~ Hutto Switching Station (name 0.90, kv x1.00, no county)",name,,2,,12,0,,True,1
 HUTT_SW,7,138.0,138,LZ_WEST,False,0,30.551167,-97.561343,WILLIAMSON,osm_name,0.363,w174024844,,,Hutto Switching Station,osm_name,"code:HUTT_ ~ Hutto Switching Station (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,1
 HV,6,138.0,138,LZ_HOUSTON,True,1,29.911204,-95.42301,HARRIS,osm_name,0.516,w338341256,300697,,Hidden Valley Substation,osm_name,"code:HV ~ Hidden Valley Substation (name 0.85, kv x1.00, no county)",name,,4,,0,0,,True,1
-HWF,5,345.0,345;34.5,LZ_WEST,True,1,32.768426,-99.422825,SHACKELFORD,osm_name,0.623,w171742083,,56823,Hackberry Wind Substation,eia_unit+osm_name,"cdr:hackberry ~ Hackberry Wind Substation (name 0.85, kv x1.00, county 0 km)",name,,3,0.01,0,0,,True,3
+HWF,5,345.0,345;34.5,LZ_WEST,True,1,32.768426,-99.422825,SHACKELFORD,osm_name,0.623,w171742083,,56823,Hackberry Wind Substation,eia_unit+osm_name,"cdr:hackberry ~ Hackberry Wind Substation (name 0.85, kv x1.00, county 0 km)",name,,3,0.01,0,0,,True,2
 HWKSW,5,138.0,138,LZ_NORTH,True,1,33.599167,-95.525056,LAMAR,eia_unit,0.671,,,66471,Eiffel Solar Project,eia_unit,EIA plant Eiffel Solar Project (LAMAR) score 0.75,,1,1,0.0,0,16,,True,0
 HWPOD,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,2,,True,0
-HWRDLN,3,138.0,138,LZ_SOUTH,False,0,30.43315,-97.688767,TRAVIS,osm_name,0.625,w339125119,304481,,Howard Lane Substation,osm_name,"psse:HOWARDLN ~ Howard Lane Substation (name 0.76, kv x1.00, no county)",name,,3,,0,0,LZ_AEN,True,1
-HWRDTP,0,138.0,138,,False,0,29.280513,-98.572004,BEXAR,osm_name,0.451,w105422464,303524,,Howard Substation,osm_name,"code:HWRD ~ Howard Substation (name 0.66, kv x1.00, no county)",name,0,2,,0,19,,False,0
+HWRDLN,3,138.0,138,LZ_SOUTH,False,0,30.43315,-97.688767,TRAVIS,osm_name,0.625,w339125119,304481,,Howard Lane Substation,osm_name,"psse:HOWARDLN ~ Howard Lane Substation (name 0.76, kv x1.00, no county)",name,,3,,0,0,LZ_AEN,True,2
+HWRDTP,0,138.0,138,,False,0,30.43315,-97.688767,TRAVIS,override,0.75,w339125119,,,Howard Lane Substation,override_name_partner,"G1 override (name_partner): HWRD + TP (tap) = Howard Lane (ERCOT HWRDLN), Austin Energy 138 kV, Travis Co., 1 hop from WELLBR (Wells Branch, Travis) in the graph; the matcher had picked a Howard substation in Bexar Co. | was at Howard Substation (BEXAR, conf 0.45, osm_name); 155 km from WELLBR (conf 0.86, TRAVIS) on a 138 kV constraint",override,,1,,0,19,,False,2
 HWY6,2,138.0,138,LZ_NORTH,True,1,30.440477,-96.131121,BRAZOS,osm_name,0.712,w510128532,,,Highway 6 Substation,osm_name,"code:HWY6 ~ Highway 6 Substation (name 0.90, kv x1.00, no county)",name,,4,,0,0,,True,1
 HX,4,138.0,138,LZ_HOUSTON,False,0,29.347478,-95.015899,GALVESTON,osm_name,0.862,w337236412,301912,,Hitchcock Substation,osm_name,"code:HX ~ Hitchcock Substation (name 0.85, kv x1.00, no county)",name,,1,,0,0,,True,1
 HY,3,138.0,138,LZ_HOUSTON,False,0,29.746348,-95.574375,HARRIS,osm_name,0.95,w129126616,307192,,Hayes Substation,osm_name,"psse:HAYES ~ Hayes Substation (name 0.95, kv x1.00, no county)",name,,2,,0,0,,True,1
@@ -2293,7 +2293,7 @@ JES,4,138.0,138,LZ_HOUSTON,False,0,29.990108,-95.457656,HARRIS,osm_name,0.902,w5
 JESSICA,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 JETT,3,138.0,138,LZ_SOUTH,False,0,30.374718,-97.806476,TRAVIS,osm_name,0.905,w325214746,305062,,Jett Substation,osm_name,"code:JETT ~ Jett Substation (name 0.90, kv x1.00, no county)",name,,3,,0,0,LZ_AEN,True,1
 JEWET,7,345.0,345;138;69,LZ_NORTH,False,0,31.37105,-96.133419,LEON,osm_name,0.605,w99932982,303445,68349,Jewett Substation,osm_name,"gis:Jewett ~ Jewett Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,5,28.36,0,0,,True,1
-JFS,3,138.0,138,LZ_HOUSTON,False,0,32.77301,-94.392093,MARION,osm_name,0.384,w198111302,,,Jefferson Switching Station,osm_name,"psse:JEFFER ~ Jefferson Switching Station (name 0.81, kv x1.00, no county)",name,,1,,0,1,,True,0
+JFS,3,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,1,,True,0
 JIMBRI,1,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 JIMNED,1,69.0,69,LZ_WEST,False,0,32.194249,-99.788216,TAYLOR,osm_name,0.855,w1394024690,,,Jim Ned Substation,osm_name,"code:JIMNED ~ Jim Ned Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 JIMTREEC,3,345.0,345,LZ_WEST,False,0,34.234163,-99.434164,WILBARGER,osm_name,0.962,w454325994,,60690;68456,Jim Treece Substation,osm_name,"gis:Jim Treece ~ Jim Treece Substation (name 1.00, kv x1.00, county 0 km)",name,1,2,7.9,0,9,,True,1
@@ -2339,7 +2339,7 @@ JUNG_SLR,3,69.0,69;34.5,LZ_NORTH,True,1,30.903764,-97.05778,MILAM,eia_unit,0.6,w
 JUNO,7,138.0,138;34.5,LZ_WEST,True,1,32.772889,-101.39102,BORDEN,eia_unit,0.6,,,63328,Juno Solar Project,eia_unit,EIA plant Juno Solar Project (BORDEN) score 1.00,,,2,0.0,0,25,,True,0
 JUNORTH,3,69.0,69,LZ_SOUTH,True,1,,,,none,0.0,,,,,,,,,,,0,58,,True,0
 JUNPR,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,26,,True,0
-JUPITER,4,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,495,42,,True,0
+JUPITER,4,138.0,138,LZ_NORTH,False,0,32.9143,-96.6613,DALLAS,override,0.5,w284642873,,,(HIFLD 69 kV line end at the Fairdale yard),override_graph_adjacent,"G1 override (graph_adjacent): GP&L substation (PSS/E 806, block 802-860); other end of the 2.82 mi TPIT-110751 line from COLLEGE. The HIFLD 69 kV chain College-tap-Jupiter ends 55 m from the Fairdale yard (PSS/E 805). A hint, co-located with FAIRDALE +-1.5 km, not a fence | was unplaced",override,,1,,495,42,,True,2
 JUSTINLN,3,69.0,69,LZ_SOUTH,False,0,30.343543,-97.716164,TRAVIS,osm_name,0.734,w339152255,305593,,Justin Lane Substation,osm_name,"code:JUSTINLN ~ Justin Lane Substation (name 0.72, kv x1.00, no county)",name,,1,,0,0,LZ_AEN,True,1
 K0,6,138.0,138,LZ_SOUTH,True,1,29.617818,-98.736019,BEXAR,osm_name,0.909,w344030248,302928,64319,Ranchtown Substation,eia_unit+osm_name,"psse:RANCHTWN ~ Ranchtown Substation (name 0.76, kv x1.00, county 0 km)",name,,1,0.01,0,0,LZ_CPS,True,1
 K1,4,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_CPS,True,0
@@ -2354,7 +2354,7 @@ KARNESCI,1,138.0,138,LZ_SOUTH,False,0,28.858895,-97.878604,KARNES,osm_name,0.825
 KATEMCY,1,69.0,69,LZ_SOUTH,False,0,30.959689,-99.28169,MCCULLOCH,osm_name,0.855,w493666718,,,Katemcy Substation,osm_name,"code:KATEMCY ~ Katemcy Substation (name 0.90, kv x1.00, no county)",name,,1,,0,3,,True,1
 KATOEN,3,345.0,345,LZ_SOUTH,True,1,27.992706,-97.743983,SAN PATRICIO,eia_unit,0.434,w1095702914,,64591,"El Algodon Alto Wind Farm, LLC",eia_unit,"EIA plant El Algodon Alto Wind Farm, LLC (SAN PATRICIO) score 0.58",snap,,1,0.0,0,0,,True,0
 KATZP,1,69.0,69,LZ_WEST,False,0,33.397226,-100.010362,STONEWALL,osm_name,0.902,w519749919,,,Katz Substation,osm_name,"psse:KATZ ~ Katz Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
-KB,10,138.0,138,LZ_HOUSTON,False,0,30.265207,-97.687177,TRAVIS,osm_name,0.694,w224819995,,61741,Kingsbery Substation,eia_unit+osm_name,"cdr:kingsbery system ~ Kingsbery Substation (name 0.68, kv x1.00, county 0 km)",name,,4,0.14,0,5,,True,2
+KB,10,138.0,138,LZ_HOUSTON,False,0,29.729723,-95.422894,HARRIS,override,0.7,w208626022,,61741,Kirby Substation,override_alt_site,"G1 override (alt_site): PSS/E KIRBY__S37_8 / KIRBY_90TP_8 (CenterPoint) = 'Kirby Substation', Harris Co. (the matcher's alternative at 0.28); TPIT-87479I/90232H/73578G (CNP) list Harris Co.; 3.6 km from GT, the other end of the 138 kV constraint. The Kingsbery (Travis) site came from a CDR unit name | was at Kingsbery Substation (TRAVIS, conf 0.69, osm_name); 229 km from GT (conf 0.65, HARRIS) on a 138 kV constraint",override,,1,225.96,0,5,,True,1
 KBPOD,2,138.0,138,LZ_NORTH,False,0,29.672254,-95.413089,HARRIS,osm_name,0.373,w129126598,305009,,Knight Substation,osm_name,"psse:KNIGHTBR ~ Knight Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,1
 KCRSW,3,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 KDL,3,345.0,345,LZ_HOUSTON,False,0,30.089147,-95.527077,HARRIS,osm_name,0.812,w127286699,,,Kuykendahl Substation,osm_name,"code:KDL ~ Kuykendahl Substation (name 0.85, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -2403,7 +2403,7 @@ KIMBRO,3,138.0,138,LZ_SOUTH,True,1,30.4214,-97.4614,TRAVIS,eia_unit,0.519,w11324
 KINGMO,4,138.0,138,LZ_WEST,True,2,31.25264,-102.238386,UPTON,osm_name,0.659,w499938064,,55581,King Mountain Northwest Substation,eia_unit+osm_name,"gis:King Mountain ~ King Mountain Northwest Substation (name 0.80, kv x1.00, county 0 km)",name,,3,4.84,0,0,,True,2
 KINGMTSW,8,345.0,345,LZ_WEST,False,0,31.25264,-102.238386,UPTON,osm_name,0.319,w499938064,,,King Mountain Northwest Substation,osm_name,"gis:King Mountain Station ~ King Mountain Northwest Substation (name 0.80, kv x0.60, county 0 km)",name,,3,,0,3,,True,2
 KINGRNCH,6,138.0,138,LZ_SOUTH,False,0,29.91534,-95.216314,HARRIS,osm_name,0.185,w102326939,,,King Substation,osm_name,"code:KINGRNCH ~ King Substation (name 0.77, kv x0.60, no county)",name,,2,,0,0,,True,1
-KINGSBER,5,138.0,138,LZ_SOUTH,False,0,30.265207,-97.687177,TRAVIS,osm_name,0.777,w224819995,308571,,Kingsbery Substation,osm_name,"code:KINGSBER ~ Kingsbery Substation (name 0.77, kv x1.00, no county)",name,,3,,0,0,LZ_AEN,True,2
+KINGSBER,5,138.0,138,LZ_SOUTH,False,0,30.265207,-97.687177,TRAVIS,osm_name,0.777,w224819995,308571,,Kingsbery Substation,osm_name,"code:KINGSBER ~ Kingsbery Substation (name 0.77, kv x1.00, no county)",name,,3,,0,0,LZ_AEN,True,1
 KINGSVIL,3,138.0,138,LZ_SOUTH,False,0,27.530704,-97.886227,KLEBERG,osm_name,0.725,w490190283,,69286,Kingsville Substation,osm_name,"gis:Kingsville ~ Kingsville Substation (name 1.00, kv x1.00, tap-county 5 km)",name,,4,26.73,0,0,,True,1
 KING_1,2,69.0,69,LZ_SOUTH,False,0,30.653352,-98.45185,LLANO,osm_name,0.629,w504555563,,,Kingsland 1 Substation,osm_name,"psse:KINGS1 ~ Kingsland 1 Substation (name 0.81, kv x1.00, no county)",name,,4,,0,0,,True,2
 KING_2,3,69.0,69,LZ_SOUTH,False,0,30.653352,-98.45185,LLANO,osm_name,0.629,w504555563,,,Kingsland 1 Substation,osm_name,"psse:KINGS2 ~ Kingsland 1 Substation (name 0.81, kv x1.00, no county)",name,,4,,0,0,,True,2
@@ -2579,8 +2579,8 @@ LHM,13,138.0,138;18,LZ_HOUSTON,True,3,29.836952,-95.121744,HARRIS,eia_unit,0.94,
 LHORN_N,5,345.0,345;34.5,LZ_WEST,True,1,34.316786,-101.240792,BRISCOE,osm_name,0.518,w453589282,306059,59384,Longhorn Wind Substation,osm_name,"cdr:longhorn north ~ Longhorn Wind Substation (name 0.68, kv x1.00, county 2 km)",name,,5,27.35,0,0,,True,1
 LHPMP,1,138.0,138,LZ_NORTH,False,0,32.805893,-96.527711,DALLAS,hifld_name,0.542,w1495698563,307409,,LAKE HUBBARD PUMP STATION,hifld_name,"psse:LKHBPMP ~ LAKE HUBBARD PUMP STATION (name 0.68, kv x1.00, no county)",snap,,1,,0,0,,True,1
 LHSES,14,138.0,138;24;22,LZ_NORTH,True,2,32.83698,-96.547701,DALLAS,osm_name,0.97,w30741837,309945,3452,Lake Hubbard Station,eia_unit+hifld_name+osm_name,"cdr:lake hubbard ~ Lake Hubbard Station (name 0.85, kv x1.00, county 0 km)",name,,1,0.22,0,0,,True,1
-LIBERTY,2,345.0,345,LZ_NORTH,False,0,29.807004,-95.285522,HARRIS,osm_name,0.093,w147296805,308586,,Liberty Substation,osm_name,"gis:Liberty Station ~ Liberty Substation (name 1.00, kv x0.60, county 199 km)",name,,3,,0,5,,True,1
-LIBR,2,69.0,69,LZ_WEST,False,0,34.161661,-99.738681,HARDEMAN,osm_name,0.722,w518859370,,,Copper Breaks Substation,osm_name,"psse:COPPERBRKS ~ Copper Breaks Substation (name 0.76, kv x1.00, no county)",name,,4,,0,18,,True,1
+LIBERTY,2,345.0,345,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,5,,True,0
+LIBR,2,69.0,69,LZ_WEST,False,0,34.161661,-99.738681,HARDEMAN,osm_name,0.791,w518859370,,,Copper Breaks Substation,osm_name,"psse:COPPERBRKS ~ Copper Breaks Substation (name 0.76, kv x1.00, no county)",name,1,4,,0,18,,True,1
 LIBTY_RC,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_RAYBN,True,0
 LIG,5,138.0,138;13.8,LZ_HOUSTON,True,1,29.883214,-95.111345,HARRIS,eia_unit,0.584,w336780027,,60460,Chamon,eia_unit,EIA plant Chamon (HARRIS) score 0.55,snap,,1,0.0,0,0,,True,2
 LIGSW,23,345.0,345;138,LZ_NORTH,True,1,32.817021,-97.019484,DALLAS,osm_name,0.81,w28174717,309015,67570,Liggett Switch,osm_name,"psse:LIGGETT ~ Liggett Switch (name 0.95, kv x1.00, county 0 km)",snap,,2,24.43,0,0,,True,1
@@ -2684,26 +2684,26 @@ LOYLK,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 LOYOLA,3,138.0,138,LZ_SOUTH,False,0,27.318517,-97.810132,KLEBERG,osm_name,0.855,w511539404,,,Loyola Substation,osm_name,"code:LOYOLA ~ Loyola Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 LP,3,138.0,138,LZ_HOUSTON,False,0,29.664839,-95.016126,HARRIS,osm_name,0.812,w336780055,,,La Porte Substation,osm_name,"code:LP ~ La Porte Substation (name 0.85, kv x1.00, no county)",name,,1,,0,0,,True,1
 LPCCS,22,345.0,345;18,LZ_NORTH,True,6,33.6308,-95.59,LAMAR,eia_unit,0.92,w171900306,,55097,Lamar Power Project,eia_unit,EIA plant Lamar Power Project (LAMAR) score 0.98 LMP-node designation,snap,,1,0.0,0,0,,True,1
-LPLBR,10,69.0,69;12.5,LZ_WEST,True,1,,,,none,0.0,,,,,,,,,,,0,48,,True,0
-LPLCH,8,115.0,115,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-LPLCO,9,115.0,115;69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,344,,True,0
+LPLBR,10,69.0,69;12.5,LZ_WEST,True,1,33.584894,-101.886517,LUBBOCK,override,0.75,w465695629,,,Brandon Station,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_BRANDON, equals the OSM 'Brandon Station' operated by Lubbock Power & Light, Lubbock Co.; constraint LPLRR-LPLBR (Red Raider is not in OSM) | was unplaced",override,,1,,0,48,,True,1
+LPLCH,8,115.0,115,LZ_WEST,False,0,33.526537,-101.914173,LUBBOCK,override,0.75,w442013545,,,Chalker Substation,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_CHALKER, equals the OSM 'Chalker Substation' operated by Lubbock Power & Light, Lubbock Co.; the matcher had given this OSM node to CHALK (Oncor, Howard Co.), see CHALK | was unplaced",override,,1,,0,0,,True,1
+LPLCO,9,115.0,115;69,LZ_WEST,False,0,33.567197,-101.827922,LUBBOCK,override,0.85,w200870128,,,Co-op Substation,override_name_partner,"G1 override (name_partner): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_COOP, equals the OSM 'Co-op Substation' operated by Lubbock Power & Light, Lubbock Co.; 115 kV line to Massengale (LPLMK, 5.0 km) in the graph | was unplaced",override,,1,,0,344,,True,1
 LPLDB,7,115.0,115,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-LPLER,7,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-LPLHY,21,115.0,115;69,LZ_WEST,True,2,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-LPLMC,5,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-LPLMD,5,115.0,115,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,30,,True,0
-LPLMK,13,115.0,115;69,LZ_WEST,True,3,26.142238,-97.641913,CAMERON,osm_name,0.318,w513282610,,,La Palma 69 kV Substation,osm_name,"code:LPLMK ~ La Palma 69 kV Substation (name 0.67, kv x1.00, no county)",name,,1,,140,744,,True,0
-LPLNE,5,115.0,115,LZ_WEST,False,0,34.252325,-99.684751,HARDEMAN,osm_name,0.364,w231066354,,,Lake Pauline Substation,osm_name,"code:LPLNE ~ Lake Pauline Substation (name 0.64, kv x0.60, no county)",name,,1,,140,400,,True,0
-LPLNW,4,115.0,115,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,30,,True,0
-LPLOL,7,115.0,115,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
+LPLER,7,69.0,69,LZ_WEST,False,0,33.606528,-101.879523,LUBBOCK,override,0.75,w465695654,,,Erskine Substation,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_ERSKINE, equals the OSM 'Erskine Substation' operated by Lubbock Power & Light, Lubbock Co. | was unplaced",override,,1,,0,0,,True,1
+LPLHY,21,115.0,115;69,LZ_WEST,True,2,33.520838,-101.792416,LUBBOCK,override,0.75,w183475074,,,Holly Substation,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_HOLLY, equals the OSM 'Holly Substation' operated by Lubbock Power & Light, Lubbock Co. | was unplaced",override,,1,,0,0,,True,1
+LPLMC,5,69.0,69,LZ_WEST,False,0,33.56711,-101.87857,LUBBOCK,override,0.75,w325345801,,,McCullough Substation,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_MCCULLGH, equals the OSM 'McCullough Substation' operated by Lubbock Power & Light, Lubbock Co. | was unplaced",override,,1,,0,0,,True,1
+LPLMD,5,115.0,115,LZ_WEST,False,0,33.585756,-101.957951,LUBBOCK,override,0.75,w183461214,,,McDonald Substation,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_MCDONALD, equals the OSM 'McDonald Substation' operated by Lubbock Power & Light, Lubbock Co. | was unplaced",override,,1,,0,30,,True,1
+LPLMK,13,115.0,115;69,LZ_WEST,True,3,33.603525,-101.842178,LUBBOCK,override,0.85,w465695444,,,Massengale Station,override_name_partner,"G1 override (name_partner): LP&L Mackenzie/Massengale: its resource nodes are MASSENGL_G6/G7/G8 (Massengale units) and the OSM 'Massengale Station' (Lubbock Power & Light) is the 115 kV neighbour of both Northeast (LPLNE) and Co-op (LPLCO) in the line graph (5.4 and 5.0 km), matching the constraint pairs LPLMK-LPLNE and LPLCO-LPLMK | was at La Palma 69 kV Substation (CAMERON, conf 0.32, osm_name); 923 km from LPLNE (conf 0.36, HARDEMAN) on a 115 kV constraint",override,,1,,140,744,,True,1
+LPLNE,5,115.0,115,LZ_WEST,False,0,33.62089,-101.802217,LUBBOCK,override,0.85,w465471424,,,Northeast Substation,override_name_partner,"G1 override (name_partner): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_NORTHEST, equals the OSM 'Northeast Substation' operated by Lubbock Power & Light, Lubbock Co.; 115 kV line to Massengale (LPLMK, 5.4 km) in the graph | was at Lake Pauline Substation (HARDEMAN, conf 0.36, osm_name); 923 km from LPLMK (conf 0.32, CAMERON) on a 115 kV constraint",override,,1,,140,400,,True,1
+LPLNW,4,115.0,115,LZ_WEST,False,0,33.622208,-101.906702,LUBBOCK,override,0.75,w465913063,,,Northwest Substation,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_NORTHWST, equals the OSM 'Northwest Substation' operated by Lubbock Power & Light, Lubbock Co.; 115 kV line to McDonald (LPLMD, 8.8 km) in the graph, as the constraint LPLNW-LPLMD | was unplaced",override,,1,,0,30,,True,1
+LPLOL,7,115.0,115,LZ_WEST,False,0,33.498395,-101.888803,LUBBOCK,override,0.75,w183461212,,,Oliver Substation,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_OLIVER, equals the OSM 'Oliver Substation' operated by Lubbock Power & Light, Lubbock Co. | was unplaced",override,,1,,0,0,,True,1
 LPLPY,4,115.0,115,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 LPLRR,6,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,55,,True,0
-LPLSE,6,115.0,115,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
+LPLSE,6,115.0,115,LZ_WEST,False,0,33.518609,-101.854893,LUBBOCK,override,0.75,w183475079,,,Southeast Substation,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_SOUTHEST, equals the OSM 'Southeast Substation' operated by Lubbock Power & Light, Lubbock Co. | was unplaced",override,,1,,0,0,,True,1
 LPLSL,7,115.0,115,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-LPLTH,9,115.0,115,LZ_WEST,False,0,33.051297,-102.52666,TERRY,hifld_name,0.48,w1212913216,309826,,LTG PLEASANT HILL,hifld_name,"code:LPLTH ~ LTG PLEASANT HILL (name 0.60, kv x1.00, no county)",snap,,1,,0,0,,True,0
-LPLVK,7,115.0,115;69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,7,,True,0
-LPLWA,9,115.0,115,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-LPLYH,13,345.0,345;115,LZ_WEST,False,0,29.911533,-97.900097,HAYS,osm_name,0.107,w33692087,306104,,Canyon Substation,osm_name,"gis:Yellow House Canyon ~ Canyon Substation (name 0.80, kv x0.60, county 521 km)",name,,1,,0,0,,True,1
+LPLTH,9,115.0,115,LZ_WEST,False,0,33.542231,-101.926775,LUBBOCK,override,0.75,w454428850,,,Thompson Substation,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_THOMPSON, equals the OSM 'Thompson Substation' operated by Lubbock Power & Light, Lubbock Co. | was at LTG PLEASANT HILL (TERRY, conf 0.48, hifld_name)",override,,1,,0,0,,True,1
+LPLVK,7,115.0,115;69,LZ_WEST,False,0,33.567461,-101.918285,LUBBOCK,override,0.75,r6878317,,,Vicksburg Substation,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_VICKSBRG, equals the OSM 'Vicksburg Substation' operated by Lubbock Power & Light, Lubbock Co.; constraint LPLVK-LPLRR (Red Raider is not in OSM) | was unplaced",override,,1,,0,7,,True,1
+LPLWA,9,115.0,115,LZ_WEST,False,0,33.556694,-101.799205,LUBBOCK,override,0.75,w465471435,,,Wadsworth Substation,override_family_block,"G1 override (family_block): Lubbock Power & Light (LP&L) substation: PSS/E block 59110-59188 (zone LZ_WEST), bus name LP_WADSWRTH, equals the OSM 'Wadsworth Substation' operated by Lubbock Power & Light, Lubbock Co. | was unplaced",override,,1,,0,0,,True,1
+LPLYH,13,345.0,345;115,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 LPNSW,4,345.0,345;138,LZ_NORTH,False,0,29.702233,-98.160005,COMAL,osm_name,0.41,w341605439,306820,,Loop 337 Substation,osm_name,"psse:LOOP ~ Loop 337 Substation (name 0.95, kv x1.00, no county)",name,,3,,0,0,,True,0
 LPPOD,3,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 LPRSH,2,138.0,138,LZ_NORTH,False,0,31.327492,-94.73556,ANGELINA,osm_name,0.623,w259578781,,,Lufkin Pershing Street Substation,osm_name,"psse:LUFPRSHG ~ Lufkin Pershing Street Substation (name 0.66, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -2868,7 +2868,7 @@ MCPOD,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 MCPOI,0,138.0,138,,False,0,,,,none,0.0,,,,,,,,,,,0,4,,False,0
 MCQUEE,5,138.0,138,LZ_SOUTH,False,0,29.588548,-98.049585,GUADALUPE,osm_name,0.796,w196190816,306594,65861,McQueeney Substation,osm_name,"gis:McQUEENEY ~ McQueeney Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,2,7.91,0,0,,True,1
 MCSES,22,138.0,138;69;22;15;13.8,LZ_NORTH,True,3,32.724366,-96.935385,DALLAS,hifld_name,0.955,w29185987,303914,3453,MOUNTAIN CREEK SES,eia_unit+hifld_name,"cdr:mountain creek ~ MOUNTAIN CREEK SES (name 0.68, kv x1.00, county 0 km)",snap,,2,0.15,0,0,,True,1
-MCTYE,1,138.0,138,LZ_NORTH,False,0,29.826483,-97.964747,HAYS,osm_name,0.265,w174016505,310373,,McCarty Lane Substation,osm_name,"code:MCTYE ~ McCarty Lane Substation (name 0.59, kv x1.00, no county)",name,0,1,,704,208,,True,1
+MCTYE,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,704,208,,True,0
 MCWHT,4,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 MDAIR,4,138.0,138,LZ_WEST,False,0,31.935596,-102.229663,MIDLAND,osm_name,0.677,w457746604,,,Midland Airport,osm_name,"psse:MIDLAIRP ~ Midland Airport (name 0.71, kv x1.00, no county)",name,,1,,0,0,,True,1
 MDANP,12,345.0,345;21,LZ_NORTH,True,3,32.428479,-97.052824,ELLIS,hifld_name,0.97,w1495698549,301942,55091,MIDLOTHIAN ENERGY FACILITY,eia_unit+hifld_name,"cdr:midlothian ~ MIDLOTHIAN ENERGY FACILITY (name 0.85, kv x1.00, county 0 km)",snap,1,3,0.21,0,13,,True,1
@@ -2950,7 +2950,7 @@ MIDWY,3,138.0,138,LZ_WEST,True,1,31.841521,-102.727019,ECTOR,osm_name,0.97,w4592
 MIEL,5,138.0,138,LZ_SOUTH,True,1,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 MIL,11,138.0,138;20;13.2,LZ_NORTH,True,2,32.6581,-98.3103,PALO PINTO,eia_unit,0.92,w1104531038,,3628,R W Miller,eia_unit,EIA plant R W Miller (PALO PINTO) score 0.95 LMP-node designation,snap,,5,0.0,0,0,,True,1
 MILANO,1,138.0,138,LZ_SOUTH,False,0,30.763577,-96.863527,MILAM,osm_name,0.855,w510537907,,,Milano Substation,osm_name,"code:MILANO ~ Milano Substation (name 0.90, kv x1.00, no county)",name,,2,,0,0,,True,1
-MILES,3,69.0,69,LZ_WEST,False,0,31.59334,-100.178103,RUNNELS,osm_name,0.855,w493048337,,,Miles Substation,osm_name,"code:MILES ~ Miles Substation (name 0.90, kv x1.00, no county)",name,,4,,0,26,,True,1
+MILES,3,69.0,69,LZ_WEST,False,0,31.59334,-100.178103,RUNNELS,osm_name,0.891,w493048337,,,Miles Substation,osm_name,"code:MILES ~ Miles Substation (name 0.90, kv x1.00, no county)",name,1,4,,0,26,,True,1
 MILHWY,4,138.0,138,LZ_SOUTH,False,0,25.936851,-97.535693,CAMERON,osm_name,0.73,w513383712,303479,,Military Highway Substation,osm_name,"code:MILHWY ~ Military Highway Substation (name 0.62, kv x1.00, no county)",name,1,1,,0,151,,True,2
 MILITARY,2,138.0,138,LZ_SOUTH,False,0,25.936851,-97.535693,CAMERON,osm_name,0.777,w513383712,303479,,Military Highway Substation,osm_name,"code:MILITARY ~ Military Highway Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,2
 MILLER,1,138.0,138,LZ_SOUTH,False,0,30.262015,-98.29847,BLANCO,osm_name,0.634,w336105667,300786,,Miller Creek Substation,osm_name,"code:MILLER ~ Miller Creek Substation (name 0.77, kv x1.00, no county)",name,,3,,0,0,,True,1
@@ -3070,7 +3070,7 @@ MULSW,3,345.0,345,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 MUNDAYR2,1,69.0,69,LZ_WEST,False,0,33.448296,-99.660382,KNOX,osm_name,0.902,w519131234,,,Munday Substation,osm_name,"psse:MUNDAY ~ Munday Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,2
 MUNDAYST,2,69.0,69,LZ_WEST,False,0,33.448296,-99.660382,KNOX,osm_name,0.727,w519131234,,,Munday Substation,osm_name,"code:MUNDAYST ~ Munday Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,2
 MURPH,5,138.0,138,LZ_NORTH,False,0,33.533881,-101.965345,LUBBOCK,osm_name,0.271,w201042353,,,Murphy Substation,osm_name,"psse:MURPHY ~ Murphy Substation (name 0.95, kv x0.60, no county)",name,,1,,0,0,,True,0
-MURRAY,1,138.0,138,LZ_WEST,False,0,32.465924,-100.139149,TAYLOR,osm_name,0.494,w491192860,,,McElmurray 24.9 Substation,osm_name,"code:MURRAY ~ McElmurray 24.9 Substation (name 0.68, kv x1.00, tap-county 84 km)",name,1,1,,0,11,,True,1
+MURRAY,1,138.0,138,LZ_WEST,False,0,32.465924,-100.139149,TAYLOR,osm_name,0.3,w491192860,,,McElmurray 24.9 Substation,osm_name,"G1 demoted (demote_partner): the matcher's only candidate is 'McElmurray 24.9 Substation', a 24.9 kV distribution station whose name merely contains Murray (name 0.68, tap-county evidence 84 km); it is 86 km from PAINTCRE on a 138 kV constraint (limit 80 km) and no line connects them | was at McElmurray 24.9 Substation (TAYLOR, conf 0.49, osm_name); 86 km from PAINTCRE (conf 0.95, HASKELL) on a 138.1 kV constraint | matcher: code:MURRAY ~ McElmurray 24.9 Substation (name 0.68, kv x1.00, tap-county 84 km)",name,1,1,,0,11,,True,1
 MUSQUIZ,1,138.0,138,LZ_WEST,False,0,31.238371,-103.158293,REEVES,osm_name,0.855,w500535858,,,Musquiz Substation,osm_name,"code:MUSQUIZ ~ Musquiz Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 MUSTANG,2,69.0,69,LZ_SOUTH,False,0,27.72533,-97.142169,NUECES,osm_name,0.727,w193803697,,,Mustang Island Substation,osm_name,"code:MUSTANG ~ Mustang Island Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,,True,1
 MUSTNGCK,7,138.0,138;34.5,LZ_SOUTH,True,1,29.109147,-96.528761,JACKSON,eia_unit,0.408,w1458653861,,67284,Ganado Solar,eia_unit,EIA plant Ganado Solar (JACKSON) score 0.54,snap,,3,0.0,0,0,,True,1
@@ -3167,7 +3167,7 @@ NIXOAE,2,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 NIXOGV,1,69.0,69,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 NIXON,1,69.0,69,LZ_SOUTH,False,0,29.289231,-97.766511,GONZALES,osm_name,0.855,w425383601,,,Nixon Substation,osm_name,"code:NIXON ~ Nixon Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 NLAMESA,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-NLARSW,1,138.0,138,LZ_SOUTH,False,0,27.692138,-99.477565,WEBB,osm_name,0.684,w451971668,,,North Laredo Switching Station,osm_name,"code:NLAR ~ North Laredo Switching Station (name 0.61, kv x1.00, no county)",name,1,1,,455,616,,True,2
+NLARSW,1,138.0,138,LZ_SOUTH,False,0,27.692138,-99.477565,WEBB,osm_name,0.684,w451971668,,,North Laredo Switching Station,osm_name,"code:NLAR ~ North Laredo Switching Station (name 0.61, kv x1.00, no county)",name,1,1,,455,616,,True,1
 NLNVL,2,138.0,138,LZ_NORTH,False,0,31.087107,-97.544905,BELL,osm_name,0.767,w462426818,,,Nolanville Substation,osm_name,"psse:NOLANVIL ~ Nolanville Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,1
 NLPOD,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 NM,2,138.0,138,LZ_HOUSTON,False,0,29.769555,-95.205606,HARRIS,osm_name,0.812,w336794291,,,Normandy Substation,osm_name,"code:NM ~ Normandy Substation (name 0.85, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -3186,7 +3186,7 @@ NORDWE,1,138.0,138,LZ_SOUTH,False,0,28.911501,-97.624256,DEWITT,osm_name,0.67,w4
 NORSW,4,345.0,345;138,LZ_NORTH,False,0,32.815168,-96.918654,DALLAS,hifld_name,0.481,w172433955,305628,,NORWOOD,hifld_name,"psse:NORWD ~ NORWOOD (name 0.71, kv x1.00, no county)",snap,,3,,0,0,,True,0
 NORTHBR,3,69.0,69,LZ_NORTH,False,0,30.691202,-96.394452,BRAZOS,osm_name,0.563,w497732814,,,North Substation,osm_name,"code:NORTHBR ~ North Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,,True,1
 NORTHBRA,1,69.0,69,LZ_SOUTH,False,0,31.135225,-99.341562,MCCULLOCH,osm_name,0.767,w493666730,,,Brady Substation,osm_name,"psse:BRADYTP ~ Brady Substation (name 0.81, kv x1.00, no county)",name,,3,,0,0,,True,2
-NORTHLAN,5,138.0,138;69,LZ_SOUTH,False,0,27.692138,-99.477565,WEBB,osm_name,0.56,w451971668,,,North Laredo Switching Station,osm_name,"psse:NORTHL6 ~ North Laredo Switching Station (name 0.81, kv x1.00, no county)",name,,4,,0,1,LZ_AEN,True,2
+NORTHLAN,5,138.0,138;69,LZ_SOUTH,False,0,30.335406,-97.754658,TRAVIS,override,0.75,w339880149,,,Northland Substation,override_alt_site,"G1 override (alt_site): PSS/E NORTHL_MB1/DB1 = Northland (Austin Energy); TPIT-14TPIT0038, 86323 and 86321 (AEN) name Northland in Travis Co. (the matcher's alternative at 0.41); the Webb Co. site was North Laredo | was at North Laredo Switching Station (WEBB, conf 0.56, osm_name)",override,,1,,0,1,LZ_AEN,True,1
 NORTHSDE,4,69.0,69,LZ_HOUSTON,False,0,29.784137,-95.349638,HARRIS,osm_name,0.458,w128290610,307672,,North Side Substation,osm_name,"code:NORTHSDE ~ North Side Substation (name 0.72, kv x1.00, no county)",name,,4,,0,0,,True,0
 NORTHWES,5,138.0,138,LZ_SOUTH,False,0,30.464599,-97.75731,WILLIAMSON,osm_name,0.66,w339130468,310519,,Northwest Substation,osm_name,"code:NORTHWES ~ Northwest Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,LZ_AEN,True,1
 NORTMC,2,138.0,138,LZ_WEST,False,0,31.155063,-102.2268,UPTON,osm_name,0.671,w343434431,301062,,North McCamey Substation,osm_name,"code:NORTMC ~ North McCamey Substation (name 0.65, kv x1.00, no county)",name,1,3,,0,91,,True,1
@@ -3293,7 +3293,7 @@ OLLINPHI,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 OLMITO,5,138.0,138,LZ_SOUTH,True,1,26.001529,-97.519815,CAMERON,osm_name,0.855,w513362297,,66928,Olmito Substation,osm_name,"code:OLMITO ~ Olmito Substation (name 0.90, kv x1.00, county 0 km)",name,,2,39.71,0,0,,True,1
 OLMOS_S,2,69.0,69,LZ_SOUTH,False,0,28.243815,-97.795994,BEE,osm_name,0.558,w489376571,,,Olmos Substation,osm_name,"psse:OLMOSSUB ~ Olmos Substation (name 0.81, kv x1.00, no county)",name,,3,,0,0,,True,1
 OLN,2,69.0,69,LZ_WEST,False,0,33.371119,-98.720372,YOUNG,osm_name,0.686,w1473493000,,,Olney,osm_name,"psse:OLNEY ~ Olney (name 0.95, kv x0.85, no county)",snap,,1,,0,0,,True,3
-OLNEY,0,69.0,69,,False,0,33.371119,-98.720372,YOUNG,osm_name,0.65,w1473493000,,,Olney,osm_name,"code:OLNEY ~ Olney (name 0.90, kv x0.85, no county)",snap,,1,,0,338,,False,3
+OLNEY,0,69.0,69,,False,0,33.371119,-98.720372,YOUNG,osm_name,0.738,w1473493000,,,Olney,osm_name,"code:OLNEY ~ Olney (name 0.90, kv x0.85, no county)",snap,1,1,,0,338,,False,3
 OLNEYTN,4,69.0,69,LZ_WEST,True,2,33.371119,-98.720372,YOUNG,osm_name,0.924,w1473493000,,65832,Olney,eia_unit+osm_name,"cdr:olney ~ Olney (name 0.85, kv x0.85, county 0 km)",snap,,1,0.01,0,0,,True,3
 OLSEN,3,138.0,138;69,LZ_NORTH,False,0,31.776737,-97.564298,BOSQUE,osm_name,0.675,w20697123,,68175,Olsen Substation,osm_name,"code:OLSEN ~ Olsen Substation (name 0.90, kv x1.00, tap-county 0 km)",name,,2,18.3,0,57,,True,1
 OLYSW,11,138.0,138,LZ_NORTH,True,1,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -3332,7 +3332,7 @@ OZTSW,7,345.0,345,LZ_WEST,True,1,34.485162,-101.971401,SWISHER,eia_unit,0.6,w148
 P0,3,138.0,138,LZ_SOUTH,False,0,29.363341,-98.495843,BEXAR,osm_name,0.817,w319741933,301191,,Harlandale Substation,osm_name,"psse:HARLANDA ~ Harlandale Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,LZ_CPS,True,1
 P1,2,138.0,138,LZ_SOUTH,False,0,29.611783,-98.374423,BEXAR,osm_name,0.599,w324082929,305346,,Alamo Cement Substation,osm_name,"psse:ALAMO CM ~ Alamo Cement Substation (name 0.73, kv x1.00, no county)",name,1,3,,0,1,,True,1
 P2,6,138.0,138,LZ_SOUTH,True,2,29.358912,-98.40909,BEXAR,osm_name,0.817,w104463532,306416,,Highland Hills Substation,osm_name,"psse:HIGHLAND HIL ~ Highland Hills Substation (name 0.81, kv x1.00, county 0 km)",name,,2,,0,0,LZ_CPS,True,1
-P5,5,138.0,138,LZ_SOUTH,False,0,29.414989,-98.667085,BEXAR,osm_name,0.726,w301979794,301859,,Hunt Lane Substation,osm_name,"psse:HUNT LN ~ Hunt Lane Substation (name 0.76, kv x1.00, no county)",name,1,2,,0,1,LZ_CPS,True,2
+P5,5,138.0,138,LZ_SOUTH,False,0,29.414989,-98.667085,BEXAR,osm_name,0.726,w301979794,301859,,Hunt Lane Substation,osm_name,"psse:HUNT LN ~ Hunt Lane Substation (name 0.76, kv x1.00, no county)",name,1,2,,0,1,LZ_CPS,True,1
 P66SUB12,4,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 P66SUB2,2,69.0,69,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 P66SUB6,2,69.0,69,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -3342,11 +3342,11 @@ PACSW,6,345.0,345,LZ_NORTH,True,1,33.75694,-95.645795,LAMAR,eia_unit,0.386,,,658
 PAD1_ESS,4,138.0,138;34.5,LZ_SOUTH,True,1,29.325064,-98.325615,BEXAR,eia_unit,0.812,w1432424765,,68912;68913;68914,Padua 1,eia_unit,EIA plant Padua 1 (BEXAR) score 0.90,snap,1,5,0.0,0,1,,True,1
 PAD2_ESS,5,138.0,138;34.5,LZ_SOUTH,True,1,26.195479,-97.466179,CAMERON,osm_name,0.497,w512007650,,,Paredes Switching Station,osm_name,"code:PAD2_E ~ Paredes Switching Station (name 0.63, kv x1.00, no county)",name,,4,,0,0,,True,1
 PAD3_ESS,3,138.0,138;34.5,LZ_SOUTH,True,1,26.195479,-97.466179,CAMERON,osm_name,0.497,w512007650,,,Paredes Switching Station,osm_name,"code:PAD3_E ~ Paredes Switching Station (name 0.63, kv x1.00, no county)",name,,4,,0,0,,True,1
-PADC,1,69.0,69,LZ_WEST,False,0,34.014696,-100.299374,COTTLE,osm_name,0.579,w516679303,,,Paducah City Substation,osm_name,"code:PADC ~ Paducah City Substation (name 0.61, kv x1.00, no county)",name,,1,,0,0,,True,2
-PADR,0,69.0,69,,False,0,34.984398,-101.84743,RANDALL,osm_name,0.368,w697911493,304125,,Palo Duro Substation,osm_name,"code:PADR ~ Palo Duro Substation (name 0.65, kv x0.85, no county)",name,0,3,,0,65,,False,0
+PADC,1,69.0,69,LZ_WEST,False,0,34.014696,-100.299374,COTTLE,osm_name,0.579,w516679303,,,Paducah City Substation,osm_name,"code:PADC ~ Paducah City Substation (name 0.61, kv x1.00, no county)",name,,1,,0,0,,True,3
+PADR,0,69.0,69,,False,0,34.014696,-100.299374,COTTLE,override,0.6,w516679303,,,Paducah City Substation,override_name_partner,"G1 override (name_partner): constraint MATADO_PADUCA1_1 = Matador-Paducah; PADR = Paducah (Cottle Co.): AEP 'Paducah City Substation' (69 kV), 49 km from MATADOR, which has OSM lines to the Paducah substations (1 hop); ERCOT's PADUCAR2 is at the same node | was at Palo Duro Substation (RANDALL, conf 0.37, osm_name); 143 km from MATADOR (conf 0.85, MOTLEY) on a 69 kV constraint",override,,1,,0,65,,False,3
 PADRA,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-PADU,2,138.0,138;69,LZ_WEST,False,0,34.014696,-100.299374,COTTLE,osm_name,0.425,w516679303,,,Paducah City Substation,osm_name,"code:PADU ~ Paducah City Substation (name 0.63, kv x1.00, no county)",name,,3,,0,0,,True,2
-PADUCAR2,1,69.0,69,LZ_WEST,False,0,34.014696,-100.299374,COTTLE,osm_name,0.767,w516679303,,,Paducah City Substation,osm_name,"psse:PADUCAH ~ Paducah City Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,2
+PADU,2,138.0,138;69,LZ_WEST,False,0,34.014696,-100.299374,COTTLE,osm_name,0.425,w516679303,,,Paducah City Substation,osm_name,"code:PADU ~ Paducah City Substation (name 0.63, kv x1.00, no county)",name,,3,,0,0,,True,3
+PADUCAR2,1,69.0,69,LZ_WEST,False,0,34.014696,-100.299374,COTTLE,osm_name,0.767,w516679303,,,Paducah City Substation,osm_name,"psse:PADUCAH ~ Paducah City Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,3
 PAGE,1,69.0,69,LZ_WEST,False,0,30.798524,-100.464295,SCHLEICHER,osm_name,0.464,w493442345,,,Page Field Substation,osm_name,"code:PAGE ~ Page Field Substation (name 0.63, kv x1.00, no county)",name,,4,,0,0,,True,0
 PAIGE,2,138.0,138,LZ_SOUTH,False,0,30.214435,-97.13469,BASTROP,osm_name,0.855,w509586591,,,Paige Substation,osm_name,"code:PAIGE ~ Paige Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,LZ_LCRA,True,1
 PAINTCRE,3,138.0,138;69,LZ_WEST,False,0,33.080031,-99.580709,HASKELL,osm_name,0.95,w20952215,,,Paint Creek Substation,osm_name,"gis:Paint Creek ~ Paint Creek Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,1,,0,11,,True,1
@@ -3362,7 +3362,7 @@ PALMHURS,2,138.0,138,LZ_SOUTH,False,0,26.271984,-98.237894,HIDALGO,osm_name,0.61
 PALMITO,6,345.0,345;138,LZ_SOUTH,False,0,25.984557,-97.379889,CAMERON,osm_name,0.95,w487061712,,,Palmito Substation,osm_name,"gis:Palmito ~ Palmito Substation (name 1.00, kv x1.00, county 0 km)",name,,1,,0,0,,True,2
 PALMVIEW,4,138.0,138,LZ_SOUTH,True,1,26.235191,-98.366398,HIDALGO,osm_name,0.924,w512644974,,69511,Palmview Substation,eia_unit+osm_name,"code:PALMVIEW ~ Palmview Substation (name 0.90, kv x1.00, no county)",name,,1,0.46,0,0,,True,1
 PALMWIND,3,138.0,138;34.5,LZ_SOUTH,True,1,26.288889,-97.496389,CAMERON,eia_unit,0.55,w1060258409,,61773,"Palmas Wind, LLC",eia_unit,"EIA plant Palmas Wind, LLC (CAMERON) score 0.91",snap,,1,0.0,0,0,,True,1
-PALOALTO,2,138.0,138,LZ_SOUTH,False,0,29.318207,-98.549711,BEXAR,osm_name,0.724,w320535884,305594,,Palo Alto Substation,osm_name,"code:PALOALTO ~ Palo Alto Substation (name 0.90, kv x1.00, no county)",name,0,2,,0,111,,True,2
+PALOALTO,2,138.0,138,LZ_SOUTH,False,0,26.002143,-97.514082,CAMERON,override,0.8,w513362299,,,Palo Alto Substation,override_alt_site,"G1 override (alt_site): 'Palo Alto Substation', Cameron Co. (the matcher's alternative at 0.43); TPIT-76082 (AEP TCC, 7 buses) and TPIT-73661 (BPUB) list Cameron Co.; 4 km from TITAN_SU, the other end of the 138 kV constraint | was at Palo Alto Substation (BEXAR, conf 0.72, osm_name); 384 km from TITAN_SU (conf 0.61, CAMERON) on a 138 kV constraint",override,,1,,0,111,,True,1
 PALODURO,4,138.0,138,LZ_SOUTH,False,0,28.845922,-99.190583,FRIO,osm_name,0.891,w344086364,,,Palo Duro Substation,osm_name,"code:PALODURO ~ Palo Duro Substation (name 0.90, kv x1.00, no county)",name,1,3,,0,1,,True,1
 PALOM,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 PALOUSE,3,138.0,138,LZ_WEST,True,1,31.157269,-101.831603,UPTON,eia_unit,0.385,w1265697300,,65335,Appaloosa Run Wind,eia_unit,EIA plant Appaloosa Run Wind (UPTON) score 1.00,snap,,1,0.0,0,370,,True,1
@@ -3387,7 +3387,7 @@ PATN_RC,1,138.0,138,LZ_NORTH,False,0,30.238288,-97.870491,TRAVIS,osm_name,0.21,w
 PATRICIA,1,138.0,138,LZ_WEST,False,0,32.549891,-102.008073,DAWSON,osm_name,0.855,w459158248,,,Patricia Substation,osm_name,"code:PATRICIA ~ Patricia Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 PATTON,6,138.0,138,LZ_SOUTH,False,0,30.238288,-97.870491,TRAVIS,osm_name,0.777,w207256326,307483,,Patton Lane Substation,osm_name,"code:PATTON ~ Patton Lane Substation (name 0.77, kv x1.00, no county)",name,,2,,0,0,LZ_AEN,True,1
 PATTSNST,3,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-PAUL,3,138.0,138;69,LZ_WEST,False,0,32.336094,-96.056262,HENDERSON,osm_name,0.055,w533856034,,,Pauline BESS,osm_name,"code:PAUL ~ Pauline BESS (name 0.77, kv x0.85, county 379 km)",snap,0,1,,0,26,,True,1
+PAUL,3,138.0,138;69,LZ_WEST,False,0,34.252326,-99.684751,HARDEMAN,override,0.75,w231066354,,,Lake Pauline Substation,override_name_partner,"G1 override (name_partner): PSS/E LKPAULS = Lake Pauline S: 'Lake Pauline Substation' (AEP 138 kV, Hardeman Co.); queue 26INR0496 and TPIT-61550 list Hardeman/Knox; 11 km from LIBR (Copper Breaks, Hardeman). The matcher had given this OSM node to LPLNE | was at Pauline BESS (HENDERSON, conf 0.06, osm_name); 398 km from LIBR (conf 0.72, HARDEMAN) on a 69 kV constraint",override,,1,,0,26,,True,1
 PAULANN,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 PAULN,5,138.0,138,LZ_NORTH,True,1,32.336094,-96.056262,HENDERSON,osm_name,0.841,w533856034,,66784,Pauline BESS,eia_unit+osm_name,"gis:Pauline ~ Pauline BESS (name 1.00, kv x0.85, county 0 km)",snap,,2,0.19,0,0,,True,1
 PAVLOV,4,138.0,138,LZ_SOUTH,True,2,28.993402,-96.126013,MATAGORDA,osm_name,0.97,w1093583950,,67493,Pavlov BESS,eia_unit+osm_name,"code:PAVLOV ~ Pavlov BESS (name 0.90, kv x0.85, county 0 km)",snap,2,1,0.08,57,52,,True,1
@@ -3420,7 +3420,7 @@ PECAN_BY,1,138.0,138,LZ_WEST,False,0,32.366456,-99.526568,CALLAHAN,osm_name,0.68
 PECKS,2,138.0,138,LZ_WEST,False,0,31.784877,-101.836027,MIDLAND,osm_name,0.436,n11922386120,,,Peck Substation,osm_name,"code:PECKS ~ Peck Substation (name 0.77, kv x0.60, no county)",name,,1,,0,0,,True,0
 PECN_GRV,6,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 PECN_SLR,9,345.0,345;34.5,LZ_NORTH,True,1,34.518098,-102.867197,PARMER,osm_name,0.159,w628846437,306172,,Parmer County Substation,osm_name,"code:PECN ~ Parmer County Substation (name 0.60, kv x0.60, no county)",name,,4,,0,0,,True,0
-PECOS,15,138.0,138,LZ_WEST,False,0,31.275328,-103.117785,REEVES,osm_name,0.509,w1006613113,,,Trans-Pecos Substation,osm_name,"psse:TNPECOS ~ Trans-Pecos Substation (name 0.76, kv x1.00, no county)",name,,4,,0,66,,True,4
+PECOS,15,138.0,138,LZ_WEST,False,0,31.429505,-103.498703,REEVES,osm_name,0.771,w501745941,300880,,Pecos Substation,osm_name,"code:PECOS ~ Pecos Substation (name 0.90, kv x1.00, no county)",name,1,4,,0,66,,True,1
 PECOSRI,1,69.0,69,LZ_WEST,False,0,31.428885,-103.498704,REEVES,osm_name,0.556,w1456918594,300880,,Pecos,osm_name,"psse:PECOSRVR ~ Pecos (name 0.81, kv x0.85, no county)",name,,2,,0,0,,True,1
 PECV,1,138.0,138,LZ_WEST,False,0,31.09668,-102.794867,PECOS,osm_name,0.57,w502149319,,,Pecos Valley Substation,osm_name,"gis:Pecos Valley ~ Pecos Valley Substation (name 1.00, kv x0.60, county 0 km)",name,,4,,0,0,,True,1
 PEDENRD,1,138.0,138,LZ_NORTH,False,0,32.941015,-97.454479,TARRANT,osm_name,0.95,w454866346,307622,,Peden Road Substation,osm_name,"psse:PEDENROAD ~ Peden Road Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -3631,7 +3631,7 @@ PVILL,2,138.0,138,LZ_WEST,False,0,29.753137,-95.184626,HARRIS,osm_name,0.434,w34
 PVPOI,5,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 PV_TAP,0,69.0,69,,False,0,,,,none,0.0,,,,,,,,,,,0,27,,False,0
 PW,2,138.0,138,LZ_HOUSTON,False,0,29.817955,-95.163556,HARRIS,osm_name,0.812,w214753883,,,Parkway Substation,osm_name,"code:PW ~ Parkway Substation (name 0.85, kv x1.00, no county)",name,,1,,0,0,,True,1
-PWEST,10,138.0,138,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.664,w341316599,304049,,West Substation,osm_name,"psse:W PL TI ~ West Substation (name 0.81, kv x1.00, no county)",name,,3,,0,0,,True,5
+PWEST,10,138.0,138,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.664,w341316599,304049,,West Substation,osm_name,"psse:W PL TI ~ West Substation (name 0.81, kv x1.00, no county)",name,,3,,0,0,,True,4
 PWL,1,138.0,138,LZ_HOUSTON,False,0,29.626465,-95.038848,HARRIS,osm_name,0.902,w45169460,,,Powell Substation,osm_name,"psse:POWELL ~ Powell Substation (name 0.95, kv x1.00, no county)",name,,3,,0,0,,True,1
 PWPOD,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 PYOTE,8,138.0,138,LZ_WEST,True,3,31.450767,-103.097758,WARD,osm_name,0.68,w501745920,310506,66008,Pyote Substation,osm_name,"code:PYOTE ~ Pyote Substation (name 0.90, kv x1.00, county 0 km)",name,,2,25.04,0,0,,True,1
@@ -3684,7 +3684,7 @@ RANDADO,3,138.0,138,LZ_SOUTH,True,1,27.18,-98.916667,JIM HOGG,eia_unit,0.94,w453
 RANDADOS,1,138.0,138,LZ_SOUTH,False,0,27.083516,-98.928524,JIM HOGG,osm_name,0.767,w453123216,,,Randado Substation,osm_name,"psse:RANDADOSUB ~ Randado Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,1
 RAND_RC,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_RAYBN,True,0
 RANGERVL,3,69.0,69,LZ_SOUTH,False,0,26.087183,-97.785643,CAMERON,osm_name,0.529,w513282616,,,Rangerville Substation,osm_name,"code:RANGERVL ~ Rangerville Substation (name 0.68, kv x1.00, no county)",name,,3,,0,0,,True,1
-RANGR,2,69.0,69,LZ_WEST,False,0,32.471776,-98.640892,EASTLAND,osm_name,0.652,w733758390,,,Ranger Substation,osm_name,"psse:RANGER ~ Ranger Substation (name 0.95, kv x0.85, no county)",name,,3,,0,0,,True,2
+RANGR,2,69.0,69,LZ_WEST,False,0,32.471776,-98.640892,EASTLAND,osm_name,0.652,w733758390,,,Ranger Substation,osm_name,"psse:RANGER ~ Ranger Substation (name 0.95, kv x0.85, no county)",name,,3,,0,0,,True,1
 RANKIN,1,69.0,69,LZ_WEST,False,0,31.217914,-101.937498,UPTON,osm_name,0.855,w496524764,,,Rankin Substation,osm_name,"code:RANKIN ~ Rankin Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,2
 RANKIN4,1,69.0,69,LZ_WEST,False,0,31.217914,-101.937498,UPTON,osm_name,0.855,w496524764,,,Rankin Substation,osm_name,"code:RANKIN4 ~ Rankin Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,2
 RAO,8,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -3723,7 +3723,7 @@ RDRSE,4,138.0,138,LZ_SOUTH,False,0,30.485315,-97.645045,WILLIAMSON,osm_name,0.63
 RDRUNNER,1,138.0,138,LZ_WEST,False,0,31.207745,-102.181858,UPTON,osm_name,0.4,w1104486306,,,Roadrunner,osm_name,"code:RDRUNNER ~ Roadrunner (name 0.70, kv x0.60, no county)",name,,1,,0,0,,True,0
 RDWELLS,8,138.0,138,LZ_NORTH,False,0,33.208806,-97.181376,DENTON,hifld_name,0.504,w524697125,306833,,R.D. WELLS INTERCHANGE,hifld_name,"code:RDWELLS ~ R.D. WELLS INTERCHANGE (name 0.63, kv x1.00, no county)",snap,,1,,0,0,,True,1
 RE,6,138.0,138,LZ_HOUSTON,False,0,29.563719,-95.762439,FORT BEND,osm_name,0.862,w288314536,305792,,Reading Substation,osm_name,"code:RE ~ Reading Substation (name 0.85, kv x1.00, no county)",name,,1,,0,0,,True,1
-READING,1,138.0,138,LZ_SOUTH,False,0,29.563719,-95.762439,FORT BEND,osm_name,0.382,w288314536,305792,,Reading Substation,osm_name,"code:READING ~ Reading Substation (name 0.90, kv x1.00, no county)",name,0,1,,0,17,,True,1
+READING,1,138.0,138,LZ_SOUTH,False,0,29.242617,-99.74213,UVALDE,neighbor,0.55,w1378736024,,,,neighbor,only compatible OSM substation within 2 line hops of 2 confident binding-constraint neighbour(s),neighbor,2,1,,0,17,,True,2
 REAST,3,138.0,138,LZ_NORTH,False,0,32.803684,-96.819205,DALLAS,osm_name,0.473,w342897843,,,Reagan Street Substation,osm_name,"code:REAST ~ Reagan Street Substation (name 0.63, kv x1.00, no county)",name,,3,,0,0,,True,1
 REATA,2,345.0,345,LZ_NORTH,False,0,32.438238,-99.15766,CALLAHAN,eia_unit,0.42,w1560303477,,68200,Sequoia 1,eia_unit,EIA plant Sequoia 1 (EASTLAND) score 0.56,snap,,1,0.0,0,0,,True,0
 REBECCA,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,41,,True,0
@@ -3746,7 +3746,7 @@ REDTAP,2,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 REDWOO,5,138.0,138,LZ_SOUTH,False,0,29.850531,-97.944756,HAYS,osm_name,0.777,w31110361,308202,,Redwood Substation,osm_name,"code:REDWOO ~ Redwood Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,LZ_LCRA,True,1
 RED_RIVR,2,69.0,69,LZ_NORTH,False,0,34.600219,-100.517909,HALL,osm_name,0.342,w498280309,,,Red River Substation,osm_name,"code:RED_RIVR ~ Red River Substation (name 0.72, kv x1.00, no county)",name,,1,,0,0,,True,0
 REF,10,345.0,345,LZ_HOUSTON,True,2,28.8433,-95.8631,MATAGORDA,eia_unit,0.589,w1340871087,,62417,Peyton Creek Wind Farm LLC,eia_unit,EIA plant Peyton Creek Wind Farm LLC (MATAGORDA) score 0.66,snap,1,1,0.0,84,2,,True,2
-REFORZAR,3,345.0,345,LZ_SOUTH,False,0,27.819197,-97.799938,NUECES,eia_unit,0.595,,,68034,Sunscape Renewable Energy,eia_unit,EIA plant Sunscape Renewable Energy (NUECES) score 0.79,,,1,0.0,0,0,,True,0
+REFORZAR,3,345.0,345,LZ_SOUTH,False,0,,,,none,0.0,,,68034,Sunscape Renewable Energy,,,,,,,0,0,,True,0
 REFUGIO,3,69.0,69,LZ_SOUTH,False,0,28.301214,-97.266491,REFUGIO,osm_name,0.727,w514876406,,,Refugio Substation,osm_name,"code:REFUGIO ~ Refugio Substation (name 0.90, kv x1.00, no county)",name,,2,,0,0,,True,2
 REGST,4,138.0,138,LZ_NORTH,False,0,32.803684,-96.819205,DALLAS,osm_name,0.817,w342897843,309054,,Reagan Street Substation,osm_name,"psse:REAGAN ~ Reagan Street Substation (name 0.81, kv x1.00, no county)",name,,3,,0,0,,True,1
 RELLIS,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -3773,8 +3773,8 @@ RGFTW,7,138.0,138,LZ_NORTH,False,0,31.74611,-97.177305,MCLENNAN,osm_name,0.564,w
 RGH,1,138.0,138,LZ_NORTH,False,0,31.74611,-97.177305,MCLENNAN,osm_name,0.584,w172714150,,,Rogers Hill Substation,osm_name,"psse:ROGERSHL ~ Rogers Hill Substation (name 0.76, kv x1.00, no county)",name,,2,,0,0,,True,2
 RGLRW,2,138.0,138,LZ_NORTH,False,0,32.829742,-96.883348,DALLAS,hifld_name,0.584,w450109815,303634,,REGAL ROW,hifld_name,"psse:REGRW ~ REGAL ROW (name 0.73, kv x1.00, no county)",snap,,1,,0,0,,True,1
 RGPSW,3,345.0,345,LZ_NORTH,True,1,31.39376,-98.35936,MILLS,eia_unit,0.92,,,65790,Castle Gap Wind,eia_unit,EIA plant Castle Gap Wind (MILLS) score 0.95 LMP-node designation,,,1,0.0,0,0,,True,0
-RGR,6,138.0,138,LZ_HOUSTON,False,0,32.471776,-98.640892,EASTLAND,osm_name,0.315,w733758390,,,Ranger Substation,osm_name,"psse:RANGER ~ Ranger Substation (name 0.95, kv x0.85, no county)",name,,3,,0,0,,True,2
-RGRSW,5,345.0,345;138;69,LZ_WEST,False,0,32.471776,-98.640892,EASTLAND,osm_name,0.261,w733758390,,,Ranger Substation,osm_name,"psse:RANGER ~ Ranger Substation (name 0.95, kv x0.85, tap-county 193 km)",name,0,3,,0,12,,True,2
+RGR,6,138.0,138,LZ_HOUSTON,False,0,32.471776,-98.640892,EASTLAND,osm_name,0.315,w733758390,,,Ranger Substation,osm_name,"psse:RANGER ~ Ranger Substation (name 0.95, kv x0.85, no county)",name,,3,,0,0,,True,1
+RGRSW,5,345.0,345;138;69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,12,,True,0
 RG_LNG,1,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 RH,9,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,32,,True,0
 RHA,3,138.0,138;34.5,LZ_HOUSTON,True,1,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -3789,9 +3789,9 @@ RICHSP,2,69.0,69,LZ_NORTH,False,0,31.295394,-98.931637,SAN SABA,osm_name,0.644,w
 RICOCHET,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 RICRDOS,1,69.0,69,LZ_SOUTH,False,0,27.414054,-97.776483,KLEBERG,osm_name,0.767,w511539392,,,Ricardo Substation,osm_name,"psse:RICARDOSUB ~ Ricardo Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,1
 RICSW,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-RIDGE,2,138.0,138,LZ_NORTH,False,0,31.104796,-96.294607,ROBERTSON,osm_name,0.855,w629674903,,,Ridge Substation,osm_name,"code:RIDGE ~ Ridge Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,2
+RIDGE,2,138.0,138,LZ_NORTH,False,0,31.104796,-96.294607,ROBERTSON,osm_name,0.855,w629674903,,,Ridge Substation,osm_name,"code:RIDGE ~ Ridge Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 RIDGMA,2,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_LCRA,True,0
-RIDGV,3,138.0,138,LZ_NORTH,False,0,31.104796,-96.294607,ROBERTSON,osm_name,0.767,w629674903,,,Ridge Substation,osm_name,"psse:RIDGEVW ~ Ridge Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,2
+RIDGV,3,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 RIESW,7,138.0,138,LZ_NORTH,True,1,31.45,-96.86,FALLS,eia_unit,0.94,w1464597396,,67019,"Copperhead Solar, LLC",eia_unit,"EIA plant Copperhead Solar, LLC (MCLENNAN) score 0.95 LMP-node designation",snap,1,1,0.0,0,1,,True,2
 RIG,8,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 RIGGINS,3,138.0,138;34.5,LZ_WEST,True,1,31.054402,-102.851033,PECOS,osm_name,0.855,w579695437,,60044,Riggins Substation,osm_name,"code:RIGGINS ~ Riggins Substation (name 0.90, kv x1.00, county 0 km)",name,,2,60.46,0,0,,True,1
@@ -3809,7 +3809,7 @@ RIOLAG,4,138.0,138,LZ_SOUTH,True,1,29.755879,-99.09535,BANDERA,osm_name,0.727,w1
 RIOMED,4,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 RIONOG,14,345.0,345;22;18,LZ_SOUTH,True,4,29.593106,-97.974931,GUADALUPE,osm_name,0.97,w174198532,302295,55137,Rio Nogales Switchyard,eia_unit+osm_name,"cdr:rio nogales ~ Rio Nogales Switchyard (name 0.85, kv x1.00, county 0 km)",name,1,1,0.17,0,50,,True,1
 RIOPECOS,4,138.0,138;69,LZ_WEST,False,0,31.084861,-102.365071,CROCKETT,osm_name,0.95,w436567314,304832,,Rio Pecos Substation,osm_name,"gis:Rio Pecos ~ Rio Pecos Substation (name 1.00, kv x1.00, county 0 km)",name,,2,,0,2,,True,1
-RIO_BRAV,2,138.0,138,LZ_SOUTH,False,0,27.313834,-99.41952,WEBB,osm_name,0.727,w451971721,,,Rio Brava Substation,osm_name,"code:RIO_BRAV ~ Rio Brava Substation (name 0.77, kv x1.00, tap-county 3 km)",name,,1,,0,0,,True,2
+RIO_BRAV,2,138.0,138,LZ_SOUTH,False,0,27.313834,-99.41952,WEBB,osm_name,0.727,w451971721,,,Rio Brava Substation,osm_name,"code:RIO_BRAV ~ Rio Brava Substation (name 0.77, kv x1.00, tap-county 3 km)",name,,1,,0,0,,True,1
 RIO_GRAN,7,138.0,138;69,LZ_SOUTH,True,2,26.452788,-98.742252,STARR,osm_name,0.802,w512360992,309118,68687,Rio Grande City Substation,osm_name,"gis:RIO GRANDE CITY ~ Rio Grande City Substation (name 1.00, kv x1.00, county 0 km)",name,1,2,10.18,0,229,,True,2
 RIO_GRDE,3,138.0,138,LZ_SOUTH,False,0,26.392582,-98.819384,STARR,osm_name,0.614,w512360983,,,Rio Grande City Substation,osm_name,"psse:RIO GRANDE ~ Rio Grande City Substation (name 0.81, kv x1.00, no county)",name,,2,,0,0,,True,1
 RIO_RICO,2,69.0,69,LZ_SOUTH,False,0,26.091797,-97.90049,HIDALGO,osm_name,0.855,w513282622,,,Rio Rico Substation,osm_name,"code:RIO_RICO ~ Rio Rico Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -3855,7 +3855,7 @@ ROBSTOWN,1,69.0,69,LZ_SOUTH,False,0,27.768613,-97.636107,NUECES,osm_name,0.855,w
 ROBT,1,69.0,69,LZ_WEST,False,0,32.299727,-99.759408,TAYLOR,osm_name,0.598,w195423566,,,Roberts Substation,osm_name,"code:ROBT ~ Roberts Substation (name 0.63, kv x1.00, no county)",name,,2,,0,0,,True,1
 ROBY,2,69.0,69,LZ_WEST,False,0,32.748656,-100.377831,FISHER,osm_name,0.855,w519686441,,,Roby Substation,osm_name,"code:ROBY ~ Roby Substation (name 0.90, kv x1.00, no county)",name,,1,,0,70,,True,1
 ROCHSTER,1,69.0,69,LZ_WEST,False,0,33.317102,-99.856783,HASKELL,osm_name,0.902,w519738940,,,Rochester Substation,osm_name,"psse:ROCHESTER ~ Rochester Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
-ROCKETSW,0,69.0,69,,False,0,30.672906,-97.019169,MILAM,osm_name,0.214,w509663245,,,Rockdale North Substation,osm_name,"code:ROCKET ~ Rockdale North Substation (name 0.60, kv x1.00, no county)",name,0,2,,0,1,,False,0
+ROCKETSW,0,69.0,69,,False,0,,,,none,0.0,,,,,,,,,,,0,1,,False,0
 ROCKETT,1,69.0,69,LZ_NORTH,False,0,32.456144,-96.737736,ELLIS,eia_unit,0.75,w386813038,,68166,Dolomite Storage,eia_unit,EIA plant Dolomite Storage (ELLIS) score 1.00,snap,,5,0.0,0,1,,True,1
 ROCKHILL,4,138.0,138,LZ_NORTH,False,0,33.203111,-96.793277,COLLIN,osm_name,0.905,w341162180,307119,,Rock Hill Substation,osm_name,"code:ROCKHILL ~ Rock Hill Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 ROCKIS,6,138.0,138,LZ_SOUTH,True,1,29.550065,-96.537906,COLORADO,osm_name,0.969,w520305127,,59938;69760,Rock Island Substation,eia_unit+osm_name,"gis:Rock Island ~ Rock Island Substation (name 1.00, kv x1.00, county 0 km)",name,,2,0.13,0,0,,True,1
@@ -3902,7 +3902,7 @@ RPUBRDS,3,138.0,138;34.5,LZ_NORTH,True,1,30.881449,-96.625216,ROBERTSON,osm_name
 RRANCHES,5,138.0,138;34.5,LZ_WEST,True,1,31.358307,-103.335667,REEVES,osm_name,0.873,w1533357715,,67175,Rodeo Ranch Energy Storage,eia_unit+osm_name,"cdr:rodeo ~ Rodeo Ranch Energy Storage (name 0.85, kv x0.85, county 0 km)",snap,,1,0.57,0,0,,True,1
 RRC_WIND,8,345.0,345;34.5,LZ_NORTH,True,1,32.413713,-99.107808,EASTLAND,osm_name,0.784,w1342286231,,66902,Roadrunner Crossing Energy Storage,eia_unit+osm_name,"cdr:roadrunner crossing ~ Roadrunner Crossing Energy Storage (name 0.85, kv x0.85, county 0 km)",snap,,2,2.64,0,0,,True,1
 RRDSW,9,345.0,345,LZ_NORTH,True,1,31.473485,-96.960392,MCLENNAN,osm_name,0.96,w125920534,,56611,Rattlesnake Road Substation,eia_unit+osm_name,"psse:RAT SNAKE ~ Rattlesnake Road Substation (name 0.65, kv x1.00, tap-county 0 km)",name,,2,0.32,0,0,,True,2
-RRISW,2,138.0,138,LZ_WEST,False,0,32.471776,-98.640892,EASTLAND,osm_name,0.652,w733758390,,,Ranger Substation,osm_name,"psse:RANGERIDER ~ Ranger Substation (name 0.81, kv x0.85, no county)",name,,1,,0,0,,True,2
+RRISW,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 RRNES,3,138.0,138,LZ_SOUTH,False,0,30.541459,-97.648899,WILLIAMSON,osm_name,0.687,w340389556,305850,,Round Rock Northeast Substation,osm_name,"psse:RNDRCKNE ~ Round Rock Northeast Substation (name 0.67, kv x1.00, no county)",name,,1,,0,0,,True,1
 RRPOD,3,138.0,138,LZ_WEST,False,0,31.207745,-102.181858,UPTON,osm_name,0.422,w1104486306,,,Roadrunner,osm_name,"psse:RDRUNNER ~ Roadrunner (name 0.74, kv x0.60, no county)",name,,1,,0,0,,True,0
 RRSTH,6,138.0,138,LZ_SOUTH,False,0,30.474241,-97.694171,WILLIAMSON,osm_name,0.627,w339132894,300209,,Round Rock South Substation,osm_name,"code:RRSTH ~ Round Rock South Substation (name 0.61, kv x1.00, no county)",name,,1,,0,0,,True,2
@@ -3919,7 +3919,7 @@ RT,4,138.0,138,LZ_HOUSTON,False,0,29.099849,-95.492773,BRAZORIA,osm_name,0.804,w
 RTHGB,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 RTLSNAKE,6,138.0,138,LZ_WEST,True,1,31.568978,-103.226631,WARD,eia_unit,0.75,w501745978,,65831;65833,Rattlesnake (TX),eia_unit,EIA plant Rattlesnake (TX) (WARD) score 1.00,snap,,3,0.0,0,0,,True,3
 RTPOD,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-RTRSW,4,345.0,345;138,LZ_WEST,False,0,33.640505,-97.332538,COOKE,osm_name,0.054,w374695161,,,Regis Muenster,osm_name,"psse:REITER ~ Regis Muenster (name 0.63, kv x0.85, tap-county 503 km)",snap,0,1,,0,77,,True,1
+RTRSW,4,345.0,345;138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,77,,True,0
 RTS,5,345.0,345;34.5,LZ_WEST,True,1,31.360331,-99.551356,MCCULLOCH,eia_unit,0.265,,,60743,"Rattlesnake Power, LLC",eia_unit,"EIA plant Rattlesnake Power, LLC (MCCULLOCH) score 0.55",,,1,0.0,0,0,,True,0
 RTS2,5,345.0,345;34.5,LZ_WEST,True,1,31.242177,-99.421266,MCCULLOCH,eia_unit,0.264,w1009208929,,61032,Heart of Texas Wind Project,eia_unit,EIA plant Heart of Texas Wind Project (MCCULLOCH) score 0.55,snap,,1,0.0,0,0,,True,0
 RTW,12,345.0,345;138,LZ_HOUSTON,False,0,30.090381,-95.48954,HARRIS,osm_name,0.738,w127286698,303513,,Rothwood Substation,osm_name,"psse:RTHWOD ~ Rothwood Substation (name 0.72, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -3950,7 +3950,7 @@ RWDHV,2,138.0,138,LZ_NORTH,False,0,32.938212,-96.715114,DALLAS,osm_name,0.646,w3
 RWYSW,4,138.0,138,LZ_WEST,True,1,31.723088,-102.519648,ECTOR,eia_unit,0.38,w1560226721,,68588,Swift Air Solar III,eia_unit,EIA plant Swift Air Solar III (ECTOR) score 0.51,snap,,1,0.0,0,0,,True,0
 RXALL,6,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 RYLTY,1,138.0,138,LZ_WEST,False,0,31.388476,-102.869451,WARD,osm_name,0.592,w500808483,309397,,Royalty Substation,osm_name,"psse:ROYALTY ~ Royalty Substation (name 0.95, kv x0.60, no county)",name,,1,,0,0,,True,1
-RYSSW,6,345.0,345;138,LZ_NORTH,False,0,32.969105,-96.350692,ROCKWALL,osm_name,0.794,w172031354,310361,67987,Royse Substation,osm_name,"gis:Royse Switch ~ Royse Substation (name 1.00, kv x1.00, county 0 km)",name,2,4,22.23,19,202,,True,1
+RYSSW,6,345.0,345;138,LZ_NORTH,False,0,32.969105,-96.350692,ROCKWALL,osm_name,0.794,w172031354,310361,67987,Royse Substation,osm_name,"gis:Royse Switch ~ Royse Substation (name 1.00, kv x1.00, county 0 km)",name,3,4,22.23,19,202,,True,1
 RZ,6,138.0,138,LZ_HOUSTON,False,0,29.353714,-95.429661,BRAZORIA,osm_name,0.725,w339232125,309592,68583,Rosharon Substation,osm_name,"gis:Rosharon ~ Rosharon Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,2,6.09,0,0,,True,2
 S3,3,138.0,138,LZ_SOUTH,False,0,29.578223,-98.207302,GUADALUPE,osm_name,0.817,w174336329,301695,,Cibolo Substation,osm_name,"psse:CIBOLOCR ~ Cibolo Substation (name 0.81, kv x1.00, no county)",name,,2,,0,0,LZ_CPS,True,2
 S4,5,138.0,138,LZ_SOUTH,False,0,29.548531,-98.343115,BEXAR,osm_name,0.962,w172102340,302944,,Fratt Substation,osm_name,"psse:FRATT ~ Fratt Substation (name 0.95, kv x1.00, no county)",name,1,1,,0,3,LZ_CPS,True,1
@@ -3964,13 +3964,13 @@ SACRC,3,138.0,138,LZ_WEST,False,0,32.742305,-100.98568,SCURRY,osm_name,0.927,w46
 SADLBACK,12,138.0,138,LZ_WEST,True,3,31.332282,-103.499936,REEVES,osm_name,0.873,w1520438176,,65834,Saddleback,eia_unit+osm_name,"cdr:saddleback ~ Saddleback (name 0.85, kv x0.85, county 0 km)",snap,,1,0.16,0,0,,True,1
 SAEM,1,69.0,69,LZ_WEST,False,0,29.821552,-104.324998,PRESIDIO,osm_name,0.459,w503420913,,,Shafter Mine Substation,osm_name,"code:SAEM ~ Shafter Mine Substation (name 0.61, kv x1.00, no county)",name,,3,,0,4,,True,1
 SAGC,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-SAGE,1,69.0,69,LZ_WEST,False,0,31.395144,-100.492913,TOM GREEN,osm_name,0.603,w192531359,,,San Angelo Power Station,osm_name,"code:SAGE ~ San Angelo Power Station (name 0.64, kv x1.00, no county)",name,,3,,0,0,,True,2
+SAGE,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 SAGEDRAW,5,345.0,345;34.5,LZ_WEST,True,1,33.303497,-101.65722,LYNN,eia_unit,0.434,,,62620,Sage Draw Wind,eia_unit,EIA plant Sage Draw Wind (LYNN) score 1.00,,,3,0.0,0,0,,True,0
 SAH,5,345.0,345;34.5,LZ_HOUSTON,True,1,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 SAINT_JO,2,69.0,69,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 SALDS,2,138.0,138,LZ_NORTH,False,0,30.971238,-97.513036,BELL,osm_name,0.927,w174019703,,,Salado Substation,osm_name,"psse:SALADO ~ Salado Substation (name 0.95, kv x1.00, no county)",name,1,1,,311,229,,True,1
-SALEM,3,345.0,345;138,LZ_SOUTH,False,0,30.215809,-97.790029,TRAVIS,osm_name,0.584,w206176305,306475,,Salem Walk Substation,osm_name,"code:SALEM ~ Salem Walk Substation (name 0.77, kv x1.00, no county)",name,,4,,0,3,,True,2
-SALEM1,4,138.0,138,LZ_SOUTH,False,0,30.215809,-97.790029,TRAVIS,osm_name,0.584,w206176305,306475,,Salem Walk Substation,osm_name,"code:SALEM1 ~ Salem Walk Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,LZ_AEN,True,2
+SALEM,3,345.0,345;138,LZ_SOUTH,False,0,30.111212,-96.425664,WASHINGTON,override,0.7,w97848904,,,Salem Substation,override_alt_site,"G1 override (alt_site): PSS/E L_SALEM_8/5 (LCRA TSC naming, as L_BRENNO) = 'Salem Substation', Washington Co. (name 0.90, the matcher's alternative at 0.64), 5.1 km from HIGH36 and 8.9 km from BRENNO | was at Salem Walk Substation (TRAVIS, conf 0.58, osm_name); 327 km from HIGH36 (conf 0.54, DENTON) on a 138 kV constraint",override,,1,,0,3,,True,1
+SALEM1,4,138.0,138,LZ_SOUTH,False,0,30.215809,-97.790029,TRAVIS,osm_name,0.584,w206176305,306475,,Salem Walk Substation,osm_name,"code:SALEM1 ~ Salem Walk Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,LZ_AEN,True,1
 SALEM11,1,138.0,138,LZ_NORTH,False,0,32.320653,-101.349858,HOWARD,osm_name,0.318,w456417961,,,Salem Substation,osm_name,"code:SALEM11 ~ Salem Substation (name 0.90, kv x1.00, no county)",name,,4,,0,0,,True,3
 SALSW,5,345.0,345;138,LZ_NORTH,False,0,30.972126,-97.511119,BELL,osm_name,0.927,w174019698,,,Salado Switching Station,osm_name,"psse:SALADO ~ Salado Switching Station (name 0.95, kv x1.00, no county)",name,1,1,,683,39,,True,1
 SALTDOME,2,69.0,69,LZ_SOUTH,False,0,28.993441,-96.141735,MATAGORDA,osm_name,0.855,w516225622,,,Salt Dome Substation,osm_name,"code:SALTDOME ~ Salt Dome Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -3982,13 +3982,13 @@ SALTMINE,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 SALTY11,1,138.0,138,LZ_SOUTH,False,0,30.596279,-97.132617,MILAM,osm_name,0.855,w509663249,,,Salty Substation,osm_name,"code:SALTY11 ~ Salty Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,2
 SALVTION,5,345.0,345;34.5,LZ_WEST,True,1,33.345366,-99.624257,HASKELL,eia_unit,0.92,w1060364773,,60901,Willow Springs Wind Farm,eia_unit,EIA plant Willow Springs Wind Farm (HASKELL) score 1.00 LMP-node designation,snap,,3,0.0,0,0,,True,1
 SAMATHIS,2,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,414,320,,True,0
-SAMSON_1,10,345.0,345;34.5,LZ_NORTH,True,1,33.426498,-95.357449,LAMAR,eia_unit,0.528,w1132203362,,63882;63883,Samson Solar Energy III LLC,eia_unit,EIA plant Samson Solar Energy III LLC (LAMAR) score 0.70,snap,,1,0.0,0,0,,True,3
-SAMSON_3,5,345.0,345;34.5,LZ_NORTH,True,1,33.426498,-95.357449,LAMAR,eia_unit,0.6,w1132203362,,63882;63883,Samson Solar Energy III LLC,eia_unit,EIA plant Samson Solar Energy III LLC (LAMAR) score 0.90,snap,,1,0.0,0,0,,True,3
+SAMSON_1,10,345.0,345;34.5,LZ_NORTH,True,1,33.426498,-95.357449,LAMAR,eia_unit,0.528,w1132203362,,63882;63883,Samson Solar Energy III LLC,eia_unit,EIA plant Samson Solar Energy III LLC (LAMAR) score 0.70,snap,,1,0.0,0,0,,True,2
+SAMSON_3,5,345.0,345;34.5,LZ_NORTH,True,1,33.426498,-95.357449,LAMAR,eia_unit,0.6,w1132203362,,63882;63883,Samson Solar Energy III LLC,eia_unit,EIA plant Samson Solar Energy III LLC (LAMAR) score 0.90,snap,,1,0.0,0,0,,True,2
 SAMSW,13,345.0,345,LZ_NORTH,True,1,31.897696,-97.018086,HILL,osm_name,0.97,w386799112,,66391;66774,Sam Switching Station,eia_unit+osm_name,"gis:Sam Switch ~ Sam Switching Station (name 1.00, kv x1.00, county 0 km)",name,2,1,1.52,0,109,,True,2
 SAN,6,138.0,138,LZ_HOUSTON,False,0,29.245055,-95.874765,WHARTON,eia_unit,0.351,w520385182,,67568,Wittig Solar Park,eia_unit,EIA plant Wittig Solar Park (WHARTON) score 0.67,snap,,1,0.0,0,0,,True,2
-SANA,2,69.0,69,LZ_WEST,False,0,31.395144,-100.492913,TOM GREEN,osm_name,0.648,w192531359,309302,,San Angelo Power Station,osm_name,"code:SANA ~ San Angelo Power Station (name 0.63, kv x1.00, no county)",name,,2,,0,108,,True,2
+SANA,2,69.0,69,LZ_WEST,False,0,31.395144,-100.492913,TOM GREEN,osm_name,0.648,w192531359,309302,,San Angelo Power Station,osm_name,"code:SANA ~ San Angelo Power Station (name 0.63, kv x1.00, no county)",name,,2,,0,108,,True,1
 SANDCRAB,2,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-SANDHI,1,138.0,138,LZ_SOUTH,False,0,30.277981,-96.327276,WASHINGTON,osm_name,0.523,w511344241,,,Sandy Hill Substation,osm_name,"code:SANDHI ~ Sandy Hill Substation (name 0.70, kv x1.00, no county)",name,,3,,0,9,LZ_LCRA,True,2
+SANDHI,1,138.0,138,LZ_SOUTH,False,0,30.277981,-96.327276,WASHINGTON,osm_name,0.642,w511344241,,,Sandy Hill Substation,osm_name,"code:SANDHI ~ Sandy Hill Substation (name 0.70, kv x1.00, no county)",name,1,3,,0,9,LZ_LCRA,True,2
 SANDHSYD,17,138.0,138;18;13.8,LZ_SOUTH,True,4,30.209645,-97.614083,TRAVIS,osm_name,0.954,w416487249,308831,7900,Sand Hill Switchyard,eia_unit+osm_name,"cdr:sandhill ~ Sand Hill Switchyard (name 0.85, kv x1.00, county 0 km)",name,,3,0.12,0,0,LZ_AEN,True,1
 SANDIAS,1,69.0,69,LZ_SOUTH,False,0,28.034846,-97.866708,JIM WELLS,osm_name,0.767,w489453634,,,Sandia Substation,osm_name,"psse:SANDIASUB ~ Sandia Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,1
 SANDLAKE,7,138.0,138,LZ_WEST,True,1,31.508579,-103.617338,REEVES,osm_name,0.586,w1006401457,,67496,Sandlake BESS,eia_unit+osm_name,"code:SANDLAKE ~ Sandlake BESS (name 0.90, kv x0.85, no county)",snap,,2,0.03,0,4,,True,1
@@ -4108,7 +4108,7 @@ SGMTN,7,69.0,69;24.9,LZ_WEST,True,1,32.207245,-101.38802,HOWARD,osm_name,0.514,w
 SGOVL,3,138.0,138,LZ_NORTH,False,0,32.67386,-96.548933,DALLAS,osm_name,0.525,w172349685,309895,,Seagoville Substation,osm_name,"code:SGOVL ~ Seagoville Substation (name 0.61, kv x1.00, no county)",name,,2,,0,0,,True,1
 SGRAS,1,138.0,138,LZ_WEST,False,0,32.2376,-99.77643,TAYLOR,osm_name,0.252,w1392720326,,,Snodgrass Substation,osm_name,"code:SGRAS ~ Snodgrass Substation (name 0.62, kv x1.00, tap-county 112 km)",name,,2,,0,0,,True,0
 SGRSW,6,345.0,345,LZ_NORTH,True,1,31.25,-96.39,ROBERTSON,eia_unit,0.498,,,68483,"Diver Solar, LLC",eia_unit,"EIA plant Diver Solar, LLC (LIMESTONE) score 0.79",,,2,0.0,0,0,,True,0
-SGSA,7,138.0,138;69,LZ_WEST,True,2,31.042023,-103.653006,REEVES,osm_name,0.97,w501036527,307076,69350;70204,Saragosa Substation,eia_unit+osm_name,"gis:Saragosa ~ Saragosa Substation (name 1.00, kv x1.00, county 0 km)",name,,1,0.22,0,0,,True,2
+SGSA,7,138.0,138;69,LZ_WEST,True,2,31.042023,-103.653006,REEVES,osm_name,0.97,w501036527,307076,69350;70204,Saragosa Substation,eia_unit+osm_name,"gis:Saragosa ~ Saragosa Substation (name 1.00, kv x1.00, county 0 km)",name,,1,0.22,0,0,,True,1
 SGSUB,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 SGVSW,2,345.0,345;138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,536,205,,True,0
 SH,7,138.0,138,LZ_HOUSTON,False,0,29.628974,-95.225152,HARRIS,osm_name,0.732,w46708373,306495,,South Houston Substation,osm_name,"code:SH ~ South Houston Substation (name 0.85, kv x1.00, no county)",name,,4,,0,0,,True,1
@@ -4142,8 +4142,8 @@ SHERPO,3,138.0,138,LZ_SOUTH,False,0,29.664658,-98.162597,COMAL,hifld_name,0.428,
 SHERSH,4,138.0,138,LZ_SOUTH,False,0,30.609759,-98.379976,BURNET,osm_name,0.599,w504635046,,,Sherwood Shores Substation,osm_name,"code:SHERSH ~ Sherwood Shores Substation (name 0.63, kv x1.00, no county)",name,,1,,0,0,LZ_LCRA,True,2
 SHERY_LC,1,69.0,69,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 SHHA,1,69.0,69,LZ_WEST,False,0,32.661454,-96.861587,DALLAS,hifld_name,0.24,,303543,,SOUTH HAMPTON,hifld_name,"code:SHHA ~ SOUTH HAMPTON (name 0.60, kv x1.00, no county)",,,1,,0,0,,True,0
-SHILO,1,138.0,138,LZ_NORTH,False,0,31.893041,-98.572886,COMANCHE,osm_name,0.645,w507399215,,,Shiloh Substation,osm_name,"psse:SHILOHC ~ Shiloh Substation (name 0.81, kv x1.00, no county)",name,,2,,0,0,,True,2
-SHILOH,7,138.0,138;69,LZ_NORTH,False,0,31.893041,-98.572886,COMANCHE,osm_name,0.719,w507399215,,,Shiloh Substation,osm_name,"code:SHILOH ~ Shiloh Substation (name 0.90, kv x1.00, no county)",name,,2,,0,0,,True,2
+SHILO,1,138.0,138,LZ_NORTH,False,0,31.893041,-98.572886,COMANCHE,osm_name,0.645,w507399215,,,Shiloh Substation,osm_name,"psse:SHILOHC ~ Shiloh Substation (name 0.81, kv x1.00, no county)",name,,2,,0,0,,True,1
+SHILOH,7,138.0,138;69,LZ_NORTH,False,0,32.900481,-96.666877,DALLAS,override,0.75,w346508814,,,Shiloh Substation,override_family_block,"G1 override (family_block): PSS/E 830 is in the GP&L block 802-860 (Garland); OSM 'Shiloh Substation' is operated by Garland Power & Light (138 kV, Dallas Co.) and is claimed by no other ERCOT sub | was at Shiloh Substation (COMANCHE, conf 0.72, osm_name)",override,,1,,0,0,,True,1
 SHINER,2,138.0,138,LZ_SOUTH,False,0,29.432644,-97.15465,LAVACA,osm_name,0.855,w403120616,,,Shiner Substation,osm_name,"code:SHINER ~ Shiner Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,LZ_LCRA,True,1
 SHINOAK,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 SHLMT,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -4195,7 +4195,7 @@ SLBLF,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,2,,True,0
 SLCNHLS,5,138.0,138;34.5,LZ_SOUTH,True,1,30.412393,-97.573747,TRAVIS,osm_name,0.848,w1167297825,,65695,TX12 Silicon Hill Storage,eia_unit+osm_name,"cdr:silicon hill ~ TX12 Silicon Hill Storage (name 0.68, kv x0.85, county 0 km)",snap,,1,0.04,0,0,,True,1
 SLD,1,138.0,138,LZ_NORTH,False,0,32.186771,-98.157276,ERATH,osm_name,0.902,w517717762,,,Selden Substation,osm_name,"psse:SELDEN ~ Selden Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,1
 SLKPD,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-SLKSW,4,345.0,345;138,LZ_WEST,False,0,31.510501,-103.464513,WARD,osm_name,0.755,w1006103059,,,Sand Lake Switching Station,osm_name,"gis:Sand Lake Switch Station ~ Sand Lake Switching Station (name 1.00, kv x1.00, county 0 km)",name,,2,,514,125,,True,1
+SLKSW,4,345.0,345;138,LZ_WEST,False,0,31.510501,-103.464513,WARD,osm_name,0.816,w1006103059,,,Sand Lake Switching Station,osm_name,"gis:Sand Lake Switch Station ~ Sand Lake Switching Station (name 1.00, kv x1.00, county 0 km)",name,1,2,,514,125,,True,1
 SLK_BESS,3,138.0,138;34.5,LZ_WEST,True,1,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 SLNSW,12,138.0,138,LZ_WEST,True,1,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 SLPOD,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -4315,7 +4315,7 @@ STATIC,3,345.0,345,LZ_SOUTH,True,1,30.630317,-100.81972,SUTTON,osm_name,0.09,w42
 STAUG,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 STBSW,2,345.0,345,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 STCKTNBD,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-STCO,0,69.0,69,,False,0,31.048444,-102.276617,CROCKETT,osm_name,0.59,w496524776,,,South Cross Substation,osm_name,"code:STCO ~ South Cross Substation (name 0.62, kv x1.00, no county)",name,,1,,0,265,,False,2
+STCO,0,69.0,69,,False,0,31.828906,-101.182341,STERLING,override,0.7,w354601983,,,Sterling County Substation,override_name_partner,"G1 override (name_partner): STCO = Sterling County: 'Sterling County Substation' (Golden Spread, 69 kV, Sterling Co.) is the 1-hop 69 kV neighbour of STER (Sterling City, Sterling Co., TPIT-80858) in the graph, 16 km away | was at South Cross Substation (CROCKETT, conf 0.59, osm_name); 149 km from STER (conf 0.49, STERLING) on a 69 kV constraint",override,,1,,0,265,,False,1
 STEAM,21,69.0,69;13.8,LZ_NORTH,True,3,33.1707,-96.1264,HUNT,eia_unit,0.94,w283611935,,4195,Powerlane Plant,eia_unit,EIA plant Powerlane Plant (HUNT) score 0.95 LMP-node designation,snap,1,2,0.0,0,9,,True,3
 STEAM1A,3,13.0,13,LZ_NORTH,True,1,33.1707,-96.1264,HUNT,eia_unit,0.92,w283611935,,4195,Powerlane Plant,eia_unit,EIA plant Powerlane Plant (HUNT) score 0.95 LMP-node designation,snap,,3,0.0,0,0,,True,3
 STECK,4,138.0,138,LZ_SOUTH,False,0,30.367265,-97.741585,TRAVIS,osm_name,0.905,w260647883,303446,,Steck Substation,osm_name,"code:STECK ~ Steck Substation (name 0.90, kv x1.00, no county)",name,,3,,0,0,LZ_AEN,True,1
@@ -4324,14 +4324,14 @@ STEEPHLW,2,138.0,138,LZ_NORTH,False,0,30.687674,-96.269464,BRAZOS,osm_name,0.684
 STEER,2,138.0,138,LZ_WEST,False,0,30.763745,-99.411128,MASON,osm_name,0.615,w493526425,,,Streeter Substation,osm_name,"code:STEER ~ Streeter Substation (name 0.65, kv x1.00, no county)",name,,2,,0,0,,True,1
 STELLA,6,345.0,345;34.5,LZ_SOUTH,True,1,26.941667,-97.6425,KENEDY,eia_unit,0.55,w1060258402,,59063,Stella Wind Farm,eia_unit,EIA plant Stella Wind Farm (KENEDY) score 1.00,snap,,1,0.0,0,0,,True,1
 STELLATP,1,345.0,345,LZ_SOUTH,True,1,26.941667,-97.6425,KENEDY,eia_unit,0.385,w1060258402,,59063,Stella Wind Farm,eia_unit,EIA plant Stella Wind Farm (KENEDY) score 1.00,snap,,1,0.0,0,0,,True,1
-STER,3,69.0,69,LZ_WEST,False,0,31.839814,-101.011201,STERLING,osm_name,0.492,w21237672,,,Sterling City Substation,osm_name,"code:STER ~ Sterling City Substation (name 0.63, kv x1.00, no county)",name,,4,,0,265,,True,1
-STERLING,1,69.0,69,LZ_WEST,False,0,31.839814,-101.011201,STERLING,osm_name,0.618,w21237672,,,Sterling City Substation,osm_name,"code:STERLING ~ Sterling City Substation (name 0.77, kv x1.00, no county)",name,,3,,0,0,,True,1
+STER,3,69.0,69,LZ_WEST,False,0,31.839814,-101.011201,STERLING,osm_name,0.619,w21237672,,,Sterling City Substation,osm_name,"code:STER ~ Sterling City Substation (name 0.63, kv x1.00, no county)",name,1,4,,0,265,,True,2
+STERLING,1,69.0,69,LZ_WEST,False,0,31.839814,-101.011201,STERLING,osm_name,0.618,w21237672,,,Sterling City Substation,osm_name,"code:STERLING ~ Sterling City Substation (name 0.77, kv x1.00, no county)",name,,3,,0,0,,True,2
 STERT,9,138.0,138;69,LZ_NORTH,False,0,29.227786,-94.910684,GALVESTON,osm_name,0.229,w337244621,302842,,Stewart Substation,osm_name,"code:STERT ~ Stewart Substation (name 0.68, kv x1.00, no county)",name,,4,,0,167,,True,1
 STEVENS,2,69.0,69,LZ_SOUTH,False,0,27.860122,-97.619442,NUECES,osm_name,0.855,w489675675,,,Stevens Substation,osm_name,"code:STEVENS ~ Stevens Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 STEWART,15,345.0,345;138;69,LZ_SOUTH,True,1,26.125523,-98.153857,HIDALGO,osm_name,0.97,w512936455,,68189,Stewart Road Substation,eia_unit+osm_name,"gis:Stewart Road ~ Stewart Road Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,2,2.97,0,0,,True,3
 STF,6,138.0,138,LZ_HOUSTON,False,0,29.633727,-95.58919,FORT BEND,osm_name,0.862,w129126606,310288,,Stafford Substation,osm_name,"code:STF ~ Stafford Substation (name 0.85, kv x1.00, no county)",name,,4,,0,0,,True,1
 STHBROCK,2,138.0,138,LZ_NORTH,False,0,30.591594,-96.311057,BRAZOS,osm_name,0.645,w398989842,,,South Substation,osm_name,"psse:SOUTHBROCK ~ South Substation (name 0.81, kv x1.00, no county)",name,,3,,0,0,,True,1
-STHCROSS,1,69.0,69,LZ_WEST,False,0,31.048444,-102.276617,CROCKETT,osm_name,0.684,w496524776,,,South Cross Substation,osm_name,"code:STHCROSS ~ South Cross Substation (name 0.72, kv x1.00, no county)",name,,1,,0,0,,True,2
+STHCROSS,1,69.0,69,LZ_WEST,False,0,31.048444,-102.276617,CROCKETT,osm_name,0.684,w496524776,,,South Cross Substation,osm_name,"code:STHCROSS ~ South Cross Substation (name 0.72, kv x1.00, no county)",name,,1,,0,0,,True,1
 STHLMESA,1,69.0,69,LZ_WEST,False,0,32.690162,-101.902711,DAWSON,osm_name,0.697,w458726867,,,South Lamesa Substation,osm_name,"psse:SLAMESA ~ South Lamesa Substation (name 0.73, kv x1.00, no county)",name,,1,,0,0,,True,1
 STHRL,2,138.0,138,LZ_NORTH,False,0,32.734749,-96.778241,DALLAS,hifld_name,0.434,w32489874,304252,,SOUTHERLAND,hifld_name,"psse:SUTHLD ~ SOUTHERLAND (name 0.66, kv x1.00, no county)",snap,,3,,0,0,,True,0
 STHSD,1,69.0,69,LZ_NORTH,False,0,32.606627,-96.695196,DALLAS,hifld_name,0.247,,305259,,SOUTHSIDE TAP,hifld_name,"code:STHSD ~ SOUTHSIDE TAP (name 0.62, kv x0.60, no county)",,,2,,0,0,,True,0
@@ -4521,7 +4521,7 @@ TINTOP,1,138.0,138,LZ_NORTH,False,0,28.772409,-96.12542,MATAGORDA,osm_name,0.256
 TINTOPS,1,69.0,69,LZ_SOUTH,False,0,28.772409,-96.12542,MATAGORDA,osm_name,0.767,w515869187,,,Tin Top Substation,osm_name,"psse:TINTOPSUB ~ Tin Top Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,1
 TIODE,3,138.0,138,LZ_WEST,False,0,29.637467,-95.571919,FORT BEND,hifld_name,0.323,w340120763,303667,,TEXAS INSTRUMENTS,hifld_name,"psse:TEXASINS ~ TEXAS INSTRUMENTS (name 0.81, kv x1.00, no county)",snap,,1,,0,0,,True,1
 TIPPET,4,138.0,138,LZ_WEST,True,1,30.992147,-102.133835,PECOS,osm_name,0.855,w343434433,,55992,Tippet Substation,osm_name,"code:TIPPET ~ Tippet Substation (name 0.90, kv x1.00, tap-county 0 km)",name,,2,9.41,0,0,,True,1
-TITAN_SU,3,138.0,138,LZ_SOUTH,False,0,25.994602,-97.477941,CAMERON,osm_name,0.614,w513362307,,,Titan Tire Substation,osm_name,"psse:TITAN ~ Titan Tire Substation (name 0.81, kv x1.00, no county)",name,0,2,,0,111,,True,1
+TITAN_SU,3,138.0,138,LZ_SOUTH,False,0,25.994602,-97.477941,CAMERON,osm_name,0.825,w513362307,,,Titan Tire Substation,osm_name,"psse:TITAN ~ Titan Tire Substation (name 0.81, kv x1.00, no county)",name,1,2,,0,111,,True,1
 TI_SOLAR,5,138.0,138;34.5,LZ_WEST,True,1,31.70038,-104.458136,CULBERSON,eia_unit,0.6,w1176962909,,63320,Titan Solar Project,eia_unit,EIA plant Titan Solar Project (CULBERSON) score 0.99,snap,,2,0.0,0,0,,True,2
 TKNPD,3,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 TKR,4,138.0,138,LZ_HOUSTON,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -4588,11 +4588,11 @@ TOPAZ,21,138.0,138;13.8,LZ_HOUSTON,True,1,29.426389,-94.976667,GALVESTON,eia_uni
 TORR,11,345.0,345;34.5,LZ_SOUTH,True,1,27.619042,-98.840085,WEBB,osm_name,0.85,w1007192481,,61969,Torrecillas Substation,eia_unit+osm_name,"cdr:torrecillas ~ Torrecillas Substation (name 0.85, kv x1.00, county 0 km)",name,,2,4.52,0,0,,True,1
 TORT_ESS,3,138.0,138;34.5,LZ_HOUSTON,True,1,29.432388,-95.250809,BRAZORIA,osm_name,0.861,w1469026716,,65493,Tortolas,eia_unit+osm_name,"code:TORT ~ Tortolas (name 0.77, kv x0.85, county 0 km)",snap,,2,0.01,0,0,,True,1
 TOWER,1,69.0,69,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,10,,True,0
-TPCO,2,138.0,138,LZ_SOUTH,False,0,31.275328,-103.117785,REEVES,osm_name,0.223,w1006613113,,,Trans-Pecos Substation,osm_name,"code:TPCO ~ Trans-Pecos Substation (name 0.62, kv x1.00, no county)",name,,2,,0,0,,True,4
-TPECOS,5,138.0,138,LZ_WEST,False,0,31.275328,-103.117785,REEVES,osm_name,0.65,w1006613113,,,Trans-Pecos Substation,osm_name,"code:TPECOS ~ Trans-Pecos Substation (name 0.68, kv x1.00, no county)",name,,1,,0,0,,True,4
+TPCO,2,138.0,138,LZ_SOUTH,False,0,31.275328,-103.117785,REEVES,osm_name,0.223,w1006613113,,,Trans-Pecos Substation,osm_name,"code:TPCO ~ Trans-Pecos Substation (name 0.62, kv x1.00, no county)",name,,2,,0,0,,True,3
+TPECOS,5,138.0,138,LZ_WEST,False,0,31.275328,-103.117785,REEVES,osm_name,0.65,w1006613113,,,Trans-Pecos Substation,osm_name,"code:TPECOS ~ Trans-Pecos Substation (name 0.68, kv x1.00, no county)",name,,1,,0,0,,True,3
 TPECOSPL,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-TPECOSTP,1,138.0,138,LZ_WEST,False,0,31.275328,-103.117785,REEVES,osm_name,0.65,w1006613113,,,Trans-Pecos Substation,osm_name,"code:TPECOS ~ Trans-Pecos Substation (name 0.68, kv x1.00, no county)",name,,1,,0,0,,True,4
-TPECOSW,1,138.0,138,LZ_WEST,False,0,31.275328,-103.117785,REEVES,osm_name,0.516,w1006613113,,,Trans-Pecos Substation,osm_name,"code:TPECO ~ Trans-Pecos Substation (name 0.65, kv x1.00, no county)",name,,2,,0,0,,True,4
+TPECOSTP,1,138.0,138,LZ_WEST,False,0,31.275328,-103.117785,REEVES,osm_name,0.65,w1006613113,,,Trans-Pecos Substation,osm_name,"code:TPECOS ~ Trans-Pecos Substation (name 0.68, kv x1.00, no county)",name,,1,,0,0,,True,3
+TPECOSW,1,138.0,138,LZ_WEST,False,0,31.275328,-103.117785,REEVES,osm_name,0.516,w1006613113,,,Trans-Pecos Substation,osm_name,"code:TPECO ~ Trans-Pecos Substation (name 0.65, kv x1.00, no county)",name,,2,,0,0,,True,3
 TRADEZON,1,138.0,138,LZ_SOUTH,False,0,26.45,-98.48,HIDALGO,eia_unit,0.512,,,67236,Anemoi Energy Storage,eia_unit,EIA plant Anemoi Energy Storage (HIDALGO) score 0.55,,,1,0.0,0,18,,True,0
 TRADPO,1,138.0,138,LZ_SOUTH,False,0,30.312959,-97.97129,TRAVIS,osm_name,0.683,w340565891,300103,,Trading Post Substation,osm_name,"code:TRADPO ~ Trading Post Substation (name 0.67, kv x1.00, no county)",name,,1,,0,0,,True,2
 TRADPOST,3,138.0,138,LZ_SOUTH,False,0,30.312959,-97.97129,TRAVIS,osm_name,0.734,w340565891,300103,,Trading Post Substation,osm_name,"code:TRADPOST ~ Trading Post Substation (name 0.72, kv x1.00, no county)",name,,1,,0,0,LZ_AEN,True,2
@@ -4650,7 +4650,7 @@ TULETA,3,138.0,138,LZ_SOUTH,False,0,28.598227,-97.788544,BEE,osm_name,0.796,w489
 TUL_SLR,5,138.0,138;34.5,LZ_SOUTH,True,1,28.628,-97.724,GOLIAD,eia_unit,0.411,,,67837,Ray Ranch Solar,eia_unit,EIA plant Ray Ranch Solar (GOLIAD) score 0.55,,,1,0.0,0,0,,True,0
 TUNACR,4,138.0,138,LZ_WEST,True,1,30.981827,-102.275468,PECOS,osm_name,0.761,w496524841,,59206;60682,Tunas Creek Substation,eia_unit+osm_name,"code:TUNACR ~ Tunas Creek Substation (name 0.68, kv x1.00, tap-county 0 km)",name,,1,1.32,0,0,,True,1
 TURKEY,1,69.0,69,LZ_WEST,False,0,34.342288,-100.898035,HALL,osm_name,0.724,w470322311,,,Turkey Substation,osm_name,"code:TURKEY ~ Turkey Substation (name 0.90, kv x1.00, no county)",name,,3,,0,0,,True,2
-TURKEYFT,3,69.0,69,LZ_NORTH,False,0,34.342288,-100.898035,HALL,osm_name,0.363,w470322311,,,Turkey Substation,osm_name,"code:TURKEYFT ~ Turkey Substation (name 0.77, kv x1.00, no county)",name,,1,,0,11,,True,2
+TURKEYFT,3,69.0,69,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,11,,True,0
 TURKEYLH,1,69.0,69,LZ_WEST,False,0,34.342288,-100.898035,HALL,osm_name,0.727,w470322311,,,Turkey Substation,osm_name,"code:TURKEYLH ~ Turkey Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,2
 TURL,1,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 TURNER,2,138.0,138,LZ_SOUTH,False,0,30.073774,-97.78301,HAYS,osm_name,0.833,w340000208,306873,,Turnersville Substation,osm_name,"code:TURNER ~ Turnersville Substation (name 0.77, kv x1.00, no county)",name,2,1,,0,19,LZ_LCRA,True,1
@@ -4705,7 +4705,7 @@ ULYS_SLR,3,345.0,345;34.5,LZ_WEST,True,1,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 UN,7,138.0,138,LZ_HOUSTON,False,0,29.716822,-95.331412,HARRIS,osm_name,0.862,w44953001,306855,,University Substation,osm_name,"code:UN ~ University Substation (name 0.85, kv x1.00, no county)",name,,2,,0,0,,True,1
 UNION_CA,1,69.0,69,LZ_SOUTH,False,0,25.964497,-97.375534,CAMERON,osm_name,0.618,w513362272,,,Union Carbide Substation,osm_name,"code:UNION_CA ~ Union Carbide Substation (name 0.77, kv x1.00, no county)",name,,4,,0,0,,True,1
 UNITEC,1,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,97,,True,0
-UNIVERSI,4,138.0,138,LZ_SOUTH,False,0,27.588181,-99.429845,WEBB,osm_name,0.702,w451971722,,,University Substation,osm_name,"code:UNIVERSI ~ University Substation (name 0.77, kv x1.00, no county)",name,1,2,,0,27,,True,1
+UNIVERSI,4,138.0,138,LZ_SOUTH,False,0,27.588181,-99.429845,WEBB,osm_name,0.702,w451971722,,,University Substation,osm_name,"code:UNIVERSI ~ University Substation (name 0.77, kv x1.00, no county)",name,2,2,,0,27,,True,1
 UPLND,3,138.0,138,LZ_WEST,False,0,33.52094,-101.973635,LUBBOCK,osm_name,0.541,w466088493,,,Upland Substation,osm_name,"psse:UPLAND ~ Upland Substation (name 0.95, kv x0.60, no county)",name,,1,,0,0,,True,1
 URIBE,1,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 USGYP,3,69.0,69,LZ_WEST,False,0,32.491926,-100.363003,NOLAN,osm_name,0.727,w491192902,,,US Gypsum Substation,osm_name,"code:USGYP ~ US Gypsum Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,1
@@ -4721,7 +4721,7 @@ UW,2,138.0,138,LZ_HOUSTON,False,0,29.692,-95.089056,HARRIS,osm_name,0.812,w33671
 V0,4,138.0,138,LZ_SOUTH,False,0,29.679249,-98.454874,BEXAR,osm_name,0.817,w164434032,307131,,Stonegate Substation,osm_name,"psse:STONEGAT ~ Stonegate Substation (name 0.81, kv x1.00, no county)",name,,2,,0,0,LZ_CPS,True,1
 V2,6,138.0,138,LZ_SOUTH,True,3,29.334543,-98.449799,BEXAR,osm_name,0.817,w110430992,303873,,Brooks Field Substation,osm_name,"psse:BROOKS ~ Brooks Field Substation (name 0.81, kv x1.00, county 0 km)",name,,1,,0,0,LZ_CPS,True,1
 V3,2,138.0,138,LZ_SOUTH,False,0,29.420524,-98.787759,BEXAR,osm_name,0.716,w117089281,307464,,Texas Research Substation,osm_name,"psse:TX RSRCH ~ Texas Research Substation (name 0.70, kv x1.00, no county)",name,,1,,0,0,LZ_CPS,True,1
-V4,6,138.0,138,LZ_SOUTH,True,1,29.318207,-98.549711,BEXAR,osm_name,0.95,w320535884,305594,,Palo Alto Substation,osm_name,"gis:Palo Alto ~ Palo Alto Substation (name 1.00, kv x1.00, county 0 km)",name,,2,,0,0,LZ_CPS,True,2
+V4,6,138.0,138,LZ_SOUTH,True,1,29.318207,-98.549711,BEXAR,osm_name,0.95,w320535884,305594,,Palo Alto Substation,osm_name,"gis:Palo Alto ~ Palo Alto Substation (name 1.00, kv x1.00, county 0 km)",name,,2,,0,0,LZ_CPS,True,1
 V4_TAP,0,138.0,138,,False,0,,,,none,0.0,,,,,,,,,,,364,23,,False,0
 V5,1,138.0,138,LZ_SOUTH,False,0,29.665536,-98.51764,BEXAR,osm_name,0.687,w318672309,309754,,Panther Springs Substation,osm_name,"psse:PANTHER ~ Panther Springs Substation (name 0.81, kv x1.00, no county)",name,,4,,0,0,LZ_CPS,True,1
 V6,3,138.0,138,LZ_SOUTH,False,0,29.67622,-98.680735,BEXAR,osm_name,0.902,w1454191604,,,Scenic Loop Substation,osm_name,"psse:SCENIC LOOP ~ Scenic Loop Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,LZ_CPS,True,1
@@ -4752,7 +4752,7 @@ VERDCR,1,138.0,138,LZ_SOUTH,False,0,29.933146,-99.055085,KERR,osm_name,0.76,w320
 VERH,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 VERIBST,1,138.0,138,LZ_WEST,False,0,31.419303,-100.252449,TOM GREEN,osm_name,0.541,w348493190,,,Veribest Substation,osm_name,"psse:VERIBEST ~ Veribest Substation (name 0.95, kv x0.60, no county)",name,,1,,0,0,,True,2
 VERN,4,138.0,138;69,LZ_WEST,False,0,34.022103,-98.956976,WILBARGER,osm_name,0.564,w448979411,,,Vernon Substation,osm_name,"gis:Vernon ~ Vernon Substation (name 1.00, kv x1.00, county 0 km)",name,,2,,0,64,,True,1
-VERS,1,69.0,69,LZ_WEST,False,0,31.419303,-100.252449,TOM GREEN,osm_name,0.38,w348493190,,,Veribest Substation,osm_name,"code:VERS ~ Veribest Substation (name 0.61, kv x1.00, no county)",name,0,3,,0,86,,True,2
+VERS,1,69.0,69,LZ_WEST,False,0,34.162279,-99.296309,WILBARGER,override,0.5,w454325950,,,Vernon City Plant Substation,override_name_partner,"G1 override (name_partner): PSS/E VERS2A (bus 6064) follows SANDROAD2A (6063): Vernon, Wilbarger Co.; AEP 'Vernon City Plant Substation' (69 kV) is 2 hops from SANDROAD. Several Vernon substations lie within 6 km, so the site is good to about 5 km | was at Veribest Substation (TOM GREEN, conf 0.38, osm_name); 315 km from SANDROAD (conf 0.85, WILBARGER) on a 69 kV constraint",override,,1,,0,86,,True,1
 VERTIGO,3,345.0,345;34.5,LZ_WEST,True,1,33.644636,-99.421394,BAYLOR,osm_name,0.899,w519131265,,59732,Vertigo Wind Substation,eia_unit+osm_name,"code:VERTIGO ~ Vertigo Wind Substation (name 0.90, kv x1.00, county 0 km)",name,,1,2.06,0,0,,True,1
 VERTREES,3,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,13,,True,0
 VERT_ESS,3,138.0,138;34.5,LZ_HOUSTON,True,1,27.814961,-97.480781,NUECES,osm_name,0.21,w488508152,,,Valero East Substation,osm_name,"code:VERT ~ Valero East Substation (name 0.62, kv x1.00, no county)",name,,3,,0,0,,True,1
@@ -4861,7 +4861,7 @@ WELCOM,3,138.0,138,LZ_SOUTH,False,0,29.957853,-96.533307,AUSTIN,eia_unit,0.532,,
 WELDON,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 WELFAR,2,138.0,138,LZ_SOUTH,False,0,29.886816,-98.760654,KENDALL,osm_name,0.777,w146741284,303894,,Welfare Substation,osm_name,"code:WELFAR ~ Welfare Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,LZ_LCRA,True,1
 WELINGTN,2,138.0,138,LZ_NORTH,False,0,34.853864,-100.209633,COLLINGSWORTH,osm_name,0.451,w20791723,,,Wellington Substation (SWEPCO),osm_name,"psse:WELLINGTON ~ Wellington Substation (SWEPCO) (name 0.95, kv x1.00, no county)",name,,1,,0,0,,True,0
-WELLBR,6,138.0,138,LZ_SOUTH,False,0,30.446061,-97.689113,TRAVIS,osm_name,0.863,w339152256,306669,,Wells Branch Substation,osm_name,"psse:WELLSBR ~ Wells Branch Substation (name 0.81, kv x1.00, no county)",name,1,2,,0,20,LZ_AEN,True,1
+WELLBR,6,138.0,138,LZ_SOUTH,False,0,30.446061,-97.689113,TRAVIS,osm_name,0.863,w339152256,306669,,Wells Branch Substation,osm_name,"psse:WELLSBR ~ Wells Branch Substation (name 0.81, kv x1.00, no county)",name,2,2,,0,20,LZ_AEN,True,1
 WELLBRN,4,138.0,138,LZ_NORTH,False,0,30.500829,-96.252672,BRAZOS,osm_name,0.684,w510128545,,,Wellborn Switching Station,osm_name,"code:WELLBRN ~ Wellborn Switching Station (name 0.72, kv x1.00, no county)",name,,2,,0,0,,True,1
 WELRD,2,138.0,138,LZ_NORTH,False,0,30.446061,-97.689113,TRAVIS,osm_name,0.25,w339152256,306669,,Wells Branch Substation,osm_name,"psse:WELCH ~ Wells Branch Substation (name 0.63, kv x1.00, no county)",name,,2,,0,0,,True,1
 WELTRO,4,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -4871,9 +4871,9 @@ WESLACO,7,138.0,138,LZ_SOUTH,False,0,26.229582,-98.008795,HIDALGO,osm_name,0.929
 WESLAU,4,138.0,138,LZ_SOUTH,False,0,26.154839,-98.008213,HIDALGO,osm_name,0.537,w513282645,,,Weslaco Unit Substation,osm_name,"psse:WESLACOU ~ Weslaco Unit Substation (name 0.81, kv x1.00, no county)",name,,2,,0,13,,True,2
 WESMER,3,138.0,138,LZ_SOUTH,False,0,26.13761,-97.942275,HIDALGO,osm_name,0.905,w513282639,302825,,Wesmer Substation,osm_name,"code:WESMER ~ Wesmer Substation (name 0.90, kv x1.00, no county)",name,,2,,0,1,,True,1
 WESSER,2,69.0,69,LZ_SOUTH,False,0,28.831949,-97.367598,GOLIAD,osm_name,0.707,w515061666,,,Weser Substation,osm_name,"psse:WESER ~ Weser Substation (name 0.95, kv x1.00, no county)",name,,4,,0,0,,True,1
-WESTBEND,1,138.0,138,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.631,w341316599,304049,,West Substation,osm_name,"code:WESTBEND ~ West Substation (name 0.77, kv x1.00, no county)",name,,3,,0,0,,True,5
+WESTBEND,1,138.0,138,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.631,w341316599,304049,,West Substation,osm_name,"code:WESTBEND ~ West Substation (name 0.77, kv x1.00, no county)",name,,3,,0,0,,True,4
 WESTOVER,1,69.0,69,LZ_WEST,False,0,31.835986,-102.443481,ECTOR,osm_name,0.34,w457746513,302263,,Westover Substation,osm_name,"code:WESTOVER ~ Westover Substation (name 0.90, kv x1.00, tap-county 332 km)",name,,4,,0,0,,True,1
-WESTS,1,69.0,69,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.592,w341316599,304049,,West Substation,osm_name,"psse:WEST ~ West Substation (name 0.95, kv x1.00, no county)",name,,4,,0,0,,True,5
+WESTS,1,69.0,69,LZ_NORTH,False,0,31.794852,-97.096552,MCLENNAN,override,0.65,w217824440,,,West Substation,override_alt_site,"G1 override (alt_site): 'West Substation' (Oncor 69 kV, McLennan Co.; the matcher's alternative at 0.73); TPIT (Oncor) lists Hill and McLennan; the Denton Co. site is 87 km from McLennan Co. | was at West Substation (DENTON, conf 0.59, osm_name)",override,,1,,0,0,,True,1
 WESTSIDE,2,138.0,138,LZ_SOUTH,False,0,27.73467,-97.452208,NUECES,osm_name,0.813,w252343110,,67768,Westside Substation,eia_unit+osm_name,"gis:OF WESTSIDE ~ Westside Substation (name 1.00, kv x1.00, tap-county 0 km)",name,,4,0.56,0,0,,True,1
 WESTYA,1,138.0,138,LZ_WEST,False,0,30.992163,-102.13376,PECOS,hifld_name,0.434,w343434433,302463,,WEST YATES TAP,hifld_name,"code:WESTYA ~ WEST YATES TAP (name 0.77, kv x1.00, no county)",snap,,4,,0,0,,True,1
 WEST_OSO,2,138.0,138,LZ_SOUTH,False,0,27.766205,-97.452128,NUECES,osm_name,0.855,w488508094,,,West Oso Substation,osm_name,"code:WEST_OSO ~ West Oso Substation (name 0.90, kv x1.00, no county)",name,,4,,0,0,,True,1
@@ -4886,7 +4886,7 @@ WFCOGEN,10,138.0,138;13.2,LZ_WEST,True,2,33.8625,-98.5894,WICHITA,eia_unit,0.584
 WFNTH,2,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 WFPPG,4,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 WFSHP,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-WFSSW,2,138.0,138,LZ_WEST,False,0,33.006287,-97.010881,DENTON,osm_name,0.192,w341316598,305927,,South Substation,osm_name,"gis:Wichita Falls South Switch ~ South Substation (name 0.80, kv x1.00, tap-county 163 km)",name,,3,,0,9,,True,1
+WFSSW,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,9,,True,0
 WFTANK,3,138.0,138;34.5,LZ_SOUTH,True,1,27.577132,-99.276307,WEBB,osm_name,0.873,w174711657,,66616,Wolf Tank Storage,eia_unit+osm_name,"cdr:wolf tank ~ Wolf Tank Storage (name 0.85, kv x0.85, county 0 km)",snap,,2,0.03,0,0,,True,3
 WGROB,2,138.0,138,LZ_NORTH,False,0,32.897014,-97.374492,TARRANT,hifld_name,0.542,w171477443,306907,,WAGLEY ROBERTSON,hifld_name,"psse:WAGROBT ~ WAGLEY ROBERTSON (name 0.68, kv x1.00, no county)",snap,,1,,0,0,,True,1
 WGU,5,138.0,138;34.5,LZ_HOUSTON,True,1,29.242304,-95.658144,BRAZORIA,eia_unit,0.6,w1058328887,,63273;68998,Wagyu,eia_unit,EIA plant Wagyu (BRAZORIA) score 1.00,snap,,1,0.0,0,0,,True,3
@@ -4951,7 +4951,7 @@ WKN_BKR,2,69.0,69,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,3,,True,0
 WKR,4,138.0,138,LZ_HOUSTON,False,0,30.843375,-95.495178,WALKER,osm_name,0.902,w630415465,,,Walker Substation,osm_name,"psse:WALKER ~ Walker Substation (name 0.95, kv x1.00, no county)",name,,2,,0,0,,True,1
 WL,3,138.0,138,LZ_HOUSTON,False,0,30.048264,-95.926426,WALLER,osm_name,0.807,w582229091,,,Waller Substation,osm_name,"gis:Waller ~ Waller Substation (name 1.00, kv x1.00, county 0 km)",name,,3,,0,0,,True,2
 WLASL,1,138.0,138,LZ_NORTH,False,0,31.54313,-97.071795,MCLENNAN,osm_name,0.767,w461754757,,,Waco Lasalle Substation,osm_name,"psse:WACOLASA ~ Waco Lasalle Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,,True,1
-WLF,9,345.0,345,LZ_SOUTH,False,0,30.139461,-97.561401,BASTROP,osm_name,0.237,w217281966,307566,,Wolf Lane Substation,osm_name,"psse:WOLF ~ Wolf Lane Substation (name 0.81, kv x0.60, no county)",name,,4,,0,1,,True,1
+WLF,9,345.0,345,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,1,,True,0
 WLFCAMP,2,138.0,138,LZ_WEST,False,0,31.18467,-103.035356,PECOS,osm_name,0.522,w500808481,306825,,Wolfcamp Substation,osm_name,"code:WLFCAMP ~ Wolfcamp Substation (name 0.72, kv x1.00, no county)",name,,2,,0,0,,True,2
 WLFSW,4,345.0,345;138,LZ_WEST,False,0,31.6018,-102.932799,WARD,osm_name,0.636,w1006561811,,69689,Wolf Switching Station,eia_unit+osm_name,"gis:Wolf Switching Station ~ Wolf Switching Station (name 1.00, kv x1.00, tap-county 0 km)",name,,4,3.09,0,0,,True,1
 WLF_C_RC,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_RAYBN,True,0
@@ -5010,7 +5010,7 @@ WPL,1,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 WR,4,138.0,138,LZ_SOUTH,True,1,29.313633,-96.107643,WHARTON,osm_name,0.902,w99952197,310522,69976,Wharton Substation,eia_unit+osm_name,"code:WR ~ Wharton Substation (name 0.85, kv x1.00, county 0 km)",name,,2,0.08,0,0,,True,1
 WRASW,6,345.0,345,LZ_WEST,True,1,33.877514,-100.890246,MOTLEY,eia_unit,0.465,,,68458,"Roaring Springs, LLC",eia_unit,"EIA plant Roaring Springs, LLC (MOTLEY) score 0.55",,1,2,0.0,0,12,,True,0
 WRBND,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
-WRIDG,2,138.0,138,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.553,w341316599,304049,,West Substation,osm_name,"psse:WESTRIDGE ~ West Substation (name 0.66, kv x1.00, no county)",name,,4,,0,0,,True,5
+WRIDG,2,138.0,138,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.553,w341316599,304049,,West Substation,osm_name,"psse:WESTRIDGE ~ West Substation (name 0.66, kv x1.00, no county)",name,,4,,0,0,,True,4
 WRIGHT,1,138.0,138,LZ_NORTH,False,0,32.262922,-98.191095,ERATH,osm_name,0.855,w517717696,,,Wright Substation,osm_name,"code:WRIGHT ~ Wright Substation (name 0.90, kv x1.00, no county)",name,,1,,0,0,,True,1
 WRN,16,138.0,138;12.5,LZ_HOUSTON,False,0,29.837886,-94.897586,CHAMBERS,osm_name,0.95,w41077816,310133,,Warvue Substation,osm_name,"psse:WARVUE ~ Warvue Substation (name 0.95, kv x1.00, no county)",name,,1,,0,1,,True,1
 WRPOD,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -5024,7 +5024,7 @@ WSLAMESA,1,138.0,138,LZ_WEST,False,0,32.715664,-102.060224,DAWSON,osm_name,0.717
 WSMSW,1,69.0,69,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 WSMWS,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 WSOTH,2,138.0,138,LZ_NORTH,False,0,31.511062,-97.182539,MCLENNAN,osm_name,0.537,r6820579,,,Waco West Substation,osm_name,"psse:WACO ~ Waco West Substation (name 0.81, kv x1.00, no county)",name,,3,,0,0,,True,3
-WSTBROOK,1,138.0,138,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.664,w341316599,304049,,West Substation,osm_name,"psse:WESTBOOK ~ West Substation (name 0.81, kv x1.00, no county)",name,,4,,0,0,,True,5
+WSTBROOK,1,138.0,138,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.664,w341316599,304049,,West Substation,osm_name,"psse:WESTBOOK ~ West Substation (name 0.81, kv x1.00, no county)",name,,4,,0,0,,True,4
 WSTHL,3,138.0,138,LZ_NORTH,False,0,29.439781,-98.560911,BEXAR,osm_name,0.083,w111665643,301189,,Westside Substation,osm_name,"cdr:wm renewable westside lfg ~ Westside Substation (name 0.68, kv x1.00, county 350 km)",name,,4,,0,0,,True,1
 WSTLOOP,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 WSTMNSTR,3,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
@@ -5033,7 +5033,7 @@ WSTON,2,138.0,138,LZ_NORTH,False,0,33.175767,-97.219179,DENTON,osm_name,0.451,w1
 WT,6,138.0,138,LZ_HOUSTON,False,0,29.785233,-95.479623,HARRIS,osm_name,0.95,w337137369,310463,,Wirt Substation,osm_name,"psse:WIRT ~ Wirt Substation (name 0.95, kv x1.00, no county)",name,,4,,0,0,,True,1
 WTAUG,5,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 WTCCS,10,345.0,345,LZ_NORTH,True,3,33.0583,-97.9103,WISE,eia_unit,0.92,w171435063,,55320,Wise County Power LLC,eia_unit,EIA plant Wise County Power LLC (WISE) score 0.95 LMP-node designation,snap,,1,0.0,0,0,,True,2
-WTGLF,1,69.0,69,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.489,w341316599,304049,,West Substation,osm_name,"psse:WESTTXGF ~ West Substation (name 0.81, kv x1.00, no county)",name,,4,,0,0,,True,5
+WTGLF,1,69.0,69,LZ_NORTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.489,w341316599,304049,,West Substation,osm_name,"psse:WESTTXGF ~ West Substation (name 0.81, kv x1.00, no county)",name,,4,,0,0,,True,4
 WTGNPM,3,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 WTHFDLK8,2,138.0,138,LZ_NORTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 WTHRE,2,69.0,69,LZ_NORTH,False,0,26.1811,-97.723318,CAMERON,osm_name,0.293,w504130009,,,West Harlingen Substation,osm_name,"code:WTHRE ~ West Harlingen Substation (name 0.62, kv x1.00, no county)",name,,1,,0,0,,True,0
@@ -5076,13 +5076,13 @@ W_LD_138,3,138.0,138,LZ_WEST,False,0,32.721116,-101.632967,BORDEN,osm_name,0.44,
 W_LD_345,13,345.0,345,LZ_WEST,True,2,32.721116,-101.632967,BORDEN,osm_name,0.674,w453310291,,57983,Long Draw Substation,osm_name,"gis:Longdraw ~ Long Draw Substation (name 1.00, kv x1.00, county 0 km)",name,,5,22.87,0,4,,True,2
 W_MCALLN,3,138.0,138,LZ_SOUTH,False,0,26.201376,-98.254946,HIDALGO,osm_name,0.734,w512936469,305946,,West McAllen Substation,osm_name,"code:W_MCALLN ~ West McAllen Substation (name 0.72, kv x1.00, no county)",name,,4,,0,0,,True,1
 W_PECOS,3,138.0,138;34.5,LZ_WEST,True,1,31.4308,-103.7289,REEVES,eia_unit,0.92,,,62415,West of the Pecos Solar,eia_unit,EIA plant West of the Pecos Solar (REEVES) score 1.00 LMP-node designation,,,5,0.0,0,0,,True,0
-W_UVALS,1,69.0,69,LZ_SOUTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.222,w341316599,304049,,West Substation,osm_name,"code:W_UVALS ~ West Substation (name 0.63, kv x1.00, no county)",name,,3,,0,0,,True,5
+W_UVALS,1,69.0,69,LZ_SOUTH,False,0,33.047981,-97.035039,DENTON,osm_name,0.222,w341316599,304049,,West Substation,osm_name,"code:W_UVALS ~ West Substation (name 0.63, kv x1.00, no county)",name,,3,,0,0,,True,4
 X1,9,138.0,138,LZ_SOUTH,True,1,29.380694,-98.634717,BEXAR,osm_name,0.829,w317852055,310053,,Medina Base Substation,osm_name,"psse:MEDINABS ~ Medina Base Substation (name 0.76, kv x1.00, county 0 km)",name,2,2,,0,4,LZ_CPS,True,1
 X2,5,138.0,138,LZ_SOUTH,False,0,29.216661,-98.844745,MEDINA,osm_name,0.962,w320099415,310043,,Lytle Substation,osm_name,"psse:LYTLE ~ Lytle Substation (name 0.95, kv x1.00, no county)",name,1,1,,0,9,LZ_CPS,True,1
 X3,1,138.0,138,LZ_SOUTH,False,0,29.275808,-98.373979,BEXAR,osm_name,0.817,w104206366,306558,,Streich Road Substation,osm_name,"psse:STREICH ~ Streich Road Substation (name 0.81, kv x1.00, no county)",name,,1,,0,0,LZ_CPS,True,1
 X4,7,138.0,138,LZ_SOUTH,True,1,29.435478,-98.618524,BEXAR,osm_name,0.873,w278460528,,62609,Commerce ESS,eia_unit+osm_name,"cdr:commerce ~ Commerce ESS (name 0.85, kv x0.85, county 0 km)",snap,,1,0.14,0,0,LZ_CPS,True,1
 X5,7,138.0,138,LZ_SOUTH,True,2,29.271435,-98.455665,BEXAR,hifld_name,0.861,w318453563,309340,58537;66400,ALAMO,eia_unit+hifld_name,"psse:ALAMO ~ ALAMO (name 0.95, kv x1.00, tap-county 0 km)",snap,,3,0.06,0,0,,True,2
-X6,4,138.0,138,LZ_SOUTH,False,0,28.695225,-98.540023,ATASCOSA,osm_name,0.652,w452545512,,,Cross Substation,osm_name,"psse:CROSSROADS ~ Cross Substation (name 0.81, kv x1.00, no county)",name,,3,,0,0,LZ_CPS,True,3
+X6,4,138.0,138,LZ_SOUTH,False,0,,,,none,0.0,,,,,,,,,,,0,0,LZ_CPS,True,0
 XTOSAINT,2,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 XTPOI,1,138.0,138,LZ_WEST,False,0,,,,none,0.0,,,,,,,,,,,0,0,,True,0
 Y1,4,138.0,138,LZ_SOUTH,False,0,29.463473,-98.416598,BEXAR,osm_name,0.95,w109019556,303510,,Holbrook Substation,osm_name,"psse:HOLBROOK ~ Holbrook Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,LZ_CPS,True,1
@@ -5109,7 +5109,7 @@ YUCCA,1,138.0,138,LZ_WEST,False,0,31.587706,-102.955011,WARD,osm_name,0.534,w803
 YUCSW,3,138.0,138;69,LZ_WEST,False,0,31.587706,-102.955011,WARD,osm_name,0.807,w803480536,,,Yucca Drive Switching Station,osm_name,"gis:Yucca Drive Switch ~ Yucca Drive Switching Station (name 1.00, kv x1.00, tap-county 0 km)",name,,2,,0,0,,True,2
 Z0,6,138.0,138,LZ_SOUTH,True,2,29.381971,-98.318482,BEXAR,osm_name,0.95,w174509135,309287,,Beck Road Substation,osm_name,"psse:BECK RD ~ Beck Road Substation (name 0.95, kv x1.00, county 0 km)",name,,1,,0,0,LZ_CPS,True,1
 Z1,12,138.0,138,LZ_SOUTH,False,0,29.416694,-98.806208,MEDINA,osm_name,0.902,w639176169,,,Rafter Substation,osm_name,"psse:RAFTER ~ Rafter Substation (name 0.95, kv x1.00, no county)",name,,1,,0,0,LZ_CPS,True,1
-Z2,4,138.0,138,LZ_SOUTH,False,0,30.250898,-97.719689,TRAVIS,osm_name,0.495,w508530553,304484,,Holly Plant Switchyard,osm_name,"psse:HOLLYWD ~ Holly Plant Switchyard (name 0.81, kv x1.00, no county)",name,,4,,0,0,LZ_CPS,True,2
+Z2,4,138.0,138,LZ_SOUTH,False,0,30.250898,-97.719689,TRAVIS,osm_name,0.495,w508530553,304484,,Holly Plant Switchyard,osm_name,"psse:HOLLYWD ~ Holly Plant Switchyard (name 0.81, kv x1.00, no county)",name,,4,,0,0,LZ_CPS,True,1
 Z4,3,138.0,138,LZ_SOUTH,False,0,29.396767,-98.488918,BEXAR,osm_name,0.772,w100076110,304051,,Ball Park Substation,osm_name,"psse:BALL PRK ~ Ball Park Substation (name 0.76, kv x1.00, no county)",name,,1,,0,0,LZ_CPS,True,1
 Z5,4,138.0,138,LZ_SOUTH,True,1,29.313171,-98.409128,BEXAR,osm_name,0.702,w1010267844,,,Southton Substation,osm_name,"psse:SOUTHTON ~ Southton Substation (name 0.95, kv x1.00, county 0 km)",name,,4,,0,0,LZ_CPS,True,1
 ZACATE,1,138.0,138,LZ_SOUTH,False,0,27.540537,-99.500334,WEBB,osm_name,0.727,w451971624,,,Zacate Creek Substation,osm_name,"code:ZACATE ~ Zacate Creek Substation (name 0.77, kv x1.00, no county)",name,,1,,0,0,,True,1

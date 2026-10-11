@@ -24,7 +24,7 @@ w20845821,Cotulla Substation,138.0,28.448173,-99.254996,American Electric Power,
 w20849578,Big Wells Substation,138.0,28.565326,-99.535837,South Texas Electric Cooperative,138,distribution,,DIMMIT,BIG_WELL
 w20875804,W. A. Parish Station (345 kV),345.0,29.480777,-95.624219,CenterPoint Energy,345,transmission,,FORT BEND,WAP
 w20952215,Paint Creek Substation,138.0,33.080031,-99.580709,American Electric Power,138;69,transmission,,HASKELL,PAINTCRE
-w20989583,Chalk Substation,69.0,32.111229,-101.276429,Oncor,69,distribution,,HOWARD,
+w20989583,Chalk Substation,69.0,32.111229,-101.276429,Oncor,69,distribution,,HOWARD,CHALK
 w21020281,Runge Substation,138.0,28.870655,-97.701544,American Electric Power,138,distribution,,KARNES,RUNGE
 w21024563,Nixon Substation,138.0,29.308137,-97.740834,Lower Colorado River Authority,138,distribution,,GONZALES,
 w21073895,Holcomb Substation,138.0,28.033255,-99.361635,American Electric Power,138,distribution,,LA SALLE,HOLCOMB
@@ -35,7 +35,7 @@ w21112570,Conoco-Chittam Ranch Substation,138.0,28.696428,-100.197229,American E
 w21114385,Escondido Substation,138.0,28.728474,-100.474452,American Electric Power,138,distribution,,MAVERICK,ESCONDID
 w21121944,Maverick Substation,138.0,28.866761,-100.55059,American Electric Power,138,distribution,,MAVERICK,MAVERICK
 w21163576,Wildorado Substation,69.0,35.210892,-102.202844,Xcel Energy,69,distribution,,OLDHAM,
-w21237672,Sterling City Substation,69.0,31.839814,-101.011202,American Electric Power,69,distribution,,STERLING,STERLING
+w21237672,Sterling City Substation,69.0,31.839814,-101.011202,American Electric Power,69,distribution,,STERLING,STER
 w21263588,Parker Ranch Substation,69.0,30.553412,-101.535564,American Electric Power,69,distribution,,CROCKETT,
 w21307123,Encinal Substation,138.0,28.046675,-99.357447,American Electric Power,138,distribution,,LA SALLE,ENCINAL
 w21318419,La Quinta Substation,138.0,27.487472,-99.006639,American Electric Power,138,transmission,,WEBB,LAQUINTA
@@ -86,9 +86,9 @@ w39902809,,138.0,32.776806,-96.642508,,138,distribution,,DALLAS,MESQW
 w39950832,,138.0,32.819308,-96.640007,,138,distribution,,DALLAS,
 w39950861,East Mesquite Substation,138.0,32.77535,-96.572506,,138;12.5,distribution,,DALLAS,
 w39950865,,138.0,32.819555,-96.609359,,138,distribution,,DALLAS,MESWE
-w39952562,Forney Substation,345.0,32.75786,-96.486968,Oncor,345;138,transmission,,KAUFMAN,FRNYPP
+w39952562,Forney Substation,345.0,32.75786,-96.486968,Oncor,345;138,transmission,,KAUFMAN,FORSW
 w39960638,Trinity Bay Substation,138.0,29.68923,-94.911634,CenterPoint Energy,138,transmission,TRN,CHAMBERS,
-w39962318,,345.0,29.77281,-94.903344,,345,generation,,CHAMBERS,
+w39962318,,345.0,29.77281,-94.903344,,345,generation,,CHAMBERS,CTR
 w39962322,,345.0,29.774,-94.902789,,345,transmission,,CHAMBERS,CHB
 w39962537,Cedar Bayou Plant Substation,345.0,29.748124,-94.924988,,345;138,transmission,,CHAMBERS,CBY
 w39963534,,,29.750216,-94.903783,,,,,CHAMBERS,
@@ -177,9 +177,9 @@ w97043742,Anderson Substation,138.0,29.483879,-98.718381,CPS Energy,138,distribu
 w97043744,Helotes Substation,138.0,29.548178,-98.681869,CPS Energy,138,distribution,,BEXAR,H3
 w97574291,Great Southwest Substation,138.0,32.746199,-97.073806,Oncor,138;12.5,distribution,,TARRANT,GSTHW
 w97843770,Chappel Hill Substation,138.0,30.138507,-96.32542,Bluebonnet Electric Cooperative,138,distribution,,WASHINGTON,CHAPHI
-w97843772,Highway 36 Substation,138.0,30.122617,-96.373799,Lower Colorado River Authority,138,transmission,,WASHINGTON,
+w97843772,Highway 36 Substation,138.0,30.122617,-96.373799,Lower Colorado River Authority,138,transmission,,WASHINGTON,HIGH36
 w97843788,Waller Substation,138.0,30.076624,-96.083207,Lower Colorado River Authority,138;12.5,distribution,,WALLER,
-w97848904,Salem Substation,345.0,30.111212,-96.425664,Lower Colorado River Authority,345;138,transmission,,WASHINGTON,
+w97848904,Salem Substation,345.0,30.111212,-96.425664,Lower Colorado River Authority,345;138,transmission,,WASHINGTON,SALEM
 w97974473,Brenham Substation,138.0,30.150589,-96.394566,Lower Colorado River Authority,138,distribution,,WASHINGTON,
 w98019896,Glidden Substation,138.0,29.696914,-96.571868,Lower Colorado River Authority,138;69,transmission,,COLORADO,
 w99881513,Brenham North Substation,138.0,30.181824,-96.381758,Lower Colorado River Authority,138,distribution,,WASHINGTON,BRENHA
@@ -195,7 +195,7 @@ w100064466,Hillje Substation,345.0,29.0297,-96.236487,CenterPoint Energy,345,tra
 w100076110,Ball Park Substation,138.0,29.396768,-98.488918,CPS Energy,138,distribution,,BEXAR,Z4
 w100103255,Navasota Substation,138.0,30.382991,-96.090997,Entergy,138;69,transmission,,GRIMES,
 w100103259,East Substation,138.0,30.659446,-96.298948,Bryan Texas Utilities,138;69,transmission,,BRAZOS,EAST
-w100103260,College Station Switching Station,138.0,30.627725,-96.294292,City of College Station,138,transmission,,BRAZOS,COLLEGE
+w100103260,College Station Switching Station,138.0,30.627725,-96.294292,City of College Station,138,transmission,,BRAZOS,
 w100103618,Tabor Substation,138.0,30.715998,-96.364663,Bryan Texas Utilities,138;69,transmission,,BRAZOS,TABOR
 w100183998,Twin Oaks Substation,345.0,31.185459,-96.484107,Oncor,345,transmission,,ROBERTSON,TOKSW
 w100226832,Lewis Creek Substation,138.0,30.437304,-95.521547,Entergy,138,transmission,,MONTGOMERY,
@@ -441,7 +441,7 @@ w171479465,Jones Street Substation,138.0,33.064179,-97.004036,Texas-New Mexico P
 w171583253,,138.0,32.719728,-97.600966,,138,distribution,,PARKER,
 w171584597,West Denton Substation,345.0,33.175767,-97.219179,Oncor,345;138,transmission,,DENTON,DEC
 w171686777,Anna Substation,345.0,33.31798,-96.639255,Oncor,345;138,transmission,,COLLIN,ANASE
-w171694579,Farmersville Substation,345.0,33.19071,-96.337939,Oncor,345,transmission,,COLLIN,
+w171694579,Farmersville Substation,345.0,33.19071,-96.337939,Oncor,345,transmission,,COLLIN,FMRVL
 w171694580,Valley South Substation,345.0,33.613724,-96.373314,Oncor,345,transmission,,FANNIN,VLYSO
 w171694620,,138.0,33.321591,-96.527194,,138,,,COLLIN,
 w171704766,Paris Substation,345.0,33.639078,-95.58098,,345;138,transmission,,LAMAR,PRSSW
@@ -462,7 +462,7 @@ w171722569,,138.0,33.013241,-96.779515,,138,transmission,,COLLIN,
 w171722571,West Plano Substation,345.0,33.012673,-96.777443,,345;138,transmission,,COLLIN,
 w171734088,Mulberry Creek Substation,345.0,32.524127,-99.822515,American Electric Power,345;138,transmission,,JONES,MULBERRY
 w171742039,Long Creek Substation,345.0,32.629216,-99.541353,Oncor,345,transmission,,SHACKELFORD,LNCRK
-w171742083,Hackberry Wind Substation,345.0,32.768426,-99.422825,RES,345;34.5,transmission,,SHACKELFORD,HKBRY
+w171742083,Hackberry Wind Substation,345.0,32.768426,-99.422825,RES,345;34.5,transmission,,SHACKELFORD,HWF
 w171742086,Cook Field Road Substation,345.0,32.749973,-99.328053,Oncor,345,transmission,,SHACKELFORD,
 w171793142,Tonkawa Substation,345.0,32.530943,-100.684095,Oncor,345,transmission,,SCURRY,
 w171793188,Radium Substation,138.0,32.826818,-99.993516,American Electric Power,138;69,transmission,,JONES,RADIUM
@@ -489,7 +489,7 @@ w171926584,Sweetwater Wind 1 Substation,345.0,32.437936,-100.351136,Leeward Rene
 w171926585,Loraine Substation,345.0,32.378505,-100.727169,Oncor,345,transmission,,MITCHELL,
 w171926593,Bitter Creek Substation,345.0,32.437823,-100.352187,Lower Colorado River Authority,345,transmission,,NOLAN,BITTCR
 w171934652,Sweetwater Wind 3 Substation,138.0,32.337948,-100.419936,Leeward Renewable Energy,138;34.5,transmission,,NOLAN,
-w171934653,Sweetwater Wind 4 Substation,345.0,32.285873,-100.49521,Leeward Renewable Energy,345,transmission,,NOLAN,SWEETWN4
+w171934653,Sweetwater Wind 4 Substation,345.0,32.285873,-100.49521,Leeward Renewable Energy,345,transmission,,NOLAN,SWEETWN5
 w171934655,Loraine Wind Farm Substation,345.0,32.445104,-100.745957,Third Planet Windpower,345,transmission,,MITCHELL,
 w171934656,Sweetwater Wind 5 Substation,345.0,32.242063,-100.487646,Leeward Renewable Energy,345,transmission,,NOLAN,MARYNEAL
 w171941219,,138.0,33.219419,-97.260011,,138,distribution,,DENTON,
@@ -696,15 +696,15 @@ w183383431,Wolfforth Interchange,230.0,33.491511,-102.055673,Xcel Energy,230;115
 w183390099,,115.0,32.965246,-102.784255,,115;69,,,YOAKUM,
 w183461177,Carlisle Interchange,230.0,33.591135,-101.966916,Xcel Energy,230;115;69,transmission,,LUBBOCK,
 w183461211,Allen Substation,115.0,33.527269,-101.879466,Lubbock Power & Light,115;12.47,distribution,,LUBBOCK,
-w183461212,Oliver Substation,69.0,33.498395,-101.888803,Lubbock Power & Light,69,distribution,,LUBBOCK,
+w183461212,Oliver Substation,69.0,33.498395,-101.888803,Lubbock Power & Light,69,distribution,,LUBBOCK,LPLOL
 w183461213,Frankford Substation,115.0,33.498383,-101.940226,South Plains Electric Cooperative,115,distribution,,LUBBOCK,
-w183461214,McDonald Substation,230.0,33.585756,-101.957951,Lubbock Power & Light,230;69,distribution,,LUBBOCK,
+w183461214,McDonald Substation,230.0,33.585756,-101.957951,Lubbock Power & Light,230;69,distribution,,LUBBOCK,LPLMD
 w183461221,Jones Station,230.0,33.522559,-101.73896,Xcel Energy,230,transmission,,LUBBOCK,
 w183461222,Lubbock South Interchange,230.0,33.511676,-101.826289,Xcel Energy,230;115;69,transmission,,LUBBOCK,
 w183461223,Lubbock East Interchange,230.0,33.571219,-101.79149,Xcel Energy,230;115;69,transmission,,LUBBOCK,
 w183475072,Grassland Interchange,230.0,33.179974,-101.685019,Xcel Energy,230;115,transmission,,LYNN,
-w183475074,Holly Substation,230.0,33.520838,-101.792416,Lubbock Power & Light,230;69,transmission,,LUBBOCK,
-w183475079,Southeast Substation,230.0,33.518609,-101.854893,Lubbock Power & Light,230;69,transmission,,LUBBOCK,
+w183475074,Holly Substation,230.0,33.520838,-101.792416,Lubbock Power & Light,230;69,transmission,,LUBBOCK,LPLHY
+w183475079,Southeast Substation,230.0,33.518609,-101.854893,Lubbock Power & Light,230;69,transmission,,LUBBOCK,LPLSE
 w183493332,Grapevine Interchange,230.0,35.401944,-100.890978,Xcel Energy,230;115,transmission,,GRAY,
 w183502012,Wheeler Substation,230.0,35.372848,-100.243781,,230;115,transmission,,WHEELER,
 w183504247,Amarillo South Interchange,230.0,35.099697,-101.863912,Xcel Energy,230;115,transmission,,RANDALL,
@@ -768,7 +768,7 @@ w196190816,McQueeney Substation,138.0,29.588548,-98.049585,Guadalupe Valley Elec
 w196198200,York Creek Substation,138.0,29.737502,-97.950055,Guadalupe Valley Electric Cooperative,138;24.9,distribution,,GUADALUPE,YORKCR
 w196731262,Terrell Hills Substation,138.0,29.486646,-98.446779,CPS Energy,138,distribution,,BEXAR,
 w198111302,Jefferson Switching Station,138.0,32.77301,-94.392093,,138,transmission,,MARION,
-w200870128,Co-op Substation,69.0,33.567197,-101.827922,Lubbock Power & Light,69,transmission,,LUBBOCK,
+w200870128,Co-op Substation,69.0,33.567197,-101.827922,Lubbock Power & Light,69,transmission,,LUBBOCK,LPLCO
 w201042353,Murphy Substation,115.0,33.533881,-101.965346,Xcel Energy,115;24.94,distribution,,LUBBOCK,
 w201049165,,,33.686421,-101.996564,,,,,LUBBOCK,
 w201055183,,115.0,32.964436,-102.53313,,115;69,transmission,,TERRY,
@@ -776,7 +776,7 @@ w201060931,,69.0,33.046735,-102.429976,,69,distribution,,TERRY,
 w201348511,,69.0,33.940665,-102.353975,,69,,,LAMB,
 w202213277,Wheless Lane Substation,138.0,30.31305,-97.685019,Austin Energy,138,distribution,,TRAVIS,WHELESS
 w203377758,,69.0,31.00827,-96.801487,,69,industrial,,MILAM,
-w203621090,Holly Substation,138.0,27.708453,-97.397347,American Electric Power,138,distribution,,NUECES,
+w203621090,Holly Substation,138.0,27.708453,-97.397347,American Electric Power,138,distribution,,NUECES,HOLLY4
 w203655558,Airline Substation,138.0,27.695767,-97.373394,American Electric Power,138;69,transmission,,NUECES,AIRLINE
 w204031484,Rodd Field Substation,138.0,27.659191,-97.382502,American Electric Power,138,distribution,,NUECES,RODD_FLD
 w204031487,Wooldridge Substation,138.0,27.68176,-97.352423,American Electric Power,138,distribution,,NUECES,WOOLRIDG
@@ -800,7 +800,7 @@ w206466956,,115.0,31.879844,-106.585883,,115,distribution,,EL PASO,
 w206525426,Clinton Substation,138.0,29.760704,-95.299194,CenterPoint Energy,138;69;12,distribution,CL,HARRIS,
 w207256326,Patton Lane Substation,138.0,30.238288,-97.870492,Austin Energy,138,distribution,,TRAVIS,PATTON
 w207313733,Cedar Valley Substation,138.0,30.227003,-97.952461,Pedernales Electric Cooperative,138,distribution,,TRAVIS,
-w208626022,Kirby Substation,138.0,29.729723,-95.422894,CenterPoint Energy,138,distribution,KB,HARRIS,
+w208626022,Kirby Substation,138.0,29.729723,-95.422894,CenterPoint Energy,138,distribution,KB,HARRIS,KB
 w209060966,Bergstrom Substation,138.0,30.219063,-97.672599,Austin Energy,138,distribution,,TRAVIS,BERGSTRO
 w211436196,Abilene Power Plant Substation,69.0,32.449946,-99.721328,American Electric Power,69,transmission,,TAYLOR,
 w213201551,Sonterra Substation,138.0,30.802287,-97.607621,Brazos Electric,138,distribution,,WILLIAMSON,SONTERRA
@@ -817,7 +817,7 @@ w217281966,Wolf Lane Substation,138.0,30.139461,-97.561401,Lower Colorado River 
 w217282331,Pilot Knob Substation,138.0,30.162491,-97.681634,Austin Energy,138,transmission,,TRAVIS,PILOT
 w217282853,Colton Substation,138.0,30.139053,-97.678923,Lower Colorado River Authority,138,distribution,,TRAVIS,COLTON
 w217550137,,115.0,31.768606,-106.232924,,115,distribution,,EL PASO,
-w217824440,West Substation,69.0,31.794852,-97.096552,Oncor,69,distribution,,MCLENNAN,
+w217824440,West Substation,69.0,31.794852,-97.096552,Oncor,69,distribution,,MCLENNAN,WESTS
 w220349421,South Brady Substation,69.0,31.11808,-99.329444,American Electric Power,69,distribution,,MCCULLOCH,
 w220349422,Dutton Substation,69.0,31.145651,-99.323049,Sharyland Utilities,69,distribution,,MCCULLOCH,DUTTON
 w220908909,,138.0,33.001597,-94.958641,,138;69,,,CAMP,
@@ -834,7 +834,7 @@ w228018571,,138.0,33.635667,-97.143999,,138;69,distribution,,COOKE,
 w230199859,Dewalt Substation,138.0,29.604516,-95.563696,CenterPoint Energy,138;34.5,distribution,DL,FORT BEND,DL
 w230616343,Bertram Substation,138.0,30.754879,-98.053767,Pedernales Electric Cooperative,138,distribution,,BURNET,BERTRA
 w230619874,Floresville Substation,138.0,29.14118,-98.154236,CPS Energy,138,distribution,C3,WILSON,C3
-w231066354,Lake Pauline Substation,138.0,34.252326,-99.684751,American Electric Power,138;69,transmission,,HARDEMAN,
+w231066354,Lake Pauline Substation,138.0,34.252326,-99.684751,American Electric Power,138;69,transmission,,HARDEMAN,PAUL
 w232387824,Camp Gary Substation,69.0,29.881236,-97.866407,Lower Colorado River Authority,69;12.5,distribution,,CALDWELL,
 w232387825,Reedville Substation,69.0,29.875391,-97.851355,Bluebonnet Electric Cooperative,69;12.5,distribution,,CALDWELL,
 w232389287,Beback Substation,138.0,29.797102,-97.955604,Bluebonnet Electric Cooperative,138;12.5,distribution,,HAYS,BEBACK
@@ -1013,7 +1013,7 @@ w323184324,Airport Substation,138.0,25.906221,-97.447421,Brownsville Public Util
 w323467723,Goodyear Substation,138.0,29.706206,-95.256988,CenterPoint Energy,138,industrial,,HARRIS,GYR
 w324082929,Alamo Cement Substation,138.0,29.611783,-98.374423,CPS Energy,138,industrial,,BEXAR,P1
 w325214746,Jett Substation,138.0,30.374718,-97.806476,Austin Energy,138,distribution,,TRAVIS,JETT
-w325345801,McCullough Substation,69.0,33.56711,-101.87857,Lubbock Power & Light,69,distribution,,LUBBOCK,
+w325345801,McCullough Substation,69.0,33.56711,-101.87857,Lubbock Power & Light,69,distribution,,LUBBOCK,LPLMC
 w327699745,Devil's Hill Substation,138.0,29.922345,-98.412338,Pedernales Electric Cooperative,138;69,distribution,,COMAL,
 w330587419,,69.0,31.780139,-106.385129,,69,,,EL PASO,
 w333296844,Jourdanton Substation,69.0,28.924268,-98.552023,American Electric Power,69,distribution,,ATASCOSA,JOURDNTN
@@ -1276,7 +1276,7 @@ w338951899,West Orange Substation,69.0,30.075945,-93.758441,Entergy,69;13.8,dist
 w338966795,Himex Substation,69.0,29.55935,-94.395571,Entergy,69;13.8,distribution,,GALVESTON,
 w338966796,Stowell Substation,138.0,29.791972,-94.401012,Entergy,138;69,distribution,,CHAMBERS,
 w339059836,Turtle Creek Substation,138.0,29.968925,-99.207264,Bandera Electric Cooperative,138;24.9,distribution,,KERR,TURTCR
-w339059838,Hunt Substation,138.0,30.076126,-99.336016,Lower Colorado River Authority,138,distribution,,KERR,
+w339059838,Hunt Substation,138.0,30.076126,-99.336016,Lower Colorado River Authority,138,distribution,,KERR,HUNT
 w339059839,Ingram Substation,138.0,30.084516,-99.245293,Lower Colorado River Authority,138,distribution,,KERR,INGRAM
 w339077868,Medina Substation,69.0,29.806273,-99.253812,Bandera Electric Cooperative,69;12.5,distribution,,BANDERA,MEDINA1
 w339106877,Met Center Substation,138.0,30.211019,-97.693147,Austin Energy,138,distribution,,TRAVIS,
@@ -1285,7 +1285,7 @@ w339106907,Grove Substation,138.0,30.216481,-97.710971,Austin Energy,138,industr
 w339106914,Burleson Substation,138.0,30.214689,-97.736722,Austin Energy,138,distribution,,TRAVIS,BURLESON
 w339106915,Hi Cross Substation,138.0,30.186198,-97.769111,Austin Energy,138,transmission,,TRAVIS,HICROSS
 w339125117,Jollyville Substation,138.0,30.47956,-97.781668,Austin Energy,138,distribution,,WILLIAMSON,JOLLYVIL
-w339125119,Howard Lane Substation,138.0,30.43315,-97.688767,Austin Energy,138,distribution,,TRAVIS,HWRDLN
+w339125119,Howard Lane Substation,138.0,30.43315,-97.688767,Austin Energy,138,distribution,,TRAVIS,HWRDTP
 w339125120,Tech Ridge Substation,138.0,30.419678,-97.665837,Austin Energy,138,distribution,,TRAVIS,
 w339130467,Williamson Substation,138.0,30.437189,-97.750242,Austin Energy,138,distribution,,TRAVIS,WILLIAMS
 w339130468,Northwest Substation,138.0,30.464599,-97.75731,Austin Energy,138,distribution,,WILLIAMSON,NORTHWES
@@ -1325,7 +1325,7 @@ w339836683,Franklin Substation,69.0,31.042073,-96.492052,Brazos Electric,69,dist
 w339880136,Central Austin Substation,69.0,30.310718,-97.733894,Austin Energy,69,distribution,,TRAVIS,CENAUS
 w339880138,Balcones Substation,138.0,30.391028,-97.730187,Austin Energy,138,distribution,,TRAVIS,
 w339880148,Koenig Lane Substation,69.0,30.328372,-97.726948,Austin Energy,69,distribution,KL,TRAVIS,KOENIG
-w339880149,Northland Substation,138.0,30.335406,-97.754658,Austin Energy,138;69,transmission,NL,TRAVIS,
+w339880149,Northland Substation,138.0,30.335406,-97.754658,Austin Energy,138;69,transmission,NL,TRAVIS,NORTHLAN
 w339904910,Lakeshore Substation,138.0,30.315173,-97.78049,Austin Energy,138,distribution,,TRAVIS,LAKESHOR
 w339937461,Glasscock Substation,138.0,30.739597,-97.694078,Lower Colorado River Authority,138,distribution,,WILLIAMSON,GLASSC
 w339937464,Rivery Substation,138.0,30.648502,-97.689645,Lower Colorado River Authority,138;25,distribution,,WILLIAMSON,RIVERY
@@ -1402,7 +1402,7 @@ w340663536,Hemphill Substation,138.0,32.739386,-97.332383,,138;12.5,transmission
 w340663538,Mistletoe Heights Substation,138.0,32.734544,-97.353706,,138;12.5,distribution,,TARRANT,
 w340699622,,138.0,33.003931,-96.753956,,138,distribution,,COLLIN,
 w340699624,Armstrong Substation,138.0,32.822862,-96.792186,Oncor,138,distribution,,DALLAS,ARMST
-w340699626,Blackwell Street Substation,138.0,32.86743,-96.765824,Oncor,138;12.5,distribution,,DALLAS,BKWST
+w340699626,Blackwell Street Substation,138.0,32.86743,-96.765824,Oncor,138;12.5,distribution,,DALLAS,BELLS
 w340879661,,138.0,32.850848,-97.186918,,138,distribution,,TARRANT,
 w340879662,,138.0,32.84599,-97.226553,Oncor,138,distribution,,TARRANT,
 w340879728,,138.0,32.799064,-97.325136,,138,distribution,,TARRANT,
@@ -1637,12 +1637,12 @@ w346161473,San Angelo Lake Drive Substation,138.0,31.495977,-100.466371,American
 w346161474,San Angelo North Substation,138.0,31.494012,-100.435209,American Electric Power,138;69,transmission,,TOM GREEN,SANORTH
 w346161475,San Angelo Paulann Substation,138.0,31.4882,-100.38531,American Electric Power,138,distribution,,TOM GREEN,
 w346508731,Newman Switching Station,138.0,32.913705,-96.624517,Garland Power & Light,138,transmission,,DALLAS,NEWMAN
-w346508738,,138.0,32.93418,-96.680038,,138,distribution,,DALLAS,
+w346508738,,138.0,32.93418,-96.680038,,138,distribution,,DALLAS,COLLEGE
 w346508751,Castle Substation,138.0,32.921353,-96.614192,Garland Power & Light,138,distribution,,DALLAS,CASTL
 w346508759,Garland Substation,69.0,32.900921,-96.677603,Garland Power & Light,69,distribution,,DALLAS,
 w346508811,Marquis Substation,138.0,32.902099,-96.677676,Garland Power & Light,138;69,distribution,,DALLAS,MARQUIS
 w346508813,Naaman Substation,138.0,32.936899,-96.611349,Garland Power & Light,138,distribution,,DALLAS,NAAMAN
-w346508814,Shiloh Substation,138.0,32.900481,-96.666877,Garland Power & Light,138,distribution,,DALLAS,
+w346508814,Shiloh Substation,138.0,32.900481,-96.666877,Garland Power & Light,138,distribution,,DALLAS,SHILOH
 w346508815,Walnut Substation,138.0,32.916448,-96.631837,Garland Power & Light,138,transmission,,DALLAS,WNTSP
 w346527373,Centerville Substation,138.0,32.870834,-96.634586,Garland Power & Light,138,distribution,,DALLAS,CNI45
 w346527379,Miller Substation,138.0,32.894602,-96.602371,Garland Power & Light,138,distribution,,DALLAS,MILLERRD
@@ -1689,7 +1689,7 @@ w352526950,,138.0,30.741967,-93.651115,,138,distribution,,NEWTON,
 w352526951,,138.0,30.723315,-93.650273,,138,switching,,NEWTON,
 w353237072,,138.0,32.41468,-97.322312,,138,distribution,,JOHNSON,
 w353237121,,138.0,32.371778,-97.279052,,138,distribution,,JOHNSON,
-w354601983,Sterling County Substation,69.0,31.828906,-101.182341,Golden Spread Electric Cooperative,69,distribution,,STERLING,
+w354601983,Sterling County Substation,69.0,31.828906,-101.182341,Golden Spread Electric Cooperative,69,distribution,,STERLING,STCO
 w354601987,McDonald Road Substation,138.0,32.086252,-101.275607,Oncor,138,transmission,,GLASSCOCK,MCDLD
 w359625445,,34.5,36.491995,-101.466186,,34.5,distribution,,HANSFORD,
 w359671711,,115.0,36.475592,-101.391656,Noble Power,115;34.5,transmission,,HANSFORD,
@@ -1868,7 +1868,7 @@ w440284131,,138.0,33.786376,-96.558501,,138,,,GRAYSON,
 w440285219,,138.0,33.741648,-96.545132,,138,distribution,,GRAYSON,
 w440710227,,69.0,33.601856,-96.411203,,69,distribution,,GRAYSON,
 w440720673,,138.0,33.601678,-96.458809,,138,distribution,,GRAYSON,
-w442013545,Chalker Substation,69.0,33.526537,-101.914173,Lubbock Power & Light,69,distribution,,LUBBOCK,CHALK
+w442013545,Chalker Substation,69.0,33.526537,-101.914173,Lubbock Power & Light,69,distribution,,LUBBOCK,LPLCH
 w442013552,Batton Substation,69.0,33.527292,-101.913394,Lubbock Power & Light,69;13.2;12.47,distribution,,LUBBOCK,
 w442786429,,138.0,33.628739,-96.899473,,138,distribution,,GRAYSON,
 w442929247,,138.0,33.627044,-96.863655,,138,distribution,,GRAYSON,
@@ -1909,7 +1909,7 @@ w451971666,Mines Road Substation,138.0,27.636024,-99.530205,American Electric Po
 w451971667,Botines Substation,138.0,27.68543,-99.480509,South Texas Electric Cooperative,138;25,distribution,,WEBB,BOTINES
 w451971668,North Laredo Switching Station,138.0,27.692138,-99.477565,American Electric Power,138,transmission,,WEBB,NLARSW
 w451971670,Milo Substation,138.0,27.611031,-99.499928,American Electric Power,138,distribution,,WEBB,MILO
-w451971720,Bordas Substation,345.0,27.321134,-98.998069,NextEra Energy,345;34.5,transmission,,WEBB,BORDAS2
+w451971720,Bordas Substation,345.0,27.321134,-98.998069,NextEra Energy,345;34.5,transmission,,WEBB,BORDAS
 w451971721,Rio Brava Substation,138.0,27.313834,-99.41952,American Electric Power,138,distribution,,WEBB,RIO_BRAV
 w451971722,University Substation,138.0,27.588181,-99.429845,American Electric Power,138,distribution,,WEBB,UNIVERSI
 w451971723,Sierra Vista Substation,138.0,27.437984,-99.448294,American Electric Power,138,distribution,,WEBB,SIEVISTA
@@ -1994,10 +1994,10 @@ w454066838,Kirchhef Substation,345.0,32.925331,-100.216776,American Electric Pow
 w454066871,Gauss Substation,345.0,33.478938,-99.661551,American Electric Power,345,compensation,,KNOX,
 w454325947,Sand Road Substation,69.0,34.14199,-99.30595,ETT;AEP Texas,69,distribution,,WILBARGER,SANDROAD
 w454325948,,69.0,34.1588,-99.286438,American Electric Power,69,transmission,,WILBARGER,
-w454325950,Vernon City Plant Substation,69.0,34.162279,-99.296309,American Electric Power,69,distribution,,WILBARGER,
+w454325950,Vernon City Plant Substation,69.0,34.162279,-99.296309,American Electric Power,69,distribution,,WILBARGER,VERS
 w454325983,Blue Summit Wind Substation,345.0,34.294055,-99.369219,NextEra Energy,345,transmission,,WILBARGER,BLSUMMIT
 w454325994,Jim Treece Substation,345.0,34.234163,-99.434164,American Electric Power,345,transmission,,WILBARGER,JIMTREEC
-w454428850,Thompson Substation,69.0,33.542231,-101.926775,Lubbock Power & Light,69,distribution,,LUBBOCK,
+w454428850,Thompson Substation,69.0,33.542231,-101.926775,Lubbock Power & Light,69,distribution,,LUBBOCK,LPLTH
 w454565183,West Krum Substation,345.0,33.32468,-97.310681,Oncor,345,transmission,,DENTON,KRWSW
 w454591258,,138.0,32.459528,-97.734596,,138,distribution,,HOOD,
 w454696064,Aubrey Substation,138.0,33.305074,-96.999845,Brazos Electric,138,distribution,,DENTON,ABR
@@ -2208,10 +2208,10 @@ w461754522,Cotton Belt Substation,138.0,31.427909,-97.31751,Brazos Electric,138,
 w461754552,Baylor Substation,138.0,31.550798,-97.104283,,138,distribution,,MCLENNAN,BYLOR
 w461754560,Troy Substation,69.0,31.209694,-97.307533,Oncor,69;12.5,distribution,,BELL,
 w461754591,Temple Northwest Substation,138.0,31.109406,-97.402329,Oncor,138;12.5,distribution,,BELL,TMPNW
-w461754601,Temple North Substation,138.0,31.134156,-97.33617,Oncor,138;12.5,distribution,,BELL,TMNTH
+w461754601,Temple North Substation,138.0,31.134156,-97.33617,Oncor,138;12.5,distribution,,BELL,TMPLE
 w461754614,Moffat Substation,138.0,31.203952,-97.437557,Brazos Electric,138,distribution,,BELL,MOFFAT
 w461754618,Moody Substation,138.0,31.275288,-97.375779,Brazos Electric,138,distribution,,BELL,MOODY
-w461754621,Bosque Substation,138.0,31.685877,-97.375044,Brazos Electric,138,distribution,,MCLENNAN,BOSQUESW
+w461754621,Bosque Substation,138.0,31.685877,-97.375044,Brazos Electric,138,distribution,,MCLENNAN,BOSQUE
 w461754626,China Spring Substation,138.0,31.671661,-97.303375,Brazos Electric,138,distribution,,MCLENNAN,CHINASPR
 w461754627,China Spring Substation,138.0,31.671117,-97.304244,Oncor,138;25,distribution,,MCLENNAN,
 w461754667,Perry Substation,138.0,31.440238,-96.876222,Brazos Electric,138;69,transmission,,FALLS,PRY
@@ -2256,7 +2256,7 @@ w462426821,Killeen Taft Street Substation,138.0,31.101203,-97.707598,Oncor,138;1
 w462426850,Temple South Substation,138.0,31.076691,-97.374372,Oncor,138;12.5,distribution,,BELL,TMSTH
 w462426857,Cameron Substation,69.0,30.849363,-96.989514,Oncor,69;12.5,distribution,,MILAM,
 w462426858,Marak Substation,69.0,30.893367,-97.049092,Oncor,69;12.5,distribution,,MILAM,MARAK
-w462426879,Panda Temple 1 Substation,345.0,31.057066,-97.315088,Panda Power,345,transmission,,BELL,PANDA_T1
+w462426879,Panda Temple 1 Substation,345.0,31.057066,-97.315088,Panda Power,345,transmission,,BELL,PANDA_T2
 w462426880,Panda Temple 2 Substation,345.0,31.057502,-97.31656,Panda Power,345,transmission,,BELL,
 w462426907,Knob Creek Switching Station,345.0,31.056312,-97.312714,Oncor,345,transmission,,BELL,KNBSW
 w462426943,Silver City Substation,69.0,30.916884,-96.927593,Brazos Electric,69,distribution,,MILAM,SVC
@@ -2347,12 +2347,12 @@ w465247187,Shallowater Substation,69.0,33.693499,-101.957507,South Plains Electr
 w465247193,Whitehead Substation,69.0,33.730464,-101.871951,Xcel Energy,69;4.16,industrial,,LUBBOCK,
 w465247198,Monroe Substation,69.0,33.737055,-101.862129,Xcel Energy,69;23,distribution,,LUBBOCK,
 w465247205,New Deal Interchange,69.0,33.781042,-101.862287,South Plains Electric Cooperative,69,distribution,,LUBBOCK,
-w465471424,Northeast Substation,69.0,33.62089,-101.802217,Lubbock Power & Light,69,distribution,,LUBBOCK,
-w465471435,Wadsworth Substation,230.0,33.556694,-101.799205,Lubbock Power & Light,230;69,transmission,,LUBBOCK,
-w465695444,Massengale Station,69.0,33.603525,-101.842178,Lubbock Power & Light,69,transmission,,LUBBOCK,
-w465695629,Brandon Station,69.0,33.584894,-101.886517,Lubbock Power & Light,69,transmission,,LUBBOCK,
-w465695654,Erskine Substation,69.0,33.606528,-101.879523,Lubbock Power & Light,69,distribution,,LUBBOCK,
-w465913063,Northwest Substation,69.0,33.622208,-101.906702,Lubbock Power & Light,69,distribution,,LUBBOCK,
+w465471424,Northeast Substation,69.0,33.62089,-101.802217,Lubbock Power & Light,69,distribution,,LUBBOCK,LPLNE
+w465471435,Wadsworth Substation,230.0,33.556694,-101.799205,Lubbock Power & Light,230;69,transmission,,LUBBOCK,LPLWA
+w465695444,Massengale Station,69.0,33.603525,-101.842178,Lubbock Power & Light,69,transmission,,LUBBOCK,LPLMK
+w465695629,Brandon Station,69.0,33.584894,-101.886517,Lubbock Power & Light,69,transmission,,LUBBOCK,LPLBR
+w465695654,Erskine Substation,69.0,33.606528,-101.879523,Lubbock Power & Light,69,distribution,,LUBBOCK,LPLER
+w465913063,Northwest Substation,69.0,33.622208,-101.906702,Lubbock Power & Light,69,distribution,,LUBBOCK,LPLNW
 w466088460,Woodrow Interchange,115.0,33.462363,-101.788408,Xcel Energy,115;69,transmission,,LUBBOCK,
 w466088467,Posey Substation,69.0,33.484097,-101.709975,South Plains Electric Cooperative,69,distribution,,LUBBOCK,
 w466088478,Union Substation,69.0,33.447683,-101.796746,South Plains Electric Cooperative,69,distribution,,LUBBOCK,
@@ -2624,7 +2624,7 @@ w491193077,Loraine Substation,69.0,32.415882,-100.713231,Oncor,69;12.47,distribu
 w491193078,Sweetwater Downtown Substation,138.0,32.465993,-100.409729,Oncor,138;12.47,distribution,,NOLAN,SWDTN
 w491193088,Haynes Substation,138.0,32.443432,-100.397387,Golden Spread Electric Cooperative,138,distribution,,NOLAN,HAYNES
 w491193096,,138.0,32.382504,-100.715191,Sharyland Utilities,138,distribution,,MITCHELL,
-w491401626,Bronte Atlantic Substation,69.0,31.821876,-100.311015,American Electric Power,69,industrial,,COKE,
+w491401626,Bronte Atlantic Substation,69.0,31.821876,-100.311015,American Electric Power,69,industrial,,COKE,ATBR
 w491401631,Spence Pump Substation,69.0,31.950586,-100.597185,American Electric Power,69,industrial,,COKE,SPENCE
 w491401652,Bronte Substation,69.0,31.891341,-100.293306,American Electric Power,69,distribution,,COKE,BRONTE
 w491401664,Bronte Ambassador Substation,69.0,31.885126,-100.397322,American Electric Power,69,distribution,,COKE,
@@ -2674,7 +2674,7 @@ w494437114,Bulverde Substation,138.0,29.731905,-98.441218,CPS Energy,138,distrib
 w494445035,Blossom Substation,138.0,29.546442,-98.459414,CPS Energy,138,distribution,,BEXAR,H4
 w496441649,Glass Ranch Substation,138.0,32.187638,-102.008746,Sharyland Utilities,138,distribution,,MARTIN,GLSCN
 w496458361,Solara Substation,138.0,33.006572,-99.605435,Consolidated Edison,138;34.5,generation,,HASKELL,SOLARA
-w496524764,Rankin Substation,69.0,31.217914,-101.937498,American Electric Power,69,distribution,,UPTON,RANKIN
+w496524764,Rankin Substation,69.0,31.217914,-101.937498,American Electric Power,69,distribution,,UPTON,RANKIN4
 w496524765,Discovery Canyon Substation,69.0,30.895709,-101.934961,American Electric Power,69,distribution,,PECOS,DISCOVER
 w496524767,Cactus Tapping Station,69.0,30.787754,-101.832048,American Electric Power,69,transmission,,CROCKETT,CACTUS
 w496524768,Iraan Substation,69.0,30.910482,-101.89966,American Electric Power,69,distribution,,PECOS,IRAAN
@@ -2750,7 +2750,7 @@ w498671832,Grayback Substation,69.0,33.994045,-99.167459,American Electric Power
 w498671835,Harrold Substation,69.0,34.042709,-99.093744,American Electric Power,69,distribution,,WILBARGER,HARROLD
 w498671836,Lockett Substation,69.0,34.051091,-99.375323,Western Farmers Electric Cooperative,69,distribution,,WILBARGER,
 w498689754,,,32.875191,-96.668096,,,,,DALLAS,
-w498907635,Bendix Substation,345.0,34.103328,-99.112665,Starwood Energy Group,345,transmission,,WILBARGER,DIGBY
+w498907635,Bendix Substation,345.0,34.103328,-99.112665,Starwood Energy Group,345,transmission,,WILBARGER,LOCKETT
 w499322820,,138.0,31.852565,-102.307649,,138,industrial,,ECTOR,
 w499322842,Midessa South Substation,345.0,31.858213,-102.215951,Oncor,345;138,transmission,,MIDLAND,MDSSW
 w499322850,,138.0,31.907421,-102.204575,Oncor,138,distribution,,MIDLAND,
@@ -2828,14 +2828,14 @@ w501745929,Stafford Boulevard Substation,138.0,31.399988,-103.494152,Texas-New M
 w501745931,Barrilla Draw Substation,138.0,31.257436,-103.430743,Texas-New Mexico Power,138,distribution,,REEVES,
 w501745939,Flat Top Substation,138.0,31.199547,-103.359518,Texas-New Mexico Power,138,distribution,,REEVES,FLAT_TOP
 w501745940,Faulkner Substation,138.0,31.261042,-103.793197,Texas-New Mexico Power,138,distribution,,REEVES,FAULKNER
-w501745941,Pecos Substation,138.0,31.429505,-103.498703,Texas-New Mexico Power,138,distribution,,REEVES,
+w501745941,Pecos Substation,138.0,31.429505,-103.498703,Texas-New Mexico Power,138,distribution,,REEVES,PECOS
 w501745942,IH 20 Substation,138.0,31.399866,-103.490851,Texas-New Mexico Power,138,transmission,,REEVES,
 w501745945,Reeves County #4 Substation,138.0,31.396461,-103.625654,Texas-New Mexico Power,138,distribution,,REEVES,COYOTSPR
 w501745955,Bone Springs Substation,138.0,31.531261,-103.355686,Texas-New Mexico Power,138,industrial,,WARD,
 w501745957,Mi Vida Substation,138.0,31.515278,-103.451031,Texas-New Mexico Power,138,transmission,,WARD,MIVIDA
 w501745965,,138.0,31.523475,-103.461351,,138,industrial,,WARD,
 w501745969,Barstow Northwest Substation,138.0,31.497316,-103.47196,Oncor,138,distribution,,WARD,BARNW
-w501745975,Cochise Substation,138.0,31.513953,-103.452069,Texas-New Mexico Power,138,distribution,,WARD,
+w501745975,Cochise Substation,138.0,31.513953,-103.452069,Texas-New Mexico Power,138,distribution,,WARD,CEDRVALE
 w501745977,Bone Springs Tap,138.0,31.54465,-103.410845,Texas-New Mexico Power,138,transmission,,WARD,
 w501745978,Lonestar Substation,138.0,31.594276,-103.24841,Texas-New Mexico Power,138,distribution,,WARD,LONESTAR
 w501854959,East Harrison Substation,69.0,26.191413,-97.665074,American Electric Power,69,distribution,,CAMERON,E_HARRIS
@@ -2847,7 +2847,7 @@ w502392995,Fort Stockton Plant Substation,138.0,30.927267,-102.955211,American E
 w502934783,Fort Stockton Substation,69.0,30.889373,-102.884083,Texas-New Mexico Power,69,distribution,,PECOS,
 w502934795,Airport Substation,138.0,30.903067,-102.919156,Texas-New Mexico Power,138,distribution,,PECOS,
 w502934802,16th Street Substation,138.0,30.900402,-102.873243,Texas-New Mexico Power,138;69,transmission,,PECOS,16TH_ST
-w502934808,Woodward Wind 1 Substation,138.0,30.951576,-102.480993,NextEra Energy,138,transmission,,PECOS,WOODWRD1
+w502934808,Woodward Wind 1 Substation,138.0,30.951576,-102.480993,NextEra Energy,138,transmission,,PECOS,WOODWRD2
 w502934809,Woodward Wind 2 Substation,138.0,30.980087,-102.416955,NextEra Energy,138,transmission,,PECOS,
 w502934818,Tombstone Substation,138.0,31.002386,-102.679008,American Electric Power,138,transmission,,PECOS,TOMBSTNE
 w503095980,White Baker Substation,69.0,30.885368,-102.423384,Southwest Texas Electric Cooperative,69,distribution,,PECOS,TNWHTBKR
@@ -2973,7 +2973,7 @@ w507111870,Central Angelina Substation,138.0,31.443097,-94.779774,Oncor,138;25;1
 w507399206,Proctor Substation,69.0,31.953069,-98.467174,Oncor,69,distribution,,COMANCHE,
 w507399209,Hasse Substation,138.0,31.924459,-98.504041,Brazos Electric,138;69,transmission,,COMANCHE,HAS
 w507399213,Comanche Substation,138.0,31.894218,-98.60547,Oncor,138,distribution,,COMANCHE,
-w507399215,Shiloh Substation,138.0,31.893041,-98.572886,Brazos Electric,138,distribution,,COMANCHE,SHILOH
+w507399215,Shiloh Substation,138.0,31.893041,-98.572886,Brazos Electric,138,distribution,,COMANCHE,SHILO
 w507399223,Novice Substation,69.0,31.984028,-99.669299,Golden Spread Electric Cooperative,69,distribution,,COLEMAN,NOVICE
 w507399233,Talpa Atlantic Substation,69.0,31.739427,-99.642229,American Electric Power,69,distribution,,COLEMAN,TALPAATL
 w507399238,Valera Substation,69.0,31.758286,-99.547461,American Electric Power,69,distribution,,COLEMAN,
@@ -3081,7 +3081,7 @@ w511133298,Warda Substation,138.0,30.050317,-96.920861,Lower Colorado River Auth
 w511343978,Fayette River Pump Substation,138.0,29.868447,-96.775424,Lower Colorado River Authority,138,industrial,,FAYETTE,FPPRIP
 w511344014,Frelsburg Substation,138.0,29.835703,-96.615898,San Benard Electric Cooperative,138,distribution,,COLORADO,FRELSB
 w511344195,Round Top Substation,138.0,30.077852,-96.710603,Fayette Electric Cooperative,138,distribution,,FAYETTE,ROUNTO
-w511344241,Sandy Hill Substation,138.0,30.277982,-96.327276,Bluebonnet Electric Cooperative,138,distribution,,WASHINGTON,SANDY
+w511344241,Sandy Hill Substation,138.0,30.277982,-96.327276,Bluebonnet Electric Cooperative,138,distribution,,WASHINGTON,SANDHI
 w511344263,Mill Creek Substation,138.0,30.182768,-96.579749,Bluebonnet Electric Cooperative,138,distribution,,WASHINGTON,
 w511461911,,138.0,31.283767,-96.499564,,138,industrial,,LIMESTONE,
 w511461948,Kosse Substation,69.0,31.303896,-96.511216,Brazos Electric,69,distribution,,LIMESTONE,KOSSE
@@ -3181,7 +3181,7 @@ w513362272,Union Carbide Substation,69.0,25.964497,-97.375534,Brownsville Public
 w513362274,Coffee Port Substation,138.0,25.938037,-97.426299,American Electric Power,138,distribution,,CAMERON,COFFPORT
 w513362277,Highway 511 Substation,138.0,25.937539,-97.408183,South Texas Electric Cooperative,138,distribution,,CAMERON,
 w513362297,Olmito Substation,138.0,26.001529,-97.519815,American Electric Power,138,industrial,,CAMERON,OLMITO
-w513362299,Palo Alto Substation,138.0,26.002143,-97.514082,Brownsville Public Utilities Board,138,industrial,,CAMERON,
+w513362299,Palo Alto Substation,138.0,26.002143,-97.514082,Brownsville Public Utilities Board,138,industrial,,CAMERON,PALOALTO
 w513362307,Titan Tire Substation,138.0,25.994602,-97.47794,Brownsville Public Utilities Board,138,industrial,,CAMERON,TITAN_SU
 w513362318,Loma Alta Substation,138.0,25.977323,-97.384491,Brownsville Public Utilities Board,138;69,transmission,,CAMERON,LOMA_ALT
 w513362319,Union Carbide Substation,138.0,25.968195,-97.375132,American Electric Power,138,transmission,,CAMERON,
@@ -3292,7 +3292,7 @@ w515820408,Vanderbilt Substation,69.0,28.806508,-96.645686,South Texas Electric 
 w515820409,Louise Substation,69.0,29.104568,-96.454046,South Texas Electric Cooperative,69,distribution,,WHARTON,LOUISES
 w515820411,Ganado Substation,69.0,29.043465,-96.48804,South Texas Electric Cooperative,69,distribution,,JACKSON,GANADOS
 w515820420,Edna Substation,69.0,29.004464,-96.637954,South Texas Electric Cooperative,69,distribution,,JACKSON,
-w515820469,El Toro Switching Station,69.0,28.960804,-96.726267,South Texas Electric Cooperative,69,transmission,,JACKSON,ELTORS
+w515820469,El Toro Switching Station,69.0,28.960804,-96.726267,South Texas Electric Cooperative,69,transmission,,JACKSON,ELTORSS
 w515820478,El Toro Substation,69.0,28.960234,-96.708476,South Texas Electric Cooperative,69,distribution,,JACKSON,
 w515820480,Inez Substation,69.0,28.90865,-96.803941,South Texas Electric Cooperative,69,distribution,,VICTORIA,INEZS
 w515820484,Fordtran Substation,69.0,29.105132,-97.022112,Guadalupe Valley Electric Cooperative,69,distribution,,DEWITT,FORDTRN
@@ -3562,7 +3562,7 @@ w561577219,,138.0,33.177882,-97.546678,,138,distribution,,WISE,
 w563939462,,69.0,34.060942,-101.836422,,69,,,HALE,
 w563976701,Diekemper Substation,69.0,33.21878,-101.407798,Xcel Energy,69;4.16,distribution,,GARZA,
 w563976703,Garza Substation,69.0,33.186271,-101.390497,Xcel Energy,69;23;4.16,distribution,,GARZA,
-w563976707,Graham Interchange,115.0,33.18666,-101.408049,Xcel Energy,115;69,transmission,,GARZA,GRAHM
+w563976707,Graham Interchange,115.0,33.18666,-101.408049,Xcel Energy,115;69,transmission,,GARZA,GRAHAM
 w564162617,,138.0,32.804162,-98.099982,Oncor,138,distribution,,PALO PINTO,
 w564425902,,138.0,33.655006,-95.568585,,138,distribution,,LAMAR,
 w565082008,,,33.209312,-98.15719,,,distribution,,JACK,
@@ -3623,7 +3623,7 @@ w579695437,Riggins Substation,138.0,31.054402,-102.851033,NRG Energy,138;34.5,tr
 w579799483,Upton County Solar 2 Substation,138.0,31.254196,-102.296163,Vistra Energy,138;34.5,transmission,,UPTON,
 w579799487,Upton County Solar 1 Substation,138.0,31.248928,-102.288895,,138;34.5,transmission,,UPTON,SPTX12B
 w579799495,Castillo Substation,138.0,31.253741,-102.306182,Lower Colorado River Authority,138,transmission,,UPTON,CASTIL
-w580070020,Dermott Wind Substation,345.0,32.863835,-101.009682,Lincoln Clean Energy,345;34.5,transmission,,SCURRY,DERMOTT
+w580070020,Dermott Wind Substation,345.0,32.863835,-101.009682,Lincoln Clean Energy,345;34.5,transmission,,SCURRY,DMTSW
 w580070021,Fluvanna Wind 1 Substation,138.0,32.886084,-101.094632,Terna Energy,138;34.5,transmission,,SCURRY,FLUVANNA
 w580232803,Santa Cruz Substation,138.0,27.588994,-97.534765,Enbridge,138;34.5,transmission,,NUECES,SANTACRU
 w580746574,Bruenning's Breeze Substation,345.0,26.522161,-97.655374,E.ON,345;34.5,transmission,,WILLACY,BBREEZE
@@ -3645,7 +3645,7 @@ w582452959,Foster Substation,138.0,29.701924,-95.846565,CenterPoint Energy,138,i
 w582800668,Arcola Substation,138.0,29.489056,-95.466531,CenterPoint Energy,138;34.5,distribution,,FORT BEND,AR
 w582995963,Dow Pump Substation,69.0,29.053216,-95.552002,Texas-New Mexico Power,69,industrial,,BRAZORIA,DOW_PUMP
 w582996012,Texas Pipeline Substation,69.0,29.145796,-95.674662,CenterPoint Energy,69,industrial,,BRAZORIA,
-w583058250,FM 524 Substation,138.0,29.064429,-95.734929,Texas-New Mexico Power,138;69,transmission,,BRAZORIA,
+w583058250,FM 524 Substation,138.0,29.064429,-95.734929,Texas-New Mexico Power,138;69,transmission,,BRAZORIA,FM524
 w583388759,,69.0,29.072672,-95.748299,,69,industrial,,BRAZORIA,
 w583388812,,69.0,29.071325,-95.747027,,69,switching,,BRAZORIA,
 w583388815,,69.0,29.075582,-95.745262,,69,industrial,,BRAZORIA,
@@ -4248,7 +4248,7 @@ w844424129,,138.0,31.802388,-103.239992,,138,industrial,,WINKLER,
 w849361807,,345.0,32.604739,-100.559511,,345,generation,,FISHER,
 w849925843,,138.0,31.789277,-103.68201,,138,industrial,,LOVING,
 w849925851,,138.0,31.976031,-103.544209,,138,industrial,,LOVING,
-w854394559,Esperanza Substation,138.0,29.800582,-98.665011,Lower Colorado River Authority,138,distribution,,KENDALL,ESPERANZ
+w854394559,Esperanza Substation,138.0,29.800582,-98.665011,Lower Colorado River Authority,138,distribution,,KENDALL,ESPERA
 w856184759,,69.0,32.714203,-99.288433,,69,transmission,,SHACKELFORD,
 w857873381,,69.0,29.922136,-96.211765,,69,switchyard,,AUSTIN,
 w857922639,,138.0,28.98068,-95.307278,,138,generation,,BRAZORIA,
@@ -4351,7 +4351,7 @@ w1006561811,Wolf Switching Station,345.0,31.6018,-102.932799,Oncor,345;138,trans
 w1006561834,,138.0,31.786793,-103.623787,,138,industrial,,LOVING,
 w1006613097,,138.0,31.276636,-103.113056,,138,distribution,,REEVES,
 w1006613098,,138.0,31.269102,-103.088696,,138,industrial,,PECOS,
-w1006613113,Trans-Pecos Substation,138.0,31.275328,-103.117785,Texas-New Mexico Power,138,transmission,,REEVES,TPECOSTP
+w1006613113,Trans-Pecos Substation,138.0,31.275328,-103.117785,Texas-New Mexico Power,138,transmission,,REEVES,TPECOS
 w1006613118,,138.0,31.273628,-103.09507,,138,transmission,,PECOS,
 w1006613125,,138.0,31.282925,-103.107057,,138,industrial,,REEVES,
 w1006613126,Lotebush Substation,138.0,31.291606,-103.11713,American Electric Power,138,transmission,,REEVES,
@@ -4449,7 +4449,7 @@ w1060258409,,138.0,26.288239,-97.496196,,138,distribution,,CAMERON,PALMWIND
 w1060258410,,138.0,26.287588,-97.496632,,138,transmission,,CAMERON,
 w1060364764,,138.0,33.521091,-98.678476,,138;69,transmission,,ARCHER,
 w1060364767,,138.0,33.53887,-98.52128,,138,transmission,,ARCHER,
-w1060364769,,138.0,33.509644,-98.564519,,138,generation,,ARCHER,WNDSW
+w1060364769,,138.0,33.509644,-98.564519,,138,generation,,ARCHER,BCATWIND
 w1060364771,,345.0,33.370015,-99.592319,,345,transmission,,HASKELL,
 w1060364773,,345.0,33.344121,-99.624652,,345,generation,,HASKELL,SALVTION
 w1060364775,,345.0,34.207786,-99.51532,,345,generation,,HARDEMAN,
@@ -4584,7 +4584,7 @@ w1110902638,,138.0,33.653507,-97.148009,,138,distribution,,COOKE,
 w1110902640,,138.0,33.650968,-96.914506,,138,distribution,,GRAYSON,
 w1110902642,,138.0,33.632966,-97.005802,,138;69,,,COOKE,
 w1110902644,,138.0,33.549546,-96.999308,,138,distribution,,COOKE,
-w1111863837,,345.0,33.007715,-100.560629,,345,generation,,KENT,AMADEUS1
+w1111863837,,345.0,33.007715,-100.560629,,345,generation,,KENT,AMADEUS2
 w1112112902,,345.0,33.743938,-99.670015,,345,transmission,,KNOX,TRUSGILL
 w1112163624,,345.0,33.922356,-99.787232,,345,,,FOARD,
 w1112286153,,138.0,26.68566,-99.109885,,138,transmission,,ZAPATA,
@@ -4902,7 +4902,7 @@ w1253007198,,69.0,31.517377,-106.131701,,69,,,EL PASO,
 w1253404990,Leigh Substation,,32.622101,-94.152434,,,distribution,,HARRISON,
 w1254689880,,,34.244877,-101.275939,,,,,FLOYD,
 w1255775887,,,36.444321,-100.329336,,,,,LIPSCOMB,
-w1256790958,Keller Magnolia substation,138.0,32.939579,-97.297019,Oncor,138,distribution,,TARRANT,KELLR
+w1256790958,Keller Magnolia substation,138.0,32.939579,-97.297019,Oncor,138,distribution,,TARRANT,KLRMG
 w1256974827,,,31.35933,-95.192482,,,,,HOUSTON,
 w1256980370,,,32.317193,-95.485068,,,,,HENDERSON,
 w1256980967,,138.0,32.526229,-95.540016,,138,distribution,,SMITH,
@@ -6197,7 +6197,7 @@ r6697271,Asherton Substation,138.0,28.44234,-99.755718,American Electric Power,1
 r6698765,Brundage Substation,69.0,28.545109,-99.743448,South Texas Electric Cooperative,69,distribution,,DIMMIT,BRUNDGS
 r6709972,Odessa EHV Substation,345.0,31.835133,-102.327938,Oncor,345;138,transmission,,ECTOR,OECCS
 r6710859,Vealmoor Substation,345.0,32.561105,-101.596799,Sharyland Utilities,345;138,transmission,,BORDEN,VEALMOOR
-r6724585,Collin Substation,345.0,33.199297,-96.812364,Oncor,345;138,transmission,,COLLIN,CN345
+r6724585,Collin Substation,345.0,33.199297,-96.812364,Oncor,345;138,transmission,,COLLIN,CNSES
 r6762518,Odessa North Substation,138.0,31.871929,-102.398019,Oncor,138;69;12.5,transmission,,ECTOR,ODESA
 r6772788,Eiland Substation,138.0,31.995009,-101.482209,Sharyland Utilities,138,transmission,,GLASSCOCK,EILAND
 r6775540,Falcon Seaboard Substation,345.0,32.274718,-101.422762,Oncor,345;138,transmission,,HOWARD,FLCNS
@@ -6208,7 +6208,7 @@ r6820580,Elm Mott Substation,345.0,31.699318,-97.100179,Oncor,345;138;69,transmi
 r6829846,Poage Substation,69.0,31.064147,-97.440381,Brazos Electric,69,transmission,,BELL,PGE
 r6861480,Perryton Interchange,115.0,36.401567,-100.804287,Xcel Energy,115,distribution,,OCHILTREE,
 r6870425,Stanton Substation,115.0,33.613752,-101.861938,Lubbock Power & Light,115;69;23;12.47,distribution,,LUBBOCK,
-r6878317,Vicksburg Substation,69.0,33.567461,-101.918285,Lubbock Power & Light,69,distribution,,LUBBOCK,
+r6878317,Vicksburg Substation,69.0,33.567461,-101.918285,Lubbock Power & Light,69,distribution,,LUBBOCK,LPLVK
 r7280745,,138.0,32.638419,-95.314803,,138,,,WOOD,
 r7283155,,138.0,32.532843,-95.270018,,138,distribution,,SMITH,
 r7362085,Big Lake Substation,138.0,31.184907,-101.460641,American Electric Power,138;69,transmission,,REAGAN,RUSSEKST

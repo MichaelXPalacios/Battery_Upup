@@ -115,6 +115,7 @@ VALID_FIT_END_CPT = "2026-10-09 12:00"   # REAL: end of the in-fit slice of the 
 HOLDOUT_RT_H = 24                    # REAL: phase 2 RT holdout, hours
 HOLDOUT_DAM_DAYS = 5                 # REAL: phase 2 DAM holdout, days
 CPT = "America/Chicago"              # REAL: Central Prevailing Time
+READ_ONLY = False                    # DERIVED: R2. True in a process that must not write (report-check): a stale cache is recomputed in memory and nothing is saved, not even data/constraint_synth.csv
 
 # derived-file names (all under research-data/grid/derived/, owned by 3b)
 HUB_FILE = DERIVED / "nodal_lanes_hubs.npz"
@@ -208,8 +209,9 @@ def hub_history() -> dict:
     if got is not None:
         return got
     out = _hub_history_build()
-    np.savez_compressed(HUB_FILE, **out)
-    sigf.write_text(sig)
+    if not READ_ONLY:
+        np.savez_compressed(HUB_FILE, **out)
+        sigf.write_text(sig)
     return out
 
 
@@ -403,8 +405,9 @@ def zone_sf(refresh: bool = False) -> pd.DataFrame:
     use_direct = d["r2_zone"] >= ZONE_SF_MIN_R2
     d["source"] = np.where(use_direct, "direct", "bus_mean")
     d["sf"] = np.where(use_direct, d["sf"], d["bus_mean"])
-    d.to_parquet(ZONE_SF_FILE, index=False)
-    sigf.write_text(sig)
+    if not READ_ONLY:
+        d.to_parquet(ZONE_SF_FILE, index=False)
+        sigf.write_text(sig)
     return d
 
 
@@ -677,8 +680,8 @@ def constraint_structure(include_shrunk: bool = INCLUDE_SHRUNK_DEFAULT, refresh:
             "driver_location", "driver_sign", "driver_corr", "driver_basis", "driver_n_binding", "k_hours_per_musd",
             "upgrade_project_id", "upgrade_in_service_date", "upgrade_match_conf", "gtc"]
     out = c[keep].copy()
-    if not use_cache:
-        return out                                            # sensitivity runs never touch the caches or the CSV
+    if not use_cache or READ_ONLY:
+        return out                                            # sensitivity runs (and a READ_ONLY process, e.g. report-check) never touch the caches or the CSV
     out.to_parquet(cache, index=False)
     sigf.write_text(sig)
     if write and not include_shrunk and driver_rule == DRIVER_RULE:
@@ -836,9 +839,10 @@ def mu_tilde(include_shrunk: bool = INCLUDE_SHRUNK_DEFAULT, driver_rule: str | N
         if got is not None:
             return struct, got, pd.read_parquet(g)
     Mu, st = build_mu_tilde(struct)
-    sps.save_npz(f, Mu)
-    st.to_parquet(g, index=False)
-    sigf.write_text(sig)
+    if not READ_ONLY:
+        sps.save_npz(f, Mu)
+        st.to_parquet(g, index=False)
+        sigf.write_text(sig)
     return struct, Mu, st
 
 
@@ -1234,3 +1238,12 @@ def sensitivity_lanes(subs, overrides: dict, include_shrunk: bool = False, drive
         return node_prices(M["DSF"], M["zone"], Mu, hist), M["zone"], struct
     finally:
         g.update(saved)
+
+
+# =================================================================================================================
+# R2 (revision 2): install the structural rows of R1 (gridsite.coverage) and the IMM 2026 anchors (gridsite.rev2) into this module. Keep this the last statement.
+# GRIDSITE_REVISION=1 in the environment leaves the module as revision 1 had it.
+# =================================================================================================================
+from . import rev2 as _rev2  # noqa: E402
+
+_rev2.install()

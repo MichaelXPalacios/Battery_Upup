@@ -48,7 +48,7 @@ scn_largest_loss_usd_kw_yr,SIM,this module,"its change, $/kW-yr"
 scn_sum40_before_usd_kw_yr,SIM,this module,"sum over the 40 candidates of the learner value (1 kW at each site), $/kW-yr"
 scn_sum40_after_usd_kw_yr,SIM,this module,
 scn_sum40_change_pct,SIM,this module,percent change of that sum
-scn_portfolio200_before_musd_yr,SIM,this module,"the 200 MW the price-taker caps allow at the nodes (each constraint group's cap at its best node), $M a year at 2025 replay values"
+scn_portfolio200_before_musd_yr,SIM,this module,"the MW the price-taker caps allow at the nodes (each constraint group's cap at its best node; 200 MW in revision 1, 220 MW in revision 2, the column names keep the old figure), $M a year at 2025 replay values"
 scn_portfolio200_static_after_musd_yr,SIM,this module,"the same MW at the same nodes, valued after the upgrade (the owner cannot move)"
 scn_portfolio200_reopt_after_musd_yr,SIM,this module,the best placement after the upgrade (the owner re-sites)
 scn_portfolio200_static_change_pct,SIM,this module,
