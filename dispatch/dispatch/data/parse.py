@@ -518,48 +518,96 @@ def _local_noon_like(naive_days: pd.Series, days_after: int, hour: int) -> pd.Se
     return naive.dt.tz_localize(CPT, ambiguous=False, nonexistent="shift_forward").dt.tz_convert("UTC").astype(UTC_US)
 
 
+def _drop_repeated_versions(df: pd.DataFrame, keys: list, values: list) -> pd.DataFrame:
+    """`df` holds every version of every key, in file order (column `__ord`). Keep a row if it is the first of its key, or if its values differ from the
+    version before it (NaN equals NaN); a row that repeats the version before it carries no news and is dropped, so the row that stays is the one
+    published when the value FIRST appeared. Where no key repeats (the adopted station files) nothing is dropped."""
+    df = df.sort_values(keys + ["__ord"], kind="stable")
+    prev = df.groupby(keys, sort=False)[values].shift(1)
+    first = ~df.duplicated(keys, keep="first")
+    same = ((df[values] == prev) | (df[values].isna() & prev.isna())).all(axis=1)
+    return df[first | ~same].drop(columns="__ord").reset_index(drop=True)
+
+
 def parse_gas_hh(files: list[lake.RawFile]) -> pd.DataFrame:
-    """Henry Hub daily spot, FRED DHHNGSP: DATE,DHHNGSP. Public `GAS_PUBLISH_LAG_DAYS` after the trade date (ASSUMPTION),
-    never later than the moment the snapshot holding it was fetched."""
+    """Henry Hub daily spot, two kinds of raw file, in the order they were published.
+
+    * FRED DHHNGSP csv (adopted, `DATE,DHHNGSP`): public `GAS_PUBLISH_LAG_DAYS` after the trade date (ASSUMPTION), never later than the moment the
+      snapshot holding it was fetched.
+    * EIA history page (`gas.fetch_history`, `rngwhhdD.rel*.htm`): every price on the page is published at the file's `published_utc`, the page's own
+      release stamp capped at the fetch time (REAL).
+    A trade date that comes again with the same price in a later file is dropped (the earlier publication stands); with another price it is a new
+    version, published by the file that carried it. All versions are kept."""
+    from . import gas as gasmod
     parts = []
-    for rf in files:
-        d = pd.read_csv(rf.path, dtype=str, keep_default_na=False, encoding="utf-8-sig")
-        d.columns = [c.strip() for c in d.columns]
-        if "DATE" not in d.columns or "DHHNGSP" not in d.columns:
-            raise ParseError(f"{rf.filename}: expected DATE,DHHNGSP, saw {list(d.columns)}")
-        price = _num(d["DHHNGSP"])
-        keep = price.notna().to_numpy()
-        day = pd.to_datetime(d["DATE"][keep].str.strip(), format="%Y-%m-%d").astype("datetime64[us]").reset_index(drop=True)
-        fetched = asof_from_name(rf.filename) or rf.published_utc
-        pub = _cap(_local_noon_like(day, A.GAS_PUBLISH_LAG_DAYS, A.GAS_PUBLISH_LOCAL_HOUR), fetched)
-        parts.append(_tail(pd.DataFrame({
+    for order, rf in enumerate(sorted(files, key=lambda r: (r.published_utc, r.filename))):
+        if rf.filename.lower().endswith((".htm", ".html")):
+            try:
+                page = gasmod.parse_history_html(rf.path.read_bytes())
+            except gasmod.GasPageError as e:
+                raise ParseError(f"{rf.filename}: {e}") from e
+            day = pd.to_datetime(page["obs_date"], format="%Y-%m-%d").astype("datetime64[us]")
+            price = page["price"].astype("float64")
+            pub, basis = _pub_col(rf.published_utc, len(page)), REAL
+        else:
+            d = pd.read_csv(rf.path, dtype=str, keep_default_na=False, encoding="utf-8-sig")
+            d.columns = [c.strip() for c in d.columns]
+            if "DATE" not in d.columns or "DHHNGSP" not in d.columns:
+                raise ParseError(f"{rf.filename}: expected DATE,DHHNGSP, saw {list(d.columns)}")
+            price = _num(d["DHHNGSP"])
+            keep = price.notna().to_numpy()
+            day = pd.to_datetime(d["DATE"][keep].str.strip(), format="%Y-%m-%d").astype("datetime64[us]").reset_index(drop=True)
+            fetched = asof_from_name(rf.filename) or rf.published_utc
+            pub = _cap(_local_noon_like(day, A.GAS_PUBLISH_LAG_DAYS, A.GAS_PUBLISH_LOCAL_HOUR), fetched)
+            price, basis = price[keep].reset_index(drop=True), ASSUMPTION
+        df = pd.DataFrame({
             "published_utc": pub, "interval_start_utc": day.dt.tz_localize(CPT, ambiguous=False, nonexistent="shift_forward").dt.tz_convert("UTC").astype(UTC_US),
-            "obs_date": day.dt.strftime("%Y-%m-%d"), "price_usd_per_mmbtu": price[keep].reset_index(drop=True)}), rf, ASSUMPTION))
-    return pd.concat(parts, ignore_index=True)
+            "obs_date": day.dt.strftime("%Y-%m-%d"), "price_usd_per_mmbtu": price})
+        df["__ord"] = order
+        parts.append(_tail(df, rf, basis))
+    return _drop_repeated_versions(pd.concat(parts, ignore_index=True), ["obs_date"], ["price_usd_per_mmbtu"])
+
+
+_WX_VALUES = ["tmax_f", "tmin_f", "prcp_in", "wsf2_mph"]       # what makes two versions of a station-day "the same value" (AWND is no longer fetched)
 
 
 def parse_weather_obs(files: list[lake.RawFile]) -> pd.DataFrame:
-    """NOAA GHCN-Daily station files: STATION,NAME,DATE,AWND,PRCP,TMAX,TMIN,WSF2 (degF, inches, mph). Day D is public at
-    WEATHER_OBS_PUBLISH_LOCAL_HOUR CPT on D + WEATHER_OBS_PUBLISH_DAYS_AFTER (ASSUMPTION), never after the fetch of the file."""
+    """NOAA GHCN-Daily, two kinds of raw file, in the order they were published. Columns STATION,[NAME,]DATE,[AWND,]PRCP,TMAX,TMIN,WSF2 (degF, inches, mph).
+
+    * an adopted station file (name carries `.asof_<fetch time>`): day D is public at WEATHER_OBS_PUBLISH_LOCAL_HOUR CPT on
+      D + WEATHER_OBS_PUBLISH_DAYS_AFTER (ASSUMPTION), never after the fetch of the file.
+    * a fetched response (`weather.fetch_observations`, `GHCND.<start>_<end>.<sha8>.csv`, no asof tag): its `published_utc` is the moment we held
+      it, so a value is published when it FIRST appeared in a file, but not before the rule above (the floor: never the same day's reading).
+      REAL where the first-seen time governs, ASSUMPTION where the floor does. Measured on 11 Oct 2026 the true lag is about 3 days after the
+      day ends, so the floor is almost never what governs.
+    A station-day that comes again with the same four values in a later file is dropped; with other values (a revision, a filled-in WSF2) it is a new
+    version published by the file that carried it. All versions are kept; `catalog.observations_asof` picks the latest one visible at a time."""
     parts = []
-    for rf in files:
+    for order, rf in enumerate(sorted(files, key=lambda r: (r.published_utc, r.filename))):
         d = pd.read_csv(rf.path, dtype=str, keep_default_na=False, encoding="utf-8-sig")
         d.columns = [c.strip() for c in d.columns]
         for c in ("STATION", "DATE"):
             if c not in d.columns:
                 raise ParseError(f"{rf.filename}: column {c} missing, saw {list(d.columns)}")
         day = pd.to_datetime(d["DATE"].str.strip(), format="%Y-%m-%d").astype("datetime64[us]")
-        fetched = asof_from_name(rf.filename) or rf.published_utc
-        pub = _cap(_local_noon_like(day, A.WEATHER_OBS_PUBLISH_DAYS_AFTER, A.WEATHER_OBS_PUBLISH_LOCAL_HOUR), fetched)
+        rule = _local_noon_like(day, A.WEATHER_OBS_PUBLISH_DAYS_AFTER, A.WEATHER_OBS_PUBLISH_LOCAL_HOUR)
+        adopted = asof_from_name(rf.filename)
+        if adopted is not None:
+            pub, basis = _cap(rule, adopted), pd.Series(ASSUMPTION, index=d.index)
+        else:
+            seen = pd.Timestamp(rf.published_utc).as_unit("us")
+            floor_governs = rule > seen
+            pub, basis = rule.where(floor_governs, other=seen).astype(UTC_US), pd.Series(np.where(floor_governs, ASSUMPTION, REAL), index=d.index)
 
         def col(name):
             return _num(d[name]) if name in d.columns else pd.Series(np.nan, index=d.index, dtype="float64")
-        parts.append(_tail(pd.DataFrame({
+        df = pd.DataFrame({
             "published_utc": pub, "interval_start_utc": day.dt.tz_localize(CPT, ambiguous=False, nonexistent="shift_forward").dt.tz_convert("UTC").astype(UTC_US),
             "station": d["STATION"].str.strip(), "obs_date": day.dt.strftime("%Y-%m-%d"),
-            "tmax_f": col("TMAX"), "tmin_f": col("TMIN"), "prcp_in": col("PRCP"), "wsf2_mph": col("WSF2"), "awnd_mph": col("AWND")}),
-            rf, ASSUMPTION))
-    return pd.concat(parts, ignore_index=True)
+            "tmax_f": col("TMAX"), "tmin_f": col("TMIN"), "prcp_in": col("PRCP"), "wsf2_mph": col("WSF2"), "awnd_mph": col("AWND")})
+        df["__ord"] = order
+        parts.append(_tail(df, rf, basis))
+    return _drop_repeated_versions(pd.concat(parts, ignore_index=True), ["station", "obs_date"], _WX_VALUES)
 
 
 def parse_weather_fcst(files: list) -> pd.DataFrame:
@@ -641,10 +689,12 @@ DATASETS: dict[str, Dataset] = {d.name: d for d in [
     Dataset("rt_as_hist", _AS, ("interval_start_utc", "product", "published_utc"), "bulk", ("HIST-RTM-MCPC-15",),
             parse_rt_as_hist, group=group_latest_per_year, description="Real-time AS clearing prices per 15 minutes since 5 Dec 2025 "
             "(yearly archive), publish time assumed", units="$/MW-h"),
-    Dataset("gas_hh", _GAS, ("interval_start_utc", "published_utc"), "bulk", ("DHHNGSP",), parse_gas_hh, group=group_all,
-            description="Henry Hub daily spot since 1997 (FRED/EIA), publish time assumed", units="$/MMBtu"),
+    Dataset("gas_hh", _GAS, ("interval_start_utc", "published_utc"), "bulk", ("DHHNGSP", "RNGWHHD"), parse_gas_hh, group=group_all,
+            description="Henry Hub daily spot since 1997: the adopted FRED/EIA csv (publish time assumed) and EIA's history page fetched weekly "
+            "(publish time = the page's release stamp); a trade date may have several versions, each with its own published_utc", units="$/MMBtu"),
     Dataset("weather_obs", _WX, ("interval_start_utc", "station", "published_utc"), "bulk", ("GHCND",), parse_weather_obs, group=group_all,
-            description="NOAA GHCN-Daily observations at the arena's ERCOT stations since 2003, publish time assumed"),
+            description="NOAA GHCN-Daily observations at the arena's 18 stations since 2003: the adopted station files (publish time assumed) and the "
+            "daily NCEI fetches (publish time = first seen); a station-day may have several versions, each with its own published_utc"),
     Dataset("weather_fcst", _WXF, ("published_utc", "station", "interval_start_utc"), "file", ("FORECAST-HOURLY",), parse_weather_fcst,
             description="NWS hourly forecast snapshots at the arena's ERCOT stations: published_utc = NWS issue time"),
     Dataset("esr_sced", _ESR, ("interval_start_utc", "resource_name", "published_utc"), "file", ("60D-SCED",), parse_esr_sced,

@@ -1,15 +1,18 @@
-"""Serve a model trained on D1a's interim feature names from rt_v1 frames.
+"""Serve a model trained on D1a's interim feature names from rt_v1 frames. ROLLBACK ONLY since 11 Oct 2026.
 
-D1a's registered models (bundle feature_set "interim_d1a/v1") name their inputs as the interim builder does: `rt_mean_4`, `tgt_hod`,
-`as_regup_dam`, ... rt_v1 1.1.0 carries exactly the same numbers under D0's names: `rt_mean_1h`, `hour_local` + `qtr_hour`,
-`dam_as_regup`, ... (tests/test_rt_v1_1_equivalence.py proves they are equal on real data). The online store and the offline store keep
-D0's names. A model trained on the interim names finds what it needs after a rename at the edge:
+Registered version 1 (bundle feature_set "interim_d1a/v1") was trained on D1a's interim builder, which names its inputs `rt_mean_4`,
+`tgt_hod`, `as_regup_dam`, ... rt_v1 1.1.0 carries exactly the same numbers under D0's names: `rt_mean_1h`, `hour_local` + `qtr_hour`,
+`dam_as_regup`, ... (tests/test_rt_v1_1_equivalence.py holds D0's builder to the numbers the interim builder gave, frozen as a fixture). The
+online store and the offline store keep D0's names. A model trained on the interim names finds what it needs after a rename at the edge:
 
     features, asof, max_pub = online.read_latest(sp)
     forecast = forecaster.predict(compat.for_forecaster(features, forecaster), asof)
 
-`for_forecaster` does nothing for a model trained on D0's names (feature_set "rt_v1/..."), so the same line serves both.
-The mapping is D1a's `models.train.D0_NAME` read backwards; a test holds the two copies equal.
+`for_forecaster` does NOTHING (returns the very same frame, no copy) for a model trained on D0's names (feature_set "rt_v1/..."): version 2
+on, retrained on D0's builder (notes/p1-retrain.md), needs no rename, and the service passes every frame through this line anyway so that
+moving an alias back to version 1 (`registry promote 1 paper`, or `research`) serves it correctly without a code change. Delete this module
+when version 1 is no longer a rollback target. `INTERIM_TO_D0` is the map between the two spellings; `train.MODEL_FEATURES` is the retrained
+model's list under D0's names, and a test holds both to the 59 inputs of version 1.
 """
 from __future__ import annotations
 

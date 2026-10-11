@@ -27,7 +27,6 @@ from dispatch.config import AS_PRODUCTS
 from dispatch.execution.audit import AuditLog
 from dispatch.execution.ledger import PaperLedger
 from dispatch.features import online
-from dispatch.models import interim_features as interim
 from dispatch.models import replay
 from dispatch.models import synthetic
 from dispatch.optimizer import backtest as backtest_mod
@@ -40,13 +39,13 @@ from dispatch.service.wiring import Wiring
 
 SP = "HB_NORTH"
 ASSET = "PILOT_HB_NORTH"
-SNAP = {"kind": "interim_files", "sha256": "ab" * 32, "n_items": 2}
+SNAP = {"kind": "lake_catalog", "sha256": "ab" * 32, "n_items": 2}
 
 
 # ================================================================================================ one model, trained and registered once
 @pytest.fixture(scope="module")
 def tiny():
-    """(forecaster, X, y, decision_utc, history): a real two-second LightGBM model on synthetic prices."""
+    """(forecaster, X, y, decision_utc, lake): a real two-second LightGBM model on synthetic prices, trained on D0's rt_v1 columns."""
     return synthetic.fit_tiny_forecaster(SP, n_estimators=20, days=100)
 
 
@@ -59,7 +58,7 @@ def holdout_payload():
 
 
 def register_and_promote(reg, model, aliases=("research", "paper")) -> str:
-    run_id = reg.log_run({"model": "tiny"}, holdout_payload(), data_snapshot=SNAP, feature_set="interim_d1a/v1", settlement_points=[SP],
+    run_id = reg.log_run({"model": "tiny"}, holdout_payload(), data_snapshot=SNAP, feature_set="rt_v1/1.1.0", settlement_points=[SP],
                          name="integration")
     version = reg.register(model, run_id)
     for alias in aliases:
@@ -114,7 +113,7 @@ class Stack:
                 frame[f"as_{p.lower()}_usd_per_mw_h"] = 3.0
             return frame
         self.price_source = price_source
-        features = lambda sp, asof, horizon=96: interim.point_in_time(sp, asof, horizon, history=self.hist)
+        features = lambda sp, asof, horizon=96: self.hist.point_in_time(asof, horizon, sp=sp)         # D0's builder over the synthetic lake
         wiring = Wiring.of(read_latest=self.store.read_latest, load_model=load_model or reg.load, solve=lp.solve, attribute=engine.attribute,
                            freshness=lambda now: {"12301": 100.0, "24898": 100.0, "12331": 3600.0}, aliases=reg.aliases,
                            price_source=price_source,
@@ -139,8 +138,8 @@ class Stack:
 
     def publish(self, asof) -> None:
         """What `flows.prepare_signal` does right before a signal: point-in-time features at the decision time into the online store."""
-        feats = interim.point_in_time(SP, asof, 96, history=self.hist)
-        feats["asof_utc"] = asof
+        feats = self.hist.point_in_time(asof, 96)
+        assert (feats["asof_utc"] == asof).all()                                        # D0's frame carries its decision time
         self.store.write_latest(SP, feats)
 
     def signal(self, asof, *, publish=True) -> dict:

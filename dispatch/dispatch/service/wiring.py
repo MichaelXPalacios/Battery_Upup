@@ -22,9 +22,9 @@ The last four are OPTIONAL: without the first three the service dispatches as be
 check and /attribution stay unavailable (skipped / 501) and say why; without `adapt_features` a model is fed the frame as D0 stored it. A failure to
 bind them does not make /health "degraded" by itself.
 
-`make_forecast_fn` is D1a's `models.replay.make_forecast_fn` over D0's point-in-time builder, whatever the model's feature set: D1a's own default
-for a model trained on its interim builder reads a static price archive that ends on 26 Sep 2026, so it cannot forecast the present, while D0's
-`rt_v1` 1.1.0 frames carry the same numbers under D0's names and `adapt_features` renames them at the edge (see `pit_forecast_fn`).
+`make_forecast_fn` is D1a's `models.replay.make_forecast_fn` over D0's point-in-time builder, whatever the model's feature set: `adapt_features`
+renames D0's `rt_v1` frame for a model trained on D1a's interim names (registered version 1, kept as a rollback) and leaves a model trained on
+rt_v1 names (version 2 on) alone (see `pit_forecast_fn`).
 
 Tests build `Wiring.of(read_latest=fake, ...)` instead and never touch the real modules.
 """

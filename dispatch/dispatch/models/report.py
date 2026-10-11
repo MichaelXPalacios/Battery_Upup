@@ -96,8 +96,11 @@ def optuna_table(res: dict) -> str:
 def importance_table(tag: str = "latest", sps: Optional[Sequence[str]] = None, work: Optional[Path] = None, top: int = 25) -> str:
     """Share of the total split gain of each feature in the fitted models (mean over the three quantiles and the points)."""
     import pandas as pd
+    from ..features import compat
     from .quantile import SPModel, is_calendar_feature
-    from .train import d0_feature_names
+
+    def d0_name(n: str) -> str:               # a checkpoint of version 1 names its inputs the interim way; one of version 2 on already uses D0's names
+        return "hour_local + qtr_hour" if n == compat.HOD else compat.INTERIM_TO_D0.get(n, n)
     base = (Path(work) if work else paths.MLFLOW / "work") / tag
     sps = list(sps) if sps else sorted(p.name for p in base.iterdir() if (p / "model").exists())
     shares = {}
@@ -107,16 +110,16 @@ def importance_table(tag: str = "latest", sps: Optional[Sequence[str]] = None, w
     df = pd.DataFrame(shares)
     df["mean"] = df.mean(axis=1)
     df = df.sort_values("mean", ascending=False)
-    d0 = dict(zip(df.index, [n for n in (d0_feature_names([i])[0] for i in df.index)]))
+    d0 = {i: d0_name(i) for i in df.index}
     rows = ["| rank | model column | D0 name | " + " | ".join(sps) + " | mean share |", "|---:|---|---|" + "---:|" * (len(sps) + 1)]
     for r, (name, row) in enumerate(df.head(top).iterrows(), 1):
         rows.append(f"| {r} | `{name}` | `{d0[name]}` | " + " | ".join(f"{row[sp]:.1%}" for sp in sps) + f" | {row['mean']:.1%} |")
     groups = {"price statistics (rt_*)": [i for i in df.index if i.startswith("rt_") and "prof" not in i and "lag" not in i],
               "7/14-day profile and lags (rt_prof*, rt_lag*)": [i for i in df.index if i.startswith(("rt_prof", "rt_lag"))],
               "residual statistics (res_*)": [i for i in df.index if i.startswith("res_")],
-              "day-ahead AS prices (as_*)": [i for i in df.index if i.startswith("as_")],
+              "day-ahead AS prices (as_* / dam_as_*)": [i for i in df.index if i.startswith(("as_", "dam_as_"))],
               "horizon": ["horizon"],
-              "calendar (tgt_*)": [i for i in df.index if i.startswith("tgt_")]}
+              "calendar (tgt_* / hour_local, qtr_hour, dow, ...)": [i for i in df.index if is_calendar_feature(i) and i != "horizon"]}
     rows += ["", "| group | mean share of gain |", "|---|---:|"]
     for g, cols in groups.items():
         rows.append(f"| {g} | {df.loc[[c for c in cols if c in df.index], 'mean'].sum():.1%} |")

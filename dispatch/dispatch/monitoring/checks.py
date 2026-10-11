@@ -58,6 +58,10 @@ REPORT_CADENCE_S = {
     "NP3-565-CD": 3600, "14837": 3600,        # REAL: seven-day load forecast by model and weather zone, hourly issues
     "NP4-190-CD": 86400, "12331": 86400,      # REAL: DAM settlement point prices, once a day
     "NP4-188-CD": 86400, "12329": 86400,      # REAL: DAM clearing prices for capacity, once a day
+    # The two datasets the platform FETCHES once a day (data.flows.ingest_daily; P2, 11 Oct 2026). ALERT ONLY: the served model reads neither,
+    # so they are not in HALT_ELIGIBLE_REPORTS. They are keyed by the lake's report id only (they have no MIS reportTypeId).
+    "GHCND": 86400,                           # REAL: NOAA GHCN-Daily via NCEI, one new day per station per day (age = time since the newest day was first seen)
+    "RNGWHHD": 7 * 86400,                     # REAL: EIA Henry Hub history page, re-released weekly on Wednesday morning (age = time since the release stamp)
 }
 # DERIVED (D0, notes/d0.md section 7, 3 to 10 Oct 2026, applied by I1): ERCOT's own postings are sometimes late. On 8 Oct something stalled
 # for ~20 minutes: the 15-minute price files came 1,285 s apart (cadence 900), SCED lambda 905 s apart (300). The allowance is cadence +
@@ -70,6 +74,12 @@ REPORT_EXTRA_ALLOWANCE_S = {
     "NP6-86-CD": 3600, "12302": 3600,         # allowance 7,500 s
     "NP3-565-CD": 3600, "14837": 3600,        # allowance 7,500 s
     "NP4-190-CD": 4 * 3600, "12331": 4 * 3600, "NP4-188-CD": 4 * 3600, "12329": 4 * 3600,    # allowance 101,100 s
+    # DERIVED (P2, notes/p2-weather-gas.md): NCEI posts a day about 3 days after it ends (2 samples: 2.7 to 3.5 days), then one more day every day, so
+    # with a daily fetch the age runs 0 to ~1 day; 3 extra days tolerate a stalled NCEI day or two and a missed fetch (allowance 4 d + 300 s).
+    "GHCND": 3 * 86400,
+    # EIA released on 9/30 and 10/7 and announced 10/15 for the next: 7 days, and 8 in a holiday week. 2 extra days cover the 8th and a late
+    # morning; a skipped release (14 days) still alerts (allowance 9 d + 300 s).
+    "RNGWHHD": 2 * 86400,
 }
 MONITORED_REPORTS = frozenset(REPORT_CADENCE_S)
 # Which stale reports can HALT dispatch (lead decision, 10 Oct 2026, on D0's evidence): the RT price feed (NP6-905-CD), which every
@@ -78,6 +88,7 @@ MONITORED_REPORTS = frozenset(REPORT_CADENCE_S)
 # lambda, SCED shadow prices, the load forecast) are diagnostics or NaN-tolerant optional inputs: stale means an alert, not a halt.
 # NP4-188-CD (day-ahead AS prices) is what D1a's model reads (19.6% of its gain), so it halts too (lead, 11 Oct): the rule is
 # "a report the served model reads can halt". NP4-190-CD stays because it posts with NP4-188-CD and flags a missed DAM day.
+# GHCND (weather) and RNGWHHD (gas) are watched but never halt: the served model does not read them (lead, 11 Oct), whatever their age.
 HALT_ELIGIBLE_REPORTS = frozenset({"NP6-905-CD", "12301", "NP4-190-CD", "12331", "NP4-188-CD", "12329"})
 
 # ---- drift

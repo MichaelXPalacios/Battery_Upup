@@ -177,6 +177,12 @@ record explaining why:
 - any exception
 - the halt flag being set
 
+**Data rules still open (11 Oct 2026, P2)**
+- The weather and gas history publish rules are optimistic. Weather is assumed published 1 day after the day, but the
+  measured lag is about 3.5 days. Gas is assumed published after 7 days, but holiday weeks run up to 8.
+- `features/build.py` uses the first-published version of an observation, not a later revision.
+- The served model (version 6) reads neither weather nor gas. **Both must be fixed before a model may use them.**
+
 ## Monitoring policy (lead decision, 10 Oct 2026)
 
 D1a measured that population-stability (PSI) drift on this model's features flags nearly every feature, even on

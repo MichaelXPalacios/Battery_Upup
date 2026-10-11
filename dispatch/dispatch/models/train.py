@@ -2,9 +2,10 @@
 
 PIPELINE (one settlement point at a time; `release` then bundles the points that pass into one registry version)
 
-  1. data     features and labels from D0's `features.build.training_frame` when it exists and carries the columns the
-              model needs, else the interim point-in-time builder over NP6-785-ER (`interim_features`). Training
-              decisions 2019-01-01 .. 2024-12-31; the holdout is 2025-01-01 to the latest data.
+  1. data     features and labels from D0's point-in-time builder, `features.build.training_frame` (feature set `rt_v1`),
+              under D0's own column names, so the model is trained on, and later served from, exactly what the leakage tests
+              of D0 guard. (Version 1 was trained on D1a's interim builder, retired on 11 Oct 2026; `features/compat.py` still
+              serves it.) Training decisions 2019-01-01 .. 2024-12-31; the holdout is 2025-01-01 to the latest data.
   2. tuning   Optuna (TPE, median pruner) on purged walk-forward folds inside 2019-2024. The holdout is never seen.
   3. CV       a purged walk-forward report over 2022-2024 with the chosen parameters, against the baselines.
   4. fit      all of 2019-2024 (purged against the holdout), then an optional split-conformal offset from the last
@@ -35,10 +36,10 @@ import numpy as np
 import pandas as pd
 
 from .. import config, paths
-from ..contracts import QUANTILES
+from ..contracts import QUANTILES, RT
+from ..features import sets as D0
 from . import baselines as B
 from . import cv as CV
-from . import interim_features as F
 from .quantile import ASPriceModel, LeakageError, ModelSpec, QuantileForecaster, SPModel
 
 log = logging.getLogger("dispatch.models.train")
@@ -50,7 +51,7 @@ SCALES = {                                        # unit of the deviation; Optun
     "resid": ("res_q90_672", "res_q10_672"),      # 7-day P90 - P10 of price minus its profile (tracks surprise only)
 }
 SCALE_COLS = SCALES["price"]
-CORE_NONNULL = ("rt_last", "rt_mean_96", "rt_prof7_med", "res_q90_672", "res_q10_672")
+CORE_NONNULL = ("rt_last", "rt_mean_24h", "rt_prof7_med", "res_q90_672", "res_q10_672")
 STRESS_WINDOWS = {                                # read off the data: HB_NORTH day-mean price $318 on 25 Jan, max $1,597 on 28 Jan
     "winter_storm_fern": ("2026-01-23", "2026-02-03"),
 }
@@ -92,17 +93,23 @@ class TrainConfig:
     calib_days: int = 120                         # split-conformal slice at the end of training (0: none)
     refit_after_calibration: bool = False
     params: Optional[dict] = None                 # skip tuning and use these (LightGBM params + n_estimators + weight_pow)
-    source: str = "auto"                          # auto | d0 | interim
-    history_provider: Optional[Callable] = None   # sp -> PriceHistory (tests inject synthetic prices)
-    as_provider: Optional[Callable] = None        # () -> ASHistory | None
+    source: str = "d0"                            # the only source: D0's point-in-time builder (the interim builder was retired)
+    # test hooks (a synthetic lake stands in for D0's real one; see models/synthetic.py). None: read D0's lake.
+    frames_provider: Optional[Callable] = None    # (sp, start, end, every, offset) -> (X, y, decision_utc), as features.build.training_frame
+    prices_provider: Optional[Callable] = None    # sp -> pd.Series of realised RT prices on the 15-minute UTC grid
+    as_provider: Optional[Callable] = None        # () -> wide DataFrame of day-ahead AS prices (hourly UTC index, product columns)
     work_dir: Optional[str] = None
     registry_uri: Optional[str] = None
     eval_decisions_for_value: str = "8h"          # decision-value evaluation cadence (a multiple of eval_every)
     value_planner: str = "auto"                   # auto: D1b's lp.solve when it exists, else the arena DP | arena | lp
 
+    def __post_init__(self):
+        if self.source != "d0":
+            raise ValueError(f"source={self.source!r}: D1a's interim feature builder was retired (11 Oct 2026); the only source is 'd0'")
+
     def to_params(self) -> dict:
         d = asdict(self)
-        d.pop("history_provider"), d.pop("as_provider")
+        d.pop("frames_provider"), d.pop("prices_provider"), d.pop("as_provider")
         return d
 
 
@@ -132,104 +139,65 @@ class Frame:
         return Frame(X, self.y[m], self.decision[m], self.source)
 
 
-_HIST_CACHE: dict = {}
-_AS_CACHE: dict = {}
+FEATURE_SET_LABEL = f"{D0.FEATURE_SET}/{D0.VERSION}"        # what a bundle records as `feature_set` (rt_v1/1.1.0)
+
+# The model's inputs, under D0's own column names (`features/sets.py`, rt_v1 1.1.0). It is the list version 1 was trained on
+# (D1a's interim builder), rename for rename, with one change: the interim `tgt_hod` (the hour plus the quarter hour / 4, one number)
+# is `hour_local` and `qtr_hour` here, two integers, because that is how rt_v1 carries it. `compat.INTERIM_TO_D0` is the map between
+# the two spellings and `tests/test_rt_v1_1_equivalence.py` holds both lists to the frozen interim outputs.
+RT_FEATURES = (
+    "rt_last", "rt_mean_1h", "rt_mean_16", "rt_mean_24h", "rt_mean_7d", "rt_std_24h", "rt_std_7d", "rt_min_96", "rt_max_96",
+    "rt_q10_672", "rt_q50_672", "rt_q90_672", "rt_spread_96", "rt_frac_hi_96", "rt_frac_hi_672", "rt_frac_neg_96", "rt_frac_neg_672",
+    "res_last", "res_mean_4", "res_mean_16", "res_mean_96", "res_q10_96", "res_q50_96", "res_q90_96", "res_q10_672", "res_q50_672",
+    "res_q90_672", "res_mad_672",
+    "horizon", "hour_local", "qtr_hour", "dow", "is_weekend", "is_holiday", "doy_sin", "doy_cos", "month",
+    "rt_lag_1d", "rt_lag_2d", "rt_lag_3d", "rt_lag_7d", "rt_lag_14d",
+    "rt_prof7_mean", "rt_prof7_med", "rt_prof7_min", "rt_prof7_max", "rt_prof7_std", "rt_prof14_dt",
+)
+AS_MODEL_PRODUCTS = ("regup", "regdn", "rrs", "nspin")           # ECRS only exists since 2023-06: not an RT-model input (the AS view uses it)
+AS_FEATURES = tuple(f"dam_as_{p}{sfx}" for p in AS_MODEL_PRODUCTS for sfx in ("", "_med14", "_rel"))
+MODEL_FEATURES = RT_FEATURES + AS_FEATURES                       # 60 columns
 
 
-def get_history(cfg: TrainConfig, sp: str) -> F.PriceHistory:
-    if cfg.history_provider is not None:
-        return cfg.history_provider(sp)
-    return F.get_history(sp)
-
-
-def get_as_history(cfg: TrainConfig):
-    if not cfg.include_as:
-        return None
-    if cfg.as_provider is not None:
-        return cfg.as_provider()
-    if "as" not in _AS_CACHE:
-        try:
-            _AS_CACHE["as"] = F.load_as_history()
-        except Exception as e:                     # no AS file: train on price features only
-            log.warning("no AS history (%s); AS features disabled", e)
-            _AS_CACHE["as"] = None
-    return _AS_CACHE["as"]
-
-
-def default_feature_names(cfg: TrainConfig, as_hist) -> tuple:
+def default_feature_names(cfg: TrainConfig) -> tuple:
     if cfg.feature_names is not None:
         return tuple(cfg.feature_names)
-    names = tuple(F.RT_FEATURES)
-    if as_hist is not None:
-        names += F.as_feature_columns(F.AS_MODEL_PRODUCTS)
-    return names
+    return RT_FEATURES + (AS_FEATURES if cfg.include_as else ())
 
 
-# The model's columns under D0's names. D0's `rt_v1` already has equivalents of some of them under other names; the columns it lacks
-# (the profile median, residual statistics, ...) are specified in notes/d1a.md "REQUEST (D1a -> D0): features for rt_v2" and keep the
-# names used here. With source='d0' the model is trained on, and then served from, D0's own column names.
-D0_NAME = {
-    "rt_mean_4": "rt_mean_1h", "rt_mean_96": "rt_mean_24h", "rt_mean_672": "rt_mean_7d", "rt_std_96": "rt_std_24h",
-    "rt_std_672": "rt_std_7d", "tgt_dow": "dow", "tgt_is_weekend": "is_weekend", "tgt_is_holiday": "is_holiday",
-    "tgt_month": "month", "tgt_doy_sin": "doy_sin", "tgt_doy_cos": "doy_cos",
-}
-for _p in F.AS_ALL_PRODUCTS:
-    D0_NAME.update({f"as_{_p}_dam": f"dam_as_{_p}", f"as_{_p}_med14": f"dam_as_{_p}_med14", f"as_{_p}_rel": f"dam_as_{_p}_rel"})
-D0_EXPAND = {"tgt_hod": ("hour_local", "qtr_hour")}      # D0 keeps the hour and the quarter hour as two integers
+def _utc(ts) -> pd.Timestamp:
+    """A pandas UTC Timestamp. A naive input (e.g. the string '2024-01-01') is read as UTC, the platform's one clock."""
+    t = pd.Timestamp(ts)
+    return t.tz_localize("UTC") if t.tzinfo is None else t.tz_convert("UTC")
 
 
-def d0_feature_names(names: Sequence[str]) -> tuple:
-    """The same feature list under D0's column names (see D0_NAME). Unmapped names are the same in both builders."""
-    out = []
-    for n in names:
-        out.extend(D0_EXPAND.get(n, (D0_NAME.get(n, n),)))
-    return tuple(out)
-
-
-def _d0_training_frame(sp, start, end, every):
+def _d0_training_frame(cfg: TrainConfig, sp, start, end, every, offset="0h"):
     """D0's `features.build.training_frame` -> (X, y, decision) with X indexed by the target interval, or raises."""
-    from ..features import build as d0
-    X, y, d = d0.training_frame(sp, F.utc(start), F.utc(end), every)
+    if cfg.frames_provider is not None:
+        X, y, d = cfg.frames_provider(sp, start, end, every, offset)
+    else:
+        from ..features import build as d0
+        X, y, d = d0.training_frame(sp, start, end, every, offset=offset)
     if "interval_start_utc" in X.columns and not isinstance(X.index, pd.DatetimeIndex):
         X = X.set_index(pd.DatetimeIndex(X["interval_start_utc"]).rename("interval_start_utc"), drop=False)   # D0's layout
     return X, np.asarray(y, dtype=float), pd.DatetimeIndex(d)
 
 
-def choose_source(cfg: TrainConfig, sp: str, needed: Sequence[str]) -> str:
-    """'d0' when D0's builder can supply a frame with every column the model needs for this point, else 'interim'.
-    Decided once per settlement point so the training, CV and holdout frames always come from the same builder."""
-    if cfg.source == "interim" or cfg.history_provider is not None:
-        return "interim"
-    try:
-        X, y, d = _d0_training_frame(sp, "2024-06-03", "2024-06-04", "4h")
-        missing = [c for c in needed if c not in X.columns]
-        if missing:
-            msg = f"D0 frame lacks {len(missing)} columns the model needs (e.g. {missing[:4]})"
-            if cfg.source == "d0":
-                raise KeyError(msg)
-            log.info("%s: %s -> interim builder", sp, msg)
-            return "interim"
-        return "d0"
-    except Exception as e:
-        if cfg.source == "d0":
-            raise
-        log.info("%s: D0 training_frame unavailable (%s: %s) -> interim builder", sp, type(e).__name__, str(e)[:120])
-        return "interim"
+def check_columns(cfg: TrainConfig, sp: str, needed: Sequence[str]) -> None:
+    """Fail before an hour of tuning if D0's frame cannot supply a column the model needs (a feature-set change, a lake that cannot build
+    the window). One small frame per settlement point; nothing is silently replaced."""
+    X, _, _ = _d0_training_frame(cfg, sp, _utc("2024-06-03"), _utc("2024-06-04"), "4h")
+    missing = [c for c in needed if c not in X.columns]
+    if missing:
+        raise KeyError(f"{sp}: D0's frame lacks {len(missing)} columns the model needs (e.g. {missing[:4]}); "
+                       f"features/sets.py is at {FEATURE_SET_LABEL}")
 
 
-def build_frame(cfg: TrainConfig, sp: str, start, end, every: str, *, offset: str = "0h", stride: int = 1,
-                source: str = "interim") -> Frame:
-    """Training / evaluation rows for decisions in [start, end) from the chosen builder; leakage-checked row by row.
-    D0's decision grid is epoch-aligned and has no offset, so `offset` applies to the interim builder only."""
-    start, end = F.utc(start), F.utc(end)
-    if source == "d0":
-        X, y, dec = _d0_training_frame(sp, start, end, every)
-        label = "rt_v1"
-    else:
-        hist = get_history(cfg, sp)
-        X, yy, dd = F.training_frame(sp, start, end, every, offset=offset, history=hist, as_hist=get_as_history(cfg))
-        y, dec = yy.to_numpy(dtype=float), pd.DatetimeIndex(dd)
-        label = f"{F.FEATURE_SET}/{F.FEATURE_VERSION}"
+def build_frame(cfg: TrainConfig, sp: str, start, end, every: str, *, offset: str = "0h", stride: int = 1) -> Frame:
+    """Training / evaluation rows for decisions in [start, end) from D0's builder; leakage-checked row by row.
+    `offset` shifts the decision grid (D0's grid is epoch-aligned: multiples of `every` from 1970-01-01 plus the offset)."""
+    start, end = _utc(start), _utc(end)
+    X, y, dec = _d0_training_frame(cfg, sp, start, end, every, offset)
     if stride > 1:
         keep = ((X["horizon"].to_numpy() - 1) % stride) == 0
         X, y, dec = X[keep], y[keep], dec[keep]
@@ -238,7 +206,56 @@ def build_frame(cfg: TrainConfig, sp: str, start, end, every: str, *, offset: st
         if late.any():
             raise LeakageError(f"{int(late.sum())} rows use data published after their decision time")
     X.attrs["settlement_point"] = sp
-    return Frame(X, y, dec, label)
+    return Frame(X, y, dec, FEATURE_SET_LABEL)
+
+
+# ------------------------------------------------------------------------------------------------ realised prices and AS prices
+def realised_prices(cfg: TrainConfig, sp: str, lo, hi) -> pd.Series:
+    """Realised RT SPP on the 15-minute UTC grid [lo, hi) from D0's lake (NaN where there is none yet): the same prices `training_frame`
+    uses as labels (the REAL source before the archive, then the latest published, so ERCOT's corrections count). It feeds the capture
+    rate of the holdout plan and tells where the history ends."""
+    lo, hi = _utc(lo).floor("15min"), _utc(hi).ceil("15min")
+    if cfg.prices_provider is not None:
+        s = cfg.prices_provider(sp)
+        return s[(s.index >= lo) & (s.index < hi)]
+    from ..data.reader import read_prices
+    df = read_prices("rt_spp", "rt_spp_hist", sp, lo, hi - pd.Timedelta(minutes=15), has_type=True)
+    idx = pd.date_range(lo, hi, freq="15min", inclusive="left", name="interval_start_utc")
+    if df.empty:
+        return pd.Series(np.nan, index=idx, name=RT)
+    df = df.sort_values(["interval_start_utc", "prio", "published_utc"], ascending=[True, True, False], kind="stable")
+    df = df.drop_duplicates("interval_start_utc", keep="first")
+    got = pd.Series(df["price_usd_per_mwh"].to_numpy(dtype="float64"), index=pd.DatetimeIndex(df["interval_start_utc"]).tz_convert("UTC").as_unit("ns"))
+    out = got.reindex(idx.as_unit("ns"))
+    out.index = idx
+    return out.rename(RT)
+
+
+def history_end(prices: pd.Series) -> pd.Timestamp:
+    """End of the newest interval that has a price."""
+    ok = prices.dropna()
+    if ok.empty:
+        raise ValueError("no realised prices")
+    return ok.index[-1] + pd.Timedelta(minutes=15)
+
+
+def day_ahead_as_frame(cfg: TrainConfig, asof, days: int = 30) -> Optional[pd.DataFrame]:
+    """Day-ahead AS clearing prices of the last `days` before `asof`, wide (UTC hour start x product), from D0's lake. The AS view
+    (`ASPriceModel`) is a median of the same local hour over 14 days; this is what it is fitted to. None if the lake has none."""
+    if cfg.as_provider is not None:
+        return cfg.as_provider()
+    from ..data.reader import read_as
+    asof = _utc(asof)
+    df = read_as("dam_as", "dam_as_hist", asof - pd.Timedelta(days=days), asof)
+    if df.empty:
+        return None
+    df = df[df["published_utc"] <= asof].sort_values(["interval_start_utc", "product", "prio", "published_utc"],
+                                                    ascending=[True, True, True, False], kind="stable")
+    df = df.drop_duplicates(["interval_start_utc", "product"], keep="first")
+    wide = df.pivot(index="interval_start_utc", columns="product", values="mcpc_usd_per_mw_h").sort_index()
+    wide.columns = [str(c).lower() for c in wide.columns]
+    wide.index = pd.DatetimeIndex(wide.index).tz_convert("UTC")
+    return wide
 
 
 # ================================================================================================ specs and search
@@ -462,43 +479,35 @@ class SPResult:
     gains: dict = field(default_factory=dict)
 
 
-def _history_end(hist: F.PriceHistory) -> pd.Timestamp:
-    return hist.end
-
-
 def run_sp(cfg: TrainConfig, sp: str) -> SPResult:
     """Tune, validate, fit and evaluate one settlement point on the holdout. Pure computation: nothing here needs MLflow, so a
     tracking failure can never lose a result (`log_result` records it afterwards)."""
     t_all = time.time()
     timings: dict = {}
-    hist = get_history(cfg, sp)
-    as_hist = get_as_history(cfg)
-    names = default_feature_names(cfg, as_hist)
+    names = default_feature_names(cfg)                  # D0's own column names: the model is trained on, and served from, rt_v1
     extra = tuple(c for cols in SCALES.values() for c in cols) + ((cfg.anchor_col,) if cfg.anchor_col else ())
-    needed = tuple(names) + extra
-    hold0 = pd.Timestamp(cfg.holdout_start, tz="UTC")
-    hold1 = pd.Timestamp(cfg.holdout_end, tz="UTC") if cfg.holdout_end else (_history_end(hist) - pd.Timedelta(days=1))
+    hold0 = _utc(cfg.holdout_start)
+    train0 = _utc(cfg.train_start)
+    prices = realised_prices(cfg, sp, hold0 - pd.Timedelta(days=2), pd.Timestamp.now(tz="UTC") + pd.Timedelta(days=1))
+    hold1 = _utc(cfg.holdout_end) if cfg.holdout_end else (history_end(prices) - pd.Timedelta(days=1))
     purge, embargo = pd.Timedelta(cfg.purge), pd.Timedelta(cfg.embargo)
 
     # ---- frames
     t0 = time.time()
-    source = choose_source(cfg, sp, d0_feature_names(names) + extra)
-    if source == "d0":
-        names = d0_feature_names(names)                 # train on, and later serve from, D0's own column names
-    cv_frame = build_frame(cfg, sp, cfg.train_start, hold0, cfg.cv_every, stride=cfg.cv_horizon_stride, source=source)
-    fit_frame = build_frame(cfg, sp, cfg.train_start, hold0, cfg.fit_every, stride=cfg.fit_horizon_stride, source=source)
-    eval_frame = build_frame(cfg, sp, hold0, hold1, cfg.eval_every, offset=cfg.eval_offset, source=source)
+    check_columns(cfg, sp, tuple(names) + extra)
+    cv_frame = build_frame(cfg, sp, train0, hold0, cfg.cv_every, stride=cfg.cv_horizon_stride)
+    fit_frame = build_frame(cfg, sp, train0, hold0, cfg.fit_every, stride=cfg.fit_horizon_stride)
+    eval_frame = build_frame(cfg, sp, hold0, hold1, cfg.eval_every, offset=cfg.eval_offset)
     timings["frames_s"] = round(time.time() - t0, 1)
     log.info("%s: cv %d rows, fit %d rows, holdout %d rows (%s)", sp, len(cv_frame), len(fit_frame), len(eval_frame), fit_frame.source)
+    # the price series the holdout plan is settled at must be the labels the frames carry
+    seen = prices.reindex(eval_frame.target).to_numpy()
+    if not np.allclose(seen, eval_frame.y, rtol=0, atol=1e-9, equal_nan=False):
+        bad = int((~np.isclose(seen, eval_frame.y, rtol=0, atol=1e-9)).sum())
+        raise ValueError(f"{sp}: {bad} holdout labels differ from the realised price series used for the dispatch value")
 
-    if fit_frame.source.startswith(F.FEATURE_SET):
-        snapshot = F.data_snapshot(hist)
-        if as_hist is not None:
-            snapshot = dict(snapshot, as_prices=list(as_hist.sources))
-            snapshot["sha256"] = hashlib.sha256(json.dumps([snapshot["sha256"], list(as_hist.sources)], sort_keys=True).encode()).hexdigest()
-    else:                                                       # D0's lake: hash of the catalog lines
-        from ..registry import mlflow_registry as R
-        snapshot = R.catalog_snapshot()
+    from ..registry import mlflow_registry as R
+    snapshot = R.catalog_snapshot()                             # D0's lake: a hash of the catalog lines the run could read
 
     # ---- folds inside the training window (the holdout is never used for tuning)
     folds = CV.walk_forward_folds(cfg.cv_start, hold0, span=cfg.cv_span, train_start=cfg.train_start, purge=cfg.purge,
@@ -540,7 +549,7 @@ def run_sp(cfg: TrainConfig, sp: str) -> SPResult:
 
     # ---- holdout
     t0 = time.time()
-    rep = holdout_report(model, baselines, eval_frame, sp, price_series=hist.series(), value_every=cfg.eval_decisions_for_value,
+    rep = holdout_report(model, baselines, eval_frame, sp, price_series=prices, value_every=cfg.eval_decisions_for_value,
                          planner=cfg.value_planner)
     timings["holdout_s"] = round(time.time() - t0, 1)
     log.info("%s: holdout pinball %s", sp, {n: round(m["pinball_mean"], 3) for n, m in rep["pooled"].items()})
@@ -737,15 +746,16 @@ def release(cfg: TrainConfig, registry, *, tag: str = "latest", promote: Optiona
         return report
     sources = {s["source"] for s, _, _ in loaded.values()}
     source = sources.pop() if len(sources) == 1 else "mixed"
-    snap = {"kind": "interim_files" if source.startswith(F.FEATURE_SET) else "lake_catalog",
+    snap = {"kind": "lake_catalog",
             "sha256": hashlib.sha256(json.dumps({sp: loaded[sp][0]["snapshot"].get("sha256") for sp in passing},
                                                   sort_keys=True).encode()).hexdigest(),
             "n_items": len(passing), "per_sp": {sp: loaded[sp][0]["snapshot"] for sp in passing}}
-    as_hist = get_as_history(cfg)
     as_model = None
-    if as_hist is not None:
+    if cfg.include_as:
+        asof = pd.Timestamp.now(tz="UTC").floor("h")
         try:
-            as_model = ASPriceModel.fit(as_hist.frame, pd.Timestamp.now(tz="UTC").floor("h"))
+            as_frame = day_ahead_as_frame(cfg, asof)
+            as_model = ASPriceModel.fit(as_frame, asof) if as_frame is not None else None
         except ValueError:
             as_model = None
     holdout = {sp: holdout_reference(cfg, tag, sp, loaded[sp][0]) for sp in passing}
@@ -753,7 +763,7 @@ def release(cfg: TrainConfig, registry, *, tag: str = "latest", promote: Optiona
                             meta={"trained_utc": pd.Timestamp.now(tz="UTC").isoformat(),
                                   "train_window": f"{cfg.train_start}..{cfg.holdout_start}", "holdout_start": cfg.holdout_start,
                                   "anchor": cfg.anchor_col, "scale": list(cfg.scale_cols),
-                                  "price_publish_lag_min": F.PRICE_PUBLISH_LAG.total_seconds() / 60,
+                                  "feature_set": source, "publish_times": "D0 measured (features/sets.py, data/assumptions.py)",
                                   "chosen": {sp: loaded[sp][0]["chosen"] for sp in passing},
                                   "holdout": {sp: h for sp, h in holdout.items() if h}})
     payloads = [R.holdout_metrics_payload(sp, loaded[sp][0]["pooled"]["model"], {n: loaded[sp][0]["pooled"][n] for n in BASELINE_NAMES})
@@ -807,7 +817,7 @@ def check_d0(sp: str = "HB_NORTH", timeout_s: int = 900) -> dict:
     else:
         out["leakage_test"] = None
     try:
-        X, y, d = _d0_training_frame(sp, "2024-06-03", "2024-06-10", "4h")
+        X, y, d = _d0_training_frame(TrainConfig(), sp, _utc("2024-06-03"), _utc("2024-06-10"), "4h")
         out["frame_rows"] = int(len(X))
         out["has_model_columns"] = all(c in X.columns for c in (ANCHOR_COL, *SCALES["price"]))
         out["columns"] = [c for c in X.columns][:60]
@@ -845,14 +855,15 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--tag", default="latest")
     ap.add_argument("--no-as", action="store_true")
     ap.add_argument("--promote", default="research")
-    ap.add_argument("--source", default="auto", choices=["auto", "d0", "interim"])
+    ap.add_argument("--source", default="d0", choices=["d0"], help="D0's point-in-time builder is the only source (the interim builder was retired)")
+    ap.add_argument("--holdout-end", default=None, help="end of the holdout decisions (UTC); default: one day before the realised prices end")
     ap.add_argument("--registry-uri", default=None)
     ap.add_argument("--params-json", default=None, help="skip tuning: JSON with params / n_estimators / weight_pow")
     ap.add_argument("--calib-days", type=int, default=120)
     a = ap.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(message)s")
     cfg = TrainConfig(sps=tuple(a.sps.split(",")), n_trials=a.trials, num_threads=a.threads, tune_timeout_s=a.timeout,
-                      include_as=not a.no_as, source=a.source, registry_uri=a.registry_uri, calib_days=a.calib_days,
+                      include_as=not a.no_as, source=a.source, registry_uri=a.registry_uri, calib_days=a.calib_days, holdout_end=a.holdout_end,
                       params=json.loads(Path(a.params_json).read_text(encoding="utf-8")) if a.params_json else None)
     if a.command == "d0check":
         print(json.dumps(check_d0(cfg.sps[0]), indent=1, default=_jd))

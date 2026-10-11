@@ -40,11 +40,11 @@ def payload(model=(8.5, 11.0, 0.79), sn1=(10.0, 14.0), sn7=(11.0, 15.0), arena=(
     return R.holdout_metrics_payload(sp, m, base)
 
 
-SNAP = {"kind": "interim_files", "sha256": "ab" * 32, "n_items": 2}
+SNAP = {"kind": "lake_catalog", "sha256": "ab" * 32, "n_items": 2}
 
 
 def new_version(reg, fc, metrics, name="t"):
-    run_id = reg.log_run({"model": "tiny"}, metrics, data_snapshot=SNAP, feature_set="interim_d1a/v1",
+    run_id = reg.log_run({"model": "tiny"}, metrics, data_snapshot=SNAP, feature_set="rt_v1/1.1.0",
                          settlement_points=[SP], name=name)
     return reg.register(fc, run_id), run_id
 
@@ -98,12 +98,12 @@ def test_catalog_snapshot_hashes_the_lines_used(tmp_path):
 def test_log_run_records_params_metrics_data_code_features_and_points(reg):
     snap = {"kind": "lake_catalog", "sha256": "cd" * 32, "n_items": 7}
     rid = reg.log_run({"num_leaves": 63, "nested": {"lr": 0.05}}, {"cv": {"HB_TEST": {"pinball_mean": 4.25}}, "bad": float("nan")},
-                      data_snapshot=snap, feature_set="interim_d1a/v1", settlement_points=["HB_NORTH", "HB_WEST"], name="unit",
+                      data_snapshot=snap, feature_set="rt_v1/1.1.0", settlement_points=["HB_NORTH", "HB_WEST"], name="unit",
                       tags={"purpose": "test"}, tables={"oof": pd.DataFrame({"a": [1, 2]})})
     run = reg.client.get_run(rid)
     assert run.info.status == "FINISHED"
     t = run.data.tags
-    assert t["feature_set"] == "interim_d1a/v1" and t["settlement_points"] == "HB_NORTH,HB_WEST" and t["purpose"] == "test"
+    assert t["feature_set"] == "rt_v1/1.1.0" and t["settlement_points"] == "HB_NORTH,HB_WEST" and t["purpose"] == "test"
     assert t["data.sha256"] == snap["sha256"] and t["data.kind"] == "lake_catalog"
     assert t["code.sha256"] == R.code_sha256()[0] and len(t["code.git_sha"]) in (7, 40) or t["code.git_sha"] == "unknown"
     assert t["code.git_dirty"] in ("true", "false")
@@ -128,7 +128,7 @@ def test_register_load_round_trip_returns_a_working_quantile_forecaster(reg, tin
     v, rid = new_version(reg, fc, payload())
     info = reg.describe(v)
     assert info["tags"]["kind"] == "lightgbm_quantile" and info["tags"]["settlement_points"] == SP
-    assert info["tags"]["feature_set"] == "interim_d1a/v1" and info["tags"]["data.sha256"] == SNAP["sha256"]
+    assert info["tags"]["feature_set"] == "rt_v1/1.1.0" and info["tags"]["data.sha256"] == SNAP["sha256"]
     assert info["tags"]["code.sha256"] == R.code_sha256()[0] and len(info["tags"]["bundle.sha256"]) == 64
     assert info["run_id"] == rid and info["aliases"] == []
     res = reg.promote(v, "research", by="test")
@@ -293,7 +293,7 @@ def test_check_promotion_is_a_side_effect_free_dry_run(reg, tiny):
 def test_baselines_are_servable_at_research_only(reg, tiny):
     fc, X, y, d, h = tiny
     b = B.make_baseline("seasonal_naive_1d").fit(SP, X, y)
-    rid = reg.log_run({"model": "seasonal_naive_1d"}, {}, data_snapshot=SNAP, feature_set="interim_d1a/v1", settlement_points=[SP])
+    rid = reg.log_run({"model": "seasonal_naive_1d"}, {}, data_snapshot=SNAP, feature_set="rt_v1/1.1.0", settlement_points=[SP])
     v = reg.register(b, rid)
     assert reg.describe(v)["tags"]["kind"] == "baseline"
     reg.promote(v, "research", note="fallback")

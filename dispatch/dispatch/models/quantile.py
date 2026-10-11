@@ -40,7 +40,7 @@ PRICE_FLOOR_USD = -251.0                            # ASSUMPTION: lowest RT SPP 
 BUNDLE_SCHEMA = 1
 
 
-CALENDAR_COLUMNS = frozenset({"horizon", "hour_local", "qtr_hour", "dow", "month", "is_holiday", "is_weekend"})   # D0's names
+CALENDAR_COLUMNS = frozenset({"horizon", "hour_local", "qtr_hour", "dow", "month", "is_holiday", "is_weekend", "doy_sin", "doy_cos"})   # D0's names
 
 
 def is_calendar_feature(name: str) -> bool:

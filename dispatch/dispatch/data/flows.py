@@ -1,6 +1,7 @@
 """Data flows: ingest, backfill, adopt, parse, rebuild (PRD Phase 0). Nothing here schedules itself or starts a server.
 
     python -m dispatch.data.flows ingest     # fetch what ERCOT posted recently, parse it, refresh the online features
+    python -m dispatch.data.flows daily      # fetch NOAA weather (NCEI) and the Henry Hub price (EIA), parse them (run once a day)
     python -m dispatch.data.flows backfill   # fetch everything in the MIS windows and the free yearly archives
     python -m dispatch.data.flows adopt      # copy research-data (grid raw, zonal history, gas, weather) into the lake
     python -m dispatch.data.flows parse      # raw -> parsed parquet (incremental)
@@ -30,7 +31,8 @@ import pyarrow.parquet as pq
 
 from .. import paths
 from . import adopt as adopt_mod
-from . import ercot, parse, reports, weather
+from . import assumptions as A
+from . import ercot, gas, parse, reports, weather
 from .times import iso_z, utc
 
 DEFAULT_SPS = ("HB_NORTH", "HB_WEST", "HB_HOUSTON", "HB_SOUTH", "HB_BUSAVG")     # the settlement points the platform forecasts first
@@ -53,18 +55,25 @@ def _datasets_for(report_ids: Sequence[str]) -> list:
 
 
 def _ingest_once(report_ids: Optional[Sequence[str]] = None, *, lookback_h: float = 6.0, do_parse: bool = True,
-                 refresh_online: bool = False, sps: Sequence[str] = DEFAULT_SPS, store=None, fetcher=None,
+                 refresh_online: bool = False, sps: Sequence[str] = DEFAULT_SPS, store=None, fetcher=None, daily: bool = False,
                  log: Callable[[str], None] = lambda s: None) -> dict:
     """One polling pass: fetch what ERCOT posted in the last `lookback_h` hours, parse the datasets that got new files, and
-    optionally rebuild the online features. Returns a summary including the publish-to-store latency."""
+    optionally rebuild the online features. Returns a summary including the publish-to-store latency.
+
+    `daily=True` also runs `ingest_daily` (NOAA weather and the Henry Hub price, each at most once per DAILY_FETCH_MIN_GAP_S in this process) and
+    puts its summary under "daily". It is off by default: those two are not ERCOT reports, the served model does not read them, and a
+    pass that runs every minute should not wait on NCEI or EIA. `fetcher` is the ERCOT fetcher only."""
     t0 = time.time()
-    fetched = ercot.ingest_once(report_ids, fetcher=fetcher, lookback=pd.Timedelta(hours=lookback_h), log=log)
+    fetched = ercot.ingest_once(list(report_ids) if report_ids else reports.mis_ingest_ids(), fetcher=fetcher,
+                                lookback=pd.Timedelta(hours=lookback_h), log=log)
     changed = [rid for rid, r in fetched.items() if r["downloaded"]]
     out = {"fetched": {rid: {k: r[k] for k in ("listed", "downloaded", "failed", "newest_published_utc")} for rid, r in fetched.items()},
            "parsed": {}, "online": {}}
     if do_parse and changed:
         for name in _datasets_for(changed):
             out["parsed"][name] = parse.parse_dataset(name, log=log)
+    if daily:
+        out["daily"] = ingest_daily(do_parse=do_parse, log=log)
     if refresh_online:
         from ..features import online
         out["online"] = online.refresh_latest(sps, store=store, log=log)
@@ -75,11 +84,58 @@ def _ingest_once(report_ids: Optional[Sequence[str]] = None, *, lookback_h: floa
     return out
 
 
+_LAST_DAILY: dict = {}                     # source -> time.monotonic() of the last attempt in this process
+
+
+def ingest_daily(*, now_utc=None, weather_on: bool = True, gas_on: bool = True, do_parse: bool = True, force: bool = False,
+                 refetch_days: Optional[int] = None, min_gap_s: Optional[float] = None, weather_fetcher=None, gas_fetcher=None,
+                 gas_min_rows: int = gas.MIN_ROWS, log: Callable[[str], None] = lambda s: None) -> dict:
+    """Fetch the two datasets that are not ERCOT reports and parse what changed. Run it once a day (`python -m dispatch.data.flows daily`).
+
+        weather  NOAA GHCN-Daily, 18 stations, NCEI Access Data Service -> raw ncei/GHCND -> dataset weather_obs   (data/weather.py)
+        gas      EIA Henry Hub daily spot, history page             -> raw eia/RNGWHHD  -> dataset gas_hh          (data/gas.py)
+
+    Each source is independent: one that fails is reported under its "error" and the other still runs. A source asked again within `min_gap_s`
+    (default A.DAILY_FETCH_MIN_GAP_S) in the same process is skipped, so a loop cannot hammer NCEI or EIA; `force=True` ignores that. Parsing runs
+    after every successful fetch (`parse_dataset` is incremental: a few seconds when nothing changed), so a fetch whose parse was cut short is
+    finished by the next call. Re-running changes nothing: identical bytes are a no-op in the lake and the parse finds its inputs unchanged.
+    Neither dataset feeds the served model, so a failure here is for the monitor to flag (alert only, GHCND/RNGWHHD in monitoring/checks.py)."""
+    gap = A.DAILY_FETCH_MIN_GAP_S if min_gap_s is None else float(min_gap_s)
+    t0 = time.time()
+    out: dict = {}
+    plan = []
+    if weather_on:
+        plan.append(("weather", "weather_obs", lambda: weather.fetch_observations(
+            now_utc, fetcher=weather_fetcher, refetch_days=refetch_days, log=log)))
+    if gas_on:
+        plan.append(("gas", "gas_hh", lambda: gas.fetch_history(now_utc, fetcher=gas_fetcher, min_rows=gas_min_rows, log=log)))
+    for name, dataset, run in plan:
+        if not force and time.monotonic() - _LAST_DAILY.get(name, -1e9) < gap:
+            out[name] = {"skipped": f"asked less than {gap:.0f} s ago in this process"}
+            continue
+        _LAST_DAILY[name] = time.monotonic()
+        try:
+            res = run()
+        except Exception as e:                                         # a dead source must not stop the other one
+            out[name] = {"error": f"{type(e).__name__}: {e}"}
+            log(f"  daily {name}: FAILED {out[name]['error']}")
+            continue
+        out[name] = res
+        if do_parse:
+            try:
+                out[name]["parsed"] = parse.parse_dataset(dataset, log=log)
+            except Exception as e:
+                out[name]["error"] = f"parse {dataset}: {type(e).__name__}: {e}"
+    out["elapsed_s"] = round(time.time() - t0, 1)
+    return out
+
+
 def _backfill_all(report_ids: Optional[Sequence[str]] = None, *, include_archives: bool = True, do_parse: bool = True,
                   fetcher=None, log: Callable[[str], None] = lambda s: None) -> dict:
     """Fetch everything in the MIS windows (and the free yearly archives) that the lake does not have yet, then parse."""
     t0 = time.time()
-    fetched = ercot.backfill_all(report_ids, fetcher=fetcher, log=log, include_archives=include_archives)
+    fetched = ercot.backfill_all(list(report_ids) if report_ids else reports.mis_ingest_ids(include_archives), fetcher=fetcher, log=log,
+                                 include_archives=include_archives)
     out = {"fetched": {rid: {k: r[k] for k in ("listed", "selected", "already_have", "downloaded", "bytes", "failed", "newest_published_utc")}
                        for rid, r in fetched.items()}}
     if do_parse:
@@ -155,6 +211,25 @@ FEATURE_REPORTS = ("NP6-905-CD", "NP4-190-CD", "NP4-188-CD", "NP3-565-CD")     #
 _LAST_INGEST = {"t": -1e9}
 
 
+# Lead, 11 Oct 2026 (P1's live check): a lake left idle for 14 h made the first signal fail closed (rt_mean_24h null) until a manual
+# backfill, because prepare_signal only looked 3 h back. The look-back now covers the lake's actual gap, capped by what ERCOT's
+# public MIS windows still hold, so an idle lake heals itself on the next signal.
+PREPARE_MIN_LOOKBACK_H = 3.0        # ASSUMPTION: the normal per-signal look-back (unchanged from D0's value)
+PREPARE_GAP_MARGIN_H = 0.5          # ASSUMPTION: extra look-back beyond the newest file, for files posted late
+PREPARE_MAX_LOOKBACK_H = 5 * 24.0   # REAL (phase1-market.md): the shortest live MIS window (bus LMPs, SCED lambda) is about 5 days
+
+
+def gap_lookback_h(report_ids: Sequence[str], now_utc=None) -> float:
+    """Hours to look back so the ingest covers the lake's gap: max(3 h, oldest newest-file age + margin), capped at 5 days."""
+    from . import catalog                                          # local import, as elsewhere in this module
+    try:
+        ages = catalog.freshness(now_utc, report_ids)
+    except Exception:                                              # an unreadable catalog must not block the refresh
+        return PREPARE_MIN_LOOKBACK_H
+    worst_h = max((a / 3600.0 for a in ages.values()), default=0.0)
+    return float(min(PREPARE_MAX_LOOKBACK_H, max(PREPARE_MIN_LOOKBACK_H, worst_h + PREPARE_GAP_MARGIN_H)))
+
+
 def prepare_signal(sps: Sequence[str] = DEFAULT_SPS, *, now_utc=None, ingest: bool = True, min_ingest_gap_s: float = 20.0,
                    report_ids: Optional[Sequence[str]] = None, store=None, fetcher=None, log: Callable[[str], None] = lambda s: None) -> dict:
     """Everything that must happen RIGHT BEFORE a `POST /signal`: pull what ERCOT just posted, parse it, and rebuild the online
@@ -177,8 +252,10 @@ def prepare_signal(sps: Sequence[str] = DEFAULT_SPS, *, now_utc=None, ingest: bo
     out: dict = {}
     if ingest and time.monotonic() - _LAST_INGEST["t"] >= min_ingest_gap_s:
         try:
-            out["ingest"] = _ingest_once(list(report_ids) if report_ids else list(reports.INGEST_IDS), lookback_h=3.0, do_parse=True,
-                                         fetcher=fetcher, log=log)
+            ids = list(report_ids) if report_ids else list(reports.INGEST_IDS)
+            lookback_h = gap_lookback_h(ids, now_utc)
+            out["lookback_h"] = lookback_h
+            out["ingest"] = _ingest_once(ids, lookback_h=lookback_h, do_parse=True, fetcher=fetcher, log=log)
         except Exception as e:                                     # network trouble must not stop the refresh
             out["ingest"] = {"error": f"{type(e).__name__}: {e}"}
         _LAST_INGEST["t"] = time.monotonic()
@@ -210,7 +287,7 @@ def _wrap_prefect(namespace: dict) -> bool:
     @flow(name="dispatch-ingest-once")
     def ingest_once(report_ids=None, **kw):
         lookback = pd.Timedelta(hours=kw.pop("lookback_h", 6.0))
-        ids = list(report_ids or [r.report_id for r in reports.REPORTS.values() if r.ingest and not r.archive])
+        ids = list(report_ids or reports.mis_ingest_ids())
         now = pd.Timestamp.now(tz="UTC")
         got = {rid: fetch_task(rid, since=now - lookback) for rid in ids}
         for name in _datasets_for([r for r, v in got.items() if v["downloaded"]]):
@@ -219,7 +296,7 @@ def _wrap_prefect(namespace: dict) -> bool:
 
     @flow(name="dispatch-backfill")
     def backfill_all(report_ids=None, **kw):
-        ids = list(report_ids or [r.report_id for r in reports.REPORTS.values() if r.ingest])
+        ids = list(report_ids or reports.mis_ingest_ids(include_archives=True))
         got = {rid: fetch_task(rid) for rid in ids}
         for name in parse.DATASETS:
             parse_task(name)
@@ -262,7 +339,7 @@ def _csv_list(s: Optional[str]) -> Optional[list]:
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m dispatch.data.flows", description=__doc__.split("\n\n")[0])
-    ap.add_argument("command", choices=["ingest", "backfill", "adopt", "parse", "features", "online", "prepare", "weather", "rebuild"])
+    ap.add_argument("command", choices=["ingest", "daily", "backfill", "adopt", "parse", "features", "online", "prepare", "weather", "rebuild"])
     ap.add_argument("--reports", help="comma-separated report ids (default: all that apply)")
     ap.add_argument("--sps", help=f"comma-separated settlement points (default: {','.join(DEFAULT_SPS)})")
     ap.add_argument("--start", default=DEFAULT_FEATURE_START, help="first decision date for features (default %(default)s)")
@@ -272,6 +349,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     ap.add_argument("--force", action="store_true", help="parse: rebuild even unchanged partitions")
     ap.add_argument("--no-parse", action="store_true", help="ingest/backfill: do not parse after fetching")
     ap.add_argument("--online", action="store_true", help="ingest: also refresh the online features")
+    ap.add_argument("--daily", action="store_true", help="ingest: also run the daily weather and gas fetch")
+    ap.add_argument("--refetch-days", type=int, help="daily: days before the newest weather day to ask NCEI for again (default %d)" % A.WEATHER_FETCH_REFETCH_DAYS)
     ap.add_argument("--prefect", action="store_true", help="run through Prefect flows (starts a temporary Prefect server unless PREFECT_API_URL is set)")
     a = ap.parse_args(argv)
     if a.prefect and not PREFECT:
@@ -281,7 +360,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     g = globals()
     log = _log_print
     if a.command == "ingest":
-        res = g["ingest_once"](reps, do_parse=not a.no_parse, refresh_online=a.online, sps=sps, log=log) if not (a.prefect or PREFECT) else g["ingest_once"](reps)
+        res = g["ingest_once"](reps, do_parse=not a.no_parse, refresh_online=a.online, sps=sps, daily=a.daily, log=log) if not (a.prefect or PREFECT) else g["ingest_once"](reps)
+    elif a.command == "daily":
+        res = ingest_daily(do_parse=not a.no_parse, force=True, refetch_days=a.refetch_days, log=log)
     elif a.command == "backfill":
         res = g["backfill_all"](reps, do_parse=not a.no_parse, log=log) if not (a.prefect or PREFECT) else g["backfill_all"](reps)
     elif a.command == "adopt":

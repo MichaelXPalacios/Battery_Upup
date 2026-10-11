@@ -31,13 +31,13 @@ separate track": the same repo, as the operate layer). It has its own `requireme
 | Folder | What | Owner of the design |
 |---|---|---|
 | `dispatch/data/` | Immutable raw lake, catalog, parsers (17 datasets), realised prices (`prices.py`), freshness, `flows.py` (the CLI) | D0 |
-| `dispatch/features/` | Feature set `rt_v1`, the point-in-time builder, the offline store, the Redis online store, `compat.py` | D0 |
-| `dispatch/models/`, `dispatch/registry/` | LightGBM P10/P50/P90 forecasters, baselines, purged walk-forward CV, calibration rules, MLflow registry with research / paper / live aliases | D1a |
+| `dispatch/features/` | Feature set `rt_v1` (1.1.0), the point-in-time builder the served model is trained on and served from, the offline store, the Redis online store, `compat.py` (the rename that keeps version 1 servable for a rollback) | D0 |
+| `dispatch/models/`, `dispatch/registry/` | LightGBM P10/P50/P90 forecasters trained on D0's `rt_v1` features (served: version 6), baselines, purged walk-forward CV, calibration rules, MLflow registry with research / paper / live aliases | D1a, P1 |
 | `dispatch/optimizer/`, `dispatch/attribution/` | The LP (one code path for perfect foresight, forecast and fixed actions), the shadow optimizer, the Gate 3 backtest, attribution (FR7), the 60-day-disclosure pilot and the case study | D1b |
 | `dispatch/guard/`, `dispatch/execution/` | The guard (rejects, never clips), the paper ledger, the audit log, the disabled QSE adapter | D2 |
 | `dispatch/service/`, `dispatch/monitoring/` | The FastAPI service, cycle, halt flag, monitors, calibration check, forecast log, wiring of everything above | D2, wired by I1 |
 | `ops/` | Prometheus, alert rules, Grafana, compose file, the paper loop, the live end-to-end script | D2, I1 |
-| `tests/` | 621 tests (618 run by default, 3 opt-in against the real lake), including the integration test of the whole chain (`test_integration_cycle.py`) and the calibration replay over D1a's holdout (`test_calibration.py`) | all |
+| `tests/` | 670 tests (669 run by default, 1 opt-in against the real lake), including the integration test of the whole chain (`test_integration_cycle.py`), the calibration replay over the served model's holdout (`test_calibration.py`) and D0's builder held to the numbers D1a's retired interim builder produced, frozen in `tests/fixtures/` (`test_rt_v1_1_equivalence.py`) | all |
 | `reports/case_study/` | The public case study (PAD1_ESS_ESR1, 42 days of ERCOT's 60-day disclosure) | D1b |
 
 ## Quickstart
@@ -62,9 +62,11 @@ scripts/redis_dispatch.sh &
 .venv/Scripts/python.exe -m dispatch.data.flows features --start 2019-01-01 --sps HB_NORTH,HB_WEST,HB_HOUSTON,HB_SOUTH
 .venv/Scripts/python.exe -m dispatch.data.flows online --sps HB_NORTH
 
-# 4. Train (single-threaded LightGBM, about 35 minutes a hub), then promote through the gates. Version 1, trained on D1a's interim builder, is
-#    already registered and is served as it is: rt_v1 1.1.0 carries its columns (identical numbers, D0) and the service renames them (features/compat.py).
-.venv/Scripts/python.exe -m dispatch.models.train all --source d0 --tag r2 --threads 1        # optional: puts the served model under D0's leakage test
+# 4. Train (single-threaded LightGBM, 15 to 22 minutes a hub on a quiet machine), then promote through the gates. The served model is version 6, trained on D0's own
+#    point-in-time builder (feature set rt_v1/1.1.0, 60 input columns, no rename), so it sits under D0's leakage tests. Version 1, trained on the retired
+#    interim builder of D1a, stays registered for a rollback: features/compat.py renames D0's columns for it, and does nothing for version 6.
+#    A retrain: --holdout-end pins the holdout to the dates of the last release, --promote "" registers without moving an alias.
+.venv/Scripts/python.exe -m dispatch.models.train all --source d0 --tag r3 --threads 1 --promote ""
 .venv/Scripts/python.exe -m dispatch.registry.mlflow_registry status
 .venv/Scripts/python.exe -m dispatch.registry.mlflow_registry check <version> paper         # a dry run of the gate
 .venv/Scripts/python.exe -m dispatch.registry.mlflow_registry promote <version> paper --by <you>
@@ -91,7 +93,7 @@ run by the programs). What halts dispatch, and what only alerts, is in `ops/READ
 with a throwaway server that it stops itself: `.venv/Scripts/python.exe ops/live_e2e.py --phase all --replay-count 96` (its `live` phase writes ONE real paper
 setpoint into the real ledger; `--phase pilot` and `--phase replay` use scratch runtime directories).
 
-Tests: `.venv/Scripts/python.exe -m pytest -q tests`: 621 collected, 618 run, 3 opt-in skips; **10 min 42 s and 10 min 23 s** in two consecutive full runs on this shared machine, all green.
+Tests: `.venv/Scripts/python.exe -m pytest -q tests`: 670 collected, 669 run, 1 opt-in skip; **13 min 17 s and 10 min 52 s** in two consecutive full runs on this shared machine (11 Oct, P1), all green.
 `DISPATCH_GATE1_REAL=1 ... tests/test_gate1_real_lake.py` runs Gate 1 against the real lake (6 minutes, reads it and never writes it).
 
 ## Gate status
@@ -100,10 +102,10 @@ Tests: `.venv/Scripts/python.exe -m pytest -q tests`: 621 collected, 618 run, 3 
 |---|---|---|
 | **1** Phase 0, data | Delete `parsed/` and `features/`, rebuild from raw, every partition has the same sha256 | **PASS** (D0). 59 of 59 parquet files identical on 481 real raw files, in-process and in a fresh process; on the real lake 724 of 724 identical (the 2018 and 2019 archives, Henry Hub, weather, HB_NORTH features for 2019); the leakage test (nothing in a feature is published after its decision) passes |
 | **2** Phase 1, shadow optimizer | Attribution closes on a pilot asset: unexplained under 5% of the gap | **Mechanically met, not proven.** On public data the actual dispatch is revalued with the same accounting, so unexplained is 0.0% by construction (D1b). The real test is closure against a design partner's settlement statement (`reported_usd`); until one exists, the price-proxy stress test says the hub-for-node proxy alone could move 11.1% of the gap, above the 5% target (D1b) |
-| **3** Phase 2, paper | Paper matches the backtest, slippage under 5%, over at least a week of **real-time** paper operation against live ERCOT publications; then a partner signs | **Not yet passed (lead decision, 11 Oct).** Evidence so far: one replayed day on the real stack (registered model, real LP, guard, ledger, audit), 96 decisions, paper $1,333.27 = D1b's backtest $1,333.27, slippage 0.0%. A replay shares code and inputs with the backtest, so that shows consistency, not market performance. No `gate3.pass` is recorded, so `live` stays unreachable |
+| **3** Phase 2, paper | Paper matches the backtest, slippage under 5%, over at least a week of **real-time** paper operation against live ERCOT publications; then a partner signs | **Not yet passed (lead decision, 11 Oct).** Evidence so far: one replayed day on the real stack (registered model, then version 1; real LP, guard, ledger, audit), 96 decisions, paper $1,333.27 = D1b's backtest $1,333.27, slippage 0.0%. A replay shares code and inputs with the backtest, so that shows consistency, not market performance. No `gate3.pass` is recorded, so `live` stays unreachable |
 
 The PRD's other success metrics: guard integrity zero (`tests/test_guard_props.py`: about 70,000 passing examples across the properties, none lets a
-setpoint past a limit); dispatch latency p99 under 30 s (**0.19 s** over 96 replayed cycles on the real stack, p50 0.11 s; the one live cycle took 0.17 s); attribution closure and capture rate as above and in `notes/d1a.md`.
+setpoint past a limit); dispatch latency p99 under 30 s (**0.19 s** over 96 replayed cycles on the real stack, p50 0.11 s; the one live cycle took 0.17 s with version 1 and 0.21 s with version 6); attribution closure and capture rate as above and in `notes/d1a.md` and `notes/p1-retrain.md`.
 
 ## The case study in one paragraph
 
@@ -128,7 +130,8 @@ assumption, not a promise of money. The prices are a hub proxy for the node (nod
   needs `protocol=2` for this machine's Redis 3.0.504. It is never touched.
 * **No Docker, Prometheus or Grafana here.** The compose file, alert rules (PromQL) and dashboard JSON are checked by tests for the metrics they name,
   balanced brackets and non-overlapping panels, not by the programs themselves.
-* **Weather and Henry Hub are 10 to 11 days stale** (no fetcher for NCEI and FRED was written); the served model does not use them.
+* **Weather and Henry Hub are fetched daily** (`python -m dispatch.data.flows daily`; NOAA NCEI and EIA, keyless; P2, 11 Oct), monitored alert-only. Nothing schedules it. Two history rules stay optimistic for live use (weather published 1 day after the day against a measured ~3.5, gas 7 days against up to 8 in holiday weeks), and features read the first-published version, not revisions. **Fix both before any model reads weather or gas** (the served model reads neither); see `notes/p2-weather-gas.md` §7.
+* **An idle lake heals on the next signal**: `prepare_signal` now sizes its ingest look-back from the lake's gap (capped at ERCOT's 5-day public window); a gap longer than that still fails closed and needs `flows backfill` plus the API key for older data.
 * **Gate 2 is not proven** (above), and 70% of the case-study gap is an ancillary benchmark that assumes a price-taker. Treat the energy-only and
   no-regulation rows as the conservative reading.
 * **Open PRD questions.** *Audit-log retention* is undecided: nothing is ever deleted (`AUDIT_RETENTION_DAYS = None`). *Exposure cap*: the guard enforces D2's

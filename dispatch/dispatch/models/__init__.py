@@ -3,9 +3,12 @@
     quantile.py         QuantileForecaster (implements contracts.Forecaster), ASPriceModel
     baselines.py        seasonal-naive and arena-profile forecasters (also Forecasters)
     cv.py               purged walk-forward folds, metrics, decision_value (capture rate)
-    train.py            Optuna tuning + MLflow logging + registration
-    interim_features.py point-in-time features over the NP6-785-ER history (fallback until D0's builder is used)
+    train.py            Optuna tuning + MLflow logging + registration, on D0's point-in-time builder (features/build.py, rt_v1)
     bundle.py           save / load of a model bundle directory
+    replay.py           forecast_fn for the shadow run, the backtest and /attribution
+    synthetic.py        synthetic prices, a synthetic D0 lake, a tiny real model and a constant forecaster, for tests
+
+D1a's own feature builder (interim_features.py, which trained version 1) was retired on 11 Oct 2026; notes/p1-retrain.md.
 
 Models only forecast. Nothing here produces a setpoint (DESIGN.md).
 """

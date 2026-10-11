@@ -25,6 +25,9 @@ class Report:
     datasets: tuple = ()                # parsed datasets fed by this report
     emil: Optional[str] = None          # ERCOT Public API product id, where known (used only by the API path)
     source: str = "ercot"
+    kind: str = "mis"                   # "mis": an ERCOT MIS report (listed and downloaded by data.ercot). "web": a keyless web source fetched by
+                                        # its own module (weather.fetch_observations, gas.fetch_history); `rtid` is then a SYNTHETIC number (9,000,000
+                                        # and up, no ERCOT id is that large) that only keeps the id <-> number round trip of `canonical_id` working
 
 
 _REPORTS = [
@@ -68,13 +71,27 @@ _REPORTS = [
            window="60 days, one zip per operating day", ingest=False, datasets=("esr_sced",)),
     Report("60D-DAM", 13051, "60-Day DAM Disclosure Reports (resource level: awards, bids, offers)", files="all",
            window="60 days, one zip per operating day", ingest=False, datasets=("dam_spp_60d",)),
+    # --- keyless web sources, fetched once a day by data.flows.ingest_daily (P2, 11 Oct 2026). Not MIS reports: `kind="web"` keeps them out of
+    #     INGEST_IDS (which feeds ercot.ingest_once), and `ingest=True` makes them live inputs the stale-data monitor may watch (alert only).
+    Report("GHCND", 9_000_001, "NOAA GHCN-Daily station observations (NCEI Access Data Service): TMAX, TMIN, PRCP, WSF2; adopted history plus a daily fetch",
+           files="all", window="whole history; each fetch asks for the last 45 days (at least 14 before the newest day in the lake), so revisions come back", datasets=("weather_obs",), source="ncei", kind="web"),
+    Report("RNGWHHD", 9_000_002, "EIA Henry Hub natural gas spot price, daily history page (re-released weekly, Wednesday morning Eastern)",
+           files="all", window="whole history since 1997", datasets=("gas_hh",), source="eia", kind="web"),
 ]
 
 REPORTS: dict[str, Report] = {r.report_id: r for r in _REPORTS}
 BY_RTID: dict[int, Report] = {r.rtid: r for r in _REPORTS}
-INGEST_IDS = tuple(r.report_id for r in _REPORTS if r.ingest and not r.archive)       # polled every cycle
+INGEST_IDS = tuple(r.report_id for r in _REPORTS if r.ingest and not r.archive and r.kind == "mis")       # ERCOT MIS reports, polled every cycle
 ARCHIVE_IDS = tuple(r.report_id for r in _REPORTS if r.archive)                        # refreshed weekly
+WEB_IDS = tuple(r.report_id for r in _REPORTS if r.kind == "web")                      # fetched daily, not through data.ercot
 ALL_IDS = tuple(REPORTS)
+
+
+def mis_ingest_ids(include_archives: bool = False) -> list:
+    """The ids `data.ercot` may list and download: MIS reports only, live ones (plus the yearly archives if asked).
+    `data.ercot.ingest_once()` and `backfill_all()` pick their own defaults without this filter (ercot.py is not P2's file), so
+    callers pass these ids explicitly; `data.flows` does."""
+    return [r.report_id for r in _REPORTS if r.ingest and r.kind == "mis" and (include_archives or not r.archive)]
 
 
 def canonical_id(report: Union[str, int]) -> str:

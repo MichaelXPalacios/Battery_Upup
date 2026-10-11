@@ -50,7 +50,7 @@ def test_real_lake_files_equal_a_clean_rebuild_from_their_raw_files(tmp_path):
         pytest.skip("the real lake has no 2019 features yet (run: python -m dispatch.data.flows adopt / backfill / parse / features)")
     entries = [json.loads(x) for x in catalog.read_text(encoding="utf-8").splitlines() if x.strip()]
     keep = [e for e in entries
-            if (e["report_id"] in YEARLY and ("_2018." in e["path"] or "_2019." in e["path"])) or e["report_id"] in ("DHHNGSP", "GHCND")]
+            if (e["report_id"] in YEARLY and ("_2018." in e["path"] or "_2019." in e["path"])) or e["report_id"] in ("DHHNGSP", "GHCND", "RNGWHHD")]
     assert len(keep) >= 20, [e["report_id"] for e in keep]
     home = tmp_path / "home"
     for e in keep:

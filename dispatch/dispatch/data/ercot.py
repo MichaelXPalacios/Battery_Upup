@@ -260,8 +260,8 @@ def backfill(report_id, *, fetcher: Optional[Fetcher] = None, since=None, until=
 def backfill_all(report_ids=None, *, fetcher: Optional[Fetcher] = None, log: Callable[[str], None] = lambda s: None,
                  include_archives: bool = True, **kw) -> dict:
     """`backfill` for every ingest report (the live windows, and by default the free yearly archives)."""
-    ids = report_ids or [r.report_id for r in reports.REPORTS.values()
-                         if r.ingest and (include_archives or not r.archive)]
+    ids = report_ids or [r.report_id for r in reports.REPORTS.values()          # MIS reports only: kind "web" sources
+                         if r.ingest and r.kind == "mis" and (include_archives or not r.archive)]   # are fetched by data.flows
     f = fetcher or Fetcher()
     return {rid: backfill(rid, fetcher=f, log=log, **kw) for rid in ids}
 
@@ -271,7 +271,8 @@ def ingest_once(report_ids=None, *, fetcher: Optional[Fetcher] = None, lookback=
     """One polling pass: list each live report and fetch what was posted in the last `lookback` that we do not have.
     Cheap enough to run every minute (one listing request per report plus the new files)."""
     t_now = utc(now) if now is not None else pd.Timestamp.now(tz="UTC")
-    ids = report_ids or [r.report_id for r in reports.REPORTS.values() if r.ingest and (include_archives or not r.archive)]
+    ids = report_ids or [r.report_id for r in reports.REPORTS.values()
+                         if r.ingest and r.kind == "mis" and (include_archives or not r.archive)]   # never send web ids to ercot.com
     f = fetcher or Fetcher()
     return {rid: backfill(rid, fetcher=f, since=t_now - lookback, log=log) for rid in ids}
 

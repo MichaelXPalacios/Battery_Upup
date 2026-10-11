@@ -3,6 +3,10 @@
 Scope: PRD FR4 (P10/P50/P90 price forecasts per settlement point) and FR6 (every run tracked in MLflow; models promoted
 through research, paper and live). Models only forecast. Nothing here produces a setpoint (DESIGN.md).
 
+> **Update, 11 Oct 2026 (P1, `notes/p1-retrain.md`).** The model described below was retrained on D0's `rt_v1` builder and the interim builder
+> (`models/interim_features.py`, sections 1, 3, 9 and 10.4 to 10.5) was deleted. Version 1 stays registered for rollback. Read sections 3 and 10 as the
+> history of how `rt_v1` 1.1.0 came to carry D1a's columns; the numbers in the Result and section 5 are version 1's (the new version's are in the P1 note).
+
 Run date: 10 Oct 2026. Labels follow `config.py`: REAL (named source), DERIVED, ASSUMPTION (our choice, a named constant in
 code), PROPOSED (a PRD target still to confirm).
 

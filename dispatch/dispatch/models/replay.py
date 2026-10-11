@@ -25,13 +25,13 @@ class InSampleError(ForecastError):
     """The issue time is inside the period the model was trained on."""
 
 
-def default_features_fn(feature_set: str) -> Callable:
-    """Point-in-time features for a model's feature set: D0's builder for `rt_v1`, the interim builder otherwise."""
-    if str(feature_set).startswith("rt_v1"):
-        from ..features import build as d0
-        return lambda sp, asof, horizon=96: d0.point_in_time(sp, asof, horizon)
-    from . import interim_features as F
-    return lambda sp, asof, horizon=96: F.point_in_time(sp, asof, horizon)
+def default_features_fn(forecaster) -> Callable:
+    """Point-in-time features from D0's builder (`features.build`, feature set `rt_v1`), for any model. A model trained on D1a's interim
+    names (registered version 1, feature set `interim_d1a/v1`) gets them renamed by `features.compat.for_forecaster`; a model trained on
+    rt_v1 names (version 2 on) gets the frame as D0 builds it."""
+    from ..features import build as d0
+    from ..features import compat
+    return lambda sp, asof, horizon=96: compat.for_forecaster(d0.point_in_time(sp, asof, horizon), forecaster)
 
 
 def trained_through(forecaster) -> Optional[pd.Timestamp]:
@@ -44,9 +44,9 @@ def make_forecast_fn(forecaster, settlement_point: str, *, features_fn: Optional
                      allow_in_sample: bool = False) -> Callable[[pd.Timestamp], ForecastFrame]:
     """`forecast_fn(issued_utc) -> ForecastFrame`: build the features known at `issued_utc`, then predict.
 
-    features_fn(sp, asof_utc, horizon) -> DataFrame; default per `forecaster.feature_set`. Fails closed: a missing feature,
-    a stale price history or a leaking row raises (ForecastError / StaleHistoryError / FeatureDataError)."""
-    ff = features_fn or default_features_fn(getattr(forecaster, "feature_set", ""))
+    features_fn(sp, asof_utc, horizon) -> DataFrame; default: D0's builder, renamed for a model that was trained on the interim names.
+    Fails closed: a missing feature, a settlement point without prices or a leaking row raises (ForecastError / FeatureDataError)."""
+    ff = features_fn or default_features_fn(forecaster)
     cutoff = trained_through(forecaster)
 
     def forecast_fn(issued_utc) -> ForecastFrame:

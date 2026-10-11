@@ -10,9 +10,9 @@
   arena_profile       the research arena's Forecaster (docs/research/arena/arena/algorithms.py, A2) point forecast:
                           f = 0.5 * History.profile(weekend, 14 days) + 0.3 * yesterday + 0.2 * the day a week ago
                       `History.profile` is the mean over the last 14 days of the same weekday/weekend type at the same
-                      time of day, falling back to all 14 days when fewer than two such days exist. The interim feature
-                      builder emits exactly that quantity as `rt_prof14_dt`; tests/test_models.py checks it against
-                      `arena.algorithms.History.profile` itself (through `dispatch.paths.use_arena()`).
+                      time of day, falling back to all 14 days when fewer than two such days exist. D0's builder (rt_v1)
+                      emits exactly that quantity as `rt_prof14_dt` (as the retired interim builder did); tests/test_models.py
+                      checks it against `arena.algorithms.History.profile` itself (through `dispatch.paths.use_arena()`).
                       NOT ported: the arena's swing rescale (`k = clip(typical / own, 1, 3)`). It sharpens the forecast so
                       the arena's dynamic programme sees full-size spreads; it makes the point forecast worse by MAE, and
                       it needs a whole forecast day while a decision sees a 24 h window. The arena's closed-loop `act`

@@ -16,6 +16,7 @@ import math
 import os
 from collections import Counter
 
+import numpy as np
 import pandas as pd
 import pytest
 from hypothesis import HealthCheck, given, settings, strategies as st
@@ -212,15 +213,14 @@ def test_generator_reaches_both_outcomes():
     seen = Counter()
     rejected_for = Counter()
 
-    @settings(max_examples=1500, deadline=None, database=None, derandomize=True, suppress_health_check=list(HealthCheck))
-    @given(UNIT)
-    def run(u):
-        spec, sp, state, now = build_case(u, halted=False)
+    # Lead, 11 Oct: derandomize=True still drew 193 acceptances once (P2's full run), so the count no longer goes through
+    # Hypothesis at all: 1500 cases from a seeded NumPy generator are exactly reproducible. The property tests stay on Hypothesis.
+    rng = np.random.default_rng(20261011)
+    for u in rng.random((1500, K)):
+        spec, sp, state, now = build_case([float(x) for x in u], halted=False)
         d = check(spec, sp, state, now_utc=now)
         seen[d.accepted] += 1
         rejected_for.update(d.reasons)
-
-    run()
     assert seen[True] >= 200 and seen[False] >= 200, seen
     # the generator should provoke most reason codes, otherwise the soundness test is weaker than it looks
     assert len(rejected_for) >= 14, rejected_for

@@ -541,18 +541,16 @@ def test_the_cycle_on_the_real_forecaster_online_store_and_lp(tmp_path):
     synthetic = pytest.importorskip("dispatch.models.synthetic")
     online = pytest.importorskip("dispatch.features.online")
     lp = pytest.importorskip("dispatch.optimizer.lp")
-    interim = pytest.importorskip("dispatch.models.interim_features")
     pytest.importorskip("lightgbm")
-    model, _X, _y, _d, hist = synthetic.fit_tiny_forecaster("HB_NORTH", n_estimators=20, days=100)
+    model, _X, _y, _d, lake = synthetic.fit_tiny_forecaster("HB_NORTH", n_estimators=20, days=100)       # trained on D0's rt_v1 columns
     store = online.OnlineStore(fakeredis.FakeRedis(server=fakeredis.FakeServer()))
     w = make_world(tmp_path, forecaster=model, optimizer=lp.solve, populate=False)
     w.deps.store = store
-    asof0 = hist.end - pd.Timedelta(days=2) + pd.Timedelta(minutes=7)
+    asof0 = lake.end - pd.Timedelta(days=2) + pd.Timedelta(minutes=7)
     results = []
     for k in range(6):
         asof = asof0 + pd.Timedelta(minutes=15 * k)
-        feats = interim.point_in_time("HB_NORTH", asof, 96, history=hist)
-        feats["asof_utc"] = asof
+        feats = lake.point_in_time(asof, 96)                                     # D0's builder over the synthetic lake: what prepare_signal writes
         store.write_latest("HB_NORTH", feats)
         if k == 0:
             stored0 = store.read_latest("HB_NORTH")[0].copy()                    # exactly what the first cycle reads
@@ -560,7 +558,9 @@ def test_the_cycle_on_the_real_forecaster_online_store_and_lp(tmp_path):
     assert [r.status for r in results] == ["dispatched"] * 6, [(r.reasons, r.detail) for r in results if r.status != "dispatched"]
     first = results[0]
     assert first.setpoint.interval_start_utc == asof0.floor("15min") and first.model_version == model.version
-    assert first.feature_age_s == pytest.approx((asof0 - asof0.floor("15min")).total_seconds()) and first.feature_age_s < MAX_FEATURE_AGE_S
+    newest = stored0["max_published_utc"].max()                                   # D0 stamps each frame with the publish time of its newest price
+    assert first.feature_age_s == pytest.approx((asof0 - newest).total_seconds()) and first.feature_age_s < MAX_FEATURE_AGE_S
+    assert first.feature_age_s == pytest.approx((asof0 - asof0.floor("15min")).total_seconds() + 300.0)       # 5 min: price of B-30 min, public at B-5
     # the setpoint is exactly what D1b's own helper extracts from the same plan
     entries = w.ledger.entries(ASSET)
     assert len(entries) == 6 and all(entries[i + 1].soc_start_mwh == pytest.approx(entries[i].soc_end_mwh) for i in range(5))
