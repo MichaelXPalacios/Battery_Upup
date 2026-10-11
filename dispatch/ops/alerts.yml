@@ -1,0 +1,166 @@
+# Prometheus alert rules for the dispatch service (PRD FR11).
+#
+# Every metric below is defined in dispatch/monitoring/metrics.py; tests/test_monitoring.py parses this file and fails if a rule
+# names a metric the service does not export. Thresholds that mirror a named constant say which one, so a change in
+# dispatch/config.py (or monitoring/checks.py) has a matching line here to change.
+#
+# Severity: "critical" pages the on-call operator (dispatch is stopped or must be stopped), "warning" opens a ticket.
+# Runbook: ops/README.md, section "Runbook".
+
+groups:
+  - name: dispatch-safety
+    rules:
+      - alert: DispatchHalted
+        # config.HALT_KEY is set (an operator kill or the monitor's automatic halt), or Redis cannot be read.
+        expr: dispatch_halted == 1
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Dispatch is halted"
+          description: "The halt flag is set or Redis is unreachable. The guard rejects every setpoint. See GET /health for the reason and ops/README.md for how to resume."
+          runbook: "ops/README.md#runbook-kill-and-resume"
+
+      - alert: DispatchServiceDown
+        expr: up{job="dispatch"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "The dispatch service does not answer scrapes"
+          description: "Every other rule is silent while the service is down. Nothing dispatches: the service is the only thing that does."
+
+      - alert: DispatchGuardRejectionRate
+        # ASSUMPTION: more than a quarter of cycles ending in a guard rejection is not noise. (A rejection is a cycle with status "rejected".)
+        expr: |
+          sum(rate(dispatch_cycles_total{status="rejected"}[15m]))
+            / sum(rate(dispatch_cycles_total[15m])) > 0.25
+          and sum(rate(dispatch_cycles_total[15m])) > 0
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: "The guard rejects more than 25% of cycles"
+          description: "Look at dispatch_guard_rejections_total by reason: power_limit and soc_* point at the optimizer or the SOC source, exposure_cap at prices, soc_stale at telemetry."
+
+      - alert: DispatchRedisReadOnly
+        # Redis at its maxmemory with noeviction (the local one is) answers reads and refuses writes.
+        expr: dispatch_redis_writable == 0
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Redis refuses writes"
+          description: "A kill set with redis-cli SET would fail, and D0's online store cannot write features (cycles go stale). POST /kill still halts the service. Free memory or raise maxmemory."
+
+      - alert: DispatchAuditWriteFailures
+        expr: increase(dispatch_audit_errors_total[15m]) > 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "The audit log could not be written"
+          description: "No audit record means no dispatch: cycles fail with audit_failed until the disk or the tail of the log is repaired."
+
+  - name: dispatch-latency
+    rules:
+      - alert: DispatchCycleLatencyP99
+        # config.CYCLE_P99_TARGET_S = 30 (PROPOSED in the PRD)
+        expr: histogram_quantile(0.99, sum by (le) (rate(dispatch_cycle_seconds_bucket[15m]))) > 30
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "p99 of the dispatch cycle is over 30 s"
+          description: "The PRD target is p99 < 30 s inside a 5 minute SCED interval. Check the optimizer solve time and the online store."
+
+  - name: dispatch-monitoring
+    rules:
+      - alert: DispatchStaleData
+        # age above the report's allowance (publication cadence + slack): monitoring/checks.py REPORT_CADENCE_S, config.DATA_FRESHNESS_TARGET_S
+        expr: dispatch_data_age_seconds - on(report) dispatch_data_age_allowance_seconds > 0
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "ERCOT report {{ $labels.report }} is stale"
+          description: "{{ $labels.report }} is older than its allowance (cadence + normal lateness + 5 min; monitoring/checks.py). Only NP6-905-CD (RT prices) and NP4-190-CD (day-ahead prices) can halt dispatch, after three consecutive breaching monitor passes; the other reports are diagnostics or NaN-tolerant inputs, so for them this is an alert and nothing more."
+
+      - alert: DispatchFeatureDrift
+        # config.DRIFT_PSI_ALERT = 0.2
+        expr: dispatch_feature_drift_psi > 0.2
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Feature {{ $labels.feature }} has drifted (PSI {{ $value | humanize }})"
+          description: "ALERT ONLY (config.DRIFT_PSI_HALTS = False): every model feature is a 1 to 7 day rolling statistic, so a short window of served rows is one regime against a year-long reference and nearly every feature crosses 0.2 on in-distribution data. This never halts dispatch and asks for no retrain. The halt-eligible model check is DispatchCalibrationBreach."
+
+      - alert: DispatchCaptureRateDecay
+        # monitoring/checks.py CAPTURE_DECAY_TOL = 0.2: more than 20% below the baseline
+        expr: dispatch_capture_rate < 0.8 * dispatch_capture_baseline
+        for: 30m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Capture rate fell more than 20% below its baseline"
+          description: "Rolling paper revenue over perfect-foresight revenue is {{ $value | humanizePercentage }}."
+
+      - alert: DispatchSlippageOverTolerance
+        # config.SLIPPAGE_TOL = 0.05 (Gate 3)
+        expr: dispatch_slippage_ratio > 0.05
+        for: 15m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Paper revenue differs from the backtest by more than 5% (Gate 3)"
+          description: "Same model, same prices, same code path should agree. Run gate3() for the period and read largest_gaps."
+
+      - alert: DispatchAutoHaltApproaching
+        # one more breaching evaluation and the monitor halts: config.HALT_AFTER_BREACHES = 3 passes, CALIBRATION_HALT_AFTER = 2 daily evaluations
+        expr: dispatch_monitor_consecutive_breaches >= on(check) (dispatch_monitor_halt_threshold - 1)
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "{{ $labels.check }} has breached {{ $value }} evaluations in a row"
+          description: "At its threshold (dispatch_monitor_halt_threshold: 3 passes, 2 daily evaluations for calibration) the monitor sets the halt flag itself. Alert-only breaches (PSI, diagnostic reports, pinball) never count."
+
+      - alert: DispatchCalibrationBreach
+        # config.CALIBRATION_HIT_TOL = 0.25 and config.SKILL_DEGRADATION_MAX = 0.10 (D1a: 2.1 to 2.5% false breaches per hub on the 2025-26 holdout)
+        expr: dispatch_calibration_breach == 1
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "The daily calibration check breached for {{ $labels.asset }}"
+          description: "The issued P10/P50/P90 stopped behaving as quantiles, or the P50 lost to the 7-day profile median (see the hit-error and skill panels). A retrain request is in the audit log (nothing trains by itself). A second consecutive daily breach sets the halt flag."
+          runbook: "ops/README.md#monitoring-policy"
+
+      - alert: DispatchCalibrationPinball
+        # config.PINBALL_DEGRADATION_MAX = 0.25. Alert only: a 7-day pinball is heavy tailed (a spike week costs every forecaster), so it never counts toward a halt.
+        expr: dispatch_calibration_pinball_ratio > 1.25
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Pinball loss of {{ $labels.asset }} is {{ $value | humanize }} x its holdout value"
+          description: "Alert only. Look at the calibration hit-rate and skill panels before deciding anything."
+
+      - alert: DispatchCalibrationNotRunning
+        expr: time() - dispatch_calibration_last_evaluation_timestamp_seconds > 3 * 86400
+        for: 1h
+        labels:
+          severity: warning
+        annotations:
+          summary: "No calibration evaluation for three days"
+          description: "Either the forecast log is empty or failing (DispatchForecastLogWriteFailures), the realised prices are not in the lake yet, no model is loaded, or the service was restarted without cycles. The check reports why in GET /health under calibration.last_skip."
+
+      - alert: DispatchForecastLogWriteFailures
+        expr: increase(dispatch_forecast_log_errors_total[15m]) > 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "The forecast log could not be written"
+          description: "Cycles still run (dispatch safety does not depend on this file) but the calibration check starves without it. Check disk space under runtime/forecasts."

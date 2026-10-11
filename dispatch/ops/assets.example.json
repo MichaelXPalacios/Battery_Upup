@@ -1,0 +1,60 @@
+{
+  "schema": "dispatch-assets/1",
+  "note": "Assets the dispatch service may run a cycle for. v1 is paper only (PRD: no live bids), so every asset must have mode 'paper'. Copy this file and point DISPATCH_ASSETS_FILE at the copy to change it.",
+  "assets": [
+    {
+      "asset_id": "PILOT_HB_NORTH",
+      "mode": "paper",
+      "settlement_point": "HB_NORTH",
+      "power_mw": 10.0,
+      "energy_mwh": 20.0,
+      "soc_min_mwh": 0.0,
+      "soc_max_mwh": 20.0,
+      "rte": 0.85,
+      "loss_side": "charge",
+      "wear_usd_per_mwh": 20.0,
+      "max_cycles_per_day": null,
+      "as_products": ["REGUP", "REGDN", "RRS", "ECRS", "NSPIN"],
+      "initial_soc_mwh": 10.0,
+      "exposure_cap_usd": 25000.0,
+      "labels": {
+        "power_mw": "PROPOSED: the 10 MW pilot size of the PRD (a 10 MW site grosses about $294k a year at $29.4/kW-yr)",
+        "energy_mwh": "PROPOSED: 2 hours, the arena's grid battery",
+        "rte": "ASSUMPTION: 0.85 round trip, as DEFAULT_RTE and the research arena",
+        "loss_side": "ASSUMPTION: all losses on charging, as the research arena, so LP and DP cross-checks line up",
+        "wear_usd_per_mwh": "ASSUMPTION: $20 per MWh discharged, as DEFAULT_WEAR_USD_PER_MWH",
+        "initial_soc_mwh": "ASSUMPTION: the paper ledger starts half full; this energy costs nothing in the exposure measure",
+        "exposure_cap_usd": "ASSUMPTION: cost basis of the energy in the battery may not exceed $25,000, about $1,250 per MWh of capacity (the guard rejects a setpoint that would exceed it)"
+      }
+    }
+  ],
+  "disclosure_note": "Public batteries whose actual dispatch comes from ERCOT's 60-day SCED disclosure (D0's esr_sced dataset), for GET /attribution only. They are not paper assets: no cycle runs for them (POST /signal answers 404) and there is no ledger. price_hub is the hub whose real-time price stands in for the resource node.",
+  "disclosure_assets": [
+    {
+      "asset_id": "PAD1_ESS_ESR1",
+      "mode": "disclosure",
+      "resource": "PAD1_ESS_ESR1",
+      "settlement_point": "PAD1_ESS_RN",
+      "price_hub": "HB_SOUTH",
+      "power_mw": 50.0,
+      "charge_mw": 50.0,
+      "energy_mwh": 122.0,
+      "soc_min_mwh": 0.0,
+      "rte": 0.901,
+      "loss_side": "charge",
+      "wear_usd_per_mwh": 20.0,
+      "aux_load_mw": 0.4,
+      "first_day": "2026-07-01",
+      "last_day": "2026-08-11",
+      "labels": {
+        "power_mw": "REAL: maximum HSL in the disclosure (D1b, notes/d1b.md section 7)",
+        "energy_mwh": "REAL: maximum telemetered Maximum SOC",
+        "rte": "DERIVED: round-trip efficiency from the energy balance of the whole period, losses on charging (0.901)",
+        "aux_load_mw": "DERIVED: standing station-service draw, minus the median telemetered output at a zero base point (0.4 MW)",
+        "wear_usd_per_mwh": "ASSUMPTION: $20 per MWh discharged, as the case study",
+        "price_hub": "PROXY: HB_SOUTH stands in for the node PAD1_ESS_RN (node minus hub: mean +$1.01, MAE $1.78 on the 7-day MIS window)",
+        "first_day": "REAL: the 42 operating days (1 Jul to 11 Aug 2026) of the 60-day disclosure that the lake holds"
+      }
+    }
+  ]
+}

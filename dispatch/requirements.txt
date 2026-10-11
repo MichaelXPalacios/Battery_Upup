@@ -1,0 +1,28 @@
+# ERCOT battery dispatch platform (dispatch/). Separate from the repo-root requirements.txt, which stays minimal.
+# Python 3.13 (C:/Python313). Venv: dispatch/.venv (git-ignored). Pinned to the versions installed 10 Oct 2026.
+numpy==2.5.3
+pandas==3.0.6
+pyarrow==25.0.1
+scipy==1.18.1
+scikit-learn==1.9.1
+duckdb==1.5.6
+polars==2.0.0
+httpx==0.28.1
+lightgbm==4.7.0
+optuna==5.0.0
+cvxpy==1.9.3
+highspy==1.15.1
+mlflow==3.17.0
+fastapi==0.143.0
+uvicorn==0.54.0
+pydantic==2.14.0
+redis==8.1.0
+prometheus-client==0.26.0
+prefect==3.8.8
+evidently==0.7.23
+pyyaml==6.0.3
+matplotlib==3.11.2
+# tests
+pytest==9.1.1
+hypothesis==6.168.5
+fakeredis==2.39.0
