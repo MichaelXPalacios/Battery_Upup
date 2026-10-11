@@ -1,0 +1,34 @@
+column,label,source,note
+sub,REAL,ERCOT NP4-160 SUBSTATION,
+kv_max,REAL,data/substations.csv,
+zone,REAL,data/substations.csv,
+county,DERIVED,data/substations.csv,
+lat,DERIVED,data/substations.csv,
+lon,DERIVED,data/substations.csv,
+match_conf,ASSUMPTION,data/substations.csv,
+graph_node,DERIVED,gridsite.network.sub_nodes,"False if the substation has no node in the line graph, so hops are undefined"
+nearest_cid,DERIVED,data/hops.csv,"the priority constraint with the fewest hops to this substation (ties: larger |SF|, then priority)"
+nearest_element,DERIVED,data/hops.csv,"the priority constraint with the fewest hops to this substation (ties: larger |SF|, then priority)"
+nearest_hops,DERIVED,data/hops.csv,"the priority constraint with the fewest hops to this substation (ties: larger |SF|, then priority)"
+nearest_x_dist_pu,DERIVED,data/hops.csv,"the priority constraint with the fewest hops to this substation (ties: larger |SF|, then priority)"
+nearest_sf,DERIVED,data/hops.csv,"the priority constraint with the fewest hops to this substation (ties: larger |SF|, then priority)"
+nearest_sf_method,DERIVED,data/hops.csv,"the priority constraint with the fewest hops to this substation (ties: larger |SF|, then priority)"
+nearest_side,DERIVED,data/hops.csv,"the priority constraint with the fewest hops to this substation (ties: larger |SF|, then priority)"
+nearest_has_upgrade,DERIVED,data/hops.csv,"the priority constraint with the fewest hops to this substation (ties: larger |SF|, then priority)"
+nearest_upgrade_project_id,DERIVED,data/hops.csv,"the priority constraint with the fewest hops to this substation (ties: larger |SF|, then priority)"
+nearest_upgrade_in_service_date,DERIVED,data/hops.csv,"the priority constraint with the fewest hops to this substation (ties: larger |SF|, then priority)"
+best_cid,DERIVED,data/hops.csv,the priority constraint with the largest |SF| at this substation
+best_element,DERIVED,data/hops.csv,the priority constraint with the largest |SF| at this substation
+best_abs_sf,DERIVED,data/hops.csv,the priority constraint with the largest |SF| at this substation
+best_sf,DERIVED,data/hops.csv,the priority constraint with the largest |SF| at this substation
+best_sf_method,DERIVED,data/hops.csv,the priority constraint with the largest |SF| at this substation
+best_side,DERIVED,data/hops.csv,the priority constraint with the largest |SF| at this substation
+best_hops,DERIVED,data/hops.csv,the priority constraint with the largest |SF| at this substation
+best_curtail_flag,DERIVED,data/hops.csv,the priority constraint with the largest |SF| at this substation
+best_has_upgrade,DERIVED,data/hops.csv,the priority constraint with the largest |SF| at this substation
+best_upgrade_project_id,DERIVED,data/hops.csv,the priority constraint with the largest |SF| at this substation
+best_upgrade_in_service_date,DERIVED,data/hops.csv,the priority constraint with the largest |SF| at this substation
+n_constraints_scored,DERIVED,data/hops.csv,top-priority constraints with an SF at this substation
+n_import_side,DERIVED,data/hops.csv,constraints with SF <= -SF_SIDE_MIN here
+n_export_side,DERIVED,data/hops.csv,constraints with SF >= SF_SIDE_MIN here
+n_curtail_flags,ASSUMPTION,data/hops.csv,

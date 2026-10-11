@@ -1,0 +1,30 @@
+column,label,source,note
+project_id,DERIVED,ERCOT TPIT / RTP Appendix E / RPG decks,"TPIT-<ERCOT project number>, RTP2025-<index>, RPG-<RPG number>, PBRP-/STEP-/CN2025- for transcribed rows"
+name,REAL,"ERCOT TPIT project title (or description, or RTP/RPG title)","substation names kept as written, not mapped to ERCOT codes"
+tsp,REAL,"ERCOT TPIT July 2026 (and RTP/RPG/PBRP documents, see source)",as published
+kv,REAL,TPIT 'Service Level kV'; RTP/RPG rows: largest kV in the title,RTP/RPG rows are DERIVED from the text
+project_type,DERIVED,classify_project() in docs_parse.py,rule order: transformer MVA > new line miles > rebuilt/reconductor miles > new-substation words > substation-equipment words > other
+from_sub_name,REAL,"TPIT terminal 'from' (title parse where terminal blank, see terminal_source)",kept as written; Agent 1c maps names to ERCOT substation codes
+to_sub_name,REAL,TPIT terminal 'to' (title parse where blank),kept as written
+counties,REAL,TPIT county of substation or line start/end,
+in_service_date,REAL,TPIT actual date if energised else projected month; RPG: estimated ISD; RTP rows blank,TPIT dates are the first of the projected month or the exact day given
+status,DERIVED,TPIT status text + actual in-service date,in_service / under_construction / planned / conceptual; RPG: under_rpg_review or ercot_recommended; RTP: rtp_identified
+cost_musd,REAL,"RPG decks, PBRP report, 2024 RTP STEP comparison",blank for TPIT rows: the public TPIT is the 'No Cost' version. RPG and transcribed rows are project-level; do not sum with TPIT components
+source,REAL,document named in the cell,
+record_type,DERIVED,docs_parse.py,tpit / rtp / rpg / transcribed
+description,REAL,TPIT project description (RTP description appended when matched),
+circuit_miles_new,REAL,TPIT 'Trans Circuit Miles New',
+circuit_miles_rebuilt,REAL,"TPIT 'Trans Circuit Miles Rebuilt, Reconductored or Upgraded'",
+xfmr_mva,REAL,TPIT 'Autotransformer Capacity (MVA)',
+rpg_number,REAL,TPIT 'RPG Number' / RPG deck id,
+rtp_number,REAL,"TPIT 'RTP Project Number', plus 2025 RTP Appendix E index when matched via the TPIT number",
+planning_tier,REAL,TPIT 'Planning Charter Tier',Tier 1 is the most expensive class
+ccn_required,REAL,RPG deck text,Y if the deck says the project will require a CCN
+in_sswg_base_case,REAL,TPIT 'Is the project reflected in SSWG Base Cases',
+sswg_bus_numbers,REAL,TPIT 'SSWG Base Case Related Bus Numbers',PSS/E bus numbers: useful to attach the project to network buses in Phase 2
+in_service_kind,DERIVED,docs_parse.py,actual / projected / needed_by_study_year
+terminal_source,DERIVED,docs_parse.py,tpit_terminal / title_parse / desc_parse / transcribed / none
+tpit_tab,REAL,TPIT sheet name,"CompletedTPIT, PlannedTPIT or FutureTPIT"
+doc,REAL,file name in research-data/grid/raw/docs,
+page,REAL,page in the source document,
+note,REAL,TPIT comments column or analyst note on a transcribed row,

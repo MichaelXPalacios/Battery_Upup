@@ -1,0 +1,10 @@
+column,label,source,note
+area,REAL,ERCOT deck,"finest geography ERCOT publishes: weather-zone region, top-5 county lists, TSP, and RPG study areas. No project-level or full county file is public"
+area_type,DERIVED,docs_parse.py,state / weather_zone / county / county_group / region / tsp
+mw,REAL,ERCOT deck,requests are not load that will arrive: ERCOT expects roughly half of data-centre requests to materialise; Batch Zero classes are conditional
+status,REAL,ERCOT deck wording,
+date,REAL,ERCOT Board/Senate/TAC/RPG decks named in source,transcribed by hand; page in the page column
+source,REAL,ERCOT Board/Senate/TAC/RPG decks named in source,transcribed by hand; page in the page column
+doc,REAL,ERCOT Board/Senate/TAC/RPG decks named in source,transcribed by hand; page in the page column
+page,REAL,ERCOT Board/Senate/TAC/RPG decks named in source,transcribed by hand; page in the page column
+note,REAL,ERCOT Board/Senate/TAC/RPG decks named in source,transcribed by hand; page in the page column

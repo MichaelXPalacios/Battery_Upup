@@ -1,0 +1,12 @@
+column,label,source,note
+rule,DERIVED,arena.siting rules A1-A5,"A1 last year's best option, A2 3-year mean plus half the trend, A3 5-year mean minus half the s.d., A4 best of 3 years, A5 recency-weighted and risk-adjusted (the learner)"
+year,REAL,brief,the year the units are added (2027-2031)
+sub,REAL,NP4-160 SUBSTATION / arena zone name,"candidate substation (a new resource node at its highest-kV bus), or a load zone for the fallback"
+MW,SIM,arena.siting.portfolio,MW added at the site that year (units of UNIT_MW = 10 MW)
+option_type,DERIVED,this module,"node = a candidate substation with its caps; zone_fallback = an uncongested node in that load zone (zone price, no cap) that takes the MW the congested nodes cannot"
+fleet_mw,SIM,arena.siting.portfolio,cumulative MW at the site after that year
+value_usd_kw_yr,SIM,forward value: oracle on rebuilt 2025 prices x the node's A_i/oracle ratio,"the rule's own forward value at the site that year, $/kW-yr, before any further price-taker effect of the fleet itself"
+dominant_element,DERIVED,data/site_candidates.csv,the element whose congestion the site mostly earns from; sites on one element share a price-taker cap
+dominant_side,DERIVED,data/site_candidates.csv,
+kv_max,REAL,NP4-160,
+poi_cap_mw,ASSUMPTION,POI_CAP_MW by voltage class,"69 kV 50 MW, 138 kV 150 MW, 345 kV 300 MW"

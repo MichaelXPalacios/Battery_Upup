@@ -1,0 +1,35 @@
+column,label,source,note
+sub,REAL,ERCOT NP4-160 SUBSTATION,key; one row per NP4-160 substation with kv_max >= 69
+zone,REAL,data/substations.csv,modal load zone
+county,DERIVED,data/substations.csv,county of the matched coordinates
+lat,DERIVED,data/substations.csv,blank when unplaced
+lon,DERIVED,data/substations.csv,blank when unplaced
+match_conf,ASSUMPTION,data/substations.csv,"placement confidence 0-1 (a heuristic score, not a probability)"
+kv_max,REAL,ERCOT NP4-160 VOLTAGE_LEVEL,highest bus voltage of the substation
+connection_class,DERIVED,costs.py rules,new_bay | new_switchyard | gen_tie; the cheapest feasible by mid cost; rules in the module docstring (class rules are ASSUMPTION)
+class_conf,ASSUMPTION,costs.py,0.8 through station with a confident placement; 0.5 priced from geometry; 0.3 default because nothing could be computed
+basis,DERIVED,costs.py,why this class
+kv,DERIVED,costs.py,"voltage of the point of interconnection: the station (new_bay), the tapped line (new_switchyard) or the far station (gen_tie)"
+poi_sub,DERIVED,costs.py,station where the bay is added (the sub itself for new_bay; the nearest suitable station for gen_tie); blank for new_switchyard
+poi_line,DERIVED,data/lines.csv / derived/lines.geojson,OSM line id tapped by a new switchyard
+gen_tie_km,DERIVED,costs.py,"routed length of the tie: SITE_TIE_KM (ASSUMPTION) next to a new bay or switchyard, straight line x ROUTE_FACTOR (ASSUMPTION) for gen_tie"
+dist_station_km,DERIVED,haversine on data/substations.csv,straight-line km to the nearest suitable station other than itself; blank when unplaced
+dist_line_km,DERIVED,derived/lines.geojson,km to the nearest OSM line of at least TAP_MIN_KV; blank when unplaced
+n_line_terminations,DERIVED,data/lines.csv (OSM edges),distinct neighbouring substations in the OSM line graph
+cost_low_musd,REAL,"data/unit_costs.csv (MISO MTEP24 Tables 4.1-1, 4.2-1, 4.2-2)","interconnection facilities, $M 2024; low column of each cited row; includes MISO's 30% contingency and 7.5% AFUDC; some source cells UNVERIFIED (see uses_unverified)"
+cost_mid_musd,REAL,data/unit_costs.csv,"same, mid column"
+cost_high_musd,REAL,data/unit_costs.csv,"same, high column"
+allowance_musd,REAL,16 TAC 25.195(f)(3); notes/rules.md (d),"$14 M for a point of interconnection up to 138 kV, $20 M above, 2024 dollars, agreements signed after 31 Dec 2025; CPI indexing from 2026 not applied"
+owner_share_low_musd,DERIVED,cost_low - allowance,paid by the generator; floor 0
+owner_share_musd,DERIVED,cost_mid - allowance,the part of the mid cost above the allowance that the generator pays; floor 0. ASSUMPTION: the allowance is applied to the sum of the facilities (bay/switchyard + tie)
+owner_share_high_musd,DERIVED,cost_high - allowance,paid by the generator; floor 0
+gsu_cost_musd,ASSUMPTION,data/unit_costs.csv battery row (inverter + step-up) minus (inverter),"the battery's own step-up transformer, the generator's cost under 25.195(f)(1); $169.5k/MW from MISO's step-up to 69 kV, applied at any voltage (UNVERIFIED proxy); at REF_MW"
+all_in_mid_musd,DERIVED,cost_mid + gsu_cost,"interconnection facilities plus the step-up, before the allowance"
+needs_lpt,DERIVED,costs.py,True when the step-up (1.1 x MW) is at least LPT_MIN_MVA and the point of interconnection is 138 kV or more: a large power transformer governs the schedule
+lead_time_months,DERIVED,"FIS median 20.5 months (GIS Sep 2026, rules.md (d)) + max(class construction, transformer delivery + install)","construction times are ASSUMPTION; LPT delivery 30 months is REAL (NLR 2026 average, unit_costs row)"
+lead_low_months,DERIVED,same with FIS Q1 16 months and the low delivery and build times,
+lead_high_months,DERIVED,same with FIS Q3 28 months and the high delivery and build times (LPT 36 months),
+cost_usd_year,REAL,MISO MTEP24 price year,"all $ columns are 2024 dollars; MISO escalates about 4%/yr (ASSUMPTION, not applied)"
+uses_unverified,DERIVED,unit_costs.csv notes,True if a cost row used here carries UNVERIFIED in its note
+flags,DERIVED,costs.py,"long_tie | unplaced | low_conf_placement | default_class (class_conf < 0.5: nothing could be computed, new bay assumed) | colocated (new bay at another ERCOT code of the same physical station, see poi_sub)"
+provenance,DERIVED,costs.py,summary label

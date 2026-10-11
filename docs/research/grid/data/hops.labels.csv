@@ -1,0 +1,12 @@
+column,label,source,note
+sub,REAL,ERCOT NP4-160 SUBSTATION,
+cid,REAL,ERCOT NP6-86-CD / NP4-191-CD,
+priority_rank,DERIVED,data/constraints.csv,
+hops,DERIVED,gridsite.network.hop_and_x_distance,"unweighted graph distance to the nearest endpoint of the monitored element; 99 = not connected, blank = element has no endpoints in the graph (GTC)"
+x_dist_pu,ASSUMPTION,gridsite.network.hop_and_x_distance,summed branch reactance (pu on 100 MVA) along the minimum-reactance path to the nearest endpoint; reactances are typical per-km values by kV (ASSUMPTION)
+sf,DERIVED,data/shift_factors.csv,best method for the cid; 0.0 where a proxy value is below PROXY_SF_MIN
+sf_method,DERIVED,gridsite.shiftfactors,
+sf_quality,DERIVED,gridsite.shiftfactors,
+side,DERIVED,gridsite.network.side_of,import = SF <= -0.02 (battery discharges into high prices); export = SF >= 0.02 (battery charges at low prices)
+curtail_flag,ASSUMPTION,gridsite.network.SF_CURTAIL_MIN,"True if export side and SF >= SF_CURTAIL_MIN: injecting here loads the constraint, so discharge is limited when it binds"
+has_upgrade,DERIVED,data/constraints.csv,a TPIT/RTP/RPG project matched the monitored element with upgrade_match_conf >= UPGRADE_CONF_MIN

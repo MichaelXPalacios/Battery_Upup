@@ -1,0 +1,9 @@
+column,label,source,note
+station,REAL,ERCOT NP6-86-CD / NP4-191-CD station names,name as published; not an NP4-160 SUBSTATION code unless method = graph_neighbor
+sub,DERIVED,gridsite.network.build_station_alias,NP4-160 SUBSTATION judged to be the same yard; blank = no alias found
+method,DERIVED,gridsite.network.build_station_alias,stem_exact | stem_short | psse_name | osm_shared | prefix | fuzzy (joined with +) | graph_neighbor | none
+conf,ASSUMPTION,gridsite.network.ALIAS_W,noisy-OR of evidence weights x kV and graph checks; not a probability
+osm_id,DERIVED,gridsite.network.build_station_alias,OSM substation id when the station was placed as the only unclaimed graph neighbour of its partner
+lat,DERIVED,gridsite.network.build_station_alias,
+lon,DERIVED,gridsite.network.build_station_alias,
+evidence,DERIVED,gridsite.network.build_station_alias,text trace of the evidence

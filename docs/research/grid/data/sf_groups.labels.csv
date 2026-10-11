@@ -1,0 +1,6 @@
+column,label,source,note
+market,DERIVED,gridsite.shiftfactors,rt | dam
+group,DERIVED,gridsite.shiftfactors,"merged regressor group id, or pair>=0.80 for a reported but unmerged pair"
+n_members,DERIVED,gridsite.shiftfactors,
+cids,REAL,ERCOT,';'-separated
+vif,DERIVED,gridsite.shiftfactors,variance inflation of the group regressor; for pair rows the shadow-price correlation

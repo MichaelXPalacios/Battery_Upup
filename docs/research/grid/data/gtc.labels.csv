@@ -1,0 +1,14 @@
+column,label,source,note
+name,REAL,ERCOT / IMM names,
+region,REAL,"ERCOT RPG 29 Jul 2025 stability-limits deck, ERCOT market notices, 2025 RTP report",see source column; element lists are ECEII and not public
+description,DERIVED,analyst summary of the cited ERCOT statements,"ERCOT's GTC white paper (Jul 2020) says GTCs manage non-thermal limits (voltage, angle, oscillation, control stability) with market dispatch"
+interface_elements,REAL,ERCOT market notices,"the element list is in the GTC Methodology (EMIL NP3-770-M), secured under ECEII; not public"
+status,DERIVED,ERCOT notices + IMM rankings + 2025 RTP report,
+source,REAL,"ERCOT RPG 29 Jul 2025 stability-limits deck, ERCOT market notices, 2025 RTP report",see source column; element lists are ECEII and not public
+code,REAL,"ERCOT RPG 29 Jul 2025 stability-limits deck, ERCOT market notices, 2025 RTP report",see source column; element lists are ECEII and not public
+planning_limit_mw_2027,REAL,ERCOT 2025 RTP stability limits deck,"9,999 = no limit needed in planning; limits are for no prior outages"
+planning_limit_mw_2030,REAL,ERCOT 2025 RTP stability limits deck,same
+last_public_update,REAL,"ERCOT RPG 29 Jul 2025 stability-limits deck, ERCOT market notices, 2025 RTP report",see source column; element lists are ECEII and not public
+doc,REAL,"ERCOT RPG 29 Jul 2025 stability-limits deck, ERCOT market notices, 2025 RTP report",see source column; element lists are ECEII and not public
+page,REAL,"ERCOT RPG 29 Jul 2025 stability-limits deck, ERCOT market notices, 2025 RTP report",see source column; element lists are ECEII and not public
+note,REAL,"ERCOT RPG 29 Jul 2025 stability-limits deck, ERCOT market notices, 2025 RTP report",see source column; element lists are ECEII and not public

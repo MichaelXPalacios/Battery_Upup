@@ -1,0 +1,15 @@
+column,label,source,note
+sub,REAL,ERCOT NP4-160,
+county,DERIVED,data/substations.csv,
+zone,REAL,ERCOT NP4-160,
+lat,DERIVED,data/substations.csv,
+lon,DERIVED,data/substations.csv,
+match_conf,DERIVED,data/substations.csv,counts are only as good as the coordinate
+n_hospital_10km,DERIVED,"OSM amenity=hospital (Overpass, 10 Oct 2026), RADIUS_HOSPITAL_KM",OSM is volunteer-mapped: undercounts rural clinics; same-site nodes and polygons merged within 150 m
+nearest_hospital_km,DERIVED,OSM,straight-line
+n_water_10km,DERIVED,"OSM man_made=water_works|wastewater_plant, RADIUS_WATER_KM",partial coverage in rural Texas
+nearest_water_km,DERIVED,OSM,
+n_emergency_5km,DERIVED,"OSM amenity=fire_station|police, emergency=ambulance_station, RADIUS_EMERGENCY_KM",
+nearest_emergency_km,DERIVED,OSM,
+facility_weighted_count,ASSUMPTION,"FACILITY_WEIGHTS (hospital 5, water 3, emergency 1)",weights are a judgement
+facility_score,ASSUMPTION,percentile rank of facility_weighted_count among placed subs,"0-1, relative; dense cities score near 1, so read it with the other components"

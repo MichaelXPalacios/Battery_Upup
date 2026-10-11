@@ -1,0 +1,42 @@
+column,label,source,note
+fips,REAL,Census TIGER county GEOID,48xxx
+county,REAL,"Census TIGER county name, upper case",join key to substations.county
+customers,REAL,EAGLE-I MCC.csv (customers tracked per county),"ORNL's customer count; percentages use max(this, largest customers_out seen)"
+q999_customers_out,DERIVED,"EAGLE-I, window",99.9th percentile of recorded customers_out
+out_to_customers_ratio,DERIVED,EAGLE-I / MCC,above 1 means the reports exceed the county's customer count
+denominator_flag,ASSUMPTION,"DEN_OK_RATIO 1.2, DEN_ARTIFACT_RATIO 1.5","ok / inflated / artifact; artifact counties (a utility reported at system level or under another county) have their share, EUE and VoLL columns blank; elsewhere customers_out is clipped at max(customers, q999)"
+outage_score,ASSUMPTION,OUTAGE_MIX over percentile ranks across counties with a valid denominator,"0-1: .5 hours per customer, .25 p95 event share, .25 worst named-event share; relative to other Texas counties, not an absolute scale"
+years_window,ASSUMPTION,EAGLEI_WINDOW_START..END,2018-2025: DQI shows 85-98% customer coverage from 2018; earlier years are patchy
+cust_hours_yr,DERIVED,EAGLE-I 15-minute customers_out x 0.25 h,"customer-hours out per year, window mean; reported outages only"
+cust_hours_per_cust_yr,DERIVED,same / customers,hours per customer per year; NOT IEEE SAIDI (no cause screening)
+max_pct_out,DERIVED,EAGLE-I,"largest share of county customers out at one snapshot, window"
+event_threshold_customers,ASSUMPTION,"EVENT_MIN_PCT, EVENT_MIN_CUSTOMERS","customers out that start an event: max(25, 1% of county)"
+n_events,DERIVED,eaglei segmentation,events in the window (runs above threshold; gaps under 2 h merged)
+events_per_yr,DERIVED,eaglei segmentation,
+p95_event_peak_customers,DERIVED,eaglei segmentation,95th percentile of event peak customers out
+p95_event_peak_pct,DERIVED,same / customers,percent of county customers
+median_event_hours,DERIVED,eaglei segmentation,
+p95_event_hours,DERIVED,eaglei segmentation,
+eue_avoided_mwh_yr_full,DERIVED,"battery_avoided(): f x min(P*d, E)",MWh a year a 1 MW / 4 MWh battery at a random county site avoids; starts full (SOC_FULL); load 1 MW; events only
+eue_avoided_mwh_yr_lowsoc,DERIVED,same with SOC_MARKET_RESERVE = 20%,market-dispatched fleet that keeps only its 20% reserve
+voll_usd_yr_headline,DERIVED,"eue_full x VOLL_USD_MWH ($35,685, Brattle Aug 2024)",one-hour VoLL on every MWh: an upper bound
+voll_usd_yr_duration,DERIVED,"eue_full x Brattle duration table (1 h $35,685, 2 h $21,326, 4 h $13,340)",duration-adjusted
+uri_peak_customers,DERIVED,"EAGLE-I, named window",max customers out in the window
+uri_peak_pct,DERIVED,"EAGLE-I, named window",% of county customers
+uri_cust_hours,DERIVED,"EAGLE-I, named window",customer-hours in the window
+uri_site_hours,DERIVED,"EAGLE-I, named window",customer-hours / peak = mean outage hours per affected customer (approximation)
+uri_eue_mwh_full,DERIVED,"EAGLE-I, named window","MWh avoided in this event, full battery"
+uri_eue_mwh_lowsoc,DERIVED,"EAGLE-I, named window","MWh avoided, 20% SOC"
+derecho_peak_customers,DERIVED,"EAGLE-I, named window",max customers out in the window
+derecho_peak_pct,DERIVED,"EAGLE-I, named window",% of county customers
+derecho_cust_hours,DERIVED,"EAGLE-I, named window",customer-hours in the window
+derecho_site_hours,DERIVED,"EAGLE-I, named window",customer-hours / peak = mean outage hours per affected customer (approximation)
+derecho_eue_mwh_full,DERIVED,"EAGLE-I, named window","MWh avoided in this event, full battery"
+derecho_eue_mwh_lowsoc,DERIVED,"EAGLE-I, named window","MWh avoided, 20% SOC"
+beryl_peak_customers,DERIVED,"EAGLE-I, named window",max customers out in the window
+beryl_peak_pct,DERIVED,"EAGLE-I, named window",% of county customers
+beryl_cust_hours,DERIVED,"EAGLE-I, named window",customer-hours in the window
+beryl_site_hours,DERIVED,"EAGLE-I, named window",customer-hours / peak = mean outage hours per affected customer (approximation)
+beryl_eue_mwh_full,DERIVED,"EAGLE-I, named window","MWh avoided in this event, full battery"
+beryl_eue_mwh_lowsoc,DERIVED,"EAGLE-I, named window","MWh avoided, 20% SOC"
+named_max_peak_pct,DERIVED,"max over Uri, derecho, Beryl",worst named-event share of county customers out

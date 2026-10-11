@@ -1,0 +1,121 @@
+year,market,product,n_hours,coverage,mean_mcpc_usd_mw_h,p95_mcpc_usd_mw_h,duration_h,elig_2h,elig_4h,ub_2h_usd_kw_yr,ub_4h_usd_kw_yr,partial_year,note
+2010,DAM,REGUP,744.0,0.0849,10.3121,24.9,0.25,1.0,1.0,90.3336,90.3336,True,"all capacity in this one product, all hours"
+2010,DAM,REGDN,744.0,0.0849,4.9905,9.0,0.25,1.0,1.0,43.7168,43.7168,True,"all capacity in this one product, all hours"
+2010,DAM,RRS,744.0,0.0849,9.6831,22.4,0.25,1.0,1.0,84.8238,84.8238,True,"all capacity in this one product, all hours"
+2010,DAM,NSPIN,744.0,0.0849,3.575,6.88,4.0,0.5,1.0,15.6587,31.3174,True,"all capacity in this one product, all hours"
+2010,DAM,BEST_EACH_INTERVAL,744.0,0.0849,10.5464,,,,,92.3864,92.3864,True,best eligible product each interval (the as_upper_bound definition)
+2010,DAM,BEST_PLUS_REGDN,744.0,0.0849,15.3384,,,,,134.364,134.364,True,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2011,DAM,REGUP,8760.0,1.0,22.6737,34.8765,0.25,1.0,1.0,198.6218,198.6218,False,"all capacity in this one product, all hours"
+2011,DAM,REGDN,8760.0,1.0,8.5842,17.0,0.25,1.0,1.0,75.1977,75.1977,False,"all capacity in this one product, all hours"
+2011,DAM,RRS,8760.0,1.0,22.9248,35.2115,0.25,1.0,1.0,200.8212,200.8212,False,"all capacity in this one product, all hours"
+2011,DAM,NSPIN,8760.0,1.0,11.7687,25.441,4.0,0.5,1.0,51.547,103.0939,False,"all capacity in this one product, all hours"
+2011,DAM,BEST_EACH_INTERVAL,8760.0,1.0,25.1283,,,,,220.0786,220.1237,False,best eligible product each interval (the as_upper_bound definition)
+2011,DAM,BEST_PLUS_REGDN,8760.0,1.0,32.4136,,,,,283.8911,283.9429,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2012,DAM,REGUP,8784.0,1.0,8.9442,21.25,0.25,1.0,1.0,78.3514,78.3514,False,"all capacity in this one product, all hours"
+2012,DAM,REGDN,8784.0,1.0,4.2296,8.31,0.25,1.0,1.0,37.0509,37.0509,False,"all capacity in this one product, all hours"
+2012,DAM,RRS,8784.0,1.0,9.7566,23.02,0.25,1.0,1.0,85.4682,85.4682,False,"all capacity in this one product, all hours"
+2012,DAM,NSPIN,8784.0,1.0,3.6656,11.56,4.0,0.5,1.0,16.0554,32.1108,False,"all capacity in this one product, all hours"
+2012,DAM,BEST_EACH_INTERVAL,8784.0,1.0,10.9261,,,,,95.6546,95.7129,False,best eligible product each interval (the as_upper_bound definition)
+2012,DAM,BEST_PLUS_REGDN,8784.0,1.0,14.22,,,,,124.5031,124.5675,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2013,DAM,REGUP,8760.0,1.0,8.5692,21.6135,0.25,1.0,1.0,75.0665,75.0665,False,"all capacity in this one product, all hours"
+2013,DAM,REGDN,8760.0,1.0,4.8879,12.64,0.25,1.0,1.0,42.8184,42.8184,False,"all capacity in this one product, all hours"
+2013,DAM,RRS,8760.0,1.0,9.7698,24.0,0.25,1.0,1.0,85.5834,85.5834,False,"all capacity in this one product, all hours"
+2013,DAM,NSPIN,8760.0,1.0,3.4744,11.3715,4.0,0.5,1.0,15.2177,30.4354,False,"all capacity in this one product, all hours"
+2013,DAM,BEST_EACH_INTERVAL,8760.0,1.0,11.3766,,,,,99.6249,99.6592,False,best eligible product each interval (the as_upper_bound definition)
+2013,DAM,BEST_PLUS_REGDN,8760.0,1.0,15.1046,,,,,132.2793,132.3167,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2014,DAM,REGUP,8760.0,1.0,12.4777,32.5015,0.25,1.0,1.0,109.3047,109.3047,False,"all capacity in this one product, all hours"
+2014,DAM,REGDN,8760.0,1.0,9.7682,25.25,0.25,1.0,1.0,85.5697,85.5697,False,"all capacity in this one product, all hours"
+2014,DAM,RRS,8760.0,1.0,14.1545,36.6905,0.25,1.0,1.0,123.993,123.993,False,"all capacity in this one product, all hours"
+2014,DAM,NSPIN,8760.0,1.0,5.4749,23.0,4.0,0.5,1.0,23.98,47.9601,False,"all capacity in this one product, all hours"
+2014,DAM,BEST_EACH_INTERVAL,8760.0,1.0,18.6843,,,,,162.6281,163.6742,False,best eligible product each interval (the as_upper_bound definition)
+2014,DAM,BEST_PLUS_REGDN,8760.0,1.0,25.2179,,,,,219.8381,220.9088,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2015,DAM,REGUP,8760.0,1.0,10.2495,27.7325,0.25,1.0,1.0,89.7853,89.7853,False,"all capacity in this one product, all hours"
+2015,DAM,REGDN,8760.0,1.0,5.3496,14.2105,0.25,1.0,1.0,46.8629,46.8629,False,"all capacity in this one product, all hours"
+2015,DAM,RRS,8760.0,1.0,11.2088,28.601,0.25,1.0,1.0,98.189,98.189,False,"all capacity in this one product, all hours"
+2015,DAM,NSPIN,8760.0,1.0,6.3997,17.27,4.0,0.5,1.0,28.0308,56.0616,False,"all capacity in this one product, all hours"
+2015,DAM,BEST_EACH_INTERVAL,8760.0,1.0,12.9838,,,,,113.6806,113.7377,False,best eligible product each interval (the as_upper_bound definition)
+2015,DAM,BEST_PLUS_REGDN,8760.0,1.0,16.8583,,,,,147.5989,147.6788,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2016,DAM,REGUP,8784.0,1.0,7.6348,23.53,0.25,1.0,1.0,66.8808,66.8808,False,"all capacity in this one product, all hours"
+2016,DAM,REGDN,8784.0,1.0,5.6908,15.17,0.25,1.0,1.0,49.8517,49.8517,False,"all capacity in this one product, all hours"
+2016,DAM,RRS,8784.0,1.0,11.1323,29.51,0.25,1.0,1.0,97.5193,97.5193,False,"all capacity in this one product, all hours"
+2016,DAM,NSPIN,8784.0,1.0,3.393,10.0,4.0,0.5,1.0,14.8616,29.7231,False,"all capacity in this one product, all hours"
+2016,DAM,BEST_EACH_INTERVAL,8784.0,1.0,12.7214,,,,,111.2894,111.4399,False,best eligible product each interval (the as_upper_bound definition)
+2016,DAM,BEST_PLUS_REGDN,8784.0,1.0,17.137,,,,,149.9419,150.1204,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2017,DAM,REGUP,8760.0,1.0,7.8513,22.7805,0.25,1.0,1.0,68.7776,68.7776,False,"all capacity in this one product, all hours"
+2017,DAM,REGDN,8760.0,1.0,6.2622,20.0,0.25,1.0,1.0,54.8565,54.8565,False,"all capacity in this one product, all hours"
+2017,DAM,RRS,8760.0,1.0,9.8329,25.3225,0.25,1.0,1.0,86.1366,86.1366,False,"all capacity in this one product, all hours"
+2017,DAM,NSPIN,8760.0,1.0,2.8171,10.0,4.0,0.5,1.0,12.3389,24.6778,False,"all capacity in this one product, all hours"
+2017,DAM,BEST_EACH_INTERVAL,8760.0,1.0,12.2887,,,,,107.4561,107.6494,False,best eligible product each interval (the as_upper_bound definition)
+2017,DAM,BEST_PLUS_REGDN,8760.0,1.0,17.0207,,,,,148.8871,149.101,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2018,DAM,REGUP,8760.0,1.0,13.7076,29.83,0.25,1.0,1.0,120.0786,120.0786,False,"all capacity in this one product, all hours"
+2018,DAM,REGDN,8760.0,1.0,4.3921,14.0,0.25,1.0,1.0,38.4748,38.4748,False,"all capacity in this one product, all hours"
+2018,DAM,RRS,8760.0,1.0,18.4557,40.2825,0.25,1.0,1.0,161.6715,161.6715,False,"all capacity in this one product, all hours"
+2018,DAM,NSPIN,8760.0,1.0,8.0898,17.2,4.0,0.5,1.0,35.4334,70.8669,False,"all capacity in this one product, all hours"
+2018,DAM,BEST_EACH_INTERVAL,8760.0,1.0,21.0807,,,,,174.6555,184.6669,False,best eligible product each interval (the as_upper_bound definition)
+2018,DAM,BEST_PLUS_REGDN,8760.0,1.0,24.8531,,,,,207.6996,217.713,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2019,DAM,REGUP,8760.0,1.0,23.3259,40.8135,0.25,1.0,1.0,204.3348,204.3348,False,"all capacity in this one product, all hours"
+2019,DAM,REGDN,8760.0,1.0,8.0052,22.3345,0.25,1.0,1.0,70.1254,70.1254,False,"all capacity in this one product, all hours"
+2019,DAM,RRS,8760.0,1.0,28.8061,46.7455,0.25,1.0,1.0,252.3413,252.3413,False,"all capacity in this one product, all hours"
+2019,DAM,NSPIN,8760.0,1.0,15.2075,28.8615,4.0,0.5,1.0,66.6087,133.2173,False,"all capacity in this one product, all hours"
+2019,DAM,BEST_EACH_INTERVAL,8760.0,1.0,31.7234,,,,,275.2715,277.8966,False,best eligible product each interval (the as_upper_bound definition)
+2019,DAM,BEST_PLUS_REGDN,8760.0,1.0,37.883,,,,,329.1417,331.855,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2020,DAM,REGUP,8784.0,1.0,10.3232,26.91,0.25,1.0,1.0,90.4309,90.4309,False,"all capacity in this one product, all hours"
+2020,DAM,REGDN,8784.0,1.0,7.1962,17.75,0.25,1.0,1.0,63.0384,63.0384,False,"all capacity in this one product, all hours"
+2020,DAM,RRS,8784.0,1.0,11.6065,28.61,0.25,1.0,1.0,101.6733,101.6733,False,"all capacity in this one product, all hours"
+2020,DAM,NSPIN,8784.0,1.0,4.3717,13.05,4.0,0.5,1.0,19.1482,38.2965,False,"all capacity in this one product, all hours"
+2020,DAM,BEST_EACH_INTERVAL,8784.0,1.0,14.483,,,,,126.7601,126.8715,False,best eligible product each interval (the as_upper_bound definition)
+2020,DAM,BEST_PLUS_REGDN,8784.0,1.0,19.3987,,,,,169.8071,169.9323,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2021,DAM,REGUP,8760.0,1.0,244.3694,75.0,0.25,1.0,1.0,2140.6756,2140.6756,False,"all capacity in this one product, all hours"
+2021,DAM,REGDN,8760.0,1.0,95.5709,48.3765,0.25,1.0,1.0,837.2012,837.2012,False,"all capacity in this one product, all hours"
+2021,DAM,RRS,8760.0,1.0,312.2438,83.494,0.25,1.0,1.0,2735.256,2735.256,False,"all capacity in this one product, all hours"
+2021,DAM,NSPIN,8760.0,1.0,133.9975,56.7455,4.0,0.5,1.0,586.909,1173.818,False,"all capacity in this one product, all hours"
+2021,DAM,BEST_EACH_INTERVAL,8760.0,1.0,316.9417,,,,,2770.4043,2776.4096,False,best eligible product each interval (the as_upper_bound definition)
+2021,DAM,BEST_PLUS_REGDN,8760.0,1.0,409.3288,,,,,3579.2287,3585.72,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2022,DAM,REGUP,8760.0,1.0,21.6701,60.0035,0.25,1.0,1.0,189.8302,189.8302,False,"all capacity in this one product, all hours"
+2022,DAM,REGDN,8760.0,1.0,8.4586,25.65,0.25,1.0,1.0,74.0975,74.0975,False,"all capacity in this one product, all hours"
+2022,DAM,RRS,8760.0,1.0,20.3062,56.374,0.25,1.0,1.0,177.8825,177.8825,False,"all capacity in this one product, all hours"
+2022,DAM,NSPIN,8760.0,1.0,22.4858,76.65,4.0,0.5,1.0,98.4877,196.9753,False,"all capacity in this one product, all hours"
+2022,DAM,BEST_EACH_INTERVAL,8760.0,1.0,27.1885,,,,,210.6642,238.1709,False,best eligible product each interval (the as_upper_bound definition)
+2022,DAM,BEST_PLUS_REGDN,8760.0,1.0,35.0819,,,,,279.4623,307.3173,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2023,DAM,REGUP,8760.0,1.0,26.7924,65.1925,0.25,1.0,1.0,234.7012,234.7012,False,"all capacity in this one product, all hours"
+2023,DAM,REGDN,8760.0,1.0,13.63,19.49,0.25,1.0,1.0,119.3989,119.3989,False,"all capacity in this one product, all hours"
+2023,DAM,RRS,8760.0,1.0,21.2635,51.392,0.25,1.0,1.0,186.2682,186.2682,False,"all capacity in this one product, all hours"
+2023,DAM,ECRS,4920.0,0.5616,58.1573,214.8445,2.0,1.0,1.0,509.458,509.458,True,"all capacity in this one product, all hours"
+2023,DAM,NSPIN,8760.0,1.0,19.0473,52.818,4.0,0.5,1.0,83.427,166.854,False,"all capacity in this one product, all hours"
+2023,DAM,BEST_EACH_INTERVAL,8760.0,1.0,38.4021,,,,,328.2786,336.4021,False,best eligible product each interval (the as_upper_bound definition)
+2023,DAM,BEST_PLUS_REGDN,8760.0,1.0,51.2287,,,,,440.4944,448.7632,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2024,DAM,REGUP,8784.0,1.0,6.0073,14.94,0.25,1.0,1.0,52.6238,52.6238,False,"all capacity in this one product, all hours"
+2024,DAM,REGDN,8784.0,1.0,3.4394,7.01,0.25,1.0,1.0,30.1288,30.1288,False,"all capacity in this one product, all hours"
+2024,DAM,RRS,8784.0,1.0,5.6745,15.0,0.25,1.0,1.0,49.7084,49.7084,False,"all capacity in this one product, all hours"
+2024,DAM,ECRS,8784.0,1.0,8.232,25.0,2.0,1.0,1.0,72.1121,72.1121,False,"all capacity in this one product, all hours"
+2024,DAM,NSPIN,8784.0,1.0,6.2228,18.55,4.0,0.5,1.0,27.2559,54.5117,False,"all capacity in this one product, all hours"
+2024,DAM,BEST_EACH_INTERVAL,8784.0,1.0,9.3676,,,,,79.428,82.0605,False,best eligible product each interval (the as_upper_bound definition)
+2024,DAM,BEST_PLUS_REGDN,8784.0,1.0,12.6385,,,,,108.001,110.7135,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2025,DAM,REGUP,8760.0,1.0,2.9782,11.0705,0.25,1.0,1.0,26.089,26.089,False,"all capacity in this one product, all hours"
+2025,DAM,REGDN,8760.0,1.0,1.6223,4.9005,0.25,1.0,1.0,14.2113,14.2113,False,"all capacity in this one product, all hours"
+2025,DAM,RRS,8760.0,1.0,2.7589,11.6505,0.25,1.0,1.0,24.1676,24.1676,False,"all capacity in this one product, all hours"
+2025,DAM,ECRS,8760.0,1.0,2.4633,11.272,2.0,1.0,1.0,21.5787,21.5787,False,"all capacity in this one product, all hours"
+2025,DAM,NSPIN,8760.0,1.0,3.0478,12.401,4.0,0.5,1.0,13.3493,26.6987,False,"all capacity in this one product, all hours"
+2025,DAM,BEST_EACH_INTERVAL,8760.0,1.0,3.9729,,,,,31.1066,34.8024,False,best eligible product each interval (the as_upper_bound definition)
+2025,DAM,BEST_PLUS_REGDN,8760.0,1.0,5.4242,,,,,43.6514,47.5157,False,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2026,DAM,REGUP,6792.0,0.7753,2.1061,5.74,0.5,1.0,1.0,18.4491,18.4491,True,"all capacity in this one product, all hours"
+2026,DAM,REGDN,6792.0,0.7753,1.3089,4.49,0.5,1.0,1.0,11.4659,11.4659,True,"all capacity in this one product, all hours"
+2026,DAM,RRS,6792.0,0.7753,1.644,5.0,0.5,1.0,1.0,14.401,14.401,True,"all capacity in this one product, all hours"
+2026,DAM,ECRS,6792.0,0.7753,2.0108,6.87,1.0,1.0,1.0,17.6149,17.6149,True,"all capacity in this one product, all hours"
+2026,DAM,NSPIN,6792.0,0.7753,4.2127,15.0,4.0,0.5,1.0,18.4515,36.9029,True,"all capacity in this one product, all hours"
+2026,DAM,BEST_EACH_INTERVAL,6792.0,0.7753,5.0648,,,,,31.0367,44.3675,True,best eligible product each interval (the as_upper_bound definition)
+2026,DAM,BEST_PLUS_REGDN,6792.0,0.7753,5.8879,,,,,37.7461,51.5781,True,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2025,RT,REGUP,648.0,0.074,0.3428,1.31,0.25,1.0,1.0,3.003,3.003,True,"all capacity in this one product, all hours"
+2025,RT,REGDN,648.0,0.074,0.5434,1.7445,0.25,1.0,1.0,4.7601,4.7601,True,"all capacity in this one product, all hours"
+2025,RT,RRS,648.0,0.074,0.2448,0.9145,0.25,1.0,1.0,2.1444,2.1444,True,"all capacity in this one product, all hours"
+2025,RT,ECRS,648.0,0.074,0.3555,1.38,2.0,1.0,1.0,3.1138,3.1138,True,"all capacity in this one product, all hours"
+2025,RT,NSPIN,648.0,0.074,1.2533,5.2145,4.0,0.5,1.0,5.4893,10.9785,True,"all capacity in this one product, all hours"
+2025,RT,BEST_EACH_INTERVAL,648.0,0.074,1.5688,,,,,9.2347,13.7426,True,best eligible product each interval (the as_upper_bound definition)
+2025,RT,BEST_PLUS_REGDN,648.0,0.074,1.8331,,,,,11.0866,16.0576,True,best discharge-side product each interval + Reg Down on the charge side (loose bound)
+2026,RT,REGUP,6792.0,0.7753,1.4812,3.91,0.5,1.0,1.0,12.975,12.975,True,"all capacity in this one product, all hours"
+2026,RT,REGDN,6792.0,0.7753,1.0905,3.79,0.5,1.0,1.0,9.553,9.553,True,"all capacity in this one product, all hours"
+2026,RT,RRS,6792.0,0.7753,0.5737,1.88,0.5,1.0,1.0,5.0257,5.0257,True,"all capacity in this one product, all hours"
+2026,RT,ECRS,6792.0,0.7753,0.9489,3.7,1.0,1.0,1.0,8.3128,8.3128,True,"all capacity in this one product, all hours"
+2026,RT,NSPIN,6792.0,0.7753,2.7119,14.2565,4.0,0.5,1.0,11.8781,23.7563,True,"all capacity in this one product, all hours"
+2026,RT,BEST_EACH_INTERVAL,6792.0,0.7753,3.6799,,,,,22.8336,32.2359,True,best eligible product each interval (the as_upper_bound definition)
+2026,RT,BEST_PLUS_REGDN,6792.0,0.7753,4.3495,,,,,28.5525,38.1019,True,best discharge-side product each interval + Reg Down on the charge side (loose bound)

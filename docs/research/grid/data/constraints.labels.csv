@@ -1,0 +1,72 @@
+column,label,source,note
+cid,REAL,ERCOT NP6-86-CD / NP4-191-CD,CONSTRAINT_NAME|CONTINGENCY_NAME as published; structural-only rows use <IMM element>|UNSEEN (no contingency is public)
+constraint_name,REAL,ERCOT NP6-86-CD / NP4-191-CD,monitored element code; for structural-only rows the IMM code or GTC code
+contingency_name,REAL,ERCOT NP6-86-CD / NP4-191-CD,ERCOT contingency code (not decodable from public data); UNSEEN for structural-only rows
+element,DERIVED,gridsite.shiftfactors,"from-to station and kV, as ERCOT names them"
+element_type,DERIVED,gridsite.shiftfactors._element_type,gtc = no stations; xfmr = same station or different end kV; line = two stations at one kV; other = kV unknown
+from_station,REAL,ERCOT NP6-86-CD / NP4-191-CD; IMM tables for structural rows,station name as published (may be a tap or switch that is not an NP4-160 code)
+to_station,REAL,ERCOT NP6-86-CD / NP4-191-CD; IMM tables for structural rows,
+kv,REAL,ERCOT NP6-86-CD / NP4-191-CD,larger end voltage; inferred from the end substations' common kV where the IMM table is blank (DERIVED)
+from_sub,DERIVED,data/station_alias.csv + data/substations.csv,NP4-160 SUBSTATION used downstream after the alias step; blank if none
+to_sub,DERIVED,data/station_alias.csv + data/substations.csv,
+endpoint_conf,ASSUMPTION,gridsite.network.Resolver,min over the two ends of the placement confidence (0 if either end has no graph node); not a probability
+endpoint_how,DERIVED,gridsite.network.Resolver,how each end was resolved: np4160 | alias:<method> | own_osm | graph_neighbor | none
+gtc,DERIVED,gridsite.shiftfactors,True for interface constraints (no stations) or codes listed in data/gtc.csv
+gtc_name,REAL,data/gtc.csv (ERCOT/IMM names),blank for interfaces not in gtc.csv
+source,DERIVED,gridsite.shiftfactors,window = seen in NP6-86/NP4-191; imm_structural = IMM top-10 element that never appeared in the window
+window_binding,DERIVED,ERCOT NP6-86-CD via derived/shadow_sced.parquet,True if the cid had shadow price > 0 in any SCED run or DAM hour of the window
+rt_binding,DERIVED,ERCOT NP6-86-CD via derived/shadow_sced.parquet,
+dam_binding,DERIVED,ERCOT NP4-191-CD via derived/shadow_dam.parquet,
+rt_n_runs_binding,REAL,ERCOT NP6-86-CD via derived/shadow_sced.parquet,"SCED runs with shadow price > 0, 25 Sep archive day and 3-10 Oct"
+rt_hours_binding,ASSUMPTION,ERCOT NP6-86-CD via derived/shadow_sced.parquet,runs x SCED_DT_H (5 minutes per run)
+rt_mean_shadow,REAL,ERCOT NP6-86-CD via derived/shadow_sced.parquet,"$/MWh, over binding runs"
+rt_p95_shadow,REAL,ERCOT NP6-86-CD via derived/shadow_sced.parquet,"$/MWh, over binding runs"
+rt_max_shadow,REAL,ERCOT NP6-86-CD via derived/shadow_sced.parquet,$/MWh
+rt_rent_proxy,ASSUMPTION,ERCOT NP6-86-CD via derived/shadow_sced.parquet,"sum of shadow price x SCED_DT_H, $/MW of relief over the window (5 minutes per run)"
+rt_rent_est_musd,ASSUMPTION,ERCOT NP6-86-CD via derived/shadow_sced.parquet,"sum of shadow price x |flow MW| x SCED_DT_H / 1e6; a congestion-rent estimate for the window, not a settlement number"
+rt_pct_at_cap,DERIVED,ERCOT NP6-86-CD via derived/shadow_sced.parquet,share of binding runs where the shadow price equals max_shadow_price (SCED could not relieve the element)
+dam_n_hours,REAL,ERCOT NP4-191-CD via derived/shadow_dam.parquet,DAM hours with shadow price > 0 (10 Sep - 10 Oct)
+dam_hours_binding,REAL,ERCOT NP4-191-CD via derived/shadow_dam.parquet,
+dam_mean_shadow,REAL,ERCOT NP4-191-CD via derived/shadow_dam.parquet,"$/MWh, over binding hours"
+dam_p95_shadow,REAL,ERCOT NP4-191-CD via derived/shadow_dam.parquet,
+dam_max_shadow,REAL,ERCOT NP4-191-CD via derived/shadow_dam.parquet,
+dam_rent_proxy,DERIVED,ERCOT NP4-191-CD via derived/shadow_dam.parquet,"sum of shadow price x 1 h, $/MW over the 31 days"
+dam_rent_est_musd,DERIVED,ERCOT NP4-191-CD via derived/shadow_dam.parquet,sum of shadow price x |flow MW| x 1 h / 1e6
+median_limit_mw,REAL,ERCOT NP6-86-CD via derived/shadow_sced.parquet / ERCOT NP4-191-CD via derived/shadow_dam.parquet,"median over binding rows (RT first, else DAM)"
+median_flow_mw,REAL,ERCOT NP6-86-CD via derived/shadow_sced.parquet / ERCOT NP4-191-CD via derived/shadow_dam.parquet,
+annual_element,DERIVED,data/constraints_annual.csv,IMM element code this cid belongs to; blank if no IMM match
+annual_join,DERIVED,gridsite.shiftfactors.build_constraints,code = IMM code equals CONSTRAINT_NAME | gtc_code = IMM parenthetical equals CONSTRAINT_NAME | station_pair_kv | structural_only
+annual_rent_2025_musd,REAL,"Potomac Economics IMM monthly report, Dec 2025 (data/constraints_annual.csv)","element level: the same value repeats on every cid of the element; do not sum. RT market where listed, else DA (annual_rent_market)"
+annual_rent_market,REAL,data/constraints_annual.csv,RT or DA; the two markets describe the same elements and are never added
+annual_rent_2024_musd,REAL,"Potomac Economics IMM monthly report, Dec 2024","element level, RT where listed else DA"
+annual_binding_hours,REAL,data/constraints_annual.csv,IMM 2025 binding hours (SCED intervals / 12) where the element is in the IMM frequency top 10
+annual_share,ASSUMPTION,gridsite.shiftfactors,"this cid's share of the element's window rent (RT, else DAM, else equal split) used to allocate the annual rent"
+annual_rent_alloc_musd,ASSUMPTION,gridsite.shiftfactors,annual_rent_2025_musd x annual_share; used in the priority score so an element is not counted once per contingency
+upgrade_project_id,DERIVED,data/planned_projects.csv,TPIT/RTP/RPG project touching the element; ';' list for GTC documents
+upgrade_project_name,REAL,data/planned_projects.csv,
+upgrade_in_service_date,REAL,data/planned_projects.csv,
+upgrade_status,REAL,data/planned_projects.csv,
+upgrade_match_conf,ASSUMPTION,gridsite.shiftfactors.MATCH_CONF,"pair_name 0.9 > pair_title 0.8 > pair_bus 0.7 > xfmr_sub 0.6 > pair_bus_many 0.45 > one_end 0.3; a match is a name/bus overlap, not proof of relief"
+upgrade_match_method,DERIVED,gridsite.shiftfactors.ProjectIndex.match,
+upgrade_n_matches,DERIVED,gridsite.shiftfactors.ProjectIndex.match,number of projects that matched; the best is reported
+priority_struct,ASSUMPTION,gridsite.shiftfactors,"annual_rent_alloc_musd / max over the table, 0-1"
+priority_current,ASSUMPTION,gridsite.shiftfactors,"W_CURRENT_RT x rt_rent_est/max + W_CURRENT_DAM x dam_rent_est/max, 0-1"
+priority_score,ASSUMPTION,gridsite.shiftfactors,100 x (W_STRUCT x priority_struct + W_CURRENT x priority_current)
+priority_rank,DERIVED,gridsite.shiftfactors,1 = highest priority_score
+from_node,DERIVED,gridsite.network.Resolver,OSM substation id of the end in the line graph; blank if not placed
+to_node,DERIVED,gridsite.network.Resolver,
+sf_rt,DERIVED,gridsite.shiftfactors,RT regression status: fit | nan_collinear | not_fitted_rare | no_binding | absent
+sf_rt_group,DERIVED,gridsite.shiftfactors,RT regression status: fit | nan_collinear | not_fitted_rare | no_binding | absent
+sf_rt_group_size,DERIVED,gridsite.shiftfactors,RT regression status: fit | nan_collinear | not_fitted_rare | no_binding | absent
+sf_rt_vif,DERIVED,gridsite.shiftfactors,RT regression status: fit | nan_collinear | not_fitted_rare | no_binding | absent
+sf_rt_shrink,DERIVED,gridsite.shiftfactors,RT regression status: fit | nan_collinear | not_fitted_rare | no_binding | absent
+sf_dam,DERIVED,gridsite.shiftfactors,"DAM regression status; sf_<mkt>_shrink = ss/(ss+lambda), the ridge attenuation of the SF magnitude (1 = none; < SHRINK_MIN = tagged +shrunk)"
+sf_dam_group,DERIVED,gridsite.shiftfactors,"DAM regression status; sf_<mkt>_shrink = ss/(ss+lambda), the ridge attenuation of the SF magnitude (1 = none; < SHRINK_MIN = tagged +shrunk)"
+sf_dam_group_size,DERIVED,gridsite.shiftfactors,"DAM regression status; sf_<mkt>_shrink = ss/(ss+lambda), the ridge attenuation of the SF magnitude (1 = none; < SHRINK_MIN = tagged +shrunk)"
+sf_dam_vif,DERIVED,gridsite.shiftfactors,"DAM regression status; sf_<mkt>_shrink = ss/(ss+lambda), the ridge attenuation of the SF magnitude (1 = none; < SHRINK_MIN = tagged +shrunk)"
+sf_dam_shrink,DERIVED,gridsite.shiftfactors,"DAM regression status; sf_<mkt>_shrink = ss/(ss+lambda), the ridge attenuation of the SF magnitude (1 = none; < SHRINK_MIN = tagged +shrunk)"
+sf_rt_dam_corr,DERIVED,data/sf_rt_vs_dam.csv,correlation across buses of the RT and DAM SF of this cid
+proxy_elem,DERIVED,gridsite.shiftfactors.run_physics_proxy,key of the monitored element for the DC power-flow proxy (blank if none)
+proxy_note,DERIVED,gridsite.network.DCPF.element_ptdf,
+sf_proxy,DERIVED,gridsite.shiftfactors,"proxy | proxy_low_conf (an end was placed only as a graph neighbour, or the proxy failed the PROXY_POOR_CORR check) | none"
+sf_best,DERIVED,gridsite.shiftfactors,best SF method available: rt_reg > dam_reg > dcpf_proxy > none

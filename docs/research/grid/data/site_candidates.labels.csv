@@ -1,0 +1,70 @@
+column,label,source,note
+rank,DERIVED,score order,1 = highest screening score; 0 for the control lanes
+role,DERIVED,this module,"candidate or control_zone (the 8 arena load zones, run as lanes next to the candidates)"
+sub,REAL,NP4-160 SUBSTATION,"substation code, or the load zone name for a control lane"
+kv_max,REAL,NP4-160 / data/substations.csv,highest bus voltage
+county,DERIVED,data/substations.csv (agent 1c),placement of the substation
+arena_zone,DERIVED,"NP4-160 NOIE zone, else settlement load zone",the zone price the node is measured against and its weather
+lat,DERIVED,data/substations.csv (agent 1c),placement; confidence in match_conf
+lon,DERIVED,data/substations.csv (agent 1c),
+match_conf,DERIVED,data/substations.csv (agent 1c),placement confidence; candidates need >= 0.5
+node_bus,REAL,NP4-160 ELECTRICAL_BUS,"the substation's highest-kV bus, where a new resource node would sit"
+node_kv,REAL,NP4-160 VOLTAGE_LEVEL,
+existing_resource_node,REAL,NP4-160 RESOURCE_NODE,blank if the highest-kV bus carries no resource node today
+flood_flag,DERIVED,data/risk_flags.csv (agent 5),
+wildfire_class,DERIVED,data/risk_flags.csv (agent 5),
+coastal_flag,DERIVED,data/risk_flags.csv (agent 5),
+seismic_flag,DERIVED,data/risk_flags.csv (agent 5),
+score_usd_mw_yr,DERIVED,"sum_k |SF[n,k] - SF_zone[k]| x shadow-price-hours[k]","screening score, $ per MW-year of price exposure; uses only rt_reg and un-attenuated dam_reg shift factors"
+score_import_usd_mw_yr,DERIVED,"same, import-side terms only",terms where SF - SF_zone < 0 (the node price rises above the zone when the constraint binds)
+score_export_usd_mw_yr,DERIVED,"same, export-side terms only",terms where SF - SF_zone > 0
+max_abs_sf_top_priority,DERIVED,data/shift_factors.csv logic,largest |SF| to the top-priority constraints with a usable SF
+n_constraints_nonzero,DERIVED,sf_sub,replayed constraints with a non-zero SF at the substation
+eligible,DERIVED,this module,max |SF| to a top-priority constraint >= SF_MIN_ELIGIBLE and the dominant element's own |SF| >= SF_MIN_ELIGIBLE
+el1,DERIVED,same score split by element,rank-1 element by contribution to the score (constraint_name)
+el1_contrib_usd_mw_yr,DERIVED,same score split by element,"rank-1 element's share of the score (sum over its cids), $ per MW-year"
+el1_side,DERIVED,sign of the contribution,import = the node price rises above the zone when the element binds (SF - SF_zone < 0)
+el2,DERIVED,same score split by element,rank-2 element
+el2_contrib_usd_mw_yr,DERIVED,same score split by element,rank-2 element
+el2_side,DERIVED,sign of the contribution,
+el3,DERIVED,same score split by element,rank-3 element
+el3_contrib_usd_mw_yr,DERIVED,same score split by element,rank-3 element
+el3_side,DERIVED,sign of the contribution,
+dominant_element,DERIVED,= el1,the element contributing most to the score
+dominant_side,DERIVED,sign of the contribution,import = node price rises above the zone when the element binds (SF - SF_zone < 0); export = it falls
+dominant_share,DERIVED,el1 / score,
+el1_cid,DERIVED,largest-contribution cid of the element,cid = CONSTRAINT_NAME|CONTINGENCY_NAME
+el1_sf,DERIVED,"phase 2 sf_sub (rt_reg or un-attenuated dam_reg), |SF| capped at 1","substation SF, PLAN.md sign convention (SF < 0 = import side)"
+el1_dsf,DERIVED,SF - SF_zone,
+el1_sf_method,DERIVED,phase 2,rt_reg or dam_reg
+el2_cid,DERIVED,largest-contribution cid of the element,
+el2_sf,DERIVED,phase 2 sf_sub,
+el2_dsf,DERIVED,SF - SF_zone,
+el2_sf_method,DERIVED,phase 2,
+el3_cid,DERIVED,largest-contribution cid of the element,
+el3_sf,DERIVED,phase 2 sf_sub,
+el3_dsf,DERIVED,SF - SF_zone,
+el3_sf_method,DERIVED,phase 2,
+dominant_cid,DERIVED,cid with the largest contribution within the dominant element,
+dominant_sf,DERIVED,phase 2 sf_sub,substation SF to the dominant cid; PLAN.md sign convention (SF < 0 = import side)
+dominant_dsf,DERIVED,SF - SF_zone,
+dominant_sf_method,DERIVED,phase 2,rt_reg or dam_reg
+el1_hops,DERIVED,data/hops.csv (phase 2),graph hops to the cid's element (only when it is among the 40 priority constraints of hops.csv)
+el1_x_dist_pu,DERIVED,data/hops.csv (phase 2),"typical-reactance distance, per unit on 100 MVA (ASSUMPTION reactances)"
+el1_hops_side,DERIVED,data/hops.csv (phase 2),
+el1_curtail_flag,DERIVED,data/hops.csv (phase 2),export side with SF >= 0.05: injecting here loads the constraint
+el1_has_upgrade,DERIVED,data/hops.csv (phase 2),planned-upgrade match at confidence >= 0.5
+el2_hops,DERIVED,data/hops.csv (phase 2),
+el2_x_dist_pu,DERIVED,data/hops.csv (phase 2),
+el2_hops_side,DERIVED,data/hops.csv (phase 2),
+el2_curtail_flag,DERIVED,data/hops.csv (phase 2),
+el2_has_upgrade,DERIVED,data/hops.csv (phase 2),
+el3_hops,DERIVED,data/hops.csv (phase 2),
+el3_x_dist_pu,DERIVED,data/hops.csv (phase 2),
+el3_hops_side,DERIVED,data/hops.csv (phase 2),
+el3_curtail_flag,DERIVED,data/hops.csv (phase 2),
+el3_has_upgrade,DERIVED,data/hops.csv (phase 2),
+dominant_hops,DERIVED,data/hops.csv (phase 2),graph hops to the dominant cid (only when it is among the 40 priority constraints of hops.csv)
+dominant_x_dist_pu,DERIVED,data/hops.csv (phase 2),"typical-reactance distance, per unit on 100 MVA (ASSUMPTION reactances)"
+dominant_curtail_flag,DERIVED,data/hops.csv (phase 2),export side with SF >= 0.05: injecting here loads the constraint
+dominant_has_upgrade,DERIVED,data/hops.csv (phase 2),planned-upgrade match at confidence >= 0.5

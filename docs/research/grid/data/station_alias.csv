@@ -1,0 +1,127 @@
+station,sub,method,conf,osm_id,lat,lon,evidence
+16TH_ST,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+ABINDUST,ABINDUST,graph_neighbor,0.4,w1537802641,32.52326,-99.820886,only unclaimed 138 kV graph neighbour of partner(s) MULBERRY
+AMOTP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+ARROZ,ARROZ,graph_neighbor,0.4,w1340872592,29.155957,-96.149891,"only unclaimed 138 kV graph neighbour of partner(s) EL_CAMPO,LANCTYPM"
+BCKHM,,graph_neighbor,0.4,w1360243782,32.79921,-96.68753,only unclaimed 138 kV graph neighbour of partner(s) MESFR
+BCKSW,BCKSW,graph_neighbor,0.4,w467959305,32.627145,-101.054353,"only unclaimed 138 kV graph neighbour of partner(s) CGRSW,KNAPP"
+BELDTAP,BELD,osm_shared+stem_exact,0.95,,,,"stem BELD = code; same OSM substation w503264094 (Belding Substation), name sim 1.00; 0 hop(s) from partner BELD"
+BEVO,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+BGRSW,BGRSW,graph_neighbor,0.4,w704929106,30.568855,-97.06965,only unclaimed 345 kV graph neighbour of partner(s) SNDSW
+BLESSI,BLESSING,prefix,0.517,,,,code BLESSING starts with BLESSI; 0 hop(s) from partner BLESSING
+BNTSW,BNT,stem_short,0.4,,,,short stem BNT = code
+BRAND,BRAND_C,prefix,0.45,,,,code BRAND_C starts with BRAND
+BROOKTAP,BROOKHOL,osm_shared+prefix,0.448,,,,"code BROOKHOL starts with BROOK; same OSM substation w337681595 (Brookhollow Substation), name sim 0.77; 1 hop(s) from partner JOSLIN"
+BTHOT,,graph_neighbor,0.4,w1350767234,31.856678,-102.32354,"only unclaimed 138 kV graph neighbour of partner(s) ODESW,RTRSW"
+BUPOI,BU,stem_short,0.4,,,,short stem BU = code
+CARBN,CARBN,graph_neighbor,0.4,w468019574,32.280652,-101.408887,only unclaimed 69 kV graph neighbour of partner(s) BSPSW
+CARVER,CARVER,graph_neighbor,0.4,w424977317,30.702149,-101.117532,only unclaimed 138 kV graph neighbour of partner(s) TINSLEY
+CATSW,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+CERRORIC,,graph_neighbor,0.4,w516467558,32.365866,-99.525637,only unclaimed 138 kV graph neighbour of partner(s) PECAN_BY
+CHERRTAP,CHERRYCR,prefix,0.517,,,,code CHERRYCR starts with CHERR; 0 hop(s) from partner CHERRYCR
+CMNTP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+COMFOR,COMMON,osm_shared,0.6,,,,"same OSM substation w206173699 (Commons Ford Substation), name sim 0.67"
+CONSW,CONSW,graph_neighbor,0.4,w1348406665,31.914666,-101.998473,only unclaimed 345 kV graph neighbour of partner(s) LNGSW
+CRAND,CRNDL,osm_shared,0.6,,,,"same OSM substation w386839420 (CRANDALL), name sim 0.80"
+CROSSOVE,CROSSOVE,graph_neighbor,0.4,w343434430,31.153527,-102.223299,"only unclaimed 138 kV graph neighbour of partner(s) NORTMC,PALOUSE"
+CRSTLSW,CRYSTAL,osm_shared,0.69,,,,"same OSM substation w452115696 (Crystal City Substation), name sim 0.83; 3 hop(s) from partner BATESVL"
+DEERCR,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+DENTON,DENTN,fuzzy,0.4,,,,fuzzy DENTON~DENTN
+DEVINESW,DEVINE,osm_shared+psse_name+stem_exact,0.95,,,,"stem DEVINE = code; PSS/E bus-name stem DEVINE; same OSM substation w340165284 (Devine Substation), name sim 1.00; 1 hop(s) from partner HONDOCK"
+DILLEY,DILLEYS,prefix,0.517,,,,code DILLEYS starts with DILLEY; 0 hop(s) from partner DILLEYSW
+DKEC,DKEC,graph_neighbor,0.4,w519686404,33.270913,-100.626407,"only unclaimed 69 kV graph neighbour of partner(s) GIRA_TAP,JATN"
+EAG,EAG,graph_neighbor,0.4,w52986064,29.836925,-94.893163,only unclaimed 138 kV graph neighbour of partner(s) MB
+ECTP2,,none,0.0,,,,best EC 0.16: short stem EC = code; far from partner EMPCT
+ELARA,PALODURO,psse_name,0.69,,,,PSS/E bus-name stem ELARA; 2 hop(s) from partner ELARA_SL
+ELMCREEK,,none,0.0,,,,"best LBRA_ESS 0.28: same OSM substation w174246148 (Elm Creek Substation), name sim 0.33; 1 hop(s) from partner SKYLINE"
+ENCRT,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+ESTES,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+FERRISW,FERRIS,osm_shared+prefix,0.897,,,,"code FERRIS starts with FERRI; same OSM substation w343881260 (Ferris Substation), name sim 0.91; 1 hop(s) from partner DOWNIES"
+FGLSW,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+FLTSW,FLTSW,graph_neighbor,0.4,w564425902,33.655006,-95.568585,"only unclaimed 138 kV graph neighbour of partner(s) PRSSW,TCOSW"
+FRIEND_R,,none,0.0,,,,"best FRENDSHP 0.30: same OSM substation w20823200 (Friend Ranch Substation), name sim 0.71"
+FRSTP,,graph_neighbor,0.4,w458134469,32.086612,-101.281075,only unclaimed 138 kV graph neighbour of partner(s) DRMSW
+FRYSW,,graph_neighbor,0.4,w340206116,31.088078,-97.331484,only unclaimed 138 kV graph neighbour of partner(s) TMPSW
+FTCHADBT,FT_CHADB,prefix,0.517,,,,FTCHADBT starts with code FT_CHADB; 1 hop(s) from partner OAKC
+FVLSW,FVLSW,graph_neighbor,0.4,w1102655087,31.751271,-96.88929,only unclaimed 345 kV graph neighbour of partner(s) SAMSW
+GANSO,,graph_neighbor,0.4,w1330058936,28.837971,-100.548953,only unclaimed 138 kV graph neighbour of partner(s) ESCONDID
+GARNET,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+GATEETP,,none,0.0,,,,"best GS 0.24: same OSM substation w910465306 (Gable Street Substation), name sim 0.55; far from partner UNIVERSI"
+GIRA_TAP,GIRARD,osm_shared,0.69,,,,"same OSM substation w519686405 (Girard Substation), name sim 0.80; 1 hop(s) from partner SPUR"
+GLO,GLO,graph_neighbor,0.4,w522623912,28.985058,-95.358243,only unclaimed 138 kV graph neighbour of partner(s) VL
+GRDSW,GRDSW,graph_neighbor,0.4,w647578148,31.835486,-94.902849,only unclaimed 138 kV graph neighbour of partner(s) NACPW
+HAN1,HAN1,graph_neighbor,0.4,w1458638587,32.072203,-96.223533,"only unclaimed 138 kV graph neighbour of partner(s) HUBRD,REVSW"
+HIGH36,HIGHLAND,osm_shared,0.6,,,,"same OSM substation w341316597 (Highland Substation), name sim 0.67"
+HORIZON,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+HTYTP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+HUMBLTAP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+HWRDTP,,none,0.0,,,,best HOWRD 0.08: fuzzy HWRD~HOWRD; far from partner WELLBR
+JACKSNTP,JACKSONS,fuzzy,0.4,,,,fuzzy JACKSN~JACKSONS
+KERRST,KERRST,graph_neighbor,0.4,w146741281,29.977998,-98.903202,only unclaimed 138 kV graph neighbour of partner(s) KENDAL
+KEYSB,KEYSB,graph_neighbor,0.4,w458726882,32.692502,-101.789336,only unclaimed 138 kV graph neighbour of partner(s) MPPOI
+KMJC,JUNORTH,psse_name,0.6,,,,PSS/E bus-name stem KMJC
+KOCHTAP,KOCH,stem_exact,0.862,,,,stem KOCH = code; 2 hop(s) from partner BUZSW
+LAKENASW,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+LAPRYOR,LAPRYOR,graph_neighbor,0.4,w343343403,29.183532,-99.834788,only unclaimed 69 kV graph neighbour of partner(s) UVALDE
+LFKTP,LFKTP,graph_neighbor,0.4,w631186778,31.369262,-94.738968,only unclaimed 138 kV graph neighbour of partner(s) LFKSW
+LFSTW,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+LIPTON,LIPTON,graph_neighbor,0.4,w452115688,28.496512,-99.840106,only unclaimed 138 kV graph neighbour of partner(s) ASHERTON
+LSPOI,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+MADDUX,MADDUX,graph_neighbor,0.4,w1128364208,31.094294,-100.060633,"only unclaimed 138 kV graph neighbour of partner(s) SAPOWER,TREADWEL"
+MCFSW,,graph_neighbor,0.4,w1565027215,30.960252,-97.138848,only unclaimed 69 kV graph neighbour of partner(s) JUNG_SLR
+MCPOI,SANDLAKE,psse_name,0.69,,,,PSS/E bus-name stem MCPOI; 0 hop(s) from partner SANDLAKE
+MCTYE,MCTYE,graph_neighbor,0.4,w1301595301,31.624065,-97.033273,"only unclaimed 138 kV graph neighbour of partner(s) ELMOT,THSTP"
+MENPHTAP,MENPHTAP,graph_neighbor,0.4,w1198269471,31.119313,-99.322873,only unclaimed 69 kV graph neighbour of partner(s) YELWJCKT
+MEXTP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+MKLT,SCOTT,psse_name,0.69,,,,PSS/E bus-name stem MKLT; 1 hop(s) from partner TRNT
+MNSES,MNSES,graph_neighbor,0.4,w595997267,33.102482,-95.051598,only unclaimed 345 kV graph neighbour of partner(s) WDDSW
+MRVLY,MRVLY,graph_neighbor,0.4,w463732829,35.217111,-101.838676,only unclaimed 69 kV graph neighbour of partner(s) ESTLD
+MV_HBRG4,MV_HBRG4,graph_neighbor,0.4,w1236079107,26.140436,-97.972076,only unclaimed 138 kV graph neighbour of partner(s) MV_WESL4
+NCSTP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+NOVICTAP,,none,0.0,,,,"best NOVICE 0.31: code NOVICE starts with NOVIC; same OSM substation w507399223 (Novice Substation), name sim 0.91; far from partner HUMBLTAP"
+OLNEY,,none,0.0,,,,"best OLN 0.34: PSS/E bus-name stem OLNEY; same OSM substation w1473493000 (Olney), name sim 1.00; far from partner GRAHM"
+OWLS,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+PADR,,none,0.0,,,,best PADRA 0.20: fuzzy PADR~PADRA
+PANCAKE,PCAKETNP,osm_shared,0.69,,,,"same OSM substation w508017130 (Pancake Substation), name sim 0.88; 0 hop(s) from partner PCAKETNP"
+PANTERA,PANTERA,graph_neighbor,0.4,w1312881406,26.108904,-97.824408,only unclaimed 138 kV graph neighbour of partner(s) WESMER
+PERSHING,,graph_neighbor,0.4,w171818899,32.300545,-99.974072,only unclaimed 138 kV graph neighbour of partner(s) OAKC
+PGTP1,,none,0.0,,,,best PG 0.16: short stem PG = code; far from partner PDSES
+PHBL_TAP,PHBL,psse_name+stem_exact,0.9,,,,stem PHBL = code; PSS/E bus-name stem PHBL
+PLPTP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+POESTA,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+PRPTP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+PV_TAP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+QUAINT,QUAN,osm_shared,0.6,,,,"same OSM substation w1222050070 (Quaint Station), name sim 0.80"
+RAYBAR,RAYBAR,graph_neighbor,0.4,w31339106,30.389972,-97.90755,only unclaimed 138 kV graph neighbour of partner(s) COMFOR
+REDGTSS,REDGATE,osm_shared,0.69,,,,"same OSM substation w512042681 (Red Gate Substation), name sim 0.83; 0 hop(s) from partner REDGATE"
+RENTP,,none,0.0,,,,best REN 0.16: short stem REN = code; far from partner PREST
+RGRSW,RGRSW,graph_neighbor,0.4,w468019542,32.280609,-101.187045,"only unclaimed 69 kV graph neighbour of partner(s) LSPOI,WBROK"
+RICEBI,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+ROCKETSW,ROCKETT,prefix,0.517,,,,code ROCKETT starts with ROCKET; 0 hop(s) from partner ROCKETT
+ROSATA,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+SABNCRKT,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+SANDMO,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+SAST,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+SILT,,none,0.0,,,,best SFILT 0.20: fuzzy SILT~SFILT
+SMRTP,SMR,stem_short,0.46,,,,short stem SMR = code; 0 hop(s) from partner SMR
+SOLANUM,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+STCO,STERLING,psse_name,0.6,,,,PSS/E bus-name stem STCO
+STL,STL,graph_neighbor,0.4,w1299899531,30.054433,-95.73037,only unclaimed 138 kV graph neighbour of partner(s) TB
+TENNYSON,,graph_neighbor,0.4,w142658721,32.193555,-100.028204,only unclaimed 138 kV graph neighbour of partner(s) NICOLE
+THSTP,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+TNFS,TNFS,graph_neighbor,0.4,w502934783,30.889373,-102.884083,only unclaimed 69 kV graph neighbour of partner(s) 16TH_ST
+TOMBSTNE,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+TVWSW,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+TYLSW,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+V4_TAP,V4,stem_short,0.46,,,,short stem V4 = code; 1 hop(s) from partner LEON_CRK
+VRBS,VERS,osm_shared,0.6,,,,"same OSM substation w348493190 (Veribest Substation), name sim 0.75"
+WBJDN,,none,0.0,,,,no candidate above ALIAS_MIN_CONF
+WCRYSTS,WCRYSTS,graph_neighbor,0.4,w452115717,28.66504,-99.955587,only unclaimed 69 kV graph neighbour of partner(s) CARIZOS
+WEISS,,none,0.0,,,,best WEI 0.16: short stem WEI = code; far from partner REDCREEK
+WHITING,MAXWELL,psse_name,0.69,,,,PSS/E bus-name stem WHITING; 0 hop(s) from partner MAXWELL
+WKN_BKR,WKN_BKR,graph_neighbor,0.4,w467959218,32.733658,-100.824372,only unclaimed 69 kV graph neighbour of partner(s) CROSSTRL
+WLF,WLF,graph_neighbor,0.4,w1119460624,29.359681,-95.770735,only unclaimed 345 kV graph neighbour of partner(s) JAY
+WOLFCAMP,WLFCAMP,osm_shared,0.6,,,,"same OSM substation w500808481 (Wolfcamp Substation), name sim 0.93"
+WRASW,WRASW,graph_neighbor,0.4,w1490401522,33.774942,-100.878545,only unclaimed 345 kV graph neighbour of partner(s) W_CW_345
+WRPOD,WRPOD,graph_neighbor,0.4,w458134459,31.904509,-101.715414,only unclaimed 138 kV graph neighbour of partner(s) PCTSW
+WWKS_TAP,LON_HILL,psse_name,0.69,,,,PSS/E bus-name stem WWKS; 0 hop(s) from partner LON_HILL

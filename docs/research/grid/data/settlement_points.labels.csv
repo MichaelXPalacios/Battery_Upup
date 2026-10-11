@@ -1,0 +1,14 @@
+column,label,source,note
+ELECTRICAL_BUS,REAL,ERCOT NP4-160-SG Settlement_Points_*.csv,bus key used by LMPs by Electrical Bus (NP6-787) and DAM hourly LMPs (NP4-183)
+NODE_NAME,REAL,ERCOT NP4-160-SG,node name in the network model
+PSSE_BUS_NAME,REAL,ERCOT NP4-160-SG,PSS/E bus name
+VOLTAGE_LEVEL,REAL,ERCOT NP4-160-SG,bus nominal kV
+SUBSTATION,REAL,ERCOT NP4-160-SG,substation code; the `sub` join key of the whole project
+SETTLEMENT_LOAD_ZONE,REAL,ERCOT NP4-160-SG,"load zone the bus settles in (LZ_NORTH, LZ_SOUTH, LZ_WEST, LZ_HOUSTON); NOIE zones (AEN, CPS, LCRA, RAYBN) are in NOIE_ZONE"
+RESOURCE_NODE,REAL,ERCOT NP4-160-SG,"resource node the bus belongs to, blank if none"
+HUB_BUS_NAME,REAL,ERCOT NP4-160-SG,"hub bus code, blank if the bus is not in a hub"
+HUB,REAL,ERCOT NP4-160-SG,"trading hub the bus averages into, blank if none"
+PSSE_BUS_NUMBER,REAL,ERCOT NP4-160-SG,PSS/E bus number
+NOIE_ZONE,DERIVED,ERCOT NP4-160-SG NOIE_Mapping_*.csv joined on ELECTRICAL_BUS,"NOIE load zone(s) served at this bus, ';'-joined; blank if none"
+IN_SEP2026,DERIVED,"this table vs the Sep 2026 copy (model ML2, 22 Sep 2026)",True if the bus is also in the Sep 2026 copy the repo already held
+IN_PREV_MODEL,DERIVED,"this table vs the previous published model (Sep ML3, file dated 30 Sep 2026)",False means the bus is new in the current model

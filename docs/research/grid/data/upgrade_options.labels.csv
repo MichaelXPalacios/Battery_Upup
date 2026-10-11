@@ -1,0 +1,18 @@
+column,label,source,note
+upgrade_id,DERIVED,gridsite.upgrades.select_elements,
+option,ASSUMPTION,gridsite.upgrades.wires_options,reconductor / rebuild / new_parallel_line / dlr_aar / autotransformer / substation_rebuild / plan_765kv
+label,DERIVED,gridsite.upgrades.wires_options,
+low_musd,DERIVED,MISO MTEP24 Texas rows in data/unit_costs.csv,"$M 2024; min(low cells, mid x 0.8)"
+mid_musd,DERIVED,MISO MTEP24 Texas rows in data/unit_costs.csv,$M 2024
+high_musd,DERIVED,MISO MTEP24 Texas rows in data/unit_costs.csv,"$M 2024; max(high cells, mid x 1.5)"
+formula,DERIVED,data/unit_costs.csv x quantity,mid-case arithmetic
+uplift,ASSUMPTION,DOE 2019 DLR report; MISO; judgement,typical rating uplift; the option can serve a relief target only if uplift >= target
+ccn_needed,REAL,"16 TAC 25.101(b)(3), (c)",True for a new line
+process,REAL,NP 3.11.4.3; 16 TAC 25.101,RPG tier and permit path
+lead_low,DERIVED,TPIT July 2026 base; DOE / NLR; ASSUMPTION for DLR,"months, first quartile"
+lead_mid,DERIVED,TPIT July 2026 base; DOE / NLR; ASSUMPTION for DLR,"months, median"
+lead_high,DERIVED,TPIT July 2026 base; DOE / NLR; ASSUMPTION for DLR,"months, third quartile"
+lead_basis,DERIVED,gridsite.upgrades.lead_months,
+uses_unverified_cell,DERIVED,data/unit_costs.csv note column,
+element,DERIVED,data/constraints.csv,
+is_primary,ASSUMPTION,gridsite.upgrades.primary_option,the option quoted in data/upgrades.csv

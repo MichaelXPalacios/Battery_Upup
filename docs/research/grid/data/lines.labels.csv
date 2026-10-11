@@ -1,0 +1,19 @@
+column,label,source,note
+line_id,DERIVED,geomatch,osm:<from>-<to>-<kV> or hifld:<HIFLD ID>
+source,REAL,OSM Overpass | HIFLD mirror,osm = ways chained substation to substation; hifld = 2021-22 segments (endpoints may be taps)
+voltage_kv,REAL,OSM voltage tag | HIFLD VOLTAGE,nominal kV of the line (largest tagged value)
+length_km,DERIVED,haversine along the way geometry,path length of the shortest chain between the two ends
+from_osm_sub,DERIVED,geomatch snap,OSM substation within SNAP_TOL_M = 500 m of the line end (HIFLD: 1500 m)
+to_osm_sub,DERIVED,geomatch snap,
+from_sub,DERIVED,geomatch,ERCOT sub linked to from_osm_sub with match_conf >= 0.5; blank otherwise
+to_sub,DERIVED,geomatch,
+operator,REAL,OSM operator | HIFLD OWNER,most common tag along the chain
+n_circuits,DERIVED,OSM circuits|cables|voltage tags,"summed over distinct parallel ways, capped at 6; 1 when untagged"
+via_tap,DERIVED,geomatch,True if the chain passes a T-junction with no substation (a tapped line)
+n_ways,DERIVED,geomatch,OSM ways (or contracted segments) in the representative chain
+mixed_voltage,REAL,OSM voltage tag,way carries more than one voltage (e.g. 345;138 underbuild)
+n_parallel_paths,DERIVED,geomatch,disjoint chains found between the same two substations at this voltage
+in_osm_pair,DERIVED,geomatch,HIFLD rows: both ends snapped and the pair also exists as an OSM edge (so it duplicates it)
+hifld_sub_1,REAL,HIFLD SUB_1,HIFLD rows only
+hifld_sub_2,REAL,HIFLD SUB_2,HIFLD rows only
+status,REAL,HIFLD STATUS,HIFLD rows only

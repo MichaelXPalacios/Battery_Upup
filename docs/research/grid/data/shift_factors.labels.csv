@@ -1,0 +1,17 @@
+column,label,source,note
+sub,REAL,ERCOT NP4-160 SUBSTATION,join key
+cid,REAL,ERCOT NP6-86-CD / NP4-191-CD,
+priority_rank,DERIVED,data/constraints.csv,
+sf,DERIVED,gridsite.shiftfactors,"best method for the cid; convention cong = LMP - lambda = - sum SF x shadow price; SF < 0 import side, SF > 0 export side. Median over the substation's highest-kV buses"
+method,DERIVED,gridsite.shiftfactors,"rt_reg (SCED regression) | dam_reg (day-ahead regression) | dcpf_proxy (DC power flow on the OSM/HIFLD graph, ASSUMPTION reactances)"
+quality,DERIVED,gridsite.shiftfactors,"ok | weak (|SF| < T_MIN x se) | +grouped (merged near-identical cids) | +collinear (VIF > VIF_FLAG) | +shrunk (ridge attenuation < SHRINK_MIN: magnitude understated, sign usually right) | +implausible (|SF| > SF_MAX_ABS) | low (proxy judged poor) | proxy"
+side,DERIVED,gridsite.network.side_of,import (SF <= -SF_SIDE_MIN) | export (SF >= SF_SIDE_MIN) | neutral
+se,DERIVED,gridsite.shiftfactors,"ridge standard error ignoring autocorrelation, so optimistic; blank for the proxy"
+sf_min,DERIVED,gridsite.shiftfactors,minimum over all buses of the substation (differs from sf when transformers separate voltage levels)
+sf_max,DERIVED,gridsite.shiftfactors,
+sf_rt,DERIVED,gridsite.shiftfactors,"RT regression value, if fitted"
+sf_dam,DERIVED,gridsite.shiftfactors,"DAM regression value, if fitted"
+sf_proxy,ASSUMPTION,gridsite.network.DCPF,"proxy value, if computed; reactances and load reference are ASSUMPTION"
+kv_max,REAL,data/substations.csv,
+zone,REAL,data/substations.csv,
+match_conf,ASSUMPTION,data/substations.csv,agent 1c placement confidence (not a probability)

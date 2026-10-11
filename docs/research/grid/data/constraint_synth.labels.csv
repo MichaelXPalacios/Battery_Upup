@@ -1,0 +1,36 @@
+column,label,source,note
+cid,REAL,NP6-86-CD / NP4-191-CD,CONSTRAINT_NAME|CONTINGENCY_NAME
+constraint_name,REAL,NP6-86-CD / NP4-191-CD,the monitored element's code
+element,DERIVED,data/constraints.csv (phase 2),readable element name
+element_type,DERIVED,data/constraints.csv (phase 2),"line, xfmr, gtc or other (heuristic)"
+kv,REAL,NP6-86-CD,
+from_sub,DERIVED,data/constraints.csv (phase 2 aliases),
+to_sub,DERIVED,data/constraints.csv (phase 2 aliases),
+median_limit_mw,REAL,NP6-86-CD / NP4-191-CD,median limit over the window
+sf_use,DERIVED,phase 2,rt = rt_reg shift factors; dam = day-ahead fit that is not attenuated (shrink >= 0.8); only these magnitudes are used
+sf_method,DERIVED,phase 2,rt_reg or dam_reg
+sf_rt_shrink,DERIVED,phase 2,ridge shrinkage factor of the RT fit
+sf_dam_shrink,DERIVED,phase 2,ridge shrinkage factor of the DAM fit; below 0.8 the SF is sign-only
+priority_rank,DERIVED,data/constraints.csv (phase 2),50% structural IMM rent + 50% window rent
+annual_rent_alloc_musd,REAL,IMM 2025 State of the Market monthly reports,"2025 RT rent allocated to the cid, $M; blank/0 if the element is not in the IMM top 10"
+annual_binding_hours,REAL,IMM 2025 (frequency top 10),binding hours of the element in 2025
+rt_hours_binding,REAL,NP6-86-CD,hours binding in the real-time window (8.5 days)
+dam_hours_binding,REAL,NP4-191-CD,hours binding in the day-ahead window (31 days)
+rt_mean_shadow,REAL,NP6-86-CD,"mean shadow price while binding, $/MWh"
+dam_mean_shadow,REAL,NP4-191-CD,
+sph_usd_mw_yr,DERIVED,"IMM rent / limit, else window rent x 365/days x WINDOW_PERSISTENCE, capped at the IMM top-10 floor","annual shadow-price-hours, $/MW-yr: the target the synthetic shadow prices are scaled to (same as gridsite.upgrades.sph_table)"
+sph_basis,DERIVED,this module,"imm_rent_alloc, window_rt or window_dam (_capped when the element-level IMM floor applies)"
+H_hours,DERIVED,"IMM hours (REAL), else IMM rent x median hours per $M, else window hours x 365/days x persistence^0.5",binding hours a year used for the synthetic shadow prices (4 H fifteen-minute intervals)
+H_basis,DERIVED,this module,
+mean_shadow_usd_mwh,DERIVED,sph / H,mean synthetic shadow price while binding
+cap_usd_mwh,REAL,"SCED max shadow price per cid, else IMM 2025 caps by kV class",synthetic shadow prices are limited to it
+driver_location,DERIVED,spp_node / spp_dam spreads against HB_BUSAVG,the hub or zone whose price spread drives when the constraint binds
+driver_sign,DERIVED,sign of the best correlation,+1: binds when the location is dear against HB_BUSAVG; -1: when it is cheap
+driver_corr,DERIVED,"Pearson, window shadow price vs spread",blank when no window fit; below MIN_DRIVER_CORR the geographic mapping is used
+driver_basis,DERIVED,this module,"fit_rt, fit_dam or geo (named geographic mapping)"
+driver_n_binding,DERIVED,this module,binding intervals / hours the fit saw
+k_hours_per_musd,DERIVED,median IMM hours per $M over elements with both,used where only the IMM rent is known
+upgrade_project_id,DERIVED,data/constraints.csv (phase 2 match of TPIT / RTP projects),"a name or bus overlap, not proof of relief"
+upgrade_in_service_date,DERIVED,data/constraints.csv,
+upgrade_match_conf,DERIVED,data/constraints.csv,
+gtc,DERIVED,data/constraints.csv,

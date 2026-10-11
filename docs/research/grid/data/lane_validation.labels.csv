@@ -1,0 +1,7 @@
+column,label,source,note
+check,DERIVED,this module,"a = rebuilt node basis vs actual node basis with the actual real-time shadow prices, a2 = the same in the day-ahead market; b = synthetic shadow prices vs their targets; c = control lanes vs the arena; d = scale of the synthetic basis; e = zone shift factors; f = drivers"
+scope,DERIVED,this module,the subset the metric is computed on
+metric,DERIVED,this module,name and unit of the number
+value,DERIVED,"REAL SPPs and shadow prices (a, d actual), SIM structure (b, d synthetic), REAL arena prices (c)","see `check`: rows a and c compare against real prices, rows b and d (synthetic) describe the SIM structure"
+n,DERIVED,this module,sample size behind the value
+note,DERIVED,this module,
