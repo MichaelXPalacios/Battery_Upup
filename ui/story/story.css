@@ -45,6 +45,11 @@ code { font-size: 12.5px; }
 .st-step:hover { background: var(--track); color: var(--ink); }
 .st-step.on { background: var(--brand-tint); color: var(--brand); font-weight: 700; }
 .st-step.off { color: var(--off); }
+/* eight steps (pages 6 to 8): below 1600 px the steps the reader is not on show their number only; the name is in title */
+@media (max-width: 1599.98px) {
+  .st-step:not(.on) .st-step-name { display: none; }
+  .st-step { padding: 5px 9px; }
+}
 .st-spacer { flex: 1 1 0 !important; min-width: 0; }
 /* the header never overflows: the step nav and the primary button keep their size; the pill and the framing label
    shrink with an ellipsis (their full text is in their tooltip) */
@@ -75,6 +80,7 @@ code { font-size: 12.5px; }
   font-size: 11.5px; color: var(--muted); white-space: nowrap; overflow: hidden; }
 .st-footer .st-standin { color: var(--ink-2); font-weight: 700; }
 .st-footer .st-explorer { margin-left: auto; font-weight: 700; }
+.st-footer [hidden] { display: none; }
 .st-placeholder { margin: auto; width: 460px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
 .st-ph-title { font-size: 26px; font-weight: 700; }
 .st-placeholder p { margin: 0; color: var(--ink-2); }
