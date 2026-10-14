@@ -1,0 +1,78 @@
+column,label,source,note
+cand_id,DERIVED,tier2.py,"NP4-160 SUBSTATION code, or the OSM id for OSM-only candidates"
+candidate_source,DERIVED,tier2.py,np4160 = NP4-160 sub at 138 kV or less with load evidence; osm_only = OSM distribution substation near a load centre with no ERCOT match
+sub,REAL,ERCOT NP4-160,blank for OSM-only candidates
+osm_id,REAL,OpenStreetMap,
+osm_name,REAL,OpenStreetMap / data/substations.csv name_guess,
+county,DERIVED,Census TIGER via data/substations.csv,
+zone,REAL,ERCOT NP4-160 SETTLEMENT_LOAD_ZONE,the four competitive zones
+noie_zone,REAL,ERCOT NP4-160 NOIE_ZONE,"LZ_AEN, LZ_CPS, LZ_LCRA, LZ_RAYBN where the bus belongs to a municipal or co-op"
+settlement_zone,DERIVED,noie_zone if present else zone,the zone price an ADER fleet or storage-dominated settlement-only site is paid
+kv_max,REAL,ERCOT NP4-160 / OSM,highest bus voltage in NP4-160
+lat,DERIVED,data/substations.csv / OSM,
+lon,DERIVED,data/substations.csv / OSM,
+match_conf,DERIVED,data/substations.csv,blank for OSM-only
+load_evidence,ASSUMPTION,NP4-160 bus names and voltages; OSM substation=distribution,"NP4-160 has no load flag: a sub counts as load-serving if it has an L_ bus, a non-generator bus at 34.5 kV or less, or an OSM distribution match"
+has_resource_node,REAL,ERCOT NP4-160,a generation or storage resource node already sits at the sub
+site_level,DERIVED,tier2.py,match_conf >= 0.5 and a coordinate
+route_desr_nodal_sub,DERIVED,notes/rules.md (a): 16 TAC 25.501(m)(2); NP 3.8.6,substation whose highest-voltage bus is the nearest transmission bus; a DESR settles nodal there. UNVERIFIED which bus a feeder maps to: it is in the DESR's registration data
+route_desr_nodal_bus,REAL,ERCOT NP4-160 ELECTRICAL_BUS,highest-voltage bus of that substation
+route_desr_nodal_kv,REAL,ERCOT NP4-160,
+route_desr_nodal_dist_km,DERIVED,haversine,0 when the candidate's own high-side bus is used
+route_desr_basis,DERIVED,tier2.py,"own_hv_bus, nearest_placed_sub (within 15 km), or none"
+route_ader_zone,DERIVED,notes/rules.md (a): ADER Governing Document Phase 3.3,home-battery fleets settle at the load-zone price: no nodal congestion value
+route_sodg_storage_zone,DERIVED,notes/rules.md (a): NP 6.6.3.8,settlement-only sites of 10 MW or less with more than 50% storage settle at the load zone today (NPRR995 would make them nodal)
+settlement_options,DERIVED,tier2.py,which routes exist for this candidate
+reliability_need_score,ASSUMPTION,data/reliability.csv (OSM-only rows: county outage + facilities),0-100; weights in reliability.py
+need_rank,DERIVED,data/reliability.csv,blank for OSM-only
+main_driver,DERIVED,reliability.py,
+outage_score,ASSUMPTION,reliability.py,
+pocket_score,ASSUMPTION,reliability.py,
+facility_score,ASSUMPTION,reliability.py,
+oncor_score,ASSUMPTION,reliability.py,
+large_load_score,ASSUMPTION,reliability.py,
+paths_345,DERIVED,reliability.py,
+behind_bridge,DERIVED,reliability.py,
+pocket_outer_nodes,DERIVED,reliability.py,
+oncor_feeders,REAL,Oncor 2023 PUCT Service Quality Report,exact substation-code join; Oncor substations only
+oncor_customers,REAL,same,
+oncor_saifi,DERIVED,same,"customer-weighted, forced interruptions"
+oncor_saidi_min,DERIVED,same,
+oncor_saidi_max,REAL,same,
+eue_avoided_mwh_yr_full,DERIVED,eaglei_county.csv,"county-level, 1 MW / 4 MWh battery"
+eue_avoided_mwh_yr_lowsoc,DERIVED,eaglei_county.csv,
+voll_usd_yr_headline,DERIVED,"EUE x $35,685/MWh (Brattle, PUCT 55837)",reliability value: kept apart from market value
+voll_usd_yr_duration,DERIVED,EUE x Brattle duration table,
+reliability_basis,DERIVED,tier2.py,
+flood_flag,DERIVED,data/risk_flags.csv,
+wildfire_class,DERIVED,data/risk_flags.csv,
+coastal_flag,DERIVED,data/risk_flags.csv,
+seismic_flag,DERIVED,data/risk_flags.csv,
+exclude_flag,DERIVED,data/risk_flags.csv,
+exclude_reason,DERIVED,data/risk_flags.csv,
+hosting_feeders,DERIVED,"Oncor SQR feeders at the sub, else the SQR median per substation",ASSUMPTION default when the sub is not an Oncor sub
+feeder_customers_avg,DERIVED,"Oncor SQR customers per feeder, else the SQR median",
+hosting_basis,DERIVED,tier2.py,oncor_sqr_feeders or default_feeders_ASSUMPTION
+feeder_peak_mw_est,ASSUMPTION,customers x FEEDER_KW_PER_CUSTOMER (5 kW),no Texas utility publishes feeder loading (DATA-GRID-ASSETS.md); scales linearly with the constant
+screen_15pct_mw_per_feeder,DERIVED,16 TAC 25.211(g)(1): 15% of feeder load,"the rule is REAL, the feeder peak is ASSUMPTION"
+screen_15pct_mw_substation,DERIVED,feeders x per-feeder screen,"no-study-fee fast path total; larger batteries need a study, not a refusal"
+screen_fast_path_cap_mw,DERIVED,"min(10 MW, substation screen)",
+screen_fault_current_25pct,ASSUMPTION,16 TAC 25.211(g)(1): 25% of fault current,no fault-current data is public: assumed not binding
+screen_reverse_flow,ASSUMPTION,substation transformer reverse flow,not evaluated: no transformer MVA or minimum-load data
+screen_transformer_rule,DERIVED,"Austin Energy DG guide rev 14 (90%) in LZ_AEN, nameplate (100%) elsewhere",service-transformer rule used by sim/planner.py
+cores_per_25kva,DERIVED,floor(share x kVA / 20 kW),Base Core batteries per service transformer under the rule
+cores_per_50kva,DERIVED,same,
+cores_per_75kva,DERIVED,same,
+deferral_usd_kw_yr_low,REAL,"docs/research/ercot.md section 5.3 (25 non-wires studies, PA PUC 2026)",typical distribution deferral value; applies only where a utility documents a need
+deferral_usd_kw_yr_mid,REAL,same,25-study average $48
+deferral_usd_kw_yr_high,REAL,same,
+home_fleet_merchant_usd_kw_yr,SIM,"arena forward tournament, A5, median 2027-29, results/arena_results.json","home fleet, energy only, at the zone price"
+home_fleet_merchant_p10_usd_kw_yr,SIM,same,bad-case (P10)
+home_fleet_best_program,SIM,arena economics.py programs,highest-paying programme modelled for the zone; contract terms are ASSUMPTIONs in the arena
+home_fleet_best_program_usd_kw_yr,SIM,arena forward tournament,"total, including merchant trading"
+home_fleet_best_program_p10_usd_kw_yr,SIM,same,
+home_fleet_programs,SIM,same,"all programmes for the zone, name=median"
+nodal_value_usd_kw_yr,SIM,Phase 3 data/sites.csv (filled by Phase 6),EMPTY on purpose
+nodal_value_p10_usd_kw_yr,SIM,same,EMPTY
+nodal_vs_zone_uplift_usd_kw_yr,SIM,same,EMPTY
+nodal_value_source,SIM,same,EMPTY

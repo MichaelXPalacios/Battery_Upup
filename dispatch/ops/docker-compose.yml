@@ -1,0 +1,97 @@
+# The operate layer for when Docker exists: Redis (halt flag, online store), the dispatch service, an MLflow UI on the same
+# sqlite file the registry uses, Prometheus (scrape + alert rules) and Grafana (provisioned dashboard).
+#
+#   cd dispatch
+#   cp ops/.env.example .env        # then edit: DISPATCH_API_TOKEN and GRAFANA_ADMIN_PASSWORD have no defaults on purpose
+#   docker compose -f ops/docker-compose.yml --env-file .env up --build
+#
+# Written on a machine without Docker: it has been parsed (tests/test_monitoring.py) but never run. Ports bind to 127.0.0.1.
+# Secrets come from the environment only; nothing secret is in this file.
+name: dispatch
+
+services:
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]       # the halt flag must survive a Redis restart
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+
+  dispatch:
+    image: dispatch-service:local
+    build:
+      context: ..                                          # the dispatch/ directory
+      dockerfile: ops/Dockerfile
+    environment:
+      DISPATCH_HOME: /data
+      DISPATCH_REDIS_URL: redis://redis:6379/0
+      MLFLOW_TRACKING_URI: sqlite:////data/mlflow/mlflow.db
+      DISPATCH_MODEL_ALIAS: ${DISPATCH_MODEL_ALIAS:-paper}
+      DISPATCH_API_TOKEN: ${DISPATCH_API_TOKEN:?set DISPATCH_API_TOKEN in .env (protects /signal /kill /resume)}
+      DISPATCH_MONITOR_INTERVAL_S: ${DISPATCH_MONITOR_INTERVAL_S:-60}
+    volumes:
+      - ${DISPATCH_HOME:-./data}:/data                     # lake, features, mlflow, audit log, paper ledger
+    ports:
+      - "127.0.0.1:8000:8000"
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  mlflow:
+    # The same image, so the MLflow version is the one pinned in requirements.txt. It reads the SAME sqlite file the registry
+    # writes (DISPATCH_HOME/mlflow/mlflow.db). SQLite over a bind mount from Windows can lock badly: if it does, keep the
+    # file on a named volume or run the UI on the host.
+    image: dispatch-service:local                           # the same image as the service: one build
+    build:
+      context: ..
+      dockerfile: ops/Dockerfile
+    command: ["python", "-m", "mlflow", "server", "--host", "0.0.0.0", "--port", "5000",
+              "--backend-store-uri", "sqlite:////data/mlflow/mlflow.db",
+              "--default-artifact-root", "/data/mlflow/artifacts"]
+    volumes:
+      - ${DISPATCH_HOME:-./data}:/data
+    ports:
+      - "127.0.0.1:5000:5000"
+    healthcheck:
+      disable: true
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./alerts.yml:/etc/prometheus/alerts.yml:ro
+      - prometheus-data:/prometheus
+    ports:
+      - "127.0.0.1:9090:9090"
+    depends_on:
+      - dispatch
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:11.3.0
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:?set GRAFANA_ADMIN_PASSWORD in .env}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_ANALYTICS_REPORTING_ENABLED: "false"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+  prometheus-data:
+  grafana-data:

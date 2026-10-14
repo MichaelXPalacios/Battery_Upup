@@ -1,0 +1,12 @@
+column,label,source,note
+osm_id,REAL,OpenStreetMap,w/n/r + OSM id
+name,REAL,OpenStreetMap name|official_name|alt_name,
+voltage_kv,REAL,OpenStreetMap voltage tag,"largest value, kV; blank when untagged"
+lat,REAL,OpenStreetMap,centre of the outline
+lon,REAL,OpenStreetMap,centre of the outline
+operator,REAL,OpenStreetMap operator|owner,
+voltage_list_kv,REAL,OpenStreetMap voltage tag,"all values, kV"
+sub_type,REAL,OpenStreetMap substation=*,"transmission, distribution, industrial, generation ..."
+ref,REAL,OpenStreetMap ref,CenterPoint / Austin Energy / CPS station codes equal ERCOT SUBSTATION codes
+county,DERIVED,Census TIGER cb_2023_us_county_500k,point-in-polygon
+ercot_sub,DERIVED,geomatch,best ERCOT sub with match_conf >= 0.5; blank otherwise

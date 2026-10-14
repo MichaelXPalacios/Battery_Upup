@@ -1,0 +1,28 @@
+column,label,source,note
+scenario,DERIVED,gridsite.upgrades.build_rerank,upgrade id (U01..) or PLANNED_ALL
+element,DERIVED,data/constraints.csv,
+spec,REAL,arena SPECS / gridsite.specs,"2h = arena 'grid', 4h = 'grid4h'"
+group,DERIVED,gridsite.upgrades.build_rerank,loser: biggest $/kW-yr loss; riser: biggest rank gain inside the post-upgrade top 200 (its own value is unchanged unless it shares a constraint); riser_none: no such site; not_rankable: no usable regression SF
+order,DERIVED,,position inside the group
+sub,REAL,data/shift_factors.csv,NP4-160 substation
+zone,REAL,data/settlement_points.csv,arena load zone (NOIE zone where there is one)
+kv_max,REAL,data/substations.csv,
+match_conf,ASSUMPTION,data/substations.csv,"placement confidence; the value does not depend on placement, the siting does"
+side,DERIVED,PLAN.md sign convention,side of the constraint that contributes most of the loss: import (price rises when it binds) or export
+main_cid,DERIVED,,constraint that contributes most of the loss
+sf_main,DERIVED,derived/sf_long.parquet,
+dsf_main,DERIVED,sf_main - zone mean,the zone mean is the unweighted mean over the zone's buses of 60 kV and above
+sf_method,DERIVED,derived/sf_long.parquet,rt_reg or non-attenuated dam_reg only
+sph_usd_mw_yr,DERIVED,"IMM 2025 rent / limit, or window rent annualised","annual shadow-price-hours of the main constraint, $/MW-yr (sum over a year of the shadow price in $/MWh x 1 h)"
+sph_basis,ASSUMPTION,gridsite.upgrades.sph_table,"imm_rent_alloc (REAL rent) / window_rt / window_dam (x 365 / days x WINDOW_PERSISTENCE, capped at the 10th-ranked IMM rent / limit)"
+sat_mw,ASSUMPTION,0.20 x limit / |dsf_main|,"battery MW that already relieves 20% of the main constraint: the per-kW values hold for roughly the first sat_mw only (price-taker limit, PROMPT item 25)"
+v0_usd_kw_yr,ASSUMPTION,"sum_k min(|dSF|, 1) x shadow-price-hours / 1000 x CAPTURE_FACTOR",first-order congestion value before the upgrade; capture factor = 0.41 x cover of 2 h / 4 h
+v1_usd_kw_yr,ASSUMPTION,"same, with the upgraded constraints scaled by apply_upgrade",value after
+delta_usd_kw_yr,ASSUMPTION,v1 - v0,negative = loses value
+share_lost,ASSUMPTION,(v0 - v1) / v0,
+rank0,ASSUMPTION,rank of v0 among sites with v0 >= 0.5 $/kW-yr,1 = best
+rank1,ASSUMPTION,rank of v1 in the same set,
+rank_change,ASSUMPTION,rank0 - rank1,positive = moves up
+top_move,ASSUMPTION,rank0 / rank1 against TOP_K = 50,enters_top / leaves_top / stays_in_top
+n_ranked,DERIVED,,sites ranked
+note,DERIVED,,reason when not rankable

@@ -1,0 +1,96 @@
+column,label,source,note
+cand_id,DERIVED,tier2.py,"NP4-160 SUBSTATION code, or the OSM id for OSM-only candidates"
+candidate_source,DERIVED,tier2.py,np4160 = NP4-160 sub at 138 kV or less with load evidence; osm_only = OSM distribution substation near a load centre with no ERCOT match
+sub,REAL,ERCOT NP4-160,blank for OSM-only candidates
+osm_id,REAL,OpenStreetMap,
+osm_name,REAL,OpenStreetMap / data/substations.csv name_guess,
+county,DERIVED,Census TIGER via data/substations.csv,
+zone,REAL,ERCOT NP4-160 SETTLEMENT_LOAD_ZONE,the four competitive zones
+noie_zone,REAL,ERCOT NP4-160 NOIE_ZONE,"LZ_AEN, LZ_CPS, LZ_LCRA, LZ_RAYBN where the bus belongs to a municipal or co-op"
+settlement_zone,DERIVED,noie_zone if present else zone,the zone price an ADER fleet or storage-dominated settlement-only site is paid
+kv_max,REAL,ERCOT NP4-160 / OSM,highest bus voltage in NP4-160
+lat,DERIVED,data/substations.csv / OSM,
+lon,DERIVED,data/substations.csv / OSM,
+match_conf,DERIVED,data/substations.csv,blank for OSM-only
+load_evidence,ASSUMPTION,NP4-160 bus names and voltages; OSM substation=distribution,"NP4-160 has no load flag: a sub counts as load-serving if it has an L_ bus, a non-generator bus at 34.5 kV or less, or an OSM distribution match"
+has_resource_node,REAL,ERCOT NP4-160,a generation or storage resource node already sits at the sub
+site_level,DERIVED,tier2.py,match_conf >= 0.5 and a coordinate
+route_desr_nodal_sub,DERIVED,notes/rules.md (a): 16 TAC 25.501(m)(2); NP 3.8.6,substation whose highest-voltage bus is the nearest transmission bus; a DESR settles nodal there. UNVERIFIED which bus a feeder maps to: it is in the DESR's registration data
+route_desr_nodal_dist_km,DERIVED,haversine,0 when the candidate's own high-side bus is used
+route_desr_nodal_bus,REAL,ERCOT NP4-160 ELECTRICAL_BUS,highest-voltage bus of that substation
+route_desr_nodal_kv,REAL,ERCOT NP4-160,
+route_desr_basis,DERIVED,tier2.py,"own_hv_bus, nearest_placed_sub (within 15 km), or none"
+route_ader_zone,DERIVED,notes/rules.md (a): ADER Governing Document Phase 3.3,home-battery fleets settle at the load-zone price: no nodal congestion value
+route_sodg_storage_zone,DERIVED,notes/rules.md (a): NP 6.6.3.8,settlement-only sites of 10 MW or less with more than 50% storage settle at the load zone today (NPRR995 would make them nodal)
+settlement_options,DERIVED,tier2.py,which routes exist for this candidate
+reliability_need_score,ASSUMPTION,data/reliability.csv (OSM-only rows: county outage + facilities),0-100; weights in reliability.py
+need_rank,DERIVED,data/reliability.csv,blank for OSM-only
+main_driver,DERIVED,reliability.py,
+outage_score,ASSUMPTION,reliability.py,
+pocket_score,ASSUMPTION,reliability.py,
+facility_score,ASSUMPTION,reliability.py,
+oncor_score,ASSUMPTION,reliability.py,
+large_load_score,ASSUMPTION,reliability.py,
+paths_345,DERIVED,reliability.py,
+behind_bridge,DERIVED,reliability.py,
+pocket_outer_nodes,DERIVED,reliability.py,
+oncor_feeders,REAL,Oncor 2023 PUCT Service Quality Report,exact substation-code join; Oncor substations only
+oncor_customers,REAL,same,
+oncor_saifi,DERIVED,same,"customer-weighted, forced interruptions"
+oncor_saidi_min,DERIVED,same,
+oncor_saidi_max,REAL,same,
+eue_avoided_mwh_yr_full,DERIVED,eaglei_county.csv,"county-level, 1 MW / 4 MWh battery"
+eue_avoided_mwh_yr_lowsoc,DERIVED,eaglei_county.csv,
+voll_usd_yr_headline,DERIVED,"EUE x $35,685/MWh (Brattle, PUCT 55837)",reliability value: kept apart from market value
+voll_usd_yr_duration,DERIVED,EUE x Brattle duration table,
+reliability_basis,DERIVED,tier2.py,
+flood_flag,DERIVED,data/risk_flags.csv,
+wildfire_class,DERIVED,data/risk_flags.csv,
+coastal_flag,DERIVED,data/risk_flags.csv,
+seismic_flag,DERIVED,data/risk_flags.csv,
+exclude_flag,DERIVED,data/risk_flags.csv,
+exclude_reason,DERIVED,data/risk_flags.csv,
+hosting_feeders,DERIVED,"Oncor SQR feeders at the sub, else the SQR median per substation",ASSUMPTION default when the sub is not an Oncor sub
+feeder_customers_avg,DERIVED,"Oncor SQR customers per feeder, else the SQR median",
+hosting_basis,DERIVED,tier2.py,oncor_sqr_feeders or default_feeders_ASSUMPTION
+feeder_peak_mw_est,ASSUMPTION,customers x FEEDER_KW_PER_CUSTOMER (5 kW),no Texas utility publishes feeder loading (DATA-GRID-ASSETS.md); scales linearly with the constant
+screen_15pct_mw_per_feeder,DERIVED,16 TAC 25.211(g)(1): 15% of feeder load,"the rule is REAL, the feeder peak is ASSUMPTION"
+screen_15pct_mw_substation,DERIVED,feeders x per-feeder screen,"no-study-fee fast path total; larger batteries need a study, not a refusal"
+screen_fast_path_cap_mw,DERIVED,"min(10 MW, substation screen)",
+screen_fault_current_25pct,ASSUMPTION,16 TAC 25.211(g)(1): 25% of fault current,no fault-current data is public: assumed not binding
+screen_reverse_flow,ASSUMPTION,substation transformer reverse flow,not evaluated: no transformer MVA or minimum-load data
+screen_transformer_rule,DERIVED,"Austin Energy DG guide rev 14 (90%) in LZ_AEN, nameplate (100%) elsewhere",service-transformer rule used by sim/planner.py
+cores_per_25kva,DERIVED,floor(share x kVA / 20 kW),Base Core batteries per service transformer under the rule
+cores_per_50kva,DERIVED,same,
+cores_per_75kva,DERIVED,same,
+deferral_usd_kw_yr_low,REAL,"docs/research/ercot.md section 5.3 (25 non-wires studies, PA PUC 2026)",typical distribution deferral value; applies only where a utility documents a need
+deferral_usd_kw_yr_mid,REAL,same,25-study average $48
+deferral_usd_kw_yr_high,REAL,same,
+home_fleet_merchant_usd_kw_yr,SIM,"arena forward tournament, A5, median 2027-29, results/arena_results.json","home fleet, energy only, at the zone price"
+home_fleet_merchant_p10_usd_kw_yr,SIM,same,bad-case (P10)
+home_fleet_best_program,SIM,arena economics.py programs,highest-paying programme modelled for the zone; contract terms are ASSUMPTIONs in the arena
+home_fleet_best_program_usd_kw_yr,SIM,arena forward tournament,"total, including merchant trading"
+home_fleet_best_program_p10_usd_kw_yr,SIM,same,
+home_fleet_programs,SIM,same,"all programmes for the zone, name=median"
+nodal_value_usd_kw_yr,SIM,gridsite.sites.value_sites; zone control for the rest,"2 h learner value of the DESR route at the settlement bus, $/kW-yr, 2025 replay: the oracle on the rebuilt lane x the zone's learner/oracle ratio. Candidates that were not screened carry their zone value (see nodal_value_source). Energy only, after the $20/MWh wear charge; not added to deferral or reliability dollars"
+nodal_value_p10_usd_kw_yr,SIM,none,EMPTY by design: a rebuilt node lane has no distribution of futures; the forward case is nodal_value_2029_usd_kw_yr
+nodal_vs_zone_uplift_usd_kw_yr,SIM,value_sites: node minus the zone control,the DESR route's gain over the load-zone price (what an ADER would get); 0 where the zone value is used
+nodal_value_source,DERIVED,this module,value_sites_2025_replay_own_ratio / _zone_ratio = a node valued; zone_value_below_screen_cap = usable SF but outside the best MAX_NODES; zone_value_no_usable_sf = no |SF| of 0.10 or more to a replayed constraint; zone_value_no_desr_route
+nodal_screen_usable_sf,DERIVED,gridsite.nodal_lanes.sub_sf_matrix,"the settlement bus has |SF| >= 0.10 to at least one of the 260 replayed constraints (rt_reg, or non-attenuated dam_reg)"
+nodal_screen_max_abs_sf,DERIVED,data/shift_factors logic (sf_sub),"largest |SF| of the settlement bus to a replayed constraint, capped at 1"
+nodal_screen_score_usd_mw_yr,DERIVED,sum_k |SF - SF_zone| x shadow-price-hours,"the cheap screening score of phase 3b, $ per MW-year of price exposure; not a value"
+nodal_screen_rank,DERIVED,this module,rank of the settlement bus among the buses with a usable SF (1 = best score); the best 150 are valued
+nodal_dominant_element,DERIVED,this module,the replayed element that contributes most to the screening score
+nodal_dominant_side,DERIVED,sign of SF - SF_zone,import = the node price rises above the zone when the element binds (a battery sells into it); export = it falls
+nodal_dominant_sf,DERIVED,phase 2 sf_sub,SF of the settlement bus to the dominant element's main contingency (PLAN.md sign convention: SF < 0 = import side)
+nodal_dominant_sf_method,DERIVED,phase 2,rt_reg or dam_reg (day-ahead fits are the weaker ones; Twin Buttes-Hargrove is one)
+nodal_group_cap_mw,ASSUMPTION,"10% of the element's median limit, whole 10 MW units (phase 3b)",MW of storage the whole pocket behind this element can hold before the premium is eroded (shared with Tier 1 and with every other Tier 2 battery behind the element)
+nodal_distance_to_element_km,DERIVED,data/substations.csv and the line graph (phase 1c / 2),great-circle distance from the settlement bus to the nearest placed end of its dominant element; blank if the bus or every end of the element is not placed. Coordinates of substations with match confidence below 0.5 are hints
+nodal_distance_class,DERIVED,"this module, FAR_KM = 150 km [ASSUMPTION]","within_150km, beyond_150km (a shift factor of 0.1 or more at that distance is physically unlikely: a day-ahead fit artifact, or an end of the element is mis-placed) or element_not_placed; a caution on the value, not a correction"
+nodal_zone,DERIVED,gridsite.nodal_lanes.zone_of_substations,arena zone the settlement bus is measured against (NOIE zone first)
+nodal_ratio_basis,DERIVED,gridsite.sites.value_sites,own = the learner/oracle ratio of the node's own 2021-25 backtest (a phase 3b candidate); zone_control = the zone's ratio
+nodal_value_2029_usd_kw_yr,SIM,"gridsite.sites.value_sites, baseline both, 2029",the same value with the planned upgrades and the storage that arrives by 2029 (phase 3b saturation); zone value for buses that were not valued
+nodal_vs_zone_uplift_2029_usd_kw_yr,SIM,value_sites,the DESR route's gain over the zone in 2029
+ader_zone_value_usd_kw_yr,SIM,gridsite.sites.value_sites zone control,the same 2 h battery at the load-zone price of route_ader_zone: what an ADER fleet settles at (notes/rules.md (a)); the home-spec fleet value is home_fleet_merchant_usd_kw_yr
+desr_minus_ader_usd_kw_yr,SIM,nodal_value - ader_zone_value,what the nodal route adds to the zone route for the same battery
+nodal_value_screened,DERIVED,this module,True if the node was among the best MAX_NODES buses and valued with value_sites

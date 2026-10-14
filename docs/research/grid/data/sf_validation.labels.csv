@@ -1,0 +1,19 @@
+column,label,source,note
+bus,REAL,ERCOT NP4-160 ELECTRICAL_BUS,
+sub,REAL,ERCOT NP4-160 SUBSTATION,
+kv,REAL,ERCOT NP4-160,
+resource_node,REAL,ERCOT NP4-160,
+rt_n_test,DERIVED,gridsite.shiftfactors.fit_market,"real-time fit: n_test runs, rmse_oos/rmse_null in $/MWh (null = predict lambda, i.e. zero congestion), r2_oos vs the holdout mean (blank if holdout std < R2_MIN_STD), *_in = training rows"
+rt_rmse_oos,DERIVED,gridsite.shiftfactors.fit_market,"real-time fit: n_test runs, rmse_oos/rmse_null in $/MWh (null = predict lambda, i.e. zero congestion), r2_oos vs the holdout mean (blank if holdout std < R2_MIN_STD), *_in = training rows"
+rt_rmse_null,DERIVED,gridsite.shiftfactors.fit_market,"real-time fit: n_test runs, rmse_oos/rmse_null in $/MWh (null = predict lambda, i.e. zero congestion), r2_oos vs the holdout mean (blank if holdout std < R2_MIN_STD), *_in = training rows"
+rt_std_test,DERIVED,gridsite.shiftfactors.fit_market,"real-time fit: n_test runs, rmse_oos/rmse_null in $/MWh (null = predict lambda, i.e. zero congestion), r2_oos vs the holdout mean (blank if holdout std < R2_MIN_STD), *_in = training rows"
+rt_r2_oos,DERIVED,gridsite.shiftfactors.fit_market,"real-time fit: n_test runs, rmse_oos/rmse_null in $/MWh (null = predict lambda, i.e. zero congestion), r2_oos vs the holdout mean (blank if holdout std < R2_MIN_STD), *_in = training rows"
+rt_rmse_in,DERIVED,gridsite.shiftfactors.fit_market,"real-time fit: n_test runs, rmse_oos/rmse_null in $/MWh (null = predict lambda, i.e. zero congestion), r2_oos vs the holdout mean (blank if holdout std < R2_MIN_STD), *_in = training rows"
+rt_r2_in,DERIVED,gridsite.shiftfactors.fit_market,"real-time fit: n_test runs, rmse_oos/rmse_null in $/MWh (null = predict lambda, i.e. zero congestion), r2_oos vs the holdout mean (blank if holdout std < R2_MIN_STD), *_in = training rows"
+dam_n_test,DERIVED,gridsite.shiftfactors.fit_market,"day-ahead fit, last 5 DAM days held out"
+dam_rmse_oos,DERIVED,gridsite.shiftfactors.fit_market,"day-ahead fit, last 5 DAM days held out"
+dam_rmse_null,DERIVED,gridsite.shiftfactors.fit_market,"day-ahead fit, last 5 DAM days held out"
+dam_std_test,DERIVED,gridsite.shiftfactors.fit_market,"day-ahead fit, last 5 DAM days held out"
+dam_r2_oos,DERIVED,gridsite.shiftfactors.fit_market,"day-ahead fit, last 5 DAM days held out"
+dam_rmse_in,DERIVED,gridsite.shiftfactors.fit_market,"day-ahead fit, last 5 DAM days held out"
+dam_r2_in,DERIVED,gridsite.shiftfactors.fit_market,"day-ahead fit, last 5 DAM days held out"

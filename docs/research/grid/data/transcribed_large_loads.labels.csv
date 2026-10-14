@@ -1,0 +1,10 @@
+column,label,source,note
+area,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+area_type,DERIVED,analyst classification,
+mw,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+status,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+date,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+source,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+doc,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+page,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+note,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,

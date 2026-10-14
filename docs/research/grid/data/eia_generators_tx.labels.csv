@@ -1,0 +1,18 @@
+column,label,source,note
+plant_code,REAL,EIA-860 / 860M,
+gen_id,REAL,EIA-860 / 860M,generator ID within the plant
+plant_name,REAL,EIA-860 / 860M,
+county,REAL,EIA-860 / 860M,
+lat,REAL,EIA-860 Plant sheet | 860M,
+lon,REAL,EIA-860 Plant sheet | 860M,
+balancing_authority,REAL,EIA-860 / 860M,ERCO = ERCOT
+tech,REAL,EIA-860 / 860M Technology,
+class,DERIVED,geomatch.tech_class,battery | solar | wind | hydro | nuclear | thermal
+mw,REAL,EIA-860 / 860M nameplate capacity,
+mwh,REAL,EIA-860M nameplate energy capacity,storage units only
+status,REAL,EIA-860M status code,"OP operating; planned codes P, L, T, U, V, TS"
+status_group,DERIVED,EIA-860M sheet,operating = Operating sheet (or EIA-860 2025 for plants absent from 860M); planned = Planned sheet
+year,REAL,EIA-860M Operating Year | Planned Operation Year,in-service year (operating) or planned operation year
+month,REAL,EIA-860M,
+source,DERIVED,geomatch,eia860 | eia860m_operating | eia860m_planned
+lmp_node,REAL,EIA-860 RTO/ISO LMP Node Designation,ERCOT unit code or resource node when filled (annual file only)

@@ -1,0 +1,23 @@
+column,label,source,note
+sub,REAL,ERCOT NP4-160 SUBSTATION / constraint station,key into substations.csv
+in_np4160,REAL,data/substations.csv,False for the 85 constraint stations that are not NP4-160 codes
+change,DERIVED,notes/phase7-geo.md,override_place | override_unplace | override_demote (a row of data/geo_overrides.csv) or neighbor_stage (the Phase 1c neighbour stage changed the confidence or site because a partner moved)
+method,DERIVED,data/geo_overrides.csv,the override's method label; blank for neighbor_stage rows
+old_method,DERIVED,data/substations.csv before G1,match_method before
+old_conf,ASSUMPTION,data/substations.csv before G1,match_conf before
+old_county,DERIVED,data/substations.csv before G1,
+old_lat,DERIVED,data/substations.csv before G1,
+old_lon,DERIVED,data/substations.csv before G1,
+new_method,DERIVED,data/substations.csv after G1,match_method after (override | none | ...)
+new_conf,ASSUMPTION,data/substations.csv after G1,match_conf after
+new_county,DERIVED,data/substations.csv after G1,
+new_lat,DERIVED,data/substations.csv after G1,
+new_lon,DERIVED,data/substations.csv after G1,
+moved_km,DERIVED,haversine,distance between the old and the new coordinates; blank if it did not move or one side has no coordinates
+county_changed,DERIVED,data/substations.csv,county differs before and after
+site_level_old,DERIVED,Phase 5 rule,"match_conf >= 0.5 and kv_max >= 69 and a coordinate (the subs Phase 5 queries FEMA / USFS at site level), before"
+site_level_new,DERIVED,Phase 5 rule,"same, after"
+risk_flags_stale,DERIVED,data/risk_flags.csv vs data/substations.csv,True when the row of risk_flags.csv was computed for a different position or a different risk_basis (site / county / none) than substations.csv now has. Needs a new FEMA NFHL and USFS WHP point query (network); reliability.csv was rebuilt offline
+n_binding,REAL,data/substations.csv,n_binding_sced + n_binding_dam
+in_sites40,DERIVED,data/sites.csv,one of the 40 candidate sites
+in_site_candidates,DERIVED,data/site_candidates.csv,one of the 48 rows of the candidate table (40 candidates + 8 zone controls)

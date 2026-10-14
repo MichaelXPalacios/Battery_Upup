@@ -1,18 +1,19 @@
 // ui/story/shell.js (UI-A): the story app's chrome (story-flow spec v2, "Shared chrome"): a 60 px header (wordmark,
-// step nav 1 Configure / 2 Run / 3 Results / 4 Learnings, and per page a framing label or the run pill + continue
+// step nav 1 Configure / 2 Run / 3 Results / 4 Learnings / 5 Markets, and per page a framing label or the run pill + continue
 // button), a notice line, and a footer with the sources and the "Engine explorer" link (ui/explore.html, the old tab
 // app). Also numHTML(): a labelled value + its provenance tag, the ctx.num() of app.js.
 import { fmtValue, LabelError, LABELS } from '../lib/format.js';
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 export const TAG_LABELS = [...LABELS, 'UNVERIFIED', 'SCREENING'];
-export const STEPS = [['configure', '1 Configure'], ['run', '2 Run'], ['results', '3 Results'], ['learnings', '4 Learnings']];
+export const STEPS = [['configure', '1 Configure'], ['run', '2 Run'], ['results', '3 Results'], ['learnings', '4 Learnings'], ['markets', '5 Markets']];
 export const FRAMING = 'Oncor-suburb stand-in · LZ_NORTH';
 export const STANDIN = 'Oncor-suburb stand-in on NREL\'s synthetic feeder';
 /** How the feeder is tagged wherever it appears (data-truth audit #1): a REAL dataset of a synthetic feeder. Its name,
  *  licence and the long disclosure are read from topology.json (constants.FEEDER_NAME / STAND_IN, meta.license). */
 export const FEEDER_TAG = 'REAL dataset · synthetic feeder';
-const NEXT = { run: ['results', 'Continue to Results →'], results: ['learnings', 'Continue to Learnings →'] };
+const NEXT = { run: ['results', 'Continue to Results →'], results: ['learnings', 'Continue to Learnings →'], learnings: ['markets', 'Continue to Markets →'] };
+export const MARKETS_FRAMING = 'ERCOT and NYISO · real prices 2015–2026 · forecast 2027–31';
 
 /** A provenance tag: the label word in a 1 px tag, title = cite. SCREENING is dashed (story-flow tokens). */
 /** The Engine explorer link for where the reader is now: the same evening, policy and minute (explorer views p1/p2),
@@ -299,7 +300,8 @@ export function createShell(body) {
       }).join('');
       let right = '';
       if (page === 'configure') right = `<span class="st-framing" title="${esc(FRAMING)}">${FRAMING}</span>`;
-      else if (page === 'learnings') right = '<span class="st-framing" data-framing="learnings"></span>';
+      else if (page === 'learnings') right = `<span class="st-framing" data-framing="learnings"></span><a class="st-btn" href="${esc(link(NEXT.learnings[0], {}))}" data-next="${NEXT.learnings[0]}">${NEXT.learnings[1]}</a>`;
+      else if (page === 'markets') right = `<span class="st-framing" title="${esc(MARKETS_FRAMING)}">${MARKETS_FRAMING}</span>`;
       else if (NEXT[page] && scenario) {
         const info = vsDefaultInfo(catalogue, scenario);
         const vs = info ? `${info.refTitle}: ${info.rows.length ? vsDefaultText(info.rows) : 'no headline value moved'}` : '';

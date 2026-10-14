@@ -1,0 +1,160 @@
+column,label,source,note
+sub,REAL,NP4-160 SUBSTATION,
+role,DERIVED,data/site_candidates.csv,"regional (R1's pick in the Panhandle, Valley, Far West, Laredo/South or the Bell County pocket) or rev1_only (a revision-1 candidate the rule no longer selects)"
+rank,DERIVED,data/site_candidates.csv,screening rank
+kv_max,REAL,NP4-160,
+county,DERIVED,data/substations.csv (agent 1c),placement
+zone,DERIVED,"NP4-160 NOIE zone, else load zone",the zone control and the weather
+lat,DERIVED,data/substations.csv (agent 1c),placement
+lon,DERIVED,data/substations.csv (agent 1c),placement
+match_conf,DERIVED,data/substations.csv (agent 1c),
+node_bus,REAL,NP4-160,highest-kV bus: where a new resource node would sit
+node_kv,REAL,NP4-160,
+existing_resource_node,REAL,NP4-160,blank if the highest-kV bus has none today
+score_usd_mw_yr,DERIVED,sum_k |SF - SF_zone| x shadow-price-hours,screening score
+dominant_element,DERIVED,data/site_candidates.csv,
+dominant_side,DERIVED,data/site_candidates.csv,import = node price above the zone when the element binds
+constraint1,DERIVED,data/site_candidates.csv,the site's 1st / 2nd / 3rd element by contribution to the score
+constraint1_side,DERIVED,data/site_candidates.csv,"side of the site on the element: the sign of its summed shift-factor-difference x shadow-price-hours exposure to all of the element's constraints. constraint?_sf is the single contingency with the largest contribution, so the two can differ in sign for a weakly coupled slot (4 of 120; never for constraint1)"
+constraint1_sf,DERIVED,phase 2 sf_sub,PLAN.md sign convention: SF < 0 = import side
+constraint1_sf_method,DERIVED,phase 2,rt_reg or dam_reg
+constraint1_hops,DERIVED,data/hops.csv (phase 2),graph hops to the element (blank if not among hops.csv's 40 constraints)
+constraint1_curtail_flag,DERIVED,data/hops.csv (phase 2),export side with SF >= 0.05: injecting here loads the constraint
+constraint1_has_upgrade,DERIVED,data/hops.csv (phase 2),planned-upgrade match at confidence >= 0.5
+constraint2,DERIVED,data/site_candidates.csv,the site's 1st / 2nd / 3rd element by contribution to the score
+constraint2_side,DERIVED,data/site_candidates.csv,"side of the site on the element: the sign of its summed shift-factor-difference x shadow-price-hours exposure to all of the element's constraints. constraint?_sf is the single contingency with the largest contribution, so the two can differ in sign for a weakly coupled slot (4 of 120; never for constraint1)"
+constraint2_sf,DERIVED,phase 2 sf_sub,PLAN.md sign convention: SF < 0 = import side
+constraint2_sf_method,DERIVED,phase 2,rt_reg or dam_reg
+constraint2_hops,DERIVED,data/hops.csv (phase 2),graph hops to the element (blank if not among hops.csv's 40 constraints)
+constraint2_curtail_flag,DERIVED,data/hops.csv (phase 2),export side with SF >= 0.05: injecting here loads the constraint
+constraint2_has_upgrade,DERIVED,data/hops.csv (phase 2),planned-upgrade match at confidence >= 0.5
+constraint3,DERIVED,data/site_candidates.csv,the site's 1st / 2nd / 3rd element by contribution to the score
+constraint3_side,DERIVED,data/site_candidates.csv,"side of the site on the element: the sign of its summed shift-factor-difference x shadow-price-hours exposure to all of the element's constraints. constraint?_sf is the single contingency with the largest contribution, so the two can differ in sign for a weakly coupled slot (4 of 120; never for constraint1)"
+constraint3_sf,DERIVED,phase 2 sf_sub,PLAN.md sign convention: SF < 0 = import side
+constraint3_sf_method,DERIVED,phase 2,rt_reg or dam_reg
+constraint3_hops,DERIVED,data/hops.csv (phase 2),graph hops to the element (blank if not among hops.csv's 40 constraints)
+constraint3_curtail_flag,DERIVED,data/hops.csv (phase 2),export side with SF >= 0.05: injecting here loads the constraint
+constraint3_has_upgrade,DERIVED,data/hops.csv (phase 2),planned-upgrade match at confidence >= 0.5
+h2_mean2125_A1,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_mean2125_A2,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_mean2125_A3,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_mean2125_A4,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_mean2125_A5,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_mean2125_oracle,SIM,arena.battery.oracle_days,"perfect-foresight ceiling on the rebuilt lane, 2 h, $/kW-yr"
+h2_mean2125_a5_over_oracle,DERIVED,A5 / oracle,the learner's share of the ceiling in that period
+h2_y2025_A1,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_y2025_A2,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_y2025_A3,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_y2025_A4,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_y2025_A5,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_y2025_oracle,SIM,arena.battery.oracle_days,"perfect-foresight ceiling on the rebuilt lane, 2 h, $/kW-yr"
+h2_y2025_a5_over_oracle,DERIVED,A5 / oracle,the learner's share of the ceiling in that period
+h2_ytd2026_A1,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_ytd2026_A2,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_ytd2026_A3,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_ytd2026_A4,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_ytd2026_A5,SIM,arena dispatch on the rebuilt lane,"2 h, $/kW-yr; mean2125 = mean of 2021-25, y2025 = 2025, ytd2026 = 1 Jan - 26 Sep 2026 annualised; A5 is the Adaptive learner"
+h2_ytd2026_oracle,SIM,arena.battery.oracle_days,"perfect-foresight ceiling on the rebuilt lane, 2 h, $/kW-yr"
+h2_ytd2026_a5_over_oracle,DERIVED,A5 / oracle,the learner's share of the ceiling in that period
+h2_mean2125_usd_per_mwh_A1,SIM,profit after wear / MWh discharged,"margin per MWh sold, 2 h"
+h2_mean2125_usd_per_mwh_A2,SIM,profit after wear / MWh discharged,"margin per MWh sold, 2 h"
+h2_mean2125_usd_per_mwh_A3,SIM,profit after wear / MWh discharged,"margin per MWh sold, 2 h"
+h2_mean2125_usd_per_mwh_A4,SIM,profit after wear / MWh discharged,"margin per MWh sold, 2 h"
+h2_mean2125_usd_per_mwh_A5,SIM,profit after wear / MWh discharged,"margin per MWh sold, 2 h"
+h2_mean2125_uplift_usd_kw_yr_A5,SIM,"node minus zone control, same run","what the node adds over the load zone, $/kW-yr (2 h); the oracle version is the uplift of the ceiling"
+h2_mean2125_uplift_usd_kw_yr_oracle,SIM,"node minus zone control, same run","what the node adds over the load zone, $/kW-yr (2 h); the oracle version is the uplift of the ceiling"
+h2_mean2125_uplift_usd_kw_yr_A1,SIM,"node minus zone control, same run","what the node adds over the load zone, $/kW-yr (2 h); the oracle version is the uplift of the ceiling"
+h2_y2025_usd_per_mwh_A1,SIM,profit after wear / MWh discharged,"margin per MWh sold, 2 h"
+h2_y2025_usd_per_mwh_A2,SIM,profit after wear / MWh discharged,"margin per MWh sold, 2 h"
+h2_y2025_usd_per_mwh_A3,SIM,profit after wear / MWh discharged,"margin per MWh sold, 2 h"
+h2_y2025_usd_per_mwh_A4,SIM,profit after wear / MWh discharged,"margin per MWh sold, 2 h"
+h2_y2025_usd_per_mwh_A5,SIM,profit after wear / MWh discharged,"margin per MWh sold, 2 h"
+h2_y2025_uplift_usd_kw_yr_A5,SIM,"node minus zone control, same run","what the node adds over the load zone, $/kW-yr (2 h); the oracle version is the uplift of the ceiling"
+h2_y2025_uplift_usd_kw_yr_oracle,SIM,"node minus zone control, same run","what the node adds over the load zone, $/kW-yr (2 h); the oracle version is the uplift of the ceiling"
+h2_y2025_uplift_usd_kw_yr_A1,SIM,"node minus zone control, same run","what the node adds over the load zone, $/kW-yr (2 h); the oracle version is the uplift of the ceiling"
+h2_ratio2325_a5_over_oracle,DERIVED,"A5 / oracle, mean 2023-25",the ratio used for the forward values
+h2_a5_top_expert,SIM,learner picks,"expert the learner followed most days, 2 h, 2021-25"
+h4_mean2425_A1,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_mean2425_A2,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_mean2425_A3,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_mean2425_A4,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_mean2425_A5,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_mean2425_oracle,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_y2025_A1,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_y2025_A2,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_y2025_A3,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_y2025_A4,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_y2025_A5,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_y2025_oracle,SIM,arena dispatch on the rebuilt lane,"4 h, $/kW-yr; blank for sites outside the 4 h top 15"
+h4_y2025_usd_per_mwh_A5,SIM,profit after wear / MWh discharged,4 h
+h4_y2025_uplift_usd_kw_yr_A5,SIM,"node minus zone control, same run","4 h, $/kW-yr"
+h4_y2025_uplift_usd_kw_yr_oracle,SIM,"node minus zone control, same run","4 h, $/kW-yr"
+h4_mean2425_uplift_usd_kw_yr_A5,SIM,"node minus zone control, same run","4 h, $/kW-yr"
+as_system_estimate_2h_2025,ASSUMPTION,gridsite.ancillary.as_vs_energy on the 8 zone lanes (learner ledger),"AS the learner could add in idle intervals and by swaps, $/kW-yr, mean of the 8 zones; system-wide, NOT added to the energy columns"
+as_system_upper_bound_2h_2025,DERIVED,"gridsite.ancillary.as_upper_bound (DAM clearing prices, REAL)","all capacity in the best eligible product every interval: a ceiling, $/kW-yr"
+as_system_estimate_2h_2026,ASSUMPTION,gridsite.ancillary.as_vs_energy on the 8 zone lanes (learner ledger),"AS the learner could add in idle intervals and by swaps, $/kW-yr, mean of the 8 zones; system-wide, NOT added to the energy columns"
+as_system_upper_bound_2h_2026,DERIVED,"gridsite.ancillary.as_upper_bound (DAM clearing prices, REAL)","all capacity in the best eligible product every interval: a ceiling, $/kW-yr"
+as_system_estimate_4h_2025,ASSUMPTION,gridsite.ancillary.as_vs_energy on the 8 zone lanes (learner ledger),"AS the learner could add in idle intervals and by swaps, $/kW-yr, mean of the 8 zones; system-wide, NOT added to the energy columns"
+as_system_upper_bound_4h_2025,DERIVED,"gridsite.ancillary.as_upper_bound (DAM clearing prices, REAL)","all capacity in the best eligible product every interval: a ceiling, $/kW-yr"
+as_system_estimate_4h_2026,ASSUMPTION,gridsite.ancillary.as_vs_energy on the 8 zone lanes (learner ledger),"AS the learner could add in idle intervals and by swaps, $/kW-yr, mean of the 8 zones; system-wide, NOT added to the energy columns"
+as_system_upper_bound_4h_2026,DERIVED,"gridsite.ancillary.as_upper_bound (DAM clearing prices, REAL)","all capacity in the best eligible product every interval: a ceiling, $/kW-yr"
+fwd_learner_2027,SIM,"oracle on the 2025 replay prices with the shadow prices scaled for the year (planned upgrades, storage saturation) x the A5/oracle ratio","$/kW-yr; zone prices stay at their 2025 values, so only the basis part moves"
+fwd_uplift_learner_2027,SIM,"learner(node) - learner(zone control), oracle-ratio method",$/kW-yr
+fwd_learner_2029,SIM,"oracle on the 2025 replay prices with the shadow prices scaled for the year (planned upgrades, storage saturation) x the A5/oracle ratio","$/kW-yr; zone prices stay at their 2025 values, so only the basis part moves"
+fwd_uplift_learner_2029,SIM,"learner(node) - learner(zone control), oracle-ratio method",$/kW-yr
+fwd_learner_2031,SIM,"oracle on the 2025 replay prices with the shadow prices scaled for the year (planned upgrades, storage saturation) x the A5/oracle ratio","$/kW-yr; zone prices stay at their 2025 values, so only the basis part moves"
+fwd_uplift_learner_2031,SIM,"learner(node) - learner(zone control), oracle-ratio method",$/kW-yr
+fwd_learner_2025_replay,SIM,oracle on the rebuilt 2025 prices x the node's A5/oracle ratio,the oracle-ratio method on the replay year; compare with h2_y2025_A5
+fwd_uplift_learner_2025_replay,SIM,"learner(node) - learner(zone control), oracle-ratio method",$/kW-yr
+fwd_oracle_2025_replay,SIM,arena.battery.oracle_days,
+sat_adjusted_learner_2027_31_mean,SIM,mean of the forward learner values 2027-2031,"value after planned upgrades and storage saturation, $/kW-yr"
+fwd_exposure_scale_2031,ASSUMPTION,gridsite.saturation,exposure-weighted mean scale left on the site's constraints in 2031 (1 = unchanged)
+fwd_learner_2031_sat_only,SIM,as fwd_learner_2031 with only one effect,saturation only / planned upgrades only
+fwd_learner_2031_upgrades_only,SIM,as fwd_learner_2031 with only one effect,saturation only / planned upgrades only
+basis_half_life,SIM,first year the learner's uplift falls below 50% of its 2025 value,or '> 2031'; 2026-2031 evaluated
+price_taker_cap_mw,ASSUMPTION,"PRICE_TAKER_SHARE x the median limit of the dominant element, in whole 10 MW units rounded down, at least MIN_GROUP_UNITS",shared by every candidate on that element; a 38 MW or 99 MW limit still gets one unit (10 MW)
+poi_cap_mw,ASSUMPTION,POI_CAP_MW by voltage class,
+relief_100mw_share_of_limit,DERIVED,REF_BATTERY_MW (100) x |SF| to the dominant element / its median limit,saturation indicator: the share of the element's limit that a 100 MW battery here could offset; near or above 1 the congestion value does not survive a battery of that size
+dominant_upgrade_project,DERIVED,"data/constraints.csv (phase 2, TPIT / RTP match)","a name or bus overlap, not proof of relief. The forward clock uses agent 4's reviewed schedule (confidence 0.5 or more and a date), which can differ: 587__A is 1 Dec 2032 at 0.6 there"
+dominant_upgrade_date,DERIVED,data/constraints.csv,
+dominant_upgrade_match_conf,DERIVED,data/constraints.csv,
+conn_class,DERIVED,data/connection_costs.csv (phase 3a),new_bay / new_switchyard / gen_tie
+conn_class_conf,DERIVED,data/connection_costs.csv,0.3 = default class; filter >= 0.5 for a ranking
+conn_gen_tie_km,DERIVED,data/connection_costs.csv,
+conn_cost_low_musd,DERIVED,"data/connection_costs.csv (MISO MTEP24 unit costs, 2024 USD)","interconnection facilities, 100 MW reference battery, $M"
+conn_cost_mid_musd,DERIVED,"data/connection_costs.csv (MISO MTEP24 unit costs, 2024 USD)","interconnection facilities, 100 MW reference battery, $M"
+conn_cost_high_musd,DERIVED,"data/connection_costs.csv (MISO MTEP24 unit costs, 2024 USD)","interconnection facilities, 100 MW reference battery, $M"
+conn_owner_share_musd,DERIVED,data/connection_costs.csv (16 TAC 25.195(f)(3) allowance),"facilities cost above the allowance, $M"
+conn_gsu_musd,ASSUMPTION,data/connection_costs.csv,"step-up transformer, UNVERIFIED proxy"
+conn_all_in_musd,DERIVED,data/connection_costs.csv,"facilities + step-up, $M, 100 MW"
+conn_needs_lpt,DERIVED,data/connection_costs.csv,
+conn_lead_months,DERIVED,data/connection_costs.csv,months: FIS + longer of construction and step-up delivery
+conn_lead_low_months,DERIVED,data/connection_costs.csv,months: FIS + longer of construction and step-up delivery
+conn_lead_high_months,DERIVED,data/connection_costs.csv,months: FIS + longer of construction and step-up delivery
+conn_all_in_usd_per_kw,DERIVED,all-in / 100 MW,$/kW
+conn_usd_kw_yr,ASSUMPTION,"all-in $/kW x CRF(WACC, LIFE_YEARS)","annualised connection cost, $/kW-yr; WACC 8%, 15 years"
+net_of_connection_usd_kw_yr,SIM,sat_adjusted_learner_2027_31_mean - conn_usd_kw_yr,"energy only, before the battery's own capex"
+net_of_connection_backtest_usd_kw_yr,SIM,h2_mean2125_A5 - conn_usd_kw_yr,
+breakeven_installed_usd_per_kw,SIM,sat_adjusted_learner_2027_31_mean / CRF,total installed cost (battery + connection) the energy value repays over LIFE_YEARS at WACC
+breakeven_battery_only_usd_per_kw,SIM,breakeven_installed - conn_all_in,what is left for the battery itself after connection and step-up
+risk_flood,DERIVED,data/risk_flags.csv (phase 5),physical-risk flags and exclusion reason
+risk_flood_sfha_100m,DERIVED,data/risk_flags.csv (phase 5),physical-risk flags and exclusion reason
+risk_wildfire_class,DERIVED,data/risk_flags.csv (phase 5),physical-risk flags and exclusion reason
+risk_coastal,DERIVED,data/risk_flags.csv (phase 5),physical-risk flags and exclusion reason
+risk_seismic,DERIVED,data/risk_flags.csv (phase 5),physical-risk flags and exclusion reason
+risk_exclude,DERIVED,data/risk_flags.csv (phase 5),physical-risk flags and exclusion reason
+risk_exclude_reason,DERIVED,data/risk_flags.csv (phase 5),physical-risk flags and exclusion reason
+reliability_need_score,DERIVED,data/reliability.csv (phase 5),"need score, rank and the VoLL dollars: reliability value in its own units, never added to market value"
+reliability_need_rank,DERIVED,data/reliability.csv (phase 5),"need score, rank and the VoLL dollars: reliability value in its own units, never added to market value"
+reliability_main_driver,DERIVED,data/reliability.csv (phase 5),"need score, rank and the VoLL dollars: reliability value in its own units, never added to market value"
+reliability_voll_usd_yr_duration,DERIVED,data/reliability.csv (phase 5),"need score, rank and the VoLL dollars: reliability value in its own units, never added to market value"
+region,DERIVED,data/regional_candidates.csv (R1),region of the pick; blank for rev1_only
+region_side,DERIVED,data/regional_candidates.csv (R1),import (sell high) or export (charge low) side R1 picked the site for
+basis_source,DERIVED,data/regional_candidates.csv (R1),measured (a priced resource node at the substation) or interpolated (nearest priced stations)
+dist_priced_km,DERIVED,data/regional_candidates.csv (R1),distance to the nearest priced station
+obs_basis_vs_zone_mean_usd_mwh,REAL,"NP4-190-style 60-day DAM disclosure, 1 Jul - 11 Aug 2026 (data/regional_candidates.csv)","mean day-ahead price at the node minus its load zone, $/MWh; measured prices, not a model"
+obs_basis_vs_zone_p05_usd_mwh,REAL,same,"5th percentile of the hourly node-minus-zone basis, $/MWh"
+obs_basis_vs_zone_p95_usd_mwh,REAL,same,"95th percentile, $/MWh"
+obs_dam_uplift_42d_usd_kw,DERIVED,same: 2 h day-ahead perfect-foresight value at the node minus at the zone,$ per kW over the 42 delivery days (NOT annualised; one summer window; compare with the SIM columns only in sign and rank)
+dominant_distance_km,DERIVED,gridsite.tier2_value.distance_to_element,km from the site to the nearest placed end of its dominant element; blank if no end is placed
+dominant_distance_class,DERIVED,"gridsite.tier2_value.FAR_KM (150 km, ASSUMPTION)","within_150km, beyond_150km (a shift factor this large at this distance is unlikely: a day-ahead fit artifact, so the modelled value is not credible) or element_not_placed"

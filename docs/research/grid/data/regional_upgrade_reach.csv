@@ -1,0 +1,11 @@
+upgrade_id,element,evaluated_by,moves_a_site,n_sites_above_1usd,n_sites_above_0p25usd,max_change_usd_kw_yr,largest_site,n_existing_40_exposed,n_regional_exposed,status_before_phase7,note
+U01,SCRCV-KNAPP 138 kV,phase6_full,True,10,22,32.245,KNAPP,30,0,evaluated,Phase 6 dispatch valuation of the 40 existing sites
+U02,VEALMOOR-KOCHTAP 138 kV,none,False,0,0,0.0,,0,0,not evaluable: no shift factor,"constraint not identified in the 60-day window (sf_structural_targets.csv): no shift factor, so no site moves"
+U03,TWINBU-HARGROVE 138 kV,phase6_full,True,31,37,197.325,MIDW,40,0,evaluated,Phase 6 dispatch valuation of the 40 existing sites
+U04,WESTEX interface,phase6_full,False,0,0,0.183,ROUGH,6,0,evaluated,Phase 6 dispatch valuation of the 40 existing sites
+U05,HIGH36-BRENNO 138 kV,phase6_full,True,6,7,19.691,BRENNO,18,0,evaluated,Phase 6 dispatch valuation of the 40 existing sites
+U06,PK-DT 138 kV,phase6_full,True,4,4,34.184,MID,9,0,evaluated,Phase 6 dispatch valuation of the 40 existing sites
+U07,LNGSW-CONSW 345 kV,none,False,0,0,0.0,,0,0,not evaluable: no shift factor,"constraint not identified in the 60-day window (sf_structural_targets.csv): no shift factor, so no site moves"
+U08,BELCNTY-SALSW 138 kV,phase6_full,True,1,6,1.197,TMPTV,30,0,evaluated,Phase 6 dispatch valuation of the 40 existing sites
+U09,ENCRT-BRAND 138 kV,phase6_full,True,10,14,5.618,ROUGH,21,0,evaluated,Phase 6 dispatch valuation of the 40 existing sites
+U10,SALDS-SONTERRA 138 kV,phase6_full,False,0,2,0.964,TMPTV,14,0,evaluated,Phase 6 dispatch valuation of the 40 existing sites

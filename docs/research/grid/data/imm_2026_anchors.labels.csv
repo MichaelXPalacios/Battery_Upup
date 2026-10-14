@@ -1,0 +1,22 @@
+column,label,source,note
+market,REAL,"IMM monthly report, August 2026 (Report 18-19)",RT or DA
+metric,REAL,,"rent_musd (total congestion rent, $M) or count (RT: 5-minute SCED intervals binding; DA: hours binding)"
+rank,REAL,,rank in the 2026 year-to-date top-10 list
+code,REAL,,"constraint code as the IMM prints it (CONSTRAINT_NAME for lines, the GTC code for interfaces)"
+element,REAL,,element as the IMM prints it
+ytd,REAL,,January-August 2026 total
+jan,REAL,,monthly value
+feb,REAL,,
+mar,REAL,,
+apr,REAL,,
+may,REAL,,
+jun,REAL,,
+jul,REAL,,
+aug,REAL,,
+constraint_name,DERIVED,data/constraints.csv,constraint_name matched on the IMM code; blank if the code never appeared in the Sep-Oct windows
+limit_mw,REAL,data/constraints.csv,largest median limit among its cids (NP6-86-CD / NP4-191-CD)
+n_cids_replayed,DERIVED,data/constraint_synth.csv,cids of the element in the 260 replayed constraints
+priority_rank,DERIVED,data/constraints.csv,best phase 2 priority rank among its cids
+implied_sph_usd_mw_yr,DERIVED,rent_musd x 1e6 x 12 / 8 / limit,"annual shadow-price-hours this year-to-date rent implies, $/MW-yr (rent rows only)"
+phase3b_sph_usd_mw_yr,DERIVED,data/constraint_synth.csv,sum over the element's replayed cids
+ratio,DERIVED,implied / phase 3b,above 1: Phase 3b's annual target is below what 2026 shows

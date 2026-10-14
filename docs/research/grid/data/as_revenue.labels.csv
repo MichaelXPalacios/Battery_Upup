@@ -1,0 +1,15 @@
+column,label,source,note
+year,REAL,"ERCOT DAM / RT clearing prices for capacity (MCPC), research-data/grid/derived/as_prices.parquet (agent 1a)","calendar year (CPT). 2026 is partial (to 10 Oct 2026); the RT market starts 5 Dec 2025, so RT 2025 covers 27 days"
+market,REAL,"ERCOT DAM / RT clearing prices for capacity (MCPC), research-data/grid/derived/as_prices.parquet (agent 1a)",DAM = day-ahead hourly price; RT = 15-minute settlement-interval price (RTC+B era only)
+product,REAL,"ERCOT DAM / RT clearing prices for capacity (MCPC), research-data/grid/derived/as_prices.parquet (agent 1a)","REGUP REGDN RRS ECRS NSPIN, or a best-product bound: BEST_EACH_INTERVAL = best eligible product in every interval; BEST_PLUS_REGDN = the same plus Reg Down on the charge side"
+n_hours,DERIVED,count of priced intervals x 0.25 h,hours with a price in the file for this product (ECRS exists from 10 Jun 2023)
+coverage,DERIVED,n_hours / hours in the calendar year,below 1 for partial years and for products that started mid-year
+mean_mcpc_usd_mw_h,REAL,"ERCOT DAM / RT clearing prices for capacity (MCPC), research-data/grid/derived/as_prices.parquet (agent 1a)","mean clearing price, $/MW-h of capacity. BEST rows: mean of the per-interval maximum over products for the 4 h battery (all products eligible)"
+p95_mcpc_usd_mw_h,REAL,"ERCOT DAM / RT clearing prices for capacity (MCPC), research-data/grid/derived/as_prices.parquet (agent 1a)",95th percentile of the clearing price; compare with the mean to see how spike-driven the product is
+duration_h,REAL,"NPRR1282 (Board 24 Jun 2025, PUCT 31 Jul 2025); notes/rules.md (b)","hours the product must be sustained, in force on 1 Jul of the year: Reg and RRS 15 min before RTC+B and 30 min after, ECRS 2 h then 1 h, Non-Spin 4 h (the final Non-Spin number is UNVERIFIED)"
+elig_2h,DERIVED,"min(1, 2 MWh / (1 MW x duration_h))",share of a 1 MW / 2 MWh battery that may sell the product
+elig_4h,DERIVED,"min(1, 4 MWh / (1 MW x duration_h))",share of a 1 MW / 4 MWh battery that may sell the product
+ub_2h_usd_kw_yr,DERIVED,"mean x eligibility x 8,760 h / 1000","UPPER BOUND for a 2 h battery in $/kW-yr, annualised for partial years. Not a forecast: no state-of-charge conflicts with energy trading, no price impact from the battery's own awards, no saturation by other batteries"
+ub_4h_usd_kw_yr,DERIVED,same,"UPPER BOUND for a 4 h battery in $/kW-yr, same caveats"
+partial_year,DERIVED,coverage < 98%,annualised from a part of the year (seasonal bias possible)
+note,DERIVED,ancillary.py,what the row bounds

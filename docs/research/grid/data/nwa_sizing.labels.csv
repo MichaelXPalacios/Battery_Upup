@@ -1,0 +1,53 @@
+column,label,source,note
+upgrade_id,DERIVED,gridsite.upgrades.select_elements,
+element,DERIVED,data/constraints.csv,
+element_type,DERIVED,data/constraints.csv,
+kv,REAL,ERCOT NP6-86-CD,
+side,DERIVED,PLAN.md sign convention,"import_discharge: sites with SF < 0, the battery discharges to cut the flow; export_charge: sites with SF > 0, it charges"
+relief_pct,ASSUMPTION,brief: named scenarios,relief target as a share of the median limit (market data cannot show the relief needed: SCED keeps flow at or below the limit)
+relief_mw,DERIVED,relief_pct x limit_mw,flow relief the battery must deliver whenever the element binds
+limit_mw,REAL,ERCOT NP6-86-CD / NP4-191-CD,median limit; see limit_basis
+limit_basis,DERIVED,gridsite.upgrades.element_limit,
+coverage_pct,ASSUMPTION,brief,share of binding hours that must be covered
+episode_hours,DERIVED,"derived/shadow_sced.parquet, shadow_dam.parquet",D(x): smallest duration such that relief sustained for at most D hours from the start of each binding episode covers x of all binding hours
+battery_hours,ASSUMPTION,"min(max(episode_hours, BATT_MIN_HOURS), BATT_MAX_HOURS)","duration of the battery (MWh / MW), between 1 and 10 h"
+duration_capped,DERIVED,episode_hours > 10 h,True: the binding is too persistent for storage to reach the coverage target; see coverage_achieved
+coverage_achieved,DERIVED,"coverage_at(episodes, battery_hours)",share of binding hours covered with the battery_hours actually priced
+episode_basis,DERIVED,gridsite.upgrades.episode_basis_for,own_rt / own_dam: this element's episodes; pooled_*: the class of elements that did bind in the window
+n_episodes,DERIVED,gridsite.upgrades.episode_hours,
+sf_basis,DERIVED,data/shift_factors.csv,rt_reg / dam_reg / dam_reg_unshrunk (DAM SF divided by shrink) / fallback_assumed
+sf_confidence,DERIVED,gridsite.upgrades.build_nwa,measured / attenuated / assumed
+sf_cid,DERIVED,data/constraints.csv,the contingency constraint whose shift factors were used
+best_site,DERIVED,data/shift_factors.csv,"substation with the largest |SF| on the relieving side (69 kV and above, no weak / implausible rows)"
+best_site_kv,REAL,data/substations.csv,
+best_site_zone,REAL,data/substations.csv,
+best_site_sf,DERIVED,derived/sf_long.parquet,"shift factor (negative = import side), after the shrink correction and before the cap"
+mw_best_site_uncapped,DERIVED,relief_mw / |SF|,"MW if one site carried all of it, ignoring the per-site cap"
+n_sites,DERIVED,gridsite.upgrades.size_for_relief,sites needed with the per-site MW cap
+mw_required,DERIVED,"greedy over sites by |SF|, capped per site",MW that delivers the relief
+mw_installed,ASSUMPTION,mw_required / BATT_AVAILABILITY,MW to install
+mwh_installed,DERIVED,mw_installed x battery_hours,usable MWh
+battery_cost_low_musd,DERIVED,NREL/TP-6A40-93281 Fig 2 and Table 2 (2026 low),$M 2024: MW x (241 $/kWh x hours + 372 $/kW) x 0.77
+battery_cost_mid_musd,DERIVED,NREL/TP-6A40-93281 (2026 mid),x 0.92
+battery_cost_high_musd,DERIVED,NREL/TP-6A40-93281 (2026 high),x 1.10
+battery_usd_per_kw_mid,DERIVED,NREL/TP-6A40-93281,$/kW at this duration
+battery_lead_months,DERIVED,"FIS median 20.5 months + max(build 15, transformer 30 + 6) when the step-up (1.1 x MW per site) is 100 MVA or more at 138 kV or above, else + build 15",months from the interconnection request to commercial operation; same logic as Phase 3a's connection_costs.csv
+battery_lead_basis,DERIVED,gridsite.upgrades.build_nwa,
+site_connection_class,DERIVED,data/connection_costs.csv (Phase 3a),new_bay / new_switchyard / gen_tie at the best site; its cost is not added (NREL's cost already includes a permitting and interconnection line); blank where the best site is assumed
+wires_primary_option,ASSUMPTION,gridsite.upgrades.primary_option,
+wires_primary_low_musd,DERIVED,data/upgrade_options.csv,
+wires_primary_mid_musd,DERIVED,data/upgrade_options.csv,
+wires_primary_high_musd,DERIVED,data/upgrade_options.csv,
+ratio_vs_primary_mid,DERIVED,battery mid / primary wires mid,above 1: the battery costs more than the wires fix
+ratio_vs_primary_best,DERIVED,battery low / wires high,
+ratio_vs_primary_worst,DERIVED,battery high / wires low,
+ratio_annualised_vs_primary,ASSUMPTION,(capex x (CRF 8%/15y + 4% FOM)) / (wires x 11.5%),
+wires_cheapest_option,DERIVED,gridsite.upgrades.cheapest_eligible,cheapest option whose typical uplift covers relief_pct
+wires_cheapest_mid_musd,DERIVED,data/upgrade_options.csv,
+ratio_vs_cheapest_mid,DERIVED,battery mid / cheapest eligible wires mid,
+annual_binding_hours,DERIVED,IMM 2025 hours or window estimate,see data/upgrades.csv annual_hours_basis
+annual_relief_hours,DERIVED,coverage_pct x annual_binding_hours,hours a year the battery would be dispatched for relief
+cycles_per_year,DERIVED,annual_relief_hours / battery_hours,rough full cycles a year; above about 700 the 2 h wear assumption breaks
+ref_zone_energy_usd_kw_yr,REAL,docs/research/arena/README.md,"ERCOT 5-year Adaptive learner, 2 h grid battery; reference only, never netted against cost"
+ref_congestion_usd_kw_yr,DERIVED,data/upgrade_rerank_first_order.csv method,first-order congestion value at the best site for this constraint; reference only
+ref_market_rev_musd_yr,DERIVED,mw_installed x (zone energy + congestion),"$M a year the battery would also earn in the market: reference only, never netted"

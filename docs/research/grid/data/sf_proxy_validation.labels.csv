@@ -1,0 +1,16 @@
+column,label,source,note
+cid,REAL,ERCOT NP6-86-CD / NP4-191-CD,
+method,DERIVED,gridsite.shiftfactors,regression the proxy is compared with
+element,DERIVED,data/constraints.csv,
+n_subs,DERIVED,gridsite.shiftfactors.run_physics_proxy,substations with both a regression SF and a graph node
+corr,DERIVED,gridsite.shiftfactors.run_physics_proxy,Pearson correlation across those substations (invariant to the withdrawal reference)
+spearman,DERIVED,gridsite.shiftfactors.run_physics_proxy,
+slope_reg_on_proxy,DERIVED,gridsite.shiftfactors.run_physics_proxy,OLS slope of regression SF on proxy PTDF; 1 = same scale
+n_sign_scored,DERIVED,gridsite.shiftfactors.run_physics_proxy,substations with |regression SF| >= PROXY_SIGN_MIN_REG and |proxy| >= PROXY_SIGN_MIN_PROXY
+sign_agree,DERIVED,gridsite.shiftfactors.run_physics_proxy,share of those with the same sign
+peak_in_proxy_top,DERIVED,gridsite.shiftfactors.run_physics_proxy,the substation with the largest |regression SF| is among the PROXY_PEAK_TOP largest |proxy|
+max_abs_reg,DERIVED,gridsite.shiftfactors.run_physics_proxy,
+max_abs_proxy,DERIVED,gridsite.shiftfactors.run_physics_proxy,
+reliable,DERIVED,gridsite.shiftfactors.run_physics_proxy,False when the regression SF is attenuated by ridge (+shrunk): its magnitude is not a fair reference
+endpoint_conf,ASSUMPTION,data/constraints.csv,
+proxy_note,DERIVED,gridsite.network.DCPF.element_ptdf,

@@ -1,5 +1,5 @@
 // ui/test/story-link.test.js (UI-A): the story app's URL scheme (docs/story-contract.md "URL scheme"):
-// ui/index.html?page=configure|running|run|results|learnings&s=<scenario id>&k=<step>&speed=<x>&q=<1-4>&tf=<index>&n=<0-50>
+// ui/index.html?page=configure|running|run|results|learnings|markets&s=<scenario id>&k=<step>&speed=<x>&q=<1-4>&tf=<index>&n=<0-50>
 // Run: node --test ui/test/*.test.js
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -12,7 +12,7 @@ test('story link: the bare link is Configure with every key at its default (null
   assert.equal(d.page, 'configure');
   for (const k of ['s', 'k', 'speed', 'q', 'tf', 'n', 'cat']) assert.equal(d[k], null, k);
   assert.equal(d.nowebgl, false);
-  assert.deepEqual(STORY_PAGES, ['configure', 'running', 'run', 'results', 'learnings']);
+  assert.deepEqual(STORY_PAGES, ['configure', 'running', 'run', 'results', 'learnings', 'markets']);
   assert.equal(STORY_DEFAULT_SPEED, 0.25);
   assert.equal(STORY_CATALOGUE, 'story/index.json');
 });

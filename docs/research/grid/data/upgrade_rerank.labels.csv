@@ -1,0 +1,58 @@
+column,label,source,note
+scenario,DERIVED,data/upgrades.csv upgrade_id; this module,U01..U10 = the top-10 upgrades of data/upgrades.csv; PLANNED_2031 = every planned upgrade in service by 2031; PLANNED_ALL = every dated planned upgrade
+scenario_label,DERIVED,data/upgrades.csv element,
+upgrade_type,ASSUMPTION,data/upgrades.csv upgrade_type,"the fix a TSP would most likely file (reconductor, rebuild, 765 kV plan); 'planned bundle' for the two bundles"
+element_key,REAL,ERCOT NP6-86-CD / NP4-191-CD constraint_name,monitored element (constraint_name); the word bundle for the two planned bundles
+scenario_effect,DERIVED,this module,"evaluated = at least one constraint of the scenario is in the replayed set; not_replayed = none is, so the full valuation cannot move any site (a limit of the data, not evidence that the upgrade does nothing)"
+cost_mid_musd,DERIVED,data/upgrades.csv,"mid cost of the wires fix, $M, 2024 dollars (MISO MTEP24 unit costs); blank for bundles"
+lead_time_mid_months,DERIVED,data/upgrades.csv,"RPG submittal to in service, mid case; blank for bundles"
+planned,DERIVED,data/upgrades.csv planned,yes / likely / identified / hint / adjacent / no: whether a TSP project is on file for the element
+planned_isd,REAL,TPIT / RTP via data/upgrades.csv,"in-service date of the matched project, if dated"
+nwa_vs_wires_ratio,DERIVED,data/upgrades.csv,battery cost over wires cost for the central relief scenario (10% of the limit in 80% of binding hours)
+n_projects,DERIVED,gridsite.upgrades.planned_schedule,planned projects behind a bundle; 1 for a single upgrade
+n_constraints_scaled,DERIVED,gridsite.sites.value_sites,constraints of the scenario that are in the 260 replayed constraints (the others cannot move a node price)
+n_keys_not_replayed,DERIVED,gridsite.sites.value_sites,constraints of the scenario that are not replayed (no regression shift factor or no usable window)
+residual,ASSUMPTION,gridsite.upgrades.RESIDUAL_MU_SCALE_*,"share of the shadow prices left after the upgrade: 0.10 for a line or transformer, 0.50 for an interface"
+sub,REAL,NP4-160 SUBSTATION,candidate substation (data/sites.csv)
+zone,REAL,data/settlement_points.csv,arena load zone the node price is measured against
+kv_max,REAL,NP4-160,
+dominant_element,DERIVED,data/sites.csv,the element the site earns most of its congestion value from
+dominant_side,DERIVED,data/sites.csv,import = node price rises above the zone when the element binds; export = falls
+on_upgraded_element,DERIVED,this module,the upgraded element is one of the site's top-3 constraints
+exposure_weighted_scale,DERIVED,gridsite.sites.value_sites,mean scale applied to the site's shadow-price exposure (1 = untouched)
+value_before_usd_kw_yr,SIM,gridsite.sites.value_sites,"2 h learner, $/kW-yr, oracle on the rebuilt 2025 lane x the lane's own learner/oracle ratio (= sites.csv fwd_learner_2025_replay)"
+value_after_usd_kw_yr,SIM,gridsite.sites.value_sites with mu_scale = apply_upgrade(...),"same, after the upgrade"
+delta_usd_kw_yr,SIM,after - before,negative = the site loses
+share_of_value_lost,SIM,-(delta) / before,
+zone_control_usd_kw_yr,SIM,gridsite.sites.value_sites,the same battery on the real zone price (an ADER fleet or an uncongested node)
+uplift_before_usd_kw_yr,SIM,value - zone control,
+uplift_after_usd_kw_yr,SIM,value - zone control,
+share_of_uplift_lost,SIM,(uplift before - after) / before,the share of the nodal premium that goes; comparable with fo_share_of_value_lost
+oracle_before_usd_kw_yr,SIM,gridsite.sites.value_sites,perfect-foresight ceiling on the rebuilt lane
+oracle_after_usd_kw_yr,SIM,gridsite.sites.value_sites,
+rank_before,SIM,rank of value_before among the 40,1 = best; ties share the lower number
+rank_after,SIM,rank of value_after among the 40,
+rank_change,SIM,rank_before - rank_after,positive = moves up
+value_effect,DERIVED,delta against MATERIAL_USD_KW_YR (1.0),loses / gains / unchanged
+rank_effect,DERIVED,rank_after against rank_before,up / down / same: a site can move up without gaining value because others fall
+fo_value_before_usd_kw_yr,ASSUMPTION,gridsite.upgrades.value_table (Phase 4),"first-order value: sum over constraints of min(|SF - SF_zone|, 1) x shadow-price-hours / 1000 x capture factor 0.205 (2 h)"
+fo_value_after_usd_kw_yr,ASSUMPTION,same with the upgraded constraints scaled,
+fo_delta_usd_kw_yr,ASSUMPTION,after - before,
+fo_share_of_value_lost,ASSUMPTION,-(delta) / before,first-order share of congestion value lost
+fo_rank_before,ASSUMPTION,rank of the first-order value among the 40,
+fo_rank_after,ASSUMPTION,,
+scn_n_losers,DERIVED,this module,scenario level (repeated on each row): sites that lose more than 1 $/kW-yr
+scn_n_gainers,DERIVED,this module,sites that gain more than 1 $/kW-yr
+scn_largest_loss_site,SIM,this module,the site with the largest fall in value
+scn_largest_loss_usd_kw_yr,SIM,this module,"its change, $/kW-yr"
+scn_sum40_before_usd_kw_yr,SIM,this module,"sum over the 40 candidates of the learner value (1 kW at each site), $/kW-yr"
+scn_sum40_after_usd_kw_yr,SIM,this module,
+scn_sum40_change_pct,SIM,this module,percent change of that sum
+scn_portfolio200_before_musd_yr,SIM,this module,"the MW the price-taker caps allow at the nodes (each constraint group's cap at its best node; 200 MW in revision 1, 220 MW in revision 2, the column names keep the old figure), $M a year at 2025 replay values"
+scn_portfolio200_static_after_musd_yr,SIM,this module,"the same MW at the same nodes, valued after the upgrade (the owner cannot move)"
+scn_portfolio200_reopt_after_musd_yr,SIM,this module,the best placement after the upgrade (the owner re-sites)
+scn_portfolio200_static_change_pct,SIM,this module,
+scn_portfolio200_reopt_change_pct,SIM,this module,
+scn_spearman_loss_vs_first_order,DERIVED,this module,"Spearman correlation of the fall in value, full valuation against first order, over the sites that change in either (blank if fewer than 5 sites change)"
+scn_spearman_rank_after_vs_first_order,DERIVED,this module,"Spearman correlation of the post-upgrade ranks of the 40 sites, full against first order"
+scn_n_sites_changed,DERIVED,this module,sites that change by more than 1 $/kW-yr in either valuation

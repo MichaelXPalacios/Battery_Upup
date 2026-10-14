@@ -1,0 +1,25 @@
+column,label,source,note
+inr,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+project_name,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+tech,DERIVED,ERCOT PG7-200-ER GIS Report September2026,storage/solar/wind/gas/... class from the report's Fuel and Technology codes (BA/EN/CE = storage)
+mw,REAL,ERCOT PG7-200-ER GIS Report September2026,net MW; repowering projects are net change and SLF batteries are 0
+county,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+poi_text,REAL,ERCOT PG7-200-ER GIS Report September2026,point of interconnection exactly as written (newlines collapsed to spaces)
+zone,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+status,REAL,ERCOT PG7-200-ER GIS Report September2026,"GIM Study Phase for large gen (SS = screening study, FIS = full interconnection study, IA = interconnection agreement); for small gen the model-ready flag"
+projected_cod,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+fuel_code,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+tech_code,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+gen_class,DERIVED,ERCOT PG7-200-ER GIS Report September2026,large = sheet 'Project Details - Large Gen' (FIS requested); small = 'Small Gen' (model ready)
+colocation,REAL,ERCOT Co-located Battery Identification Report (September2026),storage rows only: stand_alone / solar / wind / thermal
+is_slf,DERIVED,ERCOT PG7-200-ER GIS Report September2026,Self-Limiting Facility flag: storage reported at 0 MW or name ends SLF; MW is then 0 because the battery is inside another unit's nameplate
+interconnecting_entity,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+poi_kv,DERIVED,ERCOT PG7-200-ER GIS Report September2026,first 'NNN kV' found in poi_text; blank if none
+poi_bus_no,DERIVED,ERCOT PG7-200-ER GIS Report September2026,"PSS/E bus number(s) parsed from poi_text, semicolon-separated in order of appearance (a tap lists both ends); blank if none; may include a false hit, check against poi_text"
+poi_station_code,DERIVED,ERCOT PG7-200-ER GIS Report September2026,text after 'Station code:' in poi_text; usually blank
+fis_requested,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+ia_signed,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+financial_security,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+approved_energization,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+approved_sync,REAL,ERCOT PG7-200-ER GIS Report September2026,as published
+gis_month,REAL,ERCOT PG7-200-ER GIS Report September2026,as published

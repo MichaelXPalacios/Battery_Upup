@@ -1,0 +1,28 @@
+column,label,source,note
+sub,REAL,ERCOT NP4-160 SUBSTATION,key; also stations named in NP6-86-CD / NP4-191 that are not NP4-160 codes (in_np4160 = False)
+n_buses,REAL,ERCOT NP4-160,electrical buses in the substation (0 for stations outside NP4-160)
+kv_max,REAL,ERCOT NP4-160 VOLTAGE_LEVEL,highest bus voltage
+kv_list,REAL,ERCOT NP4-160 VOLTAGE_LEVEL,"all distinct bus voltages, descending"
+zone,REAL,ERCOT NP4-160 SETTLEMENT_LOAD_ZONE,modal load zone of the buses
+has_resource_node,REAL,ERCOT NP4-160 RESOURCE_NODE + Resource_Node_to_Unit,"any bus carries a resource node, or the sub is a UNIT_SUBSTATION"
+n_resource_nodes,REAL,ERCOT NP4-160 + Resource_Node_to_Unit,distinct resource nodes
+lat,DERIVED,geomatch fused site,WGS84; blank when unmatched. Coordinates of the matched OSM / HIFLD substation or EIA plant
+lon,DERIVED,geomatch fused site,WGS84; blank when unmatched
+county,DERIVED,Census TIGER cb_2023_us_county_500k,"county containing (lat, lon); blank outside Texas or unmatched"
+match_method,DERIVED,geomatch,"eia_unit | osm_name | hifld_name | neighbor | override | none (see notes/phase1-geo.md; override = audited correction from data/geo_overrides.csv, notes/phase7-geo.md)"
+match_conf,ASSUMPTION,geomatch,"0-1 heuristic score, not a calibrated probability; formula in notes/phase1-geo.md; every constant in it is an ASSUMPTION checked only by the independent tests in the notes"
+osm_id,REAL,OpenStreetMap,"substation id (w=way, n=node, r=relation) linked to this sub; graph node for lines.csv"
+hifld_id,REAL,HIFLD Electric Substations mirror,"HIFLD ID of the matched substation, when that layer supplied the name match"
+eia_plant_codes,REAL,EIA-860 / 860M,"plants the sub's units were matched to (semicolon list), even when the final site is elsewhere"
+name_guess,DERIVED,OSM / HIFLD / EIA name of the match,readable name of the matched substation or plant
+methods_agree,DERIVED,geomatch,"methods supporting the chosen site, joined with +"
+evidence,DERIVED,geomatch,"short text: which name variant matched what, voltage and county checks"
+osm_link,DERIVED,geomatch,name = matched an OSM name; snap = nearest compatible OSM substation within OSM_LINK_KM / OSM_LINK_PLANT_KM; neighbor; override = osm_id pinned by data/geo_overrides.csv
+neighbor_ok,DERIVED,binding-constraint adjacency,number of confident constraint neighbours consistent with the site (0 = contradicted)
+n_sites,DERIVED,geomatch,distinct candidate sites that were considered
+eia_dist_km,DERIVED,haversine,distance between the chosen site and the EIA plant matched to the sub's units
+n_binding_sced,REAL,NP6-86-CD via derived/shadow_sced.parquet,SCED binding-constraint rows naming this station
+n_binding_dam,REAL,NP4-191 via derived/shadow_dam.parquet,DAM binding-constraint rows naming this station
+noie_zone,REAL,ERCOT NOIE_Mapping,"non-opt-in entity load zone(s) with load at this sub (AEN, CPS, LCRA, RAYBN ...)"
+in_np4160,REAL,ERCOT NP4-160,False for constraint stations that are not settlement-point substations
+osm_shared_by,DERIVED,geomatch,ERCOT subs with match_conf >= 0.5 linked to the same osm_id (ERCOT splits some stations by owner / voltage)

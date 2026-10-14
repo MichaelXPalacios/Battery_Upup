@@ -1,0 +1,13 @@
+column,label,source,note
+cid,REAL,ERCOT,
+n_runs_rt,REAL,ERCOT NP6-86-CD via derived/shadow_sced.parquet,
+n_hours_dam,REAL,ERCOT NP4-191-CD via derived/shadow_dam.parquet,
+shrink_rt,DERIVED,gridsite.shiftfactors,ridge attenuation ss/(ss+lambda) of the RT fit (1 = none)
+shrink_dam,DERIVED,gridsite.shiftfactors,same for the DAM fit
+corr,DERIVED,gridsite.shiftfactors.rt_vs_dam,Pearson correlation across buses present in both fits
+slope_dam_on_rt,DERIVED,gridsite.shiftfactors.rt_vs_dam,least squares through the origin
+n_big,DERIVED,gridsite.shiftfactors.rt_vs_dam,buses with |SF| >= TOP_BIG_SF in either fit
+sign_agree_big,DERIVED,gridsite.shiftfactors.rt_vs_dam,
+top_bus_overlap,DERIVED,gridsite.shiftfactors.rt_vs_dam,overlap of the TOP_BUS_OVERLAP_N buses with the largest |SF|
+max_abs_rt,DERIVED,gridsite.shiftfactors.rt_vs_dam,
+max_abs_dam,DERIVED,gridsite.shiftfactors.rt_vs_dam,

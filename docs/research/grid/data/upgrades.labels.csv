@@ -1,0 +1,76 @@
+column,label,source,note
+upgrade_id,DERIVED,gridsite.upgrades.select_elements,U01.. in priority-rank order; the id apply_upgrade accepts
+element,DERIVED,data/constraints.csv,from-to station and kV as ERCOT names them
+element_key,REAL,ERCOT NP6-86-CD / NP4-191-CD; IMM tables,monitored element code (constraint_name); apply_upgrade accepts it
+element_type,DERIVED,data/constraints.csv,line / xfmr / gtc (heuristic from station names and end voltages)
+kv,REAL,ERCOT NP6-86-CD,"larger end voltage, rounded"
+n_contingencies,DERIVED,data/constraints.csv,number of monitored-element | contingency constraints of this element
+main_cid,DERIVED,data/constraints.csv,"the contingency with the largest allocated rent, else the largest window rent"
+priority_rank,DERIVED,data/constraints.csv,best priority_rank over the element's contingencies
+selection,ASSUMPTION,gridsite.upgrades,"why the element is in the table: priority_top (top 15), imm_structural (2025 IMM top-10 rent), window_top (best local window constraints)"
+from_sub,DERIVED,data/constraints.csv,aliased NP4-160 substation; blank if the end has no placement
+to_sub,DERIVED,data/constraints.csv,
+length_km,DERIVED,data/lines.csv; planned_projects.csv; substations.csv,line route length; see length_basis. Blank for transformers and interfaces
+length_mi,DERIVED,length_km / 1.609344,quantity used in the per-mile cost formulas
+length_basis,DERIVED,gridsite.upgrades.element_length,"lines.csv (OSM / HIFLD, same pair and voltage) > circuit-miles of a strongly matched planned project > station distance x 1.25 > class median (lines.csv)"
+limit_mw,REAL,ERCOT NP6-86-CD / NP4-191-CD,"median SCED / DAM limit over binding rows; class median (DERIVED) where the element never priced in the window, see limit_basis"
+limit_basis,DERIVED,gridsite.upgrades.element_limit,
+limit_swing_pct,DERIVED,derived/shadow_sced.parquet,"(q95 - q05) / median of the SCED limit: a visible swing means ratings already follow ambient temperature (ERCOT 'Dynamic Ratings', NP section 2)"
+imm_rent_2025_musd,REAL,Potomac Economics IMM Dec 2025 monthly report via data/constraints_annual.csv,element-level 2025 congestion rent
+imm_market,REAL,data/constraints_annual.csv,RT or DA; the two are never added
+annual_binding_hours,DERIVED,IMM 2025 hours; IMM rent x median hours per $M; or window x 365 / days x WINDOW_PERSISTENCE,see annual_hours_basis
+annual_hours_basis,DERIVED,gridsite.upgrades.annual_hours,
+window_rt_hours,DERIVED,derived/shadow_sced.parquet,"binding hours in the RT window (3-10 Oct and 25 Sep 2026), union over the contingencies, shadow price >= EPISODE_MIN_SHADOW"
+window_dam_hours,DERIVED,derived/shadow_dam.parquet,"binding hours in the 31 DAM days, same rule"
+upgrade_type,ASSUMPTION,gridsite.upgrades.primary_option,"the structural fix a TSP would most likely file: reconductor (lines; a rebuild where the matched planned project is a rebuild), parallel autotransformer (transformers), the 765 kV plan (WESTEX)"
+upgrade_label,DERIVED,gridsite.upgrades.wires_options,
+cost_formula,DERIVED,data/unit_costs.csv x quantity,"mid-case formula; low / high use the low / high unit-cost cells, widened to -20% / +50% where the cells are narrower"
+cost_low_musd,DERIVED,MISO MTEP24 Texas rows in data/unit_costs.csv,"$M, 2024 dollars, not escalated"
+cost_mid_musd,DERIVED,MISO MTEP24 Texas rows in data/unit_costs.csv,"$M, 2024 dollars"
+cost_high_musd,DERIVED,MISO MTEP24 Texas rows in data/unit_costs.csv,"$M, 2024 dollars"
+cost_uses_unverified_cell,DERIVED,data/unit_costs.csv note column,True if a unit-cost cell used carries UNVERIFIED in its note (garbled MISO table layout)
+imm_rent_to_annual_wires_cost,ASSUMPTION,imm_rent_2025_musd / (cost_mid_musd x 11.5%),"how many times one year of 2025 congestion rent covers one year of the wires fix; rent is not consumer savings, but PUCT's congestion test (16 TAC 25.101(b)(3)(A)(i)) compares a saving with the annual revenue requirement"
+usd_year,REAL,MISO MTEP24; NREL 2025 update,price year of every dollar figure
+lead_time_low_months,DERIVED,"TPIT July 2026 base (planned projects), quartiles",months from RPG submittal to projected in service; autotransformers floored by transformer lead time
+lead_time_mid_months,DERIVED,TPIT July 2026 base,median
+lead_time_high_months,DERIVED,TPIT July 2026 base,third quartile
+lead_time_basis,DERIVED,gridsite.upgrades.lead_months,
+other_options,DERIVED,gridsite.upgrades.wires_options,the other wires options with mid cost and typical rating uplift; all are in data/upgrade_options.csv
+planned_yes_no,DERIVED,planned column,"yes if planned is yes or likely (a project that names the element, match 0.5 or above, or reviewed); no otherwise, including identified (RTP, no date), adjacent and hint"
+planned,DERIVED,data/constraints.csv upgrade_* and PLANNED_REVIEW,"yes (match >= 0.8 or reviewed) / likely (>= 0.5) / identified (RTP, no date) / adjacent or hint (nearby project, not the element) / done / no"
+planned_id,REAL,data/planned_projects.csv,TPIT / RTP / RPG / PBRP project id(s)
+planned_name,REAL,data/planned_projects.csv,
+planned_isd,REAL,data/planned_projects.csv,"in-service date as TPIT / RPG print it (a year, a month or a day)"
+planned_status,REAL,data/planned_projects.csv,
+planned_match_conf,ASSUMPTION,gridsite.shiftfactors.MATCH_CONF,"a match is a name or bus overlap, not proof of relief"
+planned_tsp,REAL,data/planned_projects.csv,owner of the matched project
+planned_note,ASSUMPTION,analyst review of data/planned_projects.csv,what the project is and why it is or is not the monitored element
+planned_source,DERIVED,gridsite.upgrades.planned_for,
+nwa_central_side,DERIVED,data/nwa_sizing.csv,"the side with the smaller battery at the central scenario (10% relief, 80% coverage)"
+nwa_central_site,DERIVED,data/shift_factors.csv,best site on that side
+nwa_central_site_sf,DERIVED,derived/sf_long.parquet via data/shift_factors.csv,its shift factor (sign convention PLAN.md: negative = import side)
+nwa_central_mw,DERIVED,"relief MW / |SF|, per-site cap, / availability",installed MW at the central scenario
+nwa_central_mwh,DERIVED,MW x D(coverage),installed MWh at the central scenario
+nwa_central_hours,DERIVED,episode lengths in the RT / DAM windows,duration priced (1 to 10 h)
+nwa_central_coverage_achieved,DERIVED,"coverage_at(episodes, nwa_central_hours)",share of binding hours that duration actually covers (below 0.80 when the duration is capped at 10 h)
+nwa_central_duration_capped,DERIVED,episode_hours > 10 h,True: binding is too persistent for storage to reach the coverage target
+nwa_lead_time_months,DERIVED,FIS median + build or transformer delivery,"battery lead time at the central scenario, months"
+nwa_mw_min,DERIVED,data/nwa_sizing.csv,smallest installed MW over the 9 relief x coverage scenarios (best side)
+nwa_mw_max,DERIVED,data/nwa_sizing.csv,largest
+nwa_mwh_min,DERIVED,data/nwa_sizing.csv,
+nwa_mwh_max,DERIVED,data/nwa_sizing.csv,
+nwa_cost_min_musd,DERIVED,"NREL/TP-6A40-93281, 2026 low case",smallest scenario at the low cost case
+nwa_cost_central_musd,DERIVED,"NREL/TP-6A40-93281, 2026 mid case",central scenario
+nwa_cost_max_musd,DERIVED,"NREL/TP-6A40-93281, 2026 high case",largest scenario at the high cost case
+nwa_vs_wires_ratio,DERIVED,battery mid / primary wires mid,above 1 means the battery costs more than the wires fix
+nwa_vs_wires_ratio_best,DERIVED,battery low / wires high,
+nwa_vs_wires_ratio_worst,DERIVED,battery high / wires low,
+nwa_vs_cheapest_ratio,DERIVED,battery mid / cheapest wires option whose typical uplift covers the relief,the real competitor is often DLR / AAR or a reconductor
+nwa_cheapest_wires_option,DERIVED,gridsite.upgrades.cheapest_eligible,
+nwa_annualised_ratio,ASSUMPTION,"8% / 15 y + 4% FOM for the battery, 11.5% fixed charge for wires",capex ratio re-expressed per year of life
+nwa_sf_basis,DERIVED,data/shift_factors.csv,rt_reg / dam_reg / dam_reg_unshrunk / fallback_assumed
+nwa_sf_confidence,DERIVED,gridsite.upgrades.build_nwa,"measured (regression SF), attenuated (DAM SF divided by its shrink), assumed (class median, no regression SF)"
+nwa_episode_basis,DERIVED,"derived/shadow_sced.parquet, shadow_dam.parquet","own_rt / own_dam episodes, or the pooled class of elements that did bind"
+decider,REAL,"NP 3.11.4; PG 3.1; 16 TAC 25.101, 25.192, 25.195",who decides and who pays
+battery_owner_role,REAL,"NP 3.11.4.1, 3.11.4.11; 16 TAC 25.195(f); PURA 35.153; PG 3.1.2.1, 4.1.1.2",what a battery owner can and cannot do
+citation,REAL,see notes/phase4.md section 6,rule references

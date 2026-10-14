@@ -1,0 +1,23 @@
+column,label,source,note
+cid,REAL,NP6-86-CD / NP4-191-CD,CONSTRAINT_NAME|CONTINGENCY_NAME of a replayed contingency of the element
+constraint_name,REAL,NP6-86-CD / NP4-191-CD,the monitored element's code
+market,REAL,"IMM monthly report, August 2026","RT where the element has a real-time rent row in the 2026 top-10 list, else DA"
+ytd_musd,REAL,"data/imm_2026_anchors.csv (IMM monthly report, August 2026)","January-August 2026 congestion rent of the element, $M"
+months,REAL,IMM monthly report,months in the year-to-date figure
+annualised_musd,DERIVED,ytd_musd x 12 / months,"the annual rent the lanes are anchored on, $M (ASSUMPTION: the other months resemble the average of these)"
+limit_mw,REAL,NP6-86-CD / NP4-191-CD,median limit of the cid
+sph_before,DERIVED,data/constraint_synth.csv,annual shadow-price-hours target before ($/MW-yr; 2025 IMM rent or persistence-discounted window)
+sph_after,DERIVED,annualised_musd x share of the element's rent / limit,target after the 2026 re-anchoring ($/MW-yr)
+basis_before,DERIVED,data/constraint_synth.csv,
+H_before,DERIVED,data/constraint_synth.csv,annual binding hours before
+H_after,DERIVED,gridsite.rev2,"annual binding hours after (2026 count annualised, 2025 IMM hours, or rent x hours per $M)"
+H_basis_before,DERIVED,data/constraint_synth.csv,
+H_basis_after,DERIVED,gridsite.rev2,
+mean_shadow_after,DERIVED,sph_after / H_after,"mean synthetic shadow price while binding, $/MWh"
+cap_usd_mwh,REAL,"SCED max shadow price per cid, else IMM caps by kV class",
+raised_by_cap_rule,DERIVED,gridsite.rev2,True if the hours were raised because the mean shadow price would exceed half the cap
+largest_month,REAL,IMM monthly report,month with the largest rent
+largest_month_share,DERIVED,largest month / ytd,share of the year-to-date rent earned in that month
+one_month_dominates,DERIVED,gridsite.rev2,True if one month holds more than half of the year-to-date rent: annualising it overstates the year
+last3_share,DERIVED,June-August / ytd,share of the year-to-date rent earned in June-August
+used_in_primary,DERIVED,gridsite.rev2,False if R1's structural rows replace this cid (so its re-anchoring never reaches a lane)

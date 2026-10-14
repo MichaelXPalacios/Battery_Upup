@@ -1,0 +1,50 @@
+column,label,source,note
+role,DERIVED,this module,"regional (new pick, to be valued by Phase 3b) or existing (one of the 40 Phase 3b candidates, shown with its new exposures)"
+region,ASSUMPTION,region_of() / Bell County rule,"Panhandle, Rio Grande Valley, Far West, Laredo/South, Central (Bell County); existing rows keep their own region tag"
+side,DERIVED,sign of the dominant term |SF - SF_zone| x shadow-price-hours,import (price rises against the zone when the constraint binds: a battery sells high) or export (price falls: a battery charges low)
+rank_in_group,DERIVED,"measured stations first, then screen_score within region and side",1 = best; blank for existing rows
+sub,REAL,data/substations.csv (NP4-160),substation code
+kv_max,REAL,data/substations.csv,
+county,DERIVED,data/substations.csv,
+arena_zone,REAL,gridsite.sites.eligible_substations,zone whose price the site is measured against
+lat,DERIVED,data/substations.csv,
+lon,DERIVED,data/substations.csv,
+match_conf,DERIVED,data/substations.csv,placement confidence (>= 0.5 required)
+node_bus,REAL,data/settlement_points.csv,highest-kV bus of the substation (the price a transmission ESR settles at)
+existing_resource_node,REAL,data/settlement_points.csv,blank if the substation has no resource node today
+flood_flag,DERIVED,data/risk_flags.csv,
+wildfire_class,DERIVED,data/risk_flags.csv,
+coastal_flag,DERIVED,data/risk_flags.csv,
+seismic_flag,DERIVED,data/risk_flags.csv,
+basis_source,DERIVED,this module,"measured (a resource node at the substation was priced in the 60-day window) or interpolated (median of the nearest priced stations, at least two within 60 km)"
+dist_priced_km,DERIVED,great-circle km,0 if measured
+dominant_cid,DERIVED,largest |SF - SF_zone| x sph_pole,structural constraint contributing most (sf_structural_constraints.csv)
+dominant_grade,DERIVED,grade_target(),"A-D, U"
+dominant_sf,DERIVED,"sf_structural.parquet, pole scale",the site's shift factor to it
+dominant_dsf,DERIVED,SF - SF of the arena zone,pole scale
+dominant_share,DERIVED,dominant term / total,0 to 1
+exposure_import_usd_mw_yr,DERIVED,sum over the replayed structural constraints of |DSF| x sph_pole where DSF < 0,$/MW-yr of price exposure (not a value)
+exposure_export_usd_mw_yr,DERIVED,same where DSF > 0,
+exposure_total_usd_mw_yr,DERIVED,sum,
+n_constraints,DERIVED,count,structural constraints with |DSF| >= 0.05 at the site
+exposure_detail,DERIVED,top three terms,"cid:signed DSF x sph, $/MW-yr (negative = import side)"
+basis_zone_mean,DERIVED,"DAM price at the site minus the arena zone price, 1 Jul-11 Aug 2026",$/MWh (REAL prices; interpolated sites use the median of nearby priced stations)
+basis_zone_p05,DERIVED,,$/MWh
+basis_zone_p95,DERIVED,,$/MWh
+hours_gt10_zone,DERIVED,hours with |basis vs zone| > $10,"of 1,008"
+worst_hour_cpt,DERIVED,hour-beginning CPT with the lowest mean basis vs zone,
+worst_hour_mean,DERIVED,,$/MWh
+best_hour_cpt,DERIVED,hour-beginning CPT with the highest mean basis vs zone,
+best_hour_mean,DERIVED,,$/MWh
+dam_value_node,DERIVED,2 h day-ahead oracle on the site's own prices,$ per kW over the 42 days (not annualised; summer; energy only; perfect foresight)
+dam_value_zone,DERIVED,same on the zone price,$ per kW over the 42 days
+dam_uplift,DERIVED,dam_value_node - dam_value_zone,what siting here added in this window
+pct_exposure,DERIVED,percentile rank of the side's exposure among eligible covered stations of the region,0 to 100
+pct_uplift,DERIVED,percentile rank of dam_uplift in the same set,0 to 100
+screen_score,ASSUMPTION,SCREEN_W_EXPOSURE x pct_exposure + (1 - SCREEN_W_EXPOSURE) x pct_uplift,"0 to 100; a screening number to order sites, not a value in dollars"
+new_exposure_usd_kw_yr,DERIVED,capture 0.205 x sum of |DSF| x annual shadow-price-hours over the replayed structural constraints / 1000,"$/kW-yr: an upper bound on how much of the site's value the new and replaced constraints can move (first order, no dispatch)"
+revalue_existing,DERIVED,new_exposure_usd_kw_yr >= REVALUE_MIN_USD,True for an existing candidate whose lane Phase 3b should rebuild and dispatch again; blank for regional picks
+exposure_U02_vealmoor,DERIVED,first-order |DSF| x sph x capture x (1 - residual) / 1000,$/kW-yr the Vealmoor-Koch Tap upgrade could move this site; blank = no shift factor (constraint not identified)
+exposure_U04_westex,DERIVED,same for WESTEX (residual 0.5),$/kW-yr
+exposure_U07_longshore,DERIVED,same for Longshore-Consavvy,blank = constraint not identified
+exposure_U08_bell,DERIVED,same for Bell County-Salado,$/kW-yr

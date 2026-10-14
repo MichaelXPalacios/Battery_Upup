@@ -1,0 +1,12 @@
+column,label,source,note
+item,REAL,"MISO Transmission Cost Estimation Guide MTEP24, ERCOT PBRP/RTP, DOE, NLR (see source)",transcribed by hand; page in the page column
+kv,REAL,"MISO Transmission Cost Estimation Guide MTEP24, ERCOT PBRP/RTP, DOE, NLR (see source)",transcribed by hand; page in the page column
+unit,REAL,"MISO Transmission Cost Estimation Guide MTEP24, ERCOT PBRP/RTP, DOE, NLR (see source)",transcribed by hand; page in the page column
+low_usd,REAL,see source/note,"rows marked DERIVED/ASSUMPTION/UNVERIFIED in the note are not plain copies; low/mid/high may come from different sources, the note says which"
+mid_usd,REAL,see source/note,
+high_usd,REAL,see source/note,
+year_usd,REAL,source,"MISO MTEP25 and MTEP26 escalate most costs about 4%/yr (MTEP26 slides p.4); apply that to bring 2024 USD to 2026 (ASSUMPTION, not done here)"
+source,REAL,"MISO Transmission Cost Estimation Guide MTEP24, ERCOT PBRP/RTP, DOE, NLR (see source)",transcribed by hand; page in the page column
+doc,REAL,"MISO Transmission Cost Estimation Guide MTEP24, ERCOT PBRP/RTP, DOE, NLR (see source)",transcribed by hand; page in the page column
+page,REAL,"MISO Transmission Cost Estimation Guide MTEP24, ERCOT PBRP/RTP, DOE, NLR (see source)",transcribed by hand; page in the page column
+note,REAL,"MISO Transmission Cost Estimation Guide MTEP24, ERCOT PBRP/RTP, DOE, NLR (see source)",transcribed by hand; page in the page column

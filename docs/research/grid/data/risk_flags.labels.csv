@@ -1,0 +1,38 @@
+column,label,source,note
+sub,REAL,ERCOT NP4-160 SUBSTATION,join key
+county,DERIVED,data/substations.csv (Census TIGER polygons),county of the placed coordinate
+zone,REAL,ERCOT NP4-160,load zone
+kv_max,REAL,ERCOT NP4-160,
+lat,DERIVED,data/substations.csv,"placed coordinate; for plant-matched subs this is the plant, not the fence"
+lon,DERIVED,data/substations.csv,
+match_conf,DERIVED,data/substations.csv,site-level checks need >= 0.5
+risk_basis,DERIVED,risk.py,"site = FEMA/WHP/seismic at the coordinate (match_conf >= 0.5, kv >= 69); county = county-level storm counts only; none = no county"
+flood_zone,REAL,"FEMA NFHL S_FLD_HAZ_AR (point query, worst zone in a 100 m buffer if the point is ambiguous)",NOT_MAPPED = no NFHL polygon
+flood_subtype,REAL,FEMA NFHL ZONE_SUBTY,
+flood_flag,DERIVED,risk.py from flood_zone,high = special flood hazard area; moderate = 0.2% annual chance; minimal; unmapped; undetermined
+flood_floodway,DERIVED,risk.py from ZONE_SUBTY,regulatory floodway
+flood_sfha_within_100m,DERIVED,"risk.py, FEMA_BUFFER_M",a special flood hazard area lies within 100 m (coordinate-error allowance)
+flood_bfe_ft,REAL,FEMA NFHL STATIC_BFE,base flood elevation where published
+wildfire_class,DERIVED,USFS WHP 2023 classified raster (site + 8-point 600 m ring); county_site_max fallback,most severe burnable class; non_burnable/water if none
+wildfire_basis,DERIVED,risk.py,site or county_site_max
+whp_class_site_raw,REAL,USFS WHP 2023,"raw class at the coordinate: 1 very low .. 5 very high, 6 non-burnable, 7 water"
+whp_class_ring_max,REAL,USFS WHP 2023,max burnable class on the ring
+storm_hurricane_ct,REAL,"NOAA NCEI Storm Events 2000-2025, county","hurricane, tropical storm/depression, storm surge records"
+storm_tornado_ct,REAL,NOAA Storm Events,
+storm_winter_ct,REAL,NOAA Storm Events,"winter storm, ice storm, blizzard, heavy snow, sleet, winter weather, freezing fog"
+storm_flood_ct,REAL,NOAA Storm Events,"flood, flash flood, coastal flood"
+storm_wind_ct,REAL,NOAA Storm Events,"thunderstorm wind, high wind, strong wind"
+storm_coldheat_ct,REAL,NOAA Storm Events,"extreme cold, cold, excessive heat, heat, frost/freeze"
+storm_wildfire_ct,REAL,NOAA Storm Events,
+storm_damage_musd,REAL,"NOAA Storm Events DAMAGE_PROPERTY, all event types","nominal $ million, county"
+dist_coast_km,DERIVED,OSM natural=coastline (bays included),straight-line distance
+coastal_flag,DERIVED,"risk.py, COASTAL_KM",within 25 km of the coastline (ASSUMPTION threshold)
+seismic_n_m3_25km,REAL,USGS ComCat M>=3 since 2015,events within 25 km
+seismic_max_mag,REAL,USGS ComCat,
+seismic_flag,DERIVED,"risk.py, SEISMIC_FLAG_MIN_EVENTS",Permian induced-seismicity flag only; never excludes
+wx_station,DERIVED,arena NOAA GHCN-Daily airports,"nearest of eight; coarse, can be several hundred km away"
+wx_station_km,DERIVED,risk.py,
+heat_days_100f_yr,DERIVED,arena NOAA GHCN-Daily 2003-2025,mean days a year with Tmax >= 100 F at the nearest station
+cold_days_20f_yr,DERIVED,arena NOAA GHCN-Daily 2003-2025,mean days a year with Tmin <= 20 F at the nearest station
+exclude_flag,DERIVED,risk.py exclusion constants,True for site-assessed subs that trip a rule; blank if not assessed
+exclude_reason,DERIVED,risk.py,"floodway, flood_sfha, wildfire_very_high (first rule that trips), none, or not_assessed"

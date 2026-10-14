@@ -1,0 +1,20 @@
+column,label,source,note
+year,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+market,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+period,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+rank_rent,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+rank_freq,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+constraint_name,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+from_station,REAL,"ERCOT report wording (C&N rows); blank for Potomac rows, parsed later",
+to_station,REAL,ERCOT report wording (C&N rows),
+kv,REAL,stated in the ERCOT C&N element name; blank when not stated,
+element_type,DERIVED,"name test (GTC/Interface, XFMR, else line)",
+rent_musd,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+binding_intervals_5min,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+binding_hours_da,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+outage_related,REAL,ERCOT C&N 'Outage Related?' column,"row alignment read from text order, see note (UNVERIFIED for 2024)"
+area,ASSUMPTION,analyst grouping from station names,not a source statement
+source,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+doc,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+page,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+note,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,

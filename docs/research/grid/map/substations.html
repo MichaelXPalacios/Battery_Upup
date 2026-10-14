@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ERCOT substations and priority constraints</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700&display=swap">
+<style>
+:root{
+  --brand:#1e4d2b; --brand-tint:#e4efe6; --ink:#10231a; --ink-2:#34443a; --muted:#5f6b63;
+  --bg:#f7f4ec; --panel:#fffdf8; --border:#e3dfd3; --border-strong:#cfcabd; --board:#efece3;
+  --import:#2f6f9f; --export:#c7962b; --neutral:#b9b4a6; --flag:#b23a2f;
+  --font-sans:'Hanken Grotesk',system-ui,sans-serif;
+  --ease-state:cubic-bezier(.3,.7,.2,1); --dur-state:300ms;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font-family:var(--font-sans);font-size:14px;line-height:1.5;color:var(--ink);background:var(--bg);display:flex;font-variant-numeric:tabular-nums}
+aside{width:340px;flex:none;padding:16px;overflow:auto;background:var(--panel);border-right:1px solid var(--border)}
+#map{flex:1;min-width:0;background:var(--board)}
+h1{font-size:20px;line-height:1.15;letter-spacing:-0.02em;margin:0 0 4px;font-weight:700}
+h2{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin:16px 0 6px;font-weight:700}
+p{margin:0 0 8px}
+.small{font-size:12.5px;color:var(--ink-2)}
+.tag{display:inline-block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--border-strong);border-radius:3px;padding:0 5px;color:var(--muted);margin-left:4px;vertical-align:1px}
+label{display:flex;gap:8px;align-items:center;margin:2px 0}
+select{width:100%;font:inherit;padding:6px 8px;border:1px solid var(--border-strong);border-radius:6px;background:var(--panel);color:var(--ink)}
+.card{border:1px solid var(--border);border-radius:10px;padding:10px 12px;background:var(--panel);margin-top:8px}
+.card b{font-weight:700}
+.bar{height:10px;border-radius:3px;border:1px solid var(--border-strong)}
+.row{display:flex;justify-content:space-between;gap:8px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-2px;border:1px solid rgba(16,35,26,.35)}
+button{font:inherit;border:1px solid var(--border-strong);background:var(--panel);border-radius:8px;padding:4px 10px;cursor:pointer;color:var(--ink)}
+button:hover{background:var(--brand-tint)}
+.warn{border-color:var(--flag);color:var(--ink)}
+.leaflet-popup-content{font-family:var(--font-sans);font-size:13px;margin:10px 12px}
+#err{display:none}
+@media (max-width:760px){body{flex-direction:column}aside{width:100%;max-height:48vh;border-right:0;border-bottom:1px solid var(--border)}}
+</style>
+</head>
+<body>
+<aside>
+  <h1>ERCOT substations and priority constraints</h1>
+  <p class="small">Substation positions come from public OSM, HIFLD and EIA data matched by name; the confidence is a heuristic, not a probability. Shift factors are fitted from one week of real-time and 31 days of day-ahead prices.</p>
+
+  <h2>Colour substations by</h2>
+  <label><input type="radio" name="mode" value="conf" checked> Match confidence</label>
+  <label><input type="radio" name="mode" value="sf"> Shift factor to a constraint</label>
+  <label><input type="radio" name="mode" value="hops"> Hops to a constraint</label>
+
+  <h2>Constraint</h2>
+  <select id="csel" aria-label="Constraint for shift factor colouring"></select>
+  <div class="card" id="ccard"><span class="small">Pick a constraint, or click a line on the map.</span></div>
+
+  <h2>Legend</h2>
+  <div id="legend"></div>
+
+  <h2>Selected substation</h2>
+  <div class="card" id="scard"><span class="small">Click a substation.</span></div>
+
+  <h2>Layers</h2>
+  <label><input type="checkbox" id="lines" checked> Priority constraint lines (width = priority score)</label>
+  <label><input type="checkbox" id="low"> Show matches below 0.5 confidence</label>
+  <p class="small" style="margin-top:8px">Sign convention: congestion = LMP &minus; system lambda = &minus;&sum; SF &times; shadow price. SF &lt; 0 is the <b>import side</b> (price rises above lambda when the constraint binds; a battery discharges into it). SF &gt; 0 is the <b>export side</b> (price falls; a battery charges there, and injecting loads the constraint). Dashed lines did not bind in the window; they are in the table from the 2025 market-monitor rents.</p>
+  <p class="small">Labels: SF method rt_reg and dam_reg are <span class="tag">DERIVED</span> from ERCOT prices; dcpf_proxy uses typical line reactances <span class="tag">ASSUMPTION</span> and is low confidence. Hops count graph edges on the OSM/HIFLD line graph.</p>
+  <div class="card warn" id="err"></div>
+</aside>
+<div id="map"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="substations_data.js"></script>
+<script>
+(function(){
+  var D = window.GRID_MAP;
+  var errBox = document.getElementById('err');
+  function fail(msg){ errBox.style.display='block'; errBox.textContent=msg; }
+  if(!D){ fail('substations_data.js did not load. Run `run_grid.py map` from docs/research/grid, then reload.'); return; }
+  if(!window.L){ fail('Leaflet 1.9.4 did not load from cdnjs (offline?). The page needs network access for Leaflet and map tiles.'); return; }
+
+  var S = D.subs, n = S.sub.length, SC = D.scale, ND = D.nodata, UN = D.hops_unreached;
+  var map = L.map('map', {preferCanvas:true, zoomSnap:0.25}).setView([31.2,-99.3], 6);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:18, attribution:'&copy; OpenStreetMap contributors (ODbL)'}).addTo(map);
+  var canvas = L.canvas({padding:0.5});
+
+  // ---- colours
+  function confColor(c){
+    // 0 -> pale, 1 -> brand green (green = ours/selected in the design system, here simply high confidence)
+    var stops=[[0,[207,202,189]],[0.5,[199,150,43]],[0.7,[138,165,143]],[1,[30,77,43]]];
+    for(var i=1;i<stops.length;i++){ if(c<=stops[i][0]){ var a=stops[i-1], b=stops[i], t=(c-a[0])/(b[0]-a[0]); return mix(a[1],b[1],t);} }
+    return mix(stops[3][1],stops[3][1],0);
+  }
+  function mix(a,b,t){ return 'rgb('+Math.round(a[0]+(b[0]-a[0])*t)+','+Math.round(a[1]+(b[1]-a[1])*t)+','+Math.round(a[2]+(b[2]-a[2])*t)+')'; }
+  var IMP=[47,111,159], EXP=[199,150,43], NEU=[185,180,166];
+  function sfColor(v){ // v in SF units
+    var a=Math.min(Math.abs(v)/0.5,1);
+    if(Math.abs(v)<D.sf_side_min) return mix(NEU,NEU,0);
+    return v<0 ? mix([196,214,228],IMP,a) : mix([240,222,178],EXP,a);
+  }
+  function hopColor(h){ var t=Math.min(h/12,1); return mix([30,77,43],[226,222,208],t); }
+
+  // ---- markers
+  var markers=[], mode='conf', cur=null, showLow=false;
+  function radius(i){ var k=S.kv[i], z=Math.min(Math.max(1+(map.getZoom()-6)*0.35,1),3); return z*(k>=345?3.6:(k>=138?2.6:1.9)); }
+  for(var i=0;i<n;i++){
+    var m=L.circleMarker([S.lat[i],S.lon[i]], {renderer:canvas, radius:radius(i), weight:0.8, color:'rgba(16,35,26,.45)', fillOpacity:0.9, fillColor:'#999'});
+    m._i=i; m.on('click', (function(mm){return function(){ pick(mm._i); };})(m));
+    markers.push(m);
+  }
+  var group=L.layerGroup(markers).addTo(map);
+  map.on('zoomend', function(){ for(var i=0;i<n;i++) markers[i].setRadius(radius(i)); });
+
+  function sfOf(i){ if(!cur) return null; var v=D.sf[cur][i]; return v===ND?null:v/SC; }
+  function hopOf(i){ if(!cur) return null; var v=D.hops[cur][i]; return v===ND?null:v; }
+
+  function paint(){
+    for(var i=0;i<n;i++){
+      var m=markers[i], c=S.conf[i], vis = showLow || c>=0.5 || mode!=='conf';
+      var fill, op=0.9, w=0.8;
+      if(mode==='conf'){ fill=confColor(c); vis = showLow || c>=0.5; }
+      else if(mode==='sf'){ var v=sfOf(i); if(v===null){ fill='#fffdf8'; op=0.25; } else fill=sfColor(v); }
+      else { var h=hopOf(i); if(h===null){ fill='#fffdf8'; op=0.25; } else fill=hopColor(h); }
+      m.setStyle({fillColor:fill, fillOpacity:op, weight:w, opacity: vis?0.9:0});
+      if(!vis) m.setStyle({fillOpacity:0, opacity:0});
+    }
+    legend();
+  }
+
+  function legend(){
+    var L_=document.getElementById('legend');
+    if(mode==='conf'){
+      L_.innerHTML='<div class="bar" style="background:linear-gradient(90deg,'+confColor(0)+','+confColor(0.5)+','+confColor(0.7)+','+confColor(1)+')"></div><div class="row small"><span>0</span><span>0.5</span><span>0.7</span><span>1.0 match confidence</span></div><p class="small">Dot size: 345 kV &gt; 138 kV &gt; 69 kV (highest bus voltage).</p>';
+    } else if(mode==='sf'){
+      L_.innerHTML='<div class="bar" style="background:linear-gradient(90deg,'+sfColor(-0.5)+','+sfColor(-0.1)+','+mix(NEU,NEU,0)+','+sfColor(0.1)+','+sfColor(0.5)+')"></div><div class="row small"><span>&minus;0.5 import side</span><span>0</span><span>+0.5 export side</span></div><p class="small"><span class="sw" style="background:#fffdf8"></span>no value for this substation (not fitted or off the graph). Grey = |SF| below '+D.sf_side_min+'.</p>';
+    } else {
+      L_.innerHTML='<div class="bar" style="background:linear-gradient(90deg,'+hopColor(0)+','+hopColor(12)+')"></div><div class="row small"><span>0 hops</span><span>12+ hops</span></div><p class="small">Graph edges to the nearest end of the monitored element. Blank = interface constraint (no endpoints) or substation not on the graph.</p>';
+    }
+  }
+
+  // ---- constraint lines
+  var lineLayer=L.layerGroup().addTo(map), lineById={}, hi=L.layerGroup().addTo(map);
+  var maxScore=Math.max.apply(null, D.constraints.map(function(c){return c.score;}));
+  D.constraints.forEach(function(c){
+    if(c.pts.length!==2) return;
+    var pl=L.polyline(c.pts, {color: c.binding?'#10231a':'#5f6b63', weight:1.5+7*c.score/maxScore, opacity:0.75, dashArray: c.binding?null:'6 5', renderer:canvas});
+    pl.on('click', function(){ select(c.cid, true); });
+    pl.bindTooltip('#'+c.rank+' '+c.element);
+    pl.addTo(lineLayer); lineById[c.cid]=pl;
+  });
+
+  // ---- selector
+  var sel=document.getElementById('csel');
+  var optNone=document.createElement('option'); optNone.value=''; optNone.textContent='(choose a constraint)'; sel.appendChild(optNone);
+  D.constraints.filter(function(c){return c.has_sf;}).forEach(function(c){
+    var o=document.createElement('option'); o.value=c.cid;
+    o.textContent='#'+c.rank+'  '+c.element+'  ['+c.cid.split('|')[1]+']'; sel.appendChild(o);
+  });
+  sel.addEventListener('change', function(){ select(sel.value, false); });
+  var byId={}; D.constraints.forEach(function(c){byId[c.cid]=c;});
+
+  function select(cid, fromLine){
+    hi.clearLayers();
+    if(!cid || !byId[cid]){ cur=null; document.getElementById('ccard').innerHTML='<span class="small">Pick a constraint, or click a line on the map.</span>'; paint(); return; }
+    var c=byId[cid];
+    if(c.has_sf){ cur=cid; sel.value=cid; if(mode==='conf'){ setMode('sf'); } } else { cur=null; }
+    var up = c.up_id ? ('<br>Planned upgrade: <b>'+c.up_id+'</b>, '+(c.up_status||'')+', in service '+(c.up_date||'?')+' <span class="tag">match '+(c.up_conf===null?'?':c.up_conf)+'</span>') : '<br>No planned upgrade matched.';
+    document.getElementById('ccard').innerHTML='<b>#'+c.rank+' '+c.element+'</b><span class="tag">'+c.type+'</span><br><span class="small">'+c.cid+'</span><br>'+
+      'Priority score '+c.score+'. Binding in window: RT '+c.rt_h+' h, DAM '+c.dam_h+' h'+(c.binding?'':' (did not bind)')+'.<br>'+
+      '2025 IMM rent: '+(c.rent25===null?'n/a':'$'+c.rent25+' M')+' <span class="tag">REAL</span>'+up+
+      '<br>SF method: '+(c.sf_method||'none')+(c.has_sf?'':' (no SF layer for this one)');
+    if(c.pts.length===2){ hi.addLayer(L.polyline(c.pts,{color:'#b23a2f',weight:3,opacity:0.95,renderer:canvas})); if(fromLine) map.fitBounds(L.latLngBounds(c.pts).pad(1.5)); }
+    paint();
+  }
+
+  // ---- substation card
+  function pick(i){
+    var h='<b>'+S.sub[i]+'</b> <span class="tag">'+S.kv[i]+' kV</span><br>'+S.zone[i]+(S.county[i]?', '+S.county[i]+' County':'')+'<br>Position: '+S.method[i]+', confidence '+S.conf[i]+(S.conf[i]<0.5?' (below 0.5: a hint, not a position)':'')+(S.rn[i]?'<br>Has a resource node.':'');
+    if(cur){
+      var v=sfOf(i), hp=hopOf(i), c=byId[cur];
+      h+='<hr style="border:0;border-top:1px solid var(--border);margin:8px 0"><span class="small">'+c.element+'</span><br>';
+      if(v===null) h+='SF: no value'; else {
+        var side = v<=-D.sf_side_min?'import side':(v>=D.sf_side_min?'export side':'neutral');
+        h+='SF <b>'+v.toFixed(3)+'</b> ('+side+')'+(v>=D.sf_curtail_min?'<br><b>Curtailment flag:</b> injecting here loads this constraint.':'');
+      }
+      h+='<br>Hops to element: '+(hp===null?'n/a':hp);
+    }
+    document.getElementById('scard').innerHTML=h;
+  }
+
+  function setMode(m){ mode=m; var r=document.querySelectorAll('input[name=mode]'); for(var k=0;k<r.length;k++) r[k].checked=(r[k].value===m); paint(); }
+  var radios=document.querySelectorAll('input[name=mode]');
+  for(var k=0;k<radios.length;k++) radios[k].addEventListener('change', function(e){
+    if(e.target.value!=='conf' && !cur){ var first=D.constraints.filter(function(c){return c.has_sf;})[0]; if(first) select(first.cid,false); }
+    mode=e.target.value; paint();
+  });
+  document.getElementById('lines').addEventListener('change', function(e){ if(e.target.checked) map.addLayer(lineLayer); else map.removeLayer(lineLayer); });
+  document.getElementById('low').addEventListener('change', function(e){ showLow=e.target.checked; paint(); });
+  paint();
+  window.GRID_MAP_VIEW = {map: map, markers: markers};   // handle for tests and for the Phase 6 report page
+})();
+</script>
+</body>
+</html>

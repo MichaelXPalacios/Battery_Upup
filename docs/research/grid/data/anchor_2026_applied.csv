@@ -1,0 +1,11 @@
+cid,constraint_name,market,ytd_musd,months,annualised_musd,limit_mw,sph_before,sph_after,basis_before,H_before,H_after,H_basis_before,H_basis_after,mean_shadow_after,cap_usd_mwh,raised_by_cap_rule,largest_month,largest_month_share,one_month_dominates,last3_share,used_in_primary
+35055__A|SVENFTS5,35055__A,RT,35.4,8,53.1,1115.0,1535.8823,47623.3184,window_dam,123.1234,450.4774,window_dam_hours,imm2026_rent_x_hours_per_musd_bounded_by_10th_ranked,105.7174,4500.0,False,aug,0.361,False,0.5983,True
+587__A|XW_2D58,587__A,RT,37.33,8,55.995,217.35,233862.4339,255950.0089,imm_rent_alloc,431.2197,661.375,imm_rent_x_hours_per_musd,imm2026_rt_count,386.9968,3500.0,False,jan,0.3707,False,0.0024,True
+587__A|XW_D58,587__A,RT,37.33,8,55.995,216.5,861.3252,942.6747,window_dam,63.8418,661.375,window_dam_hours,imm2026_rt_count,1.4253,3500.0,False,jan,0.3707,False,0.0024,True
+587__A|DDHMLWS5,587__A,RT,37.33,8,55.995,214.0,683.8964,748.4883,window_dam,109.443,661.375,window_dam_hours,imm2026_rt_count,1.1317,3500.0,False,jan,0.3707,False,0.0024,True
+6945__A|SRGRMGS5,6945__A,RT,57.59,8,86.385,1361.15,3416.1417,63464.7173,window_rt,97.2527,617.125,window_rt_hours,imm2026_rent_x_hours_per_musd_bounded_by_10th_ranked,102.8393,4500.0,False,may,0.2652,False,0.2985,False
+EASTEX|BASE CASE,EASTEX,RT,37.85,8,56.775,2260.3,2634.9477,25118.3471,window_rt,298.7056,481.6545,window_rt_hours,imm2026_rent_x_hours_per_musd_bounded_by_10th_ranked,52.1501,5251.0,False,apr,0.5577,True,0.1498,True
+LPLMK_LPLNE_1|SBWDDBM5,LPLMK_LPLNE_1,RT,30.05,8,45.075,217.7,3219.2161,207050.9876,window_rt,43.069,382.3968,window_rt_hours,imm2026_rent_x_hours_per_musd_bounded_by_10th_ranked,541.4558,3500.0,False,jan,0.3101,False,0.2376,True
+STPWAP39_1|DWPWFWP5,STPWAP39_1,RT,60.85,8,91.275,1316.95,13415.012,23319.3606,imm_rent_alloc,149.8783,687.75,imm_rent_x_hours_per_musd,imm2026_rt_count,33.9067,4500.0,False,aug,0.4013,False,0.9012,True
+STPWAP39_1|DBLBYWF5,STPWAP39_1,RT,60.85,8,91.275,1317.05,25817.6227,44878.8608,imm_rent_alloc,288.4676,687.75,imm_rent_x_hours_per_musd,imm2026_rt_count,65.2546,4500.0,False,aug,0.4013,False,0.9012,True
+STPWAP39_1|SBLYBLU5,STPWAP39_1,RT,60.85,8,91.275,1325.0,632.525,1099.5203,window_dam,118.5633,687.75,window_dam_hours,imm2026_rt_count,1.5987,4500.0,False,aug,0.4013,False,0.9012,True

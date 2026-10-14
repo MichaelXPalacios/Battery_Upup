@@ -1,0 +1,9 @@
+column,label,source,note
+rank_rev1,DERIVED,data/site_candidates.csv as committed in revision 1 (git c951894),screening rank of the site in the revision-1 list of 40 candidates
+sub,REAL,NP4-160 SUBSTATION,
+a5_2021_25_rev1,SIM,data/sites.csv as committed in revision 1,"2 h learner, 2021-25 mean, $/kW-yr, revision 1"
+a5_2025_rev1,SIM,data/sites.csv as committed in revision 1,"2 h learner, 2025, revision 1"
+uplift_2021_25_rev1,SIM,data/sites.csv as committed in revision 1,"gain over the load zone, 2021-25, revision 1"
+fwd_2031_rev1,SIM,data/sites.csv as committed in revision 1,"forward learner value 2031, revision 1"
+basis_half_life_rev1,SIM,data/sites.csv as committed in revision 1,"basis half-life, revision 1"
+dominant_element_rev1,DERIVED,data/sites.csv as committed in revision 1,"dominant element, revision 1"

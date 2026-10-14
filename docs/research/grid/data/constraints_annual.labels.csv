@@ -1,0 +1,21 @@
+column,label,source,note
+year,REAL,Potomac Economics monthly reports / ERCOT Constraints and Needs reports (see source),transcribed by hand with page numbers in data/transcribed_constraints.csv
+constraint_name,REAL,Potomac Economics monthly reports / ERCOT Constraints and Needs reports (see source),transcribed by hand with page numbers in data/transcribed_constraints.csv
+from_station,DERIVED,"split of the parenthetical station pair in the Potomac constraint name, or the ERCOT report wording","SCED short names (e.g. TWINBU, HARGROVE); Phase 2 maps to NP4-160 codes and the NP6-86 constraint table"
+to_station,DERIVED,same as from_station,
+kv,REAL,ERCOT C&N reports state kV in the element name; blank where only the Potomac name is available,Phase 2 fills blanks from NP6-86-CD
+element_type,DERIVED,"name test: GTC/Interface = gtc, XFMR = xfmr, else line",check against NP6-86-CD before relying on it
+rent_musd,REAL,source named in the row,RT/DA/RT_ERCOT_CN: realised congestion rent $M; RTP_PROJ_*: projected rent $M/yr
+binding_hours,DERIVED,RT: SCED 5-minute intervals / 12; DA: hours binding as published,RT_ERCOT_CN rows carry no frequency; projected rows are blank
+area,ASSUMPTION,analyst grouping from the station names (and docs/research/ercot.md for the 2025 top constraints),"blank = not assigned; do not use for geography, 1c supplies coordinates"
+source,REAL,Potomac Economics monthly reports / ERCOT Constraints and Needs reports (see source),transcribed by hand with page numbers in data/transcribed_constraints.csv
+market,DERIVED,docs_parse.py,RT / DA = Potomac actuals; RT_ERCOT_CN = ERCOT C&N top 10 (12-month window in 'period'); RTP_PROJ_BASE / RTP_PROJ_SENS = ERCOT economic-study projections. Do not sum across markets: RT and DA describe the same physical elements
+period,REAL,Potomac Economics monthly reports / ERCOT Constraints and Needs reports (see source),transcribed by hand with page numbers in data/transcribed_constraints.csv
+rank_rent,REAL,Potomac Economics monthly reports / ERCOT Constraints and Needs reports (see source),transcribed by hand with page numbers in data/transcribed_constraints.csv
+rank_freq,REAL,Potomac Economics monthly reports / ERCOT Constraints and Needs reports (see source),transcribed by hand with page numbers in data/transcribed_constraints.csv
+outage_related,REAL,Potomac Economics monthly reports / ERCOT Constraints and Needs reports (see source),transcribed by hand with page numbers in data/transcribed_constraints.csv
+binding_intervals_5min,REAL,Potomac 'Number of SCED Intervals',
+element_id,DERIVED,parenthetical station pair or GTC code from the Potomac name; ELEMENT_ALIASES maps ERCOT-wording rows to it,join key to match the same element across Potomac and ERCOT-wording rows
+doc,REAL,Potomac Economics monthly reports / ERCOT Constraints and Needs reports (see source),transcribed by hand with page numbers in data/transcribed_constraints.csv
+page,REAL,Potomac Economics monthly reports / ERCOT Constraints and Needs reports (see source),transcribed by hand with page numbers in data/transcribed_constraints.csv
+note,REAL,Potomac Economics monthly reports / ERCOT Constraints and Needs reports (see source),transcribed by hand with page numbers in data/transcribed_constraints.csv

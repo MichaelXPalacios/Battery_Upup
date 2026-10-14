@@ -1,0 +1,30 @@
+column,label,source,note
+spec,DERIVED,this module,"grid = 1 MW / 2 MWh, grid4h = 1 MW / 4 MWh (gridsite.specs)"
+lane,REAL,NP4-160 SUBSTATION / arena zone name,a candidate substation (its highest-kV bus as a new resource node) or one of the 8 arena load zones (control)
+role,DERIVED,this module,"candidate (the 40-site list), control_zone, regional (R1's picks) or rev1_only (a revision-1 candidate that left the list)"
+rank,DERIVED,data/site_candidates.csv,screening rank; 0 for controls; the position inside the group for regional and rev1_only
+zone,DERIVED,"NP4-160 NOIE zone, else load zone",the zone control the uplift is measured against
+period,DERIVED,this module,"a calendar year, or mean_2021_25 / mean_2023_25 / mean_2024_25 (mean of the annual values)"
+days,DERIVED,this module,simulated days in the period
+partial_year,DERIVED,this module,"True for 2026: annualised from 1 Jan to 26 Sep (the missing Q4 is the cheap season, so the annualisation may flatter or hurt)"
+usd_kw_yr_A1,SIM,arena dispatch (gridsite.runner) on the rebuilt lane,"energy-only profit after $20/MWh wear, $ per kW-yr; walk-forward, prices up to yesterday; control rows run on REAL zone prices"
+usd_kw_yr_A2,SIM,arena dispatch (gridsite.runner) on the rebuilt lane,"energy-only profit after $20/MWh wear, $ per kW-yr; walk-forward, prices up to yesterday; control rows run on REAL zone prices"
+usd_kw_yr_A3,SIM,arena dispatch (gridsite.runner) on the rebuilt lane,"energy-only profit after $20/MWh wear, $ per kW-yr; walk-forward, prices up to yesterday; control rows run on REAL zone prices"
+usd_kw_yr_A4,SIM,arena dispatch (gridsite.runner) on the rebuilt lane,"energy-only profit after $20/MWh wear, $ per kW-yr; walk-forward, prices up to yesterday; control rows run on REAL zone prices"
+usd_kw_yr_A5,SIM,arena dispatch (gridsite.runner) on the rebuilt lane,"energy-only profit after $20/MWh wear, $ per kW-yr; walk-forward, prices up to yesterday; control rows run on REAL zone prices"
+usd_kw_yr_oracle,SIM,arena.battery.oracle_days,perfect-foresight ceiling on the same lane (the arena's yardstick)
+a5_over_oracle,DERIVED,A5 / oracle,the learner's share of the ceiling
+usd_per_mwh_A1,SIM,profit after wear / MWh discharged,margin per MWh sold
+usd_per_mwh_A2,SIM,profit after wear / MWh discharged,margin per MWh sold
+usd_per_mwh_A3,SIM,profit after wear / MWh discharged,margin per MWh sold
+usd_per_mwh_A4,SIM,profit after wear / MWh discharged,margin per MWh sold
+usd_per_mwh_A5,SIM,profit after wear / MWh discharged,margin per MWh sold
+mwh_out_per_kw_yr_A5,SIM,arena ledger,MWh discharged per kW-yr by the learner
+uplift_usd_kw_yr_A1,SIM,"node minus zone control, same algorithm, same run",what siting at the node adds over the load zone (negative = the node is worse than the zone)
+uplift_usd_kw_yr_A2,SIM,"node minus zone control, same algorithm, same run",what siting at the node adds over the load zone (negative = the node is worse than the zone)
+uplift_usd_kw_yr_A3,SIM,"node minus zone control, same algorithm, same run",what siting at the node adds over the load zone (negative = the node is worse than the zone)
+uplift_usd_kw_yr_A4,SIM,"node minus zone control, same algorithm, same run",what siting at the node adds over the load zone (negative = the node is worse than the zone)
+uplift_usd_kw_yr_A5,SIM,"node minus zone control, same algorithm, same run",what siting at the node adds over the load zone (negative = the node is worse than the zone)
+uplift_usd_kw_yr_oracle,SIM,"node minus zone control, same algorithm, same run",what siting at the node adds over the load zone (negative = the node is worse than the zone)
+a5_top_expert,SIM,learner picks,the expert the learner followed most days
+a5_top_expert_share,SIM,learner picks,share of days

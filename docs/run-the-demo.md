@@ -13,7 +13,7 @@ Open **http://127.0.0.1:8765/ui/index.html**. Stop the server with Ctrl-C.
 
 `serve.sh` is only a file server (`python3 -m http.server`). Any static server rooted at the repo works; the page must be served from the **repo root** so that `/ui/` (and the archived `/previous-work/demos/grid-stories/ui/dist/` and `/previous-work/four-home-simulation/`) resolve from one origin.
 
-## The four story pages
+## The story pages
 
 One scenario at a time, chosen on page 1 and carried through the rest. Every scenario is a run the engine already made and committed; the catalogue that lists them is `ui/data/story/index.json`.
 
@@ -24,6 +24,7 @@ One scenario at a time, chosen on page 1 and carried through the rest. Every sce
 | **Run** | `?page=run` | The evening in 3D, 16:00 to 04:00, one-minute steps: the street, the rule-generated story line, the lanes (worst transformer, streets A–D and T-240, price, fleet charge, fleet power) and the "Right now" card, with any failure in red. |
 | **Results** | `?page=results` | The verdict and four tiles (worst transformer, normal-rating events, lowest home voltage, fleet charged by 04:00), each with every other committed run beneath it; voltage by bus from the substation outwards; reactive power. Only the hidden-attacker scenario shows ERCOT context: the REAL frequency of 25 Sep 2026, dated "a different day", beside the 3–17 mHz band. |
 | **Learnings** | `?page=learnings&q=1..4` | Q1 how many batteries fit (naive vs feeder-aware, OpenDSS); Q2 one transformer, 0 to 50 batteries; Q3 which transformers to upgrade as home load grows; Q4 where the next battery helps most. |
+| **Markets** | `?page=markets&q=1..3` | The grid-research desk (`docs/research/arena/`), ERCOT or NYISO from the rail. Q1 one load zone: what the adaptive learner earned on real prices 2015–2026 against the perfect-foresight ceiling, then the 2027–31 forecast fan (P10, median, P90 across 20 futures), risk tiles, six computed sentences, weather and gas sensitivities, seasonality and the year-by-year tape; Q2 the forecast split by weather region; Q3 how a trader reads it (position, distribution, factor, regime, carry). Data: `ui/data/markets/index.json`, rebuilt by `scripts/export_markets.py` from the arena's caches. |
 
 **Link parameters** (defaults are omitted): `s=<scenario id>` (for example `2026-08-23/naive`, `2026-08-23/aware/faults`, `2026-08-23/aware/worker_kill`, `2026-08-23/aware/covert`, `2026-08-23/naive/fleet=192`), `k=<step>` (minutes after 16:00: `k=390` is 22:30), `speed=0.1|0.25|0.5|1|2|4` (default 0.25×, 2.5 simulated minutes a second), `q=1..4`, `tf=<transformer index>`, `n=0..50`. An unknown `s` falls back to the default scenario with a notice. `&nowebgl=1` forces the 2D fallback.
 

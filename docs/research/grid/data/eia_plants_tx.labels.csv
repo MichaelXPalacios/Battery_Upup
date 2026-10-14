@@ -1,0 +1,20 @@
+column,label,source,note
+plant_code,REAL,EIA-860 / 860M,EIA plant code
+name,REAL,EIA-860 / 860M,
+lat,REAL,EIA-860 Plant sheet | 860M,
+lon,REAL,EIA-860 Plant sheet | 860M,
+county,REAL,EIA-860 / 860M,upper case
+tech_mix,DERIVED,EIA-860 / 860M Technology,"technology:MW (nameplate, operating + planned) joined with ;"
+mw_operating,DERIVED,EIA-860M Operating sheet (Aug 2026); EIA-860 2025 for plants absent from it,nameplate MW
+mw_planned,DERIVED,EIA-860M Planned sheet (Aug 2026),"nameplate MW, any planned status (P, L, T, U, V, TS)"
+storage_mw,DERIVED,EIA-860M,"battery + flywheel nameplate MW, operating"
+storage_mw_planned,DERIVED,EIA-860M,"battery nameplate MW, planned"
+storage_mwh,DERIVED,EIA-860M,"battery nameplate energy MWh, operating"
+planned_cod_first,REAL,EIA-860M Planned sheet,earliest planned operation date (YYYY-MM) among the plant's planned units
+utility,REAL,EIA-860,owner / operator entity
+tdsp,REAL,EIA-860 Plant sheet,transmission or distribution system owner
+grid_kv,REAL,EIA-860 Plant sheet,"grid voltage at the point of interconnection, kV (annual file only)"
+balancing_authority,REAL,EIA-860 / 860M,ERCO = ERCOT
+in_ercot,DERIVED,balancing authority,True when ERCO
+county_from_coords,DERIVED,Census TIGER point-in-polygon,"county containing (lat, lon); differs from `county` for a handful of EIA records (data errors or border plants)"
+coord_county_match,DERIVED,geomatch,False flags an EIA record whose coordinates fall outside its stated county; match_eia down-weights those by EIA_BAD_COORD_F

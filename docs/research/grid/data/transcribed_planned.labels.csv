@@ -1,0 +1,16 @@
+column,label,source,note
+project_id,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+name,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+tsp,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+kv,DERIVED,stated in the project title where present,
+project_type,DERIVED,analyst reading of the project title,
+from_sub_name,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+to_sub_name,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+counties,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+in_service_date,REAL,ERCOT C&N Dec 2025 p.8 (year only); PBRP import paths use the C&N year for the whole programme,component dates in TPIT range 2028-2031
+status,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+cost_musd,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+source,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+doc,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+page,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,
+note,REAL,hand-transcribed from the document and page named in the 'doc' and 'page' (or 'source') columns,

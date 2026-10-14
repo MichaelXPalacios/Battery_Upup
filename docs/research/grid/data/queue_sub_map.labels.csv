@@ -1,0 +1,23 @@
+column,label,source,note
+inr_or_plant,REAL,ERCOT GIS report INR (queue) / EIA plant_code:generator_id,"key; queue rows are the storage projects of the Sep 2026 GIS report, eia rows are EIA-860/860M batteries"
+source,REAL,queue | eia,
+name,REAL,GIS project name / EIA plant name,
+status,REAL,GIS status text / EIA-860M status code text,
+stage,DERIVED,status,queue: IA_signed | FIS_started_no_IA | FIS_completed_no_IA | small_gen_model_ready | other; eia: operating | planned. IA signed is a firm commitment (rules.md (d))
+mw,REAL,GIS report MW / EIA nameplate MW,0 for 64 queue rows whose battery sits inside a solar or wind nameplate (is_slf); their real size is not published
+cod,REAL,"GIS projected COD (developer's date, slips) / EIA operating or planned operation month",
+county,REAL,GIS / EIA county,
+poi_text,REAL,"GIS report, verbatim",queue rows only
+poi_kv,REAL,GIS POI kV parsed by agent 1b / EIA plant grid voltage,
+colocation,DERIVED,GIS co-location class (agent 1b),stand_alone | solar | wind | thermal
+is_slf,REAL,GIS self-limiting facility flag,
+sub,DERIVED,queue_map.py,"ERCOT NP4-160 SUBSTATION; blank when unmapped. Queue: the existing station, or for a tap the end chosen by county / voltage (the other end is sub_alt). EIA: the substation of the plant's resource node unit or the nearest transmission substation"
+sub_alt,DERIVED,queue_map.py,queue tap: the other end of the tapped line; eia: other substations listing the plant. Split the MW between sub and sub_alt if both matter
+method,DERIVED,queue_map.py,psse_bus | psse_bus_tap | psse_bus_tap_one_end | name_county | eia_plant_link | nearest_sub | unmapped
+conf,ASSUMPTION,queue_map.py,"0-1. psse_bus: ASSUMPTION constants (0.95 / 0.75 / tap 0.60 / 0.50, -0.05 for a county mismatch). name_county and nearest_sub: observed hit rates on rows with a known answer (notes/phase3a.md). Not a calibrated probability for the other methods"
+is_tap,DERIVED,poi_text,"the project taps a line (a new switchyard, not an existing station)"
+sub_kv,REAL,data/substations.csv kv_max,highest voltage of the mapped substation
+sub_county,DERIVED,data/substations.csv,county of the mapped substation's coordinates
+note,DERIVED,queue_map.py,evidence for the mapping
+likely_duplicate_of,ASSUMPTION,queue_map.py flag_overlaps,"planned EIA rows only: the queue INR that is probably the same project (same substation, similar MW, and a similar name when overlap_conf is 0.8). Do not add both to the saturation MW"
+overlap_conf,ASSUMPTION,queue_map.py flag_overlaps,0.8 name and MW agree; 0.5 only the MW and substation agree; 0 no candidate

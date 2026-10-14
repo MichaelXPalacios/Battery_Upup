@@ -1,0 +1,64 @@
+column,label,source,note
+sub,REAL,ERCOT NP4-160 SUBSTATION,join key
+county,DERIVED,data/substations.csv,
+zone,REAL,ERCOT NP4-160,
+kv_max,REAL,ERCOT NP4-160,
+lat,DERIVED,data/substations.csv,
+lon,DERIVED,data/substations.csv,
+match_conf,DERIVED,data/substations.csv,
+site_level,DERIVED,reliability.py,match_conf >= 0.5 and a coordinate; other rows lean on county data
+has_resource_node,REAL,ERCOT NP4-160,
+reliability_need_score,ASSUMPTION,"SCORE_WEIGHTS (outage .30, pocket .25, facilities .20, Oncor .10, large load .15)","0-100, weights renormalised over the components present; the weights are a judgement, the sub-scores are in their own columns"
+need_rank,DERIVED,reliability.py,1 = highest need among rank_eligible subs
+rank_eligible,DERIVED,reliability.py,"site-level, 69 kV or more, with outage, pocket and facility components"
+main_driver,DERIVED,reliability.py,component with the largest weighted contribution
+n_components,DERIVED,reliability.py,of 5
+outage_score,ASSUMPTION,eaglei_county.csv,"0-1, percentile-based: .5 hours per customer, .25 p95 event share, .25 worst named-event share; blank in artifact counties"
+denominator_flag,ASSUMPTION,eaglei_county.csv,ok / inflated / artifact (EAGLE-I reports exceed the county's customers)
+pocket_score,ASSUMPTION,"OSM line graph; POCKET_MIX, BRIDGE_*_FACTOR, POCKET_SATURATION","0-1: half few circuits to the 345 kV backbone, half size of the pocket behind a bridge (halved for a double-circuit bridge, halved again if HIFLD adds a line that removes the bridge)"
+facility_score,ASSUMPTION,OSM; FACILITY_WEIGHTS,0-1
+oncor_score,ASSUMPTION,Oncor 2023 SQR; SAIDI/SAIFI saturation constants,0-1; Oncor substations only (exact code join)
+large_load_score,ASSUMPTION,ERCOT Batch Zero deck county MW (data/large_loads.csv); LARGE_LOAD_* constants,"0-1; only the top-5 counties and county groups are public, so most counties read 0 (not zero load)"
+cust_hours_per_cust_yr,DERIVED,eaglei_county.csv,county value
+events_per_yr,DERIVED,eaglei_county.csv,county value
+p95_event_peak_pct,DERIVED,eaglei_county.csv,county value
+uri_peak_pct,DERIVED,eaglei_county.csv,"% of county customers out at the peak, 13-23 Feb 2021"
+derecho_peak_pct,DERIVED,eaglei_county.csv,16-23 May 2024
+beryl_peak_pct,DERIVED,eaglei_county.csv,8-22 Jul 2024
+named_max_peak_pct,DERIVED,eaglei_county.csv,
+pocket_basis,DERIVED,reliability.py,linked_node = the sub's OSM node from phase 1c; nearest_node = nearest line-graph node within 3 km; none = no graph position
+osm_node,DERIVED,data/substations.csv / osm_substations.csv,
+node_kv,DERIVED,data/lines.csv (OSM edges),highest line voltage at the node
+node_degree,DERIVED,lines.csv,distinct neighbouring substations
+paths_345,DERIVED,networkx/scipy max-flow on OSM edges >= 69 kV in ERCOT counties,"edge-disjoint corridors to the >= 345 kV backbone, capped at 3 (own sink arc removed for backbone nodes)"
+paths_345_circuits,DERIVED,"same, each corridor counted as min(circuits, 3)","circuit-level redundancy: 1 = one circuit all the way (loses the sub on any single line outage), 2 = survives N-1, 3 = survives N-1-1; used by pocket_score"
+paths_138,DERIVED,same,edge-disjoint corridors to the >= 138 kV network
+behind_bridge,DERIVED,networkx bridges,True if one line corridor cut separates the sub from the core (largest 2-edge-connected block holding the backbone)
+behind_bridge_with_hifld,DERIVED,same plus HIFLD-only edges,False means the bridge disappears when HIFLD adds a line OSM lacks: treat the OSM bridge as a possible mapping gap
+island,DERIVED,networkx,"the sub's piece of the graph does not connect to the core at all: treated as a mapping gap, pocket_score left blank"
+n_bridges_to_core,DERIVED,bridge tree,bridges between the sub and the core
+bridge_circuits,DERIVED,lines.csv n_circuits,"circuits on the first bridge toward the core (2 = double circuit: survives N-1, not a tower loss)"
+bridge_kv,DERIVED,lines.csv,
+pocket_first_nodes,DERIVED,bridge tree,substations cut off if the first bridge toward the core fails
+pocket_outer_nodes,DERIVED,bridge tree,substations cut off if the outermost bridge (nearest the core) fails
+pocket_outer_subs,DERIVED,bridge tree,ERCOT subs at match_conf >= 0.5 inside that outer pocket
+n_hospital_10km,DERIVED,critical_facilities.csv,
+n_water_10km,DERIVED,critical_facilities.csv,
+n_emergency_5km,DERIVED,critical_facilities.csv,
+nearest_hospital_km,DERIVED,critical_facilities.csv,
+facility_weighted_count,ASSUMPTION,critical_facilities.csv,
+oncor_feeders,REAL,Oncor 2023 PUCT Service Quality Report (Project 56005 item 8),feeders at the substation with 10 or more customers; forced interruptions
+oncor_customers,REAL,same,
+oncor_saifi,DERIVED,same,"customer-weighted mean feeder SAIFI, forced interruptions"
+oncor_saidi_min,DERIVED,same,"customer-weighted mean feeder SAIDI in minutes, forced interruptions"
+oncor_saidi_max,REAL,same,worst feeder SAIDI
+large_load_mw_county,REAL,"ERCOT Batch Zero deck (Sep 2026), data/large_loads.csv","conditional Batch Zero MW in the sub's county where listed (top-5 lists, RPG study counties)"
+large_load_mw_50km,DERIVED,same + mean coordinate of each county's subs,MW in other listed counties whose centroid is within 50 km
+eue_avoided_mwh_yr_full,DERIVED,eaglei_county.csv,"county value: 1 MW / 4 MWh battery, starts full, 1 MW critical load, events above 1% of customers; a lower bound on outage exposure"
+eue_avoided_mwh_yr_lowsoc,DERIVED,eaglei_county.csv,same with only a 20% reserve at the start
+voll_usd_per_mwh,REAL,"Brattle VoLL study, PUCT Project 55837 (Aug 2024)","VOLL_USD_MWH = 35685 (one-hour, ERCOT-wide)"
+voll_usd_yr_headline,DERIVED,"eue_full x $35,685","reliability value, kept apart from market value; upper bound because the study values longer outages lower"
+voll_usd_yr_duration,DERIVED,eue_full x Brattle duration table,
+uri_eue_mwh_full,DERIVED,eaglei_county.csv,MWh one such battery would have served in Uri
+derecho_eue_mwh_full,DERIVED,eaglei_county.csv,
+beryl_eue_mwh_full,DERIVED,eaglei_county.csv,

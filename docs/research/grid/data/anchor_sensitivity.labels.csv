@@ -1,0 +1,33 @@
+column,label,source,note
+role,DERIVED,data/site_candidates.csv,"candidate (the 40), regional (R1's picks) or rev1_only"
+group_rank,DERIVED,data/site_candidates.csv,rank inside the group at selection
+lane,REAL,NP4-160 SUBSTATION,the substation lane
+zone,DERIVED,data/site_years.csv,
+dispatch_mean_2021_25,SIM,"data/site_years.csv (primary dispatch, A5)","2 h learner, $/kW-yr, 2021-25 mean: the number sites.csv ranks on"
+dispatch_2025,SIM,data/site_years.csv,"2 h learner, 2025"
+rev1_dispatch_mean_2021_25,SIM,data/site_candidates_rev1.csv (revision 1 as committed),"2 h learner, 2021-25 mean in revision 1, $/kW-yr; blank for a site that was not one of the revision-1 40"
+rev1_rank_of_40,DERIVED,rev1_dispatch_mean_2021_25,rank among the revision-1 40
+orv_primary_mean_2021_25,SIM,"oracle x the lane's A5/oracle ratio (2023-25), mean of 2021-25","the oracle-ratio estimate of the dispatch mean under that variant, $/kW-yr; labelled so: not a dispatch run"
+orv_primary_2025,SIM,"oracle x ratio, 2025","same, 2025 only"
+orv_geo_only_mean_2021_25,SIM,"oracle x the lane's A5/oracle ratio (2023-25), mean of 2021-25","the oracle-ratio estimate of the dispatch mean under that variant, $/kW-yr; labelled so: not a dispatch run"
+orv_geo_only_2025,SIM,"oracle x ratio, 2025","same, 2025 only"
+orv_anchors2025_mean_2021_25,SIM,"oracle x the lane's A5/oracle ratio (2023-25), mean of 2021-25","the oracle-ratio estimate of the dispatch mean under that variant, $/kW-yr; labelled so: not a dispatch run"
+orv_anchors2025_2025,SIM,"oracle x ratio, 2025","same, 2025 only"
+orv_anchors2026da_mean_2021_25,SIM,"oracle x the lane's A5/oracle ratio (2023-25), mean of 2021-25","the oracle-ratio estimate of the dispatch mean under that variant, $/kW-yr; labelled so: not a dispatch run"
+orv_anchors2026da_2025,SIM,"oracle x ratio, 2025","same, 2025 only"
+orv_panhandle_mean_2021_25,SIM,"oracle x the lane's A5/oracle ratio (2023-25), mean of 2021-25","the oracle-ratio estimate of the dispatch mean under that variant, $/kW-yr; labelled so: not a dispatch run"
+orv_panhandle_2025,SIM,"oracle x ratio, 2025","same, 2025 only"
+dispatch_rank_of_40,DERIVED,dispatch_mean_2021_25,rank among the 40 candidates
+rank_of_40_primary,DERIVED,orv_*_mean_2021_25,rank among the 40 candidates under that variant
+top15_primary,DERIVED,rank_of_40_*,in the top 15 of the 40 under that variant (oracle-ratio footing)
+rank_of_40_geo_only,DERIVED,orv_*_mean_2021_25,rank among the 40 candidates under that variant
+top15_geo_only,DERIVED,rank_of_40_*,in the top 15 of the 40 under that variant (oracle-ratio footing)
+rank_of_40_anchors2025,DERIVED,orv_*_mean_2021_25,rank among the 40 candidates under that variant
+top15_anchors2025,DERIVED,rank_of_40_*,in the top 15 of the 40 under that variant (oracle-ratio footing)
+rank_of_40_anchors2026da,DERIVED,orv_*_mean_2021_25,rank among the 40 candidates under that variant
+top15_anchors2026da,DERIVED,rank_of_40_*,in the top 15 of the 40 under that variant (oracle-ratio footing)
+rank_of_40_panhandle,DERIVED,orv_*_mean_2021_25,rank among the 40 candidates under that variant
+top15_panhandle,DERIVED,rank_of_40_*,in the top 15 of the 40 under that variant (oracle-ratio footing)
+top15_dispatch,DERIVED,dispatch_rank_of_40,in the top 15 of the 40 by the primary dispatch
+top15_depends_on_anchor,DERIVED,this module,True if the site is in the top 15 under some variants and not under others
+top15_in_which,DERIVED,this module,the variants under which the site is in the top 15

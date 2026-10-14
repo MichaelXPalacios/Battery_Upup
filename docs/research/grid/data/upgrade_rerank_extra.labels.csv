@@ -1,0 +1,15 @@
+column,label,source,note
+scenario,DERIVED,data/upgrade_rerank.csv,"the same 12 scenarios as the 40-site rerank (U01..U10, PLANNED_2031, PLANNED_ALL)"
+role,DERIVED,data/site_candidates.csv,regional (R1's picks) or rev1_only (revision-1 sites that left the 40)
+sub,REAL,NP4-160 SUBSTATION,
+region,DERIVED,data/regional_candidates.csv (R1),blank for rev1_only
+region_side,DERIVED,data/regional_candidates.csv (R1),
+scenario_effect,DERIVED,this module,evaluated = at least one constraint of the scenario is in the replayed structure
+affected,DERIVED,this module,"the site has a non-zero shift-factor difference to a constraint the scenario scales; the others cannot move (their value is the baseline, delta exactly 0)"
+value_before_usd_kw_yr,SIM,gridsite.sites.value_sites,"2 h learner, oracle on the rebuilt 2025 lane x the lane's own learner/oracle ratio"
+value_after_usd_kw_yr,SIM,gridsite.sites.value_sites with mu_scale,"same, after the upgrade"
+delta_usd_kw_yr,SIM,after - before,negative = the site loses
+zone_control_usd_kw_yr,SIM,gridsite.sites.value_sites,the same battery on the real zone price
+uplift_before_usd_kw_yr,SIM,value - zone control,
+uplift_after_usd_kw_yr,SIM,value - zone control,
+value_effect,DERIVED,delta against MATERIAL_USD_KW_YR (1.0),loses / gains / unchanged
