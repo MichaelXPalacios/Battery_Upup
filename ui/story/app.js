@@ -51,6 +51,9 @@ const PAGES = {
   results: { file: './results.js', fn: 'mount', owner: 'UI-B' },
   learnings: { file: './learnings.js', fn: 'mount', owner: 'UI-B' },
   markets: { file: './markets.js', fn: 'mount' },     // 5 Markets: the grid-research desk (docs/research/arena/)
+  arena: { file: './arena.js', fn: 'mount' },         // 6 Arena: how should a battery trade? (docs/research/arena/)
+  siting: { file: './siting.js', fn: 'mount' },       // 7 Siting: where on the physical grid? (docs/research/grid/)
+  dispatch: { file: './dispatch.js', fn: 'mount' },   // 8 Dispatch: run it safely, prove what it earned (dispatch/)
 };
 const CARRY = ['s', 'k', 'speed', 'q', 'tf', 'n', 'cat', 'nowebgl'];
 

@@ -121,7 +121,7 @@ test('shell: numHTML tags every value; SCREENING is its own dashed tag; unknown 
   assert.throws(() => numHTML(3), LabelError);
   assert.throws(() => numHTML({ v: 3, label: 'GUESS' }), LabelError);
   assert.throws(() => tagHTML('GUESS'), LabelError);
-  assert.deepEqual(STEPS.map((x) => x[1]), ['1 Configure', '2 Run', '3 Results', '4 Learnings', '5 Markets']);
+  assert.deepEqual(STEPS.map((x) => x[1]), ['1 Configure', '2 Run', '3 Results', '4 Learnings', '5 Markets', '6 Arena', '7 Siting', '8 Dispatch']);
 });
 
 test('shell: the run pill summary uses the catalogue labels, cut at ": " or " ("', () => {
