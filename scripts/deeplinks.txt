@@ -69,6 +69,9 @@ beat page=results&s=2026-07-22/aware&beat=close
 # unknown-s probe (a notice, then the catalogue default). Results and Learnings are UI-B's pages.
 story,canary page=run
 story page=configure
+story page=markets
+story page=markets&q=2
+story page=markets&q=3
 story page=configure&s=2026-08-23/naive/fleet=192
 story page=running&s=2026-08-23/aware/faults
 story page=run&s=2026-08-23/none&k=360

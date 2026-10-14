@@ -170,10 +170,10 @@ export function applyBeat(link, beats) {
 }
 
 // ---- the story app (ui/index.html + ui/story/, docs/story-contract.md "URL scheme") ---------------------------------
-// ui/index.html?page=configure|running|run|results|learnings&s=<scenario id>&k=<step>&speed=<x>&q=<1-4>&tf=<index>&n=<0-50>
+// ui/index.html?page=configure|running|run|results|learnings|markets&s=<scenario id>&k=<step>&speed=<x>&q=<1-4>&tf=<index>&n=<0-50>
 // plus two dev keys: &cat=<catalogue path under ui/data> (default story/index.json) and &nowebgl=1 (the 2D scene).
 // Defaults are omitted when a link is written: page=configure, k=0, speed=0.25, and s when it equals the catalogue default.
-export const STORY_PAGES = ['configure', 'running', 'run', 'results', 'learnings'];
+export const STORY_PAGES = ['configure', 'running', 'run', 'results', 'learnings', 'markets'];
 export const STORY_DEFAULT_PAGE = 'configure';
 export const STORY_DEFAULT_SPEED = 0.25;           // 0.25x = 2.5 simulated minutes per second (story contract ruling 5)
 export const STORY_CATALOGUE = 'story/index.json';

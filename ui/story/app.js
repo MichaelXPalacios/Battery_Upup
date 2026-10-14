@@ -50,6 +50,7 @@ const PAGES = {
   run: { file: './run.js', fn: 'mount' },
   results: { file: './results.js', fn: 'mount', owner: 'UI-B' },
   learnings: { file: './learnings.js', fn: 'mount', owner: 'UI-B' },
+  markets: { file: './markets.js', fn: 'mount' },     // 5 Markets: the grid-research desk (docs/research/arena/)
 };
 const CARRY = ['s', 'k', 'speed', 'q', 'tf', 'n', 'cat', 'nowebgl'];
 

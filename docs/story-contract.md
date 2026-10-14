@@ -81,7 +81,7 @@ failures[{kind, where, k0, k1, text, label}]  scripted faults + network-limit in
 (home-load growth levels for Learnings Q3). Documented in `docs/contracts-planner.md`.
 
 ## URL scheme (UI-A implements; TRUTH writes beat links with it)
-`ui/index.html?page=configure|running|run|results|learnings&s=<scenario id>&k=<step>&speed=<x>&q=<1-4>&tf=<index>&n=<0-50>`
+`ui/index.html?page=configure|running|run|results|learnings|markets&s=<scenario id>&k=<step>&speed=<x>&q=<1-4>&tf=<index>&n=<0-50>`
 Defaults are omitted. Unknown `s` falls back to `default` with a notice.
 
 ## Windows machine (Git Bash)
