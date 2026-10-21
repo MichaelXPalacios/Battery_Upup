@@ -716,7 +716,7 @@
   <!-- 1. Top-of-page text. Change SYSTEM_NAME, the accented words, and the subtitle. -->
   <span class="eyebrow"><span class="dot"></span> Base Power × AITX · Sep 2026</span>
   <h1>Batter Up <span class="accent">architecture</span></h1>
-  <p class="sub">An offline Python engine runs every scenario ahead of time, with OpenDSS as the referee. It commits labelled JSON, and a static web app only reads it. Pick a flow and step through it; the text version is <code>architecture.md</code>.</p>
+  <p class="sub">An offline Python engine runs every scenario ahead of time, with OpenDSS as the referee. It commits labelled JSON, and a static web app only reads it. Pick a flow and step through it; the text version is <code>architecture.md</code>. The ERCOT dispatch platform has its own diagram: <a href="architecture-dispatch.html" style="color:var(--c-orch)">architecture-dispatch.html</a>.</p>
 </header>
 
 <div class="controls">
@@ -731,10 +731,10 @@
   <div class="legend" aria-label="Component legend">
     <span class="item"><span class="swatch" style="background:var(--c-user)"></span> Viewer</span>
     <span class="item"><span class="swatch" style="background:var(--c-orch)"></span> Step loop / coordinator</span>
-    <span class="item"><span class="swatch" style="background:var(--c-embed)"></span> Decides (controller, workers, detector)</span>
-    <span class="item"><span class="swatch" style="background:var(--c-compute)"></span> Simulated world (devices, OpenDSS)</span>
+    <span class="item"><span class="swatch" style="background:var(--c-embed)"></span> Decides</span>
+    <span class="item"><span class="swatch" style="background:var(--c-compute)"></span> Simulated world</span>
     <span class="item"><span class="swatch" style="background:var(--c-vector)"></span> Files</span>
-    <span class="item"><span class="swatch" style="background:var(--c-seed)"></span> Gate</span>
+    <span class="item"><span class="swatch" style="background:var(--c-seed)"></span> Gate · research</span>
   </div>
 
   <!-- 3b. Theme toggle (dark/light). -->
@@ -763,9 +763,10 @@
   <button class="flowtab" data-flow="covert" aria-pressed="false"><span class="num">4</span> Hidden attacker</button>
   <button class="flowtab" data-flow="siting" aria-pressed="false"><span class="num">5</span> Next battery</button>
   <button class="flowtab" data-flow="gate" aria-pressed="false"><span class="num">6</span> The gate</button>
+  <button class="flowtab" data-flow="markets" aria-pressed="false"><span class="num">7</span> Markets page</button>
 </nav>
 
-<p class="scenario-note">Shortcuts: <kbd>Space</kbd> play/pause · <kbd>&larr;</kbd>/<kbd>&rarr;</kbd> step · <kbd>1</kbd>&ndash;<kbd id="kbFlowMax">6</kbd> flow · <kbd>O</kbd> mode · <kbd>T</kbd> theme · <kbd>F</kbd> fullscreen · <kbd>R</kbd> reset layout · Drag nodes to reposition</p>
+<p class="scenario-note">Shortcuts: <kbd>Space</kbd> play/pause · <kbd>&larr;</kbd>/<kbd>&rarr;</kbd> step · <kbd>1</kbd>&ndash;<kbd id="kbFlowMax">7</kbd> flow · <kbd>O</kbd> mode · <kbd>T</kbd> theme · <kbd>F</kbd> fullscreen · <kbd>R</kbd> reset layout · Drag nodes to reposition</p>
 
 <main>
   <section class="canvas" aria-label="Architecture diagram">
@@ -789,16 +790,14 @@
 
     <div class="stage" id="stage">
       <!--
-        Layout: five columns (left 0.5 / 20.5 / 40.5 / 60.5 / 80.5 %) and three rows (top 4 / 38 / 72 %).
-        Top row: inputs and the deciders. Middle row: the gate, the step loop, OpenDSS, the detector, the
-        coordinator. Bottom row: the browser, the app's data, the resilience output. The evening loop is a
-        ring (builders -> controller -> devices -> OpenDSS -> builders); the controller and OpenDSS sit on
-        opposite corners and no flow joins them.
-        resilience/out/ (replay) and resilience/out/live/ (live) share one slot; the mode toggle swaps them.
+        Layout: five columns (left 0.5 / 20.5 / 40.5 / 60.5 / 80.5 %) and three rows (top 4 / 38 / 72 %), chosen by a
+        search so that no wire in any flow passes through a node or crosses another wire of the same flow.
+        The evening loop runs builders -> controller -> devices -> OpenDSS -> builders; the controller and OpenDSS sit
+        apart and no flow joins them. resilience/out/ (replay) and resilience/out/live/ (live) share one slot.
       -->
 
       <!-- data/ : committed inputs -->
-      <div class="node" data-role="vector" data-id="inputs" style="left: 0.5%; top: 4%;">
+      <div class="node" data-role="vector" data-id="inputs" style="left: 40.5%; top: 38%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
         </div>
@@ -809,7 +808,7 @@
       </div>
 
       <!-- sim/orchestrator.py : the controller -->
-      <div class="node" data-role="embed" data-id="ctrl" style="left: 20.5%; top: 4%;">
+      <div class="node" data-role="embed" data-id="ctrl" style="left: 60.5%; top: 4%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
         </div>
@@ -820,7 +819,7 @@
       </div>
 
       <!-- sim/devices.py : the batteries -->
-      <div class="node" data-role="compute" data-id="devices" style="left: 40.5%; top: 4%;">
+      <div class="node" data-role="compute" data-id="devices" style="left: 80.5%; top: 38%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg>
         </div>
@@ -831,7 +830,7 @@
       </div>
 
       <!-- resilience/runtime/worker.py : the workers -->
-      <div class="node" data-role="embed" data-id="workers" style="left: 60.5%; top: 4%;">
+      <div class="node" data-role="embed" data-id="workers" style="left: 80.5%; top: 4%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
         </div>
@@ -842,7 +841,7 @@
       </div>
 
       <!-- scripts/check_all.sh : the gate -->
-      <div class="node" data-role="seed" data-id="gate" style="left: 0.5%; top: 38%;">
+      <div class="node" data-role="seed" data-id="gate" style="left: 20.5%; top: 4%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
@@ -853,7 +852,7 @@
       </div>
 
       <!-- sim/*_build.py and friends : the step loop -->
-      <div class="node" data-role="orch" data-id="loop" style="left: 20.5%; top: 38%;">
+      <div class="node" data-role="orch" data-id="loop" style="left: 40.5%; top: 4%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
         </div>
@@ -864,7 +863,7 @@
       </div>
 
       <!-- sim/feeder.py : OpenDSS, the referee -->
-      <div class="node" data-role="compute" data-id="opendss" style="left: 40.5%; top: 38%;">
+      <div class="node" data-role="compute" data-id="opendss" style="left: 80.5%; top: 72%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
@@ -875,7 +874,7 @@
       </div>
 
       <!-- resilience/detect/detector.py : the detector -->
-      <div class="node" data-role="embed" data-id="detector" style="left: 60.5%; top: 38%;">
+      <div class="node" data-role="embed" data-id="detector" style="left: 60.5%; top: 72%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
@@ -886,7 +885,7 @@
       </div>
 
       <!-- resilience/runtime/engine.py : the coordinator -->
-      <div class="node" data-role="orch" data-id="coord" style="left: 80.5%; top: 38%;">
+      <div class="node" data-role="orch" data-id="coord" style="left: 40.5%; top: 72%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
         </div>
@@ -897,7 +896,7 @@
       </div>
 
       <!-- ui/ : the browser and the story app -->
-      <div class="node" data-role="user" data-id="viewer" style="left: 0.5%; top: 72%;">
+      <div class="node" data-role="user" data-id="viewer" style="left: 0.5%; top: 4%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
@@ -908,7 +907,7 @@
       </div>
 
       <!-- ui/data/ : the committed JSON, the only interface between engine and app -->
-      <div class="node" data-role="vector" data-id="uidata" style="left: 20.5%; top: 72%;">
+      <div class="node" data-role="vector" data-id="uidata" style="left: 20.5%; top: 38%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
         </div>
@@ -919,7 +918,7 @@
       </div>
 
       <!-- resilience/out/ : committed replays (replay mode) -->
-      <div class="node" data-role="vector" data-id="resout" data-modes="replay" style="left: 60.5%; top: 72%;">
+      <div class="node" data-role="vector" data-id="resout" data-modes="replay" style="left: 20.5%; top: 72%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
         </div>
@@ -930,13 +929,24 @@
       </div>
 
       <!-- resilience/out/live/ : a live recording (live mode) -->
-      <div class="node" data-role="vector" data-id="liveout" data-modes="live" style="left: 60.5%; top: 72%;">
+      <div class="node" data-role="vector" data-id="liveout" data-modes="live" style="left: 20.5%; top: 72%;">
         <div class="icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
         </div>
         <div class="label">resilience/&#8203;out/&#8203;live/</div>
         <div class="tech">live recording</div>
         <div class="port">git-ignored</div>
+        <span class="step-badge">·</span>
+      </div>
+
+      <!-- docs/research/arena : the battery-algorithm arena behind the Markets page -->
+      <div class="node" data-role="seed" data-id="arena" style="left: 0.5%; top: 38%;">
+        <div class="icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div class="label">Research arena</div>
+        <div class="tech">docs/&#8203;research/&#8203;arena · 5 algorithms</div>
+        <div class="port">ERCOT + NYISO</div>
         <span class="step-badge">·</span>
       </div>
 
@@ -992,7 +1002,7 @@
    ───────────────────────────────────────────────────────────────────── */
 
 const flows = {
-  /* Six flows. Step colors follow the receiver's role; the last step to the browser is --c-user.
+  /* Seven flows. Step colors follow the receiver's role; the last step to the browser is --c-user.
      Mode-specific fields use the mode keys: payloadReplay / payloadLive, chipsReplay / chipsLive.
      Every number below is copied from a committed file or a named constant; the label beside it says which kind.
      Payload lines stay under about 46 characters so they fit the side panel. */
@@ -1621,6 +1631,61 @@ ALL CHECKS: PASS`,
       }
     ]
   }
+  ,
+
+  /* ───── 7. The Markets page: the research arena, exported ───── */
+  markets: {
+    name: "Markets page (scripts/export_markets.py)",
+    note: "Identical in both modes. The arena ran ahead of time on price archives kept outside the repo; the app reads one exported file.",
+    steps: [
+      {
+        from:"arena", to:"uidata", color:"--c-vector",
+        title:"Export the arena's results",
+        route:"scripts/export_markets.py",
+        desc:"The arena races five battery algorithms on real ERCOT and NYISO prices (a walk-forward backtest from 2015) and on 20 futures per market for 2027–31. Its caches live outside the repo, so the exporter reads them and writes one file in the same labelled envelope as the engine's files. The same caches give byte-identical output.",
+        payload:
+`$ python scripts/export_markets.py
+  # ARENA_DATA = the research-data folder
+reads  docs/research/arena/results/
+         arena_results.json
+       arena_cache/backtest_<M>_home.npz
+       arena_cache/forward_<M>.pkl
+writes ui/data/markets/index.json
+       # hb.markets.v1, about 150 KB`,
+        chips:["deterministic","outside-repo caches"]
+      },
+      {
+        from:"uidata", to:"viewer", color:"--c-user",
+        title:"Zone desk: realised, then forecast",
+        route:"?page=markets&q=1",
+        desc:"Pick ERCOT or NYISO and a load zone. The desk shows what the adaptive learner earned on real prices against the perfect-foresight ceiling, then the 2027–31 forecast fan across 20 futures, with risk tiles and weather and gas sensitivities.",
+        payload:
+`markets.ERCOT = { lastDate: "2026-09-26",
+  futures: 20,
+  families: [["base", 6], ["saturate", 6],
+             ["surge", 8]], ... }
+series: hist.realised, hist.ceiling,
+        fc, season, ...  // labelled once
+battery: 20 kW Core-class home battery,
+         20% backup reserve, $20/MWh wear`,
+        chips:["ERCOT · NYISO","per kW-year"]
+      },
+      {
+        from:"uidata", to:"viewer", color:"--c-user",
+        title:"Weather regions and the trader's read",
+        route:"?page=markets&q=2 · q=3",
+        desc:"The same file drives the forecast split by weather region and the trader's view: position, distribution, factor, regime and carry. Every value carries its tag. Money is gross trading value per kW of battery per year, not Base's profit.",
+        payload:
+`stacks[0] = { market: "NYISO", zone: "N.Y.C.",
+  site: "NYC (J) + Con Ed load relief",
+  energy: { v: 16.4, label: "SIM" }, ... }
+infrastructure[0] = {
+  event: "Permian 765-kV lines",
+  effect: { v: -15.0, label: "SIM" } }`,
+        chips:["gross value","not Base's profit"]
+      }
+    ]
+  }
 };
 
 /* ─── state ─────────────────────────────────────────────────────────────
@@ -2074,7 +2139,7 @@ const CONFIG = {
   // Default fallback flow used when an `onlyMode` flow becomes invalid.
   fallbackFlow: "evening",
   // Maps keyboard digits 1..N to flow keys. Order matches the tab order above.
-  keyboardFlowOrder: ["evening", "view", "crash", "covert", "siting", "gate"],
+  keyboardFlowOrder: ["evening", "view", "crash", "covert", "siting", "gate", "markets"],
   // Two-mode toggle for the "O" shortcut. List exactly 2 modes.
   toggleModes: ["replay", "live"]
 };
