@@ -42,7 +42,7 @@ import pytest
 
 PROJECT = Path(__file__).resolve().parents[1]
 FIXTURES = PROJECT / "tests" / "fixtures"
-RESEARCH = Path(os.environ.get("ARENA_DATA", "C:/Users/Javier/Repo/BaseP/research-data"))
+RESEARCH = Path(os.environ.get("ARENA_DATA", str(PROJECT.parents[1] / "research-data")))   # default: beside the repo
 REAL_HOME = Path(os.environ.get("DISPATCH_REAL_HOME", str(RESEARCH / "dispatch")))
 TOL_ABS = 1e-4                         # the fixture stores float32; the observed difference is exactly 0.0
 HUBS = ("HB_NORTH", "HB_WEST", "HB_HOUSTON", "HB_SOUTH")

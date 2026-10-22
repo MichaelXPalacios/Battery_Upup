@@ -616,7 +616,7 @@ Changes against revision 1: ATBR and JUPITER enter the first ten, NOVICE (Twin B
 
 ## 10. Reproduce
 
-Run from `docs/research/grid` with the research venv (`C:/Users/Javier/Repo/BaseP/research-data/.venv/Scripts/python.exe run_grid.py <command>`); raw data and caches live outside git in `research-data/grid/`. At most 4 workers; the machine is shared.
+Run from `docs/research/grid` with the research venv (`../research-data/.venv/Scripts/python.exe run_grid.py <command>`); raw data and caches live outside git in `research-data/grid/`. At most 4 workers; the machine is shared.
 
 | Phase | Commands (run in this order) | Time |
 |---|---|---|

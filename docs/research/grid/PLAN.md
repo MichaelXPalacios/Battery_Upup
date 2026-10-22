@@ -20,7 +20,7 @@ If you change a contract, update this file.
 
 ## Layout
 
-### Raw data, outside git: `C:/Users/Javier/Repo/BaseP/research-data/grid/`
+### Raw data, outside git: `../research-data/grid/`
 
 | Path | What goes there |
 |---|---|
@@ -43,7 +43,7 @@ If you change a contract, update this file.
 | `notes/*.md` | Per-phase findings with sources, for example `phase1-market.md`. |
 | `README.md` | The final report (Phase 6). |
 
-Run everything with `C:/Users/Javier/Repo/BaseP/research-data/.venv/Scripts/python.exe`. It is Python 3.14 with numpy,
+Run everything with `../research-data/.venv/Scripts/python.exe`. It is Python 3.14 with numpy,
 pandas, pyarrow, networkx, scipy, scikit-learn, requests and openpyxl. **Don't pip install anything else without saying
 so in your notes.**
 

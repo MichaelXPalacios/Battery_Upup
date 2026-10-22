@@ -43,7 +43,7 @@ separate track": the same repo, as the operate layer). It has its own `requireme
 ## Quickstart
 
 Windows, Git Bash, from `hugging-base/dispatch/`. Python 3.13. Real data lives outside git under `DISPATCH_HOME`
-(default `C:/Users/Javier/Repo/BaseP/research-data/dispatch`).
+(default `../research-data/dispatch`).
 
 ```sh
 python -m venv .venv                                   # once

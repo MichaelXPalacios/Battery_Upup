@@ -360,7 +360,7 @@ Against the Sep 2026 copy, the current model (Oct ML1) has **129 new buses and 1
 
 ## 14. How to run
 
-From `docs/research/grid` with `C:/Users/Javier/Repo/BaseP/research-data/.venv/Scripts/python.exe`:
+From `docs/research/grid` with `../research-data/.venv/Scripts/python.exe`:
 
 ```
 run_grid.py fetch-ercot all dry-run        # list and estimate, download nothing

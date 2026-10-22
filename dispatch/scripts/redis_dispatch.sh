@@ -3,7 +3,7 @@
 # Append-only persistence keeps the halt flag across Redis restarts. Data lives under DISPATCH_HOME/runtime/redis.
 # Stop it with: "/c/Program Files/Redis/redis-cli" -p 6390 SHUTDOWN
 set -euo pipefail
-HOME_DIR="${DISPATCH_HOME:-C:/Users/Javier/Repo/BaseP/research-data/dispatch}"
+HOME_DIR="${DISPATCH_HOME:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)/research-data/dispatch}"   # default: beside the repo
 mkdir -p "$HOME_DIR/runtime/redis"
 exec "/c/Program Files/Redis/redis-server.exe" --port 6390 --bind 127.0.0.1 --dir "$HOME_DIR/runtime/redis" \
   --appendonly yes --appendfsync everysec --save "" --maxmemory 256mb --maxmemory-policy noeviction

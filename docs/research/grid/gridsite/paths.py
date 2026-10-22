@@ -6,7 +6,7 @@ from pathlib import Path
 GRID_DIR = Path(__file__).resolve().parents[1]                      # docs/research/grid
 REPO = GRID_DIR.parents[2]                                           # hugging-base
 ARENA_DIR = REPO / "docs" / "research" / "arena"
-RESEARCH_DATA = Path(os.environ.get("ARENA_DATA", "C:/Users/Javier/Repo/BaseP/research-data"))
+RESEARCH_DATA = Path(os.environ.get("ARENA_DATA", str(REPO.parent / "research-data")))   # default: beside the repo
 ROOT = RESEARCH_DATA / "grid"
 RAW = ROOT / "raw"
 DERIVED = ROOT / "derived"

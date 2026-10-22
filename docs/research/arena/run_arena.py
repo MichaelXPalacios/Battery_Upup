@@ -5,7 +5,7 @@
   python run_arena.py report     # score everything, write results/*.json and results/*.csv
   python run_arena.py all
 
-Data: ARENA_DATA (default C:/Users/Javier/Repo/BaseP/research-data) must hold the downloaded price files,
+Data: ARENA_DATA (default ../research-data) must hold the downloaded price files,
 NOAA weather and FRED gas (see README.md). Runs use the research venv (numpy, openpyxl).
 """
 import json

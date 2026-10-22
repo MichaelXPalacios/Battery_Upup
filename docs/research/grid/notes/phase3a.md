@@ -6,7 +6,7 @@ arena edits, a parallel runner, a separate ancillary-service (AS) layer, connect
 queued and operating storage to substations. None of it needs shift factors. Every table has a `.labels.csv` sidecar; every
 constant is a named value with a label (the full list is in section 9).
 
-Run everything from `docs/research/grid` with `C:/Users/Javier/Repo/BaseP/research-data/.venv/Scripts/python.exe`.
+Run everything from `docs/research/grid` with `../research-data/.venv/Scripts/python.exe`.
 
 ## Read this first
 
