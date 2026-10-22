@@ -9,7 +9,7 @@ import zlib from 'node:zlib';
 
 import { SPEEDS, DEFAULT_SPEED, focusLabels, runFiles, attackPath, kindWord, KIND, buildSeries, covertFailures, covertMoments,
   detectorModel, momentAt, runCostHTML, tierNames, tierConsts, tierBands, laneRange, signedMW, reserveHTML } from '../story/run.js';
-import { numHTML, tagHTML, leverSummary, STEPS } from '../story/shell.js';
+import { numHTML, tagHTML, leverSummary, STEPS, stepLabel } from '../story/shell.js';
 import { LabelError } from '../lib/format.js';
 
 const UI = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -121,7 +121,9 @@ test('shell: numHTML tags every value; SCREENING is its own dashed tag; unknown 
   assert.throws(() => numHTML(3), LabelError);
   assert.throws(() => numHTML({ v: 3, label: 'GUESS' }), LabelError);
   assert.throws(() => tagHTML('GUESS'), LabelError);
-  assert.deepEqual(STEPS.map((x) => x[1]), ['1 Configure', '2 Run', '3 Results', '4 Learnings', '5 Markets']);
+  assert.deepEqual(STEPS.map((x) => x[1]), ['1 Configure', '2 Run', '3 Results', '4 Learnings', '5 Markets', '6 Arena', '7 Siting', '8 Dispatch']);
+  assert.equal(stepLabel('6 Arena'), '<span class="st-step-n">6</span><span class="st-step-name"> Arena</span>');
+  assert.equal(stepLabel('Run'), 'Run');
 });
 
 test('shell: the run pill summary uses the catalogue labels, cut at ": " or " ("', () => {

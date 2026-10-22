@@ -9,6 +9,10 @@ needs no server: double-click it, or run `start architecture.html` on Windows, `
 to switch between the replay and live modes. This page covers the same components and flows in text, so it stands on
 its own.
 
+**Two diagrams.** `architecture.html` covers the story app, the engine, resilience and the Markets page.
+[`architecture-dispatch.html`](architecture-dispatch.html) covers the ERCOT dispatch platform in `dispatch/`, the
+operate layer added in October 2026; its text is in [The dispatch platform](#the-dispatch-platform-dispatch).
+
 ## The system at a glance
 
 ```mermaid
@@ -29,6 +33,7 @@ flowchart LR
   uidata[("ui/data/<br/>committed JSON")]
   viewer["Browser<br/>story app"]
   gate{{"Gate<br/>check_all.sh"}}
+  arena[("Research arena<br/>docs/research/arena")]
 
   inputs --> loop
   loop --> ctrl --> devices --> opendss --> loop
@@ -38,6 +43,7 @@ flowchart LR
   loop --> uidata
   coord --> resout -- "copied by sim.scenarios" --> uidata
   uidata --> viewer
+  arena -- "export_markets.py" --> uidata
   gate -.-> loop & uidata & viewer
 ```
 
@@ -66,7 +72,8 @@ The role names match the colour legend in `architecture.html`.
 | resilience/out/ | `resilience/out/p1/`, `resilience/out/p3/` | Files | The committed resilience replays. A live run writes to `resilience/out/live/` instead, which git ignores. |
 | ui/data/ | `ui/data/` | Files | The committed JSON the app reads: the only interface between the engine and the app. |
 | Browser (story app) | `ui/index.html`, `ui/story/`, `ui/lib/` | Viewer | Static pages that read `ui/data/` and render every number with its label. Served by `scripts/serve.sh` on port 8765 or by Vercel. |
-| Gate | `scripts/check_all.sh` | Gate | Unit, Node, contract, verify and browser smoke tests. `--full` adds a rebuild that must be byte-identical. |
+| Gate | `scripts/check_all.sh` | Gate · research | Unit, Node, contract, verify and browser smoke tests. `--full` adds a rebuild that must be byte-identical. |
+| Research arena | `docs/research/arena/` (`run_arena.py`, `results/`) | Gate · research | Five battery algorithms compete on real ERCOT and NYISO prices and on 2027–31 futures. Its price caches live outside the repo. `scripts/export_markets.py` exports its results for the Markets page. |
 
 `resilience/` imports `sim/`; `sim/` never imports `resilience/`. The committed replay files are the only link back.
 
@@ -200,9 +207,25 @@ There is no CI; this script is the gate. It ends with exactly one line: `ALL CHE
    single byte.
 2. **Gate → ui/data/.** `sim.contracts` checks every file's envelope, shape and labels, a 40 MB total and a 4 MB cap per
    file. `sim.verify labels`, `p1` and `p2` re-derive what they can from the committed files.
-3. **Gate → Browser.** Node tests run over `ui/test/` (11 files). Headless Chrome then opens the app over CDP and fails
+3. **Gate → Browser.** Node tests run over `ui/test/` (12 files). Headless Chrome then opens the app over CDP and fails
    on any console error or off-site request. The app reports its health on `<body>` (`data-status`, `data-errors`),
    which is what the smoke test reads.
+
+### 7. The Markets page (`scripts/export_markets.py`)
+
+Page 5 of the story app, the grid-research desk. It plays no engine scenario; it reads one exported file.
+
+1. **Research arena → ui/data/.** The arena races five algorithms (Clockwork, Forecaster, Weather-regime, Spike hunter
+   and an Adaptive learner that follows whichever earns most) on real prices from 2015 and on 20 futures per market
+   for 2027–31. Its caches live outside the repo, so `scripts/export_markets.py` reads them through `ARENA_DATA` and
+   writes `ui/data/markets/index.json` (`hb.markets.v1`, about 150 KB) in the same labelled envelope as the engine's
+   files. The same caches give byte-identical output.
+2. **ui/data/ → Browser.** The zone desk (`?page=markets&q=1`): pick ERCOT or NYISO and a load zone, see what the
+   adaptive learner earned on real prices against the perfect-foresight ceiling, then the 2027–31 forecast fan with
+   risk tiles and weather and gas sensitivities.
+3. **ui/data/ → Browser.** The weather-region split (`q=2`) and the trader's read (`q=3`: position, distribution,
+   factor, regime, carry) come from the same file. Money is gross trading value per kW of battery per year, for a
+   20 kW Core-class battery with the 20% reserve, not Base's profit.
 
 ## Modes: replay and live
 
@@ -244,8 +267,94 @@ Short click paths through `architecture.html` for a demo or a review:
   real processes.
 - **How an attack is caught from physics.** Open flow 4, steps 4 to 6. The third gate reads the home's own meter
   voltage, not the command log.
+- **Where the Markets page comes from.** Open flow 7: one exported file, made ahead of time from the arena's
+  results.
 - **Where the planner's numbers come from.** Open flow 5, steps 2 and 3: the same headroom rule as the controller, and
   OpenDSS checking the shortlist.
+
+## The dispatch platform (`dispatch/`)
+
+The operate layer, added in October 2026: a shadow optimizer and attribution engine for ERCOT batteries, and a
+paper-dispatch service behind a deterministic risk guard. It is a separate Python package next to `sim/` and
+`resilience/`, with its own `requirements.txt`, venv and tests, so the gate above does not run it.
+[`architecture-dispatch.html`](architecture-dispatch.html) is its interactive diagram, and
+[`dispatch/README.md`](dispatch/README.md) is its manual.
+
+**v1 is paper only.** No QSE adapter works and no live bid is sent. Models forecast prices; deterministic code decides
+every setpoint.
+
+### Components
+
+| Component | Where | Role | What it does |
+|---|---|---|---|
+| ERCOT + weather + gas | ERCOT MIS, yearly archives, 60-day disclosure; NOAA; EIA | Sources and stores | Public data only, with no ERCOT API key. |
+| Grid research | `docs/research/grid/`, `docs/research/arena/` | Sources and stores | The siting study's `data/sites.csv` is the ordered queue of settlement points to trade; the arena supplies a forecast baseline and the oracle the LP was checked against. |
+| Data + features | `dispatch/data/`, `dispatch/features/` | Data + features | An immutable raw lake, parquet parsers for 17 datasets, and the point-in-time feature set `rt_v1` (1.1.0). Real data lives outside git under `DISPATCH_HOME`. |
+| Redis :6390 | the platform's own Redis | Sources and stores | The latest feature frame per settlement point, the halt flag and the audit log's anchor, with append-only persistence. Port 6379 belongs to another application and is never touched. |
+| Forecaster | `dispatch/models/`, `dispatch/registry/` | Forecast + LP | LightGBM P10/P50/P90 forecasters in an MLflow registry with `research`, `paper` and `live` aliases. Version 6 is served. |
+| Dispatch service | `dispatch/service/` (`app.py`, `cycle.py`) | Service | FastAPI on port 8000: `/signal`, `/kill`, `/resume`, `/health`, `/metrics`, `/attribution`. |
+| LP optimizer | `dispatch/optimizer/`, `dispatch/attribution/` | Forecast + LP | One linear programme (cvxpy) for a forecast plan, perfect foresight and revaluing fixed actions, so two numbers on the same actions cannot disagree. |
+| Risk guard | `dispatch/guard/guard.py` | Safety | A pure function with 14 checks. It rejects with reason codes and never rewrites a value. |
+| Paper ledger + audit | `dispatch/execution/` | Sources and stores | The paper ledger and a hash-chained, fsynced audit log. The QSE adapter exists only to refuse every call. |
+| Monitoring | `dispatch/monitoring/`, `dispatch/ops/` | Safety | Checks every 60 s and a daily calibration check; repeated breaches set the halt flag. |
+| Operator | `dispatch/ops/run_paper_loop.py`, `curl` | Operator | Runs the ingest commands and the 15-minute paper loop, and calls the kill, resume and attribution endpoints. |
+
+### Flows
+
+1. **Data and features (`python -m dispatch.data.flows`).** The operator copies research data into the raw lake,
+   fetches ERCOT's public windows and archives, and parses them. Without an API key that means 7 days of real-time nodal
+   prices, about 31 days of day-ahead, and the free yearly hub and zone archives. The grid study chose which settlement
+   points to ingest; no code reads its file at run time. The builder writes `rt_v1` features to an offline store for
+   training and the latest frame to Redis. Gate 1 deletes everything but the raw lake, rebuilds it and compares
+   sha256: it passes.
+2. **One cycle (`POST /signal`).** Fifteen seconds after each quarter hour the paper loop rebuilds the online features
+   and asks the service for a decision. The cycle reads the halt flag first, then features no older than 20 minutes.
+   The forecaster issues P10, P50 and P90 for 96 intervals, and the LP plans on the P50. The plan's first interval is
+   the setpoint. The guard re-reads the halt flag, checks the setpoint and writes its verdict to the audit log before
+   anything executes. An accepted setpoint goes to the paper ledger, which re-checks the limits itself. Every failure
+   is a non-dispatch status with reasons, never an exception.
+3. **Kill switch and monitoring (`POST /kill`).** Monitors check the watched ERCOT reports' age, capture-rate decay and
+   paper-versus-backtest slippage every pass, and calibration once a day. Three consecutive breaches, or two daily
+   calibration breaches, set the halt flag; feature drift only alerts. An operator can also kill dispatch with a
+   reason. Either way the flag goes into Redis before any bookkeeping and survives a restart. Resume verifies the audit
+   chain against the Redis anchor first, and does not reset the breach counts.
+4. **Attribution (`GET /attribution`).** For a real battery, PAD1_ESS_ESR1 (50 MW / 122 MWh) over 42 days of ERCOT's
+   60-day disclosure, the same LP values a chain of counterfactuals. Each stage adds one restriction: availability,
+   then the actual ancillary awards, then the state-of-charge path, then the actual dispatch. At hub-proxy prices the
+   battery earned $43,266 against $149,553 under perfect foresight. Of the $106,286 gap, 70.2% is ancillary awards
+   and 16.6% forecast and decisions. The LP was checked against the arena's dynamic-programming oracle on 300
+   energy-only zone-days, agreeing within $1e-6.
+5. **Train and promote.** LightGBM quantile models train on the same `rt_v1` features with purged walk-forward
+   cross-validation. To hold `research` a model must beat every baseline, including the arena's price profile; `paper`
+   needs a margin over the best seasonal-naive forecast; `live` needs a recorded Gate 3 pass, which does not exist.
+   The service loads the `paper` alias at start, and the daily calibration check closes the loop.
+
+### Modes: paper and replay
+
+| | Paper (default) | Replay |
+|---|---|---|
+| Trigger | `ops/run_paper_loop.py` every 15 minutes on the real clock | `--replay-from <time> --replay-count N`: decisions 15 minutes apart from a past instant |
+| Features | Ingests what ERCOT just posted | The features the lake would have shown then, with no ingest |
+| Request | `{"asset_id": ...}` | Adds `now_utc`; refused unless the service runs with `DISPATCH_ALLOW_REPLAY=1` |
+| Ledger and audit | `DISPATCH_HOME/runtime/` | Its own `DISPATCH_RUNTIME_DIR`, so replays never enter the paper ledger |
+
+Only the cycle flow changes with the mode, because the same `run_cycle()` serves both.
+
+### Gate status
+
+| Gate | Status |
+|---|---|
+| 1, data | **Passes.** A rebuild from raw is byte-identical. |
+| 2, shadow optimizer | **Mechanically met, not proven.** On public data the unexplained share is 0.0% by construction; the real test needs an owner's settlement statement. |
+| 3, paper | **Not passed.** One replayed day matched the backtest exactly, which shows consistency, not market performance. A week of real-time paper operation is still needed. |
+
+### The grid-siting study (`docs/research/grid/`)
+
+A separate research pipeline (`run_grid.py`, the `gridsite` package and its tests) asks where a grid battery pays on
+the Texas transmission system. It rebuilds node prices from real zone prices plus replayed congestion, values 40
+congested substations with the arena's adaptive learner, and adds upgrades, reliability and distribution-battery
+candidates. Its map is `docs/research/grid/map/index.html`, and its `data/sites.csv` is the dispatch platform's queue
+of settlement points. It feeds the platform as a planning input only; neither the story app nor `dispatch/` imports it.
 
 ## Reference
 
@@ -265,6 +374,7 @@ Short click paths through `architecture.html` for a demo or a review:
 | `python -m sim.fixtures` | `ui/data/fixtures/`: synthetic stand-ins, marked `"fixture": true` | A.2 |
 | `python -m resilience.runtime.build` | `resilience/out/p1/worker_kill.json` (`--live`: `resilience/out/live/p1/`) | `resilience/docs/runtime-contract.md` |
 | `python -m resilience.detect.build` | `resilience/out/p3/covert.json` | `resilience/docs/runtime-contract.md` |
+| `ARENA_DATA=<dir> python scripts/export_markets.py` | `ui/data/markets/index.json` (`hb.markets.v1`) from the arena's results and caches | `docs/research/arena/README.md` |
 
 `scripts/build_all.sh all` runs topology, fixtures, p1, p2 and referee. `history`, `chaos`, `scenarios` and `planner`
 run on their own. `sim.scenarios` must run after the evenings and replays it copies, and before the app is served,
@@ -285,9 +395,10 @@ and cite), and `sources` and `series` (the label of each source and data series)
 | `p3/covert.json` | 20 KB | The hidden-attacker replay. |
 | `ems/` | 0.2 MB | One recorded ERCOT frequency day (25 Sep 2026), shown only beside the covert result. |
 | `engine.json`, `beats.json` | small | Measured engine timings; the demo beats (one link each). |
+| `markets/index.json` | 0.15 MB | The Markets page: the arena's backtest, forecasts, revenue stacks and transmission effects. |
 | `fixtures/` | 3.5 MB | Synthetic stand-ins for tests and early UI work; the app shows a FIXTURE banner if it ever reads one. |
 
-The total is about 35 MB against the 40 MB budget. Large branch files are gzipped, and `getGz()` in `ui/lib/data.js`
+The total is about 36 MB against the 40 MB budget. Large branch files are gzipped, and `getGz()` in `ui/lib/data.js`
 decompresses them in the browser.
 
 ### The web app (`ui/`)
@@ -353,11 +464,11 @@ deployed; open it from the repository.
   DERIVED tag per legend, not an engine-written count.
 - **Engine timings are wall-clock** measurements, so the Running screen's cost changes on every rebuild.
 
-### About `architecture.html`
+### About the two diagrams
 
-It was built from the template of the
+`architecture.html` and `architecture-dispatch.html` were built from the template of the
 [architecture-diagram skill](https://github.com/konraddzbik/architecture-diagram-skill) (MIT; the licence notice is in
-the file's header comment). To change it, edit the `.node` divs and the `flows` object in the file. Each step's `from`
+the file's header comment). Their layouts were chosen by a search so that no wire passes through a node or crosses another wire of its flow. To change one, edit the `.node` divs and the `flows` object in the file. Each step's `from`
 and `to` must name a node's `data-id`, and each step's colour follows the role of the node that receives it.
 
 ### Further reading
@@ -369,5 +480,10 @@ and `to` must name a node's `data-id`, and each step's colour follows the role o
 - **The audited numbers:** [`docs/NUMBERS.md`](docs/NUMBERS.md).
 - **What changes when Base's real answers replace the assumptions:**
   [`docs/how-base-plugs-in.md`](docs/how-base-plugs-in.md).
+- **The dispatch platform:** [`dispatch/README.md`](dispatch/README.md), [`dispatch/DESIGN.md`](dispatch/DESIGN.md) and
+  [`dispatch/ops/README.md`](dispatch/ops/README.md).
+- **The grid research:** [`docs/research/README.md`](docs/research/README.md), the arena
+  ([`docs/research/arena/README.md`](docs/research/arena/README.md)) and the siting study
+  ([`docs/research/grid/README.md`](docs/research/grid/README.md)).
 - **The resilience runtime and detector contracts:**
   [`resilience/docs/runtime-contract.md`](resilience/docs/runtime-contract.md).

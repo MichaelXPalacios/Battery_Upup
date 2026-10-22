@@ -1,19 +1,36 @@
 // ui/story/shell.js (UI-A): the story app's chrome (story-flow spec v2, "Shared chrome"): a 60 px header (wordmark,
-// step nav 1 Configure / 2 Run / 3 Results / 4 Learnings / 5 Markets, and per page a framing label or the run pill + continue
+// step nav 1 Configure / 2 Run / 3 Results / 4 Learnings / 5 Markets / 6 Arena / 7 Siting / 8 Dispatch, and per page a framing label or the run pill + continue
 // button), a notice line, and a footer with the sources and the "Engine explorer" link (ui/explore.html, the old tab
 // app). Also numHTML(): a labelled value + its provenance tag, the ctx.num() of app.js.
 import { fmtValue, LabelError, LABELS } from '../lib/format.js';
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 export const TAG_LABELS = [...LABELS, 'UNVERIFIED', 'SCREENING'];
-export const STEPS = [['configure', '1 Configure'], ['run', '2 Run'], ['results', '3 Results'], ['learnings', '4 Learnings'], ['markets', '5 Markets']];
+export const STEPS = [['configure', '1 Configure'], ['run', '2 Run'], ['results', '3 Results'], ['learnings', '4 Learnings'], ['markets', '5 Markets'],
+  ['arena', '6 Arena'], ['siting', '7 Siting'], ['dispatch', '8 Dispatch']];
 export const FRAMING = 'Oncor-suburb stand-in · LZ_NORTH';
 export const STANDIN = 'Oncor-suburb stand-in on NREL\'s synthetic feeder';
 /** How the feeder is tagged wherever it appears (data-truth audit #1): a REAL dataset of a synthetic feeder. Its name,
  *  licence and the long disclosure are read from topology.json (constants.FEEDER_NAME / STAND_IN, meta.license). */
 export const FEEDER_TAG = 'REAL dataset · synthetic feeder';
-const NEXT = { run: ['results', 'Continue to Results →'], results: ['learnings', 'Continue to Learnings →'], learnings: ['markets', 'Continue to Markets →'] };
+const NEXT = { run: ['results', 'Continue to Results →'], results: ['learnings', 'Continue to Learnings →'], learnings: ['markets', 'Continue to Markets →'],
+  markets: ['arena', 'Continue to Arena →'], arena: ['siting', 'Continue to Siting →'], siting: ['dispatch', 'Continue to Dispatch →'] };
 export const MARKETS_FRAMING = 'ERCOT and NYISO · real prices 2015–2026 · forecast 2027–31';
+export const ARENA_FRAMING = 'Five algorithms · real prices 2015–2026 · ERCOT and NYISO';
+export const SITING_FRAMING = 'ERCOT transmission grid · public data · node prices rebuilt';
+export const DISPATCH_FRAMING = 'Paper dispatch only · public data · no live bids';
+export const MARKET_FOOT = 'Research and paper dispatch on public data · no live bids';
+/** The framing label of each market-side page (pages 5 to 8); each but the last also carries a Continue button. */
+export const PAGE_FRAMING = { markets: MARKETS_FRAMING, arena: ARENA_FRAMING, siting: SITING_FRAMING, dispatch: DISPATCH_FRAMING };
+
+/** A step's visible label, "6 Arena" as number + name. Below 1600 px wide (story.css) the steps the reader is not on show
+ *  only their number, so eight steps leave room for the run pill; the name stays in aria-label and title, and every step
+ *  shows its full name at 1920x1080, the demo resolution. Lead, 14 Oct 2026 (pages 6 to 8 made the bar too wide at 1280). */
+export function stepLabel(text) {
+  const i = String(text).indexOf(' ');
+  if (i < 0) return esc(text);
+  return `<span class="st-step-n">${esc(text.slice(0, i))}</span><span class="st-step-name"> ${esc(text.slice(i + 1))}</span>`;
+}
 
 /** A provenance tag: the label word in a 1 px tag, title = cite. SCREENING is dashed (story-flow tokens). */
 /** The Engine explorer link for where the reader is now: the same evening, policy and minute (explorer views p1/p2),
@@ -268,9 +285,13 @@ export function createShell(body) {
   main.className = 'st-main';
   const footer = document.createElement('footer');
   footer.className = 'st-footer';
-  footer.innerHTML = `<span class="st-standin">${STANDIN}</span>
-    <span class="st-feeder">Feeder: ${FEEDER_TAG}</span><span>Prices: ERCOT real-time, LZ_NORTH</span>
-    <span>Buildings: © OpenStreetMap contributors, ODbL</span><span>Power flow: OpenDSS</span>
+  // pages 1-4 cite the feeder's sources; the market pages (5-8, PAGE_FRAMING) cite theirs (lead, 14 Oct 2026). update() toggles.
+  footer.innerHTML = `<span class="st-standin" data-foot="feeder">${STANDIN}</span>
+    <span class="st-feeder" data-foot="feeder">Feeder: ${FEEDER_TAG}</span><span data-foot="feeder">Prices: ERCOT real-time, LZ_NORTH</span>
+    <span data-foot="feeder">Buildings: © OpenStreetMap contributors, ODbL</span><span data-foot="feeder">Power flow: OpenDSS</span>
+    <span class="st-standin" data-foot="market" hidden>${MARKET_FOOT}</span>
+    <span data-foot="market" hidden>Prices: ERCOT public market data (MIS reports, 60-day disclosures), NYISO public prices</span>
+    <span data-foot="market" hidden>Grid: © OpenStreetMap contributors (ODbL), HIFLD, EIA-860, US Census</span>
     <span>Every number carries its tag: REAL, SIM, DERIVED, ASSUMPTION</span>
     <a class="st-explorer" href="explore.html" data-explore>Engine explorer</a>`;
   body.append(header, banner, notice, main, footer);
@@ -289,19 +310,25 @@ export function createShell(body) {
       if (si && c.STAND_IN) si.title = `${c.STAND_IN.value} (${c.STAND_IN.label}): ${c.STAND_IN.cite || ''}`;
     },
     update({ page, scenario, catalogue, link, nav, getJSON }) {
+      const market = Boolean(PAGE_FRAMING[page]);
+      footer.querySelectorAll('[data-foot]').forEach((e) => { e.hidden = (e.dataset.foot === 'market') !== market; });
       notice.hidden = true;
       notice.textContent = '';
       const running = page === 'running';
       const active = running ? 'run' : page;
       const steps = STEPS.map(([id, text]) => {
-        if (running && (id === 'results' || id === 'learnings')) return `<span class="st-step off" aria-disabled="true">${text}</span>`;
+        if (running && (id === 'results' || id === 'learnings')) return `<span class="st-step off" aria-disabled="true" aria-label="${esc(text)}" title="${esc(text)}">${stepLabel(text)}</span>`;
         const on = id === active;
-        return `<a class="st-step${on ? ' on' : ''}" href="${esc(link(id, {}))}" data-page="${id}"${on ? ' aria-current="page"' : ''}>${text}</a>`;
+        return `<a class="st-step${on ? ' on' : ''}" href="${esc(link(id, {}))}" data-page="${id}" aria-label="${esc(text)}" title="${esc(text)}"${on ? ' aria-current="page"' : ''}>${stepLabel(text)}</a>`;
       }).join('');
       let right = '';
       if (page === 'configure') right = `<span class="st-framing" title="${esc(FRAMING)}">${FRAMING}</span>`;
       else if (page === 'learnings') right = `<span class="st-framing" data-framing="learnings"></span><a class="st-btn" href="${esc(link(NEXT.learnings[0], {}))}" data-next="${NEXT.learnings[0]}">${NEXT.learnings[1]}</a>`;
-      else if (page === 'markets') right = `<span class="st-framing" title="${esc(MARKETS_FRAMING)}">${MARKETS_FRAMING}</span>`;
+      else if (PAGE_FRAMING[page]) {
+        const fr = PAGE_FRAMING[page];
+        right = `<span class="st-framing" title="${esc(fr)}">${fr}</span>`
+          + (NEXT[page] ? `<a class="st-btn" href="${esc(link(NEXT[page][0], {}))}" data-next="${NEXT[page][0]}">${NEXT[page][1]}</a>` : '');
+      }
       else if (NEXT[page] && scenario) {
         const info = vsDefaultInfo(catalogue, scenario);
         const vs = info ? `${info.refTitle}: ${info.rows.length ? vsDefaultText(info.rows) : 'no headline value moved'}` : '';
