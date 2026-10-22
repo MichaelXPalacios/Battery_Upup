@@ -4,7 +4,7 @@ Each phase owner registers its subcommands in its own module, gridsite/cli_<phas
 COMMANDS = {"name": function}. This file never needs editing, so parallel agents don't collide.
 
 Run from docs/research/grid with the research venv:
-  C:/Users/Javier/Repo/BaseP/research-data/.venv/Scripts/python.exe run_grid.py <command> [args...]
+  ../research-data/.venv/Scripts/python.exe run_grid.py <command> [args...]
 """
 import argparse
 import importlib

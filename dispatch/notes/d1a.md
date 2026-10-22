@@ -469,7 +469,7 @@ decisions, and again after loading `research` from the real registry in a fresh 
 
 ## 6. MLflow layout
 
-Store: `config.MLFLOW_TRACKING_URI` = `sqlite:///C:/Users/Javier/Repo/BaseP/research-data/dispatch/mlflow/mlflow.db`; artifacts under
+Store: `config.MLFLOW_TRACKING_URI` = `sqlite:///../research-data/dispatch/mlflow/mlflow.db`; artifacts under
 `DISPATCH_HOME/mlflow/artifacts/experiments/dispatch_rt_price_quantiles/<run_id>/artifacts/`. No server is needed. A
 test cannot write to this store (`PYTEST_CURRENT_TEST` guard); tests build `Registry(tracking_uri="sqlite:///<tmp>")`.
 
@@ -508,7 +508,7 @@ Optuna trials, 1 release, 4 baselines):
 | 2 to 5 | `baseline` | the same four | none | `baseline_seasonal_naive_1d`, `_7d`, `_arena_profile`, `_profile_median_7d` |
 
 Version 1: `bundle.sha256` b21d67b8..., `code.sha256` 66aae918..., `data.sha256` 475baf72..., `code.git_dirty=true` (the `dispatch/` folder is untracked, so the
-code hash is the identity; the hash is of the code at release time, and the later edits to `cv.py` (per-quantile `hit_tol`), `quantile.py` (docstring) and the tests do not touch the bundle). Browse it with `mlflow ui --backend-store-uri sqlite:///C:/Users/Javier/Repo/BaseP/research-data/dispatch/mlflow/mlflow.db` (not started here).
+code hash is the identity; the hash is of the code at release time, and the later edits to `cv.py` (per-quantile `hit_tol`), `quantile.py` (docstring) and the tests do not touch the bundle). Browse it with `mlflow ui --backend-store-uri sqlite:///../research-data/dispatch/mlflow/mlflow.db` (not started here).
 
 ### Promotion rules (`registry.promote`)
 

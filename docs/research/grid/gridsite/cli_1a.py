@@ -7,7 +7,7 @@
                                            notes/phase1-market.md (reads the derived parquet; takes a few minutes)
 
 Run from docs/research/grid with the research venv, e.g.
-  C:/Users/Javier/Repo/BaseP/research-data/.venv/Scripts/python.exe run_grid.py collect-daily
+  ../research-data/.venv/Scripts/python.exe run_grid.py collect-daily
 
 Nothing here schedules itself.  The MIS windows are short (NP6-787 and NP6-322 keep 5 days, NP6-86 / NP6-905 / the RT
 AS prices 7 days, the DAM reports about a month), so collect-daily has to run at least every 4 days to avoid gaps.

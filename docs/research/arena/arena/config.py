@@ -9,7 +9,7 @@ import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]                     # docs/research/arena
-DATA = Path(os.environ.get("ARENA_DATA", r"C:/Users/Javier/Repo/BaseP/research-data"))
+DATA = Path(os.environ.get("ARENA_DATA", str(ROOT.parents[3] / "research-data")))   # default: beside the repo
 CACHE = DATA / "arena_cache"
 OUT = ROOT / "results"
 REPO = ROOT.parents[2]                                          # hugging-base

@@ -8,7 +8,7 @@ REPO = PROJECT_DIR.parent                                 # hugging-base
 ARENA_DIR = REPO / "docs" / "research" / "arena"
 GRID_DIR = REPO / "docs" / "research" / "grid"
 
-RESEARCH_DATA = Path(os.environ.get("ARENA_DATA", "C:/Users/Javier/Repo/BaseP/research-data"))
+RESEARCH_DATA = Path(os.environ.get("ARENA_DATA", str(REPO.parent / "research-data")))   # default: beside the repo
 HOME = Path(os.environ.get("DISPATCH_HOME", str(RESEARCH_DATA / "dispatch")))
 LAKE = HOME / "lake"
 RAW = LAKE / "raw"

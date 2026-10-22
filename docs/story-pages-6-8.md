@@ -112,7 +112,7 @@ The cap is 4 MiB per file.
 Node is v20, so set `NODE_OPTIONS=--experimental-websocket`. Use your own port: arena 8771, siting 8772, dispatch 8773.
 
 ```bash
-~/hb-overnight/.venv/Scripts/python.exe -m http.server 8772 --bind 127.0.0.1 --directory C:/Users/Javier/Repo/BaseP/hugging-base   # in the background
+~/hb-overnight/.venv/Scripts/python.exe -m http.server 8772 --bind 127.0.0.1 --directory .   # in the background
 NODE_OPTIONS=--experimental-websocket node scripts/smoke_cdp.mjs --base http://127.0.0.1:8772/ui/ --shots <scratch dir> "page=siting" "page=siting&q=2" "page=siting&q=3" "page=siting&q=4"
 NODE_OPTIONS=--experimental-websocket node scripts/smoke_layout.mjs --base http://127.0.0.1:8772/ui/
 ```

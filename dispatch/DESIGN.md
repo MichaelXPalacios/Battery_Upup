@@ -68,7 +68,7 @@ All paths are under `hugging-base/dispatch/`. The Python package is `dispatch` (
 ## Storage
 
 Everything runtime lives outside git, under `DISPATCH_HOME`. The default is
-`C:/Users/Javier/Repo/BaseP/research-data/dispatch`. See `dispatch/paths.py`.
+`../research-data/dispatch`. See `dispatch/paths.py`.
 
 | Path | Contents | Rule |
 |---|---|---|

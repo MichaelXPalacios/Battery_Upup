@@ -20,7 +20,7 @@ export PYTHONIOENCODING=utf-8
 |---|---|---|
 | `DISPATCH_MODEL_ALIAS` | `paper` | Registry alias to serve: `paper` or `live` (a `research` model is not approved to dispatch, even on paper; the service refuses to start with it). |
 | `DISPATCH_REDIS_URL` | `redis://localhost:6390/0` | Halt flag (and D0's online store). The platform's own Redis (`scripts/redis_dispatch.sh`, append-only, so a halt survives a restart); `:6379` belongs to another application and is never used. Credentials in the URL are redacted in `/health`. |
-| `DISPATCH_HOME` | `C:/Users/Javier/Repo/BaseP/research-data/dispatch` | The lake (realised prices, features), MLflow in `mlflow/`, and by default the audit log in `runtime/audit/`, the paper ledger in `runtime/ledger/` and the forecast log in `runtime/forecasts/`. |
+| `DISPATCH_HOME` | `../research-data/dispatch` | The lake (realised prices, features), MLflow in `mlflow/`, and by default the audit log in `runtime/audit/`, the paper ledger in `runtime/ledger/` and the forecast log in `runtime/forecasts/`. |
 | `DISPATCH_RUNTIME_DIR` | unset | If set, the audit log, ledger and forecast log go to `<dir>/audit`, `<dir>/ledger`, `<dir>/forecasts` instead. For replays against the real lake that must not enter the live paper ledger. |
 | `DISPATCH_ASSETS_FILE` | `ops/assets.example.json` | Assets the service runs cycles for (paper mode only), and the public `disclosure_assets` that `/attribution` can answer for. |
 | `DISPATCH_API_TOKEN` | unset | If set, `/signal`, `/kill`, `/resume` and `/attribution` need `Authorization: Bearer <token>`. `/health` and `/metrics` stay open. **Set it on any port someone else can reach.** |

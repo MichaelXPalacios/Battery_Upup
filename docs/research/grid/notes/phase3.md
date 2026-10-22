@@ -4,7 +4,7 @@ Agent 3b. Code: `gridsite/nodal_lanes.py` (price lanes), `gridsite/saturation.py
 Outputs, each with a `.labels.csv` sidecar (REAL / DERIVED / SIM / ASSUMPTION): `data/site_candidates.csv` (40 candidates + 8 zone controls), `data/lane_validation.csv` (200 rows), `data/constraint_synth.csv` (the 260 replayed constraints),
 `data/site_years.csv` (476 rows), `data/portfolio.csv` (93 rows), `data/sites.csv` (40 rows x 150 columns). Tests: `tests/test_3b.py` (36 tests, 60 s). Derived data outside the repo: `research-data/grid/derived/nodal_lanes_*.npz` and `runs/` (ledgers, oracle, forward values, logs).
 
-Run from `docs/research/grid` with the research venv (`C:/Users/Javier/Repo/BaseP/research-data/.venv/Scripts/python.exe run_grid.py <command>`); commands in section 10.
+Run from `docs/research/grid` with the research venv (`../research-data/.venv/Scripts/python.exe run_grid.py <command>`); commands in section 10.
 Nothing was installed or downloaded, nothing was committed, and no arena or other agent's file was edited.
 
 **Everything about a node's price in this note is SIM.** ERCOT publishes one week of real-time and 31 days of day-ahead nodal prices, so a multi-year lane at a substation is rebuilt from the real zone price and a replayed congestion structure (section 2).

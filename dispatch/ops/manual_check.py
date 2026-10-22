@@ -22,7 +22,7 @@ from pathlib import Path
 PROJECT = Path(__file__).resolve().parents[1]                       # hugging-base/dispatch
 PY = sys.executable
 SCRATCH = Path(tempfile.mkdtemp(prefix="d2_manual_check_"))
-HOMES = Path(os.environ.get("ARENA_DATA", "C:/Users/Javier/Repo/BaseP/research-data")) / "d2_manual_check"
+HOMES = Path(os.environ.get("ARENA_DATA", str(PROJECT.parents[1] / "research-data"))) / "d2_manual_check"
 REDIS_SERVER = r"C:\Program Files\Redis\redis-server.exe"
 TOKEN = secrets.token_hex(12)
 OUT = []

@@ -34,7 +34,7 @@ Also read `docs/research/ercot.md`:
 - the facts on queues and large loads;
 - the §8 to-do list.
 
-Raw data and the venv live in `C:/Users/Javier/Repo/BaseP/research-data/`. The venv is `.venv` on Python 3.14. The folder
+Raw data and the venv live in `../research-data/`. The venv is `.venv` on Python 3.14. The folder
 holds zonal prices, weather, gas and `arena_cache/`.
 
 ### Physical-grid pieces (distribution, plus archived transmission material)
@@ -154,7 +154,7 @@ A site is a sweet spot when all of these hold:
 
 ## 4. Data to pull (public)
 
-Cache everything under `C:/Users/Javier/Repo/BaseP/research-data/grid/`, outside git. Keep a manifest of every download
+Cache everything under `../research-data/grid/`, outside git. Keep a manifest of every download
 with report ID, date and SHA-256, because ERCOT allows only 3 downloads of the same report per 12 months through its
 API. Check each report ID on the ERCOT MIS page before downloading. If an ERCOT Public API key is needed, stop and ask
 the user. Never put a key in a URL or commit one.
